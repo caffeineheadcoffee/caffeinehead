@@ -1,0 +1,81 @@
+{% extends 'admins/layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Admins - All Members</title>
+<!-- {% include 'products/header.html' %} -->
+{% endblock%}
+
+
+{% block main_content %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+
+            {% for msg in messages %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+
+            {% endif%}
+
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger">
+                {{ msg }}
+            </div>
+
+            {% endif%}
+
+            {% endfor %}
+
+            <table class="table table-bordered table-striped table-light">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Facebook Link</th>
+                        <th>Twitter Link</th>
+                        <th>Linkedin Link</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member_show in members %}
+                    <!-- <li>Name : {{ product_show.product_name }}</li>
+                        <li><img src="/{{product_show.image}}" alt="" width="200"></li> -->
+                    <tr>
+                        <td> {{ member_show.name }}</td>
+                        <td> {{ member_show.position }}</td>
+                        <td><img src="/{{member_show.image}}" alt="" width="180" height="200"></td>
+                        <td> {{member_show.description}}</td>
+                        <td>{{member_show.facebook}}</td>
+                        <td>{{member_show.twitter}}</td>
+                        <td>{{member_show.linkdin}}</td>
+                        
+                        <td>
+                            <a href="/products/updatemember/{{member_show.id}}" class="btn btn-primary my-2">
+                                <i class="fas fa-pen-square"></i>
+                            </a>
+
+                            <a href="/products/deletemember/{{member_show.id}}" class="btn btn-danger"
+                                onclick="return confirm('Are You Sure Want To Delete This Category ?')">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- static file render -->
+<!-- <img src="{% static 'images/a.jpg' %}" alt=""> -->
+
+{% endblock %}

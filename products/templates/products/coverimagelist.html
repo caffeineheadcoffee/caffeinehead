@@ -1,0 +1,71 @@
+{% extends 'admins/layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Admins - All Members</title>
+<!-- {% include 'products/header.html' %} -->
+{% endblock%}
+
+
+{% block main_content %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+
+            {% for msg in messages %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+
+            {% endif%}
+
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger">
+                {{ msg }}
+            </div>
+
+            {% endif%}
+
+            {% endfor %}
+
+            <table class="table table-bordered table-striped table-light">
+                <thead>
+                    <tr>
+                      
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for coverimage_show in coverimage %}
+                    <!-- <li>Name : {{ product_show.product_name }}</li>
+                        <li><img src="/{{product_show.image}}" alt="" width="200"></li> -->
+                    <tr>
+                   
+                    
+                        <td><img src="/{{coverimage_show.image}}" alt="" width="180" height="200"></td>
+                      
+                        
+                        <td>
+                            <a href="/products/updatecoverimage/{{coverimage_show.id}}" class="btn btn-primary my-2">
+                                <i class="fas fa-pen-square"></i>
+                            </a>
+
+                            <a href="/products/deletecoverimage/{{coverimage_show.id}}" class="btn btn-danger"
+                                onclick="return confirm('Are You Sure Want To Delete This Category ?')">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

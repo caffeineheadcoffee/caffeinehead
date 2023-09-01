@@ -1,0 +1,156 @@
+<style>
+  .carousel-item img {
+    height: 660px;
+    object-fit: cover;
+  }
+
+  .card-img {
+    overflow: hidden;
+  }
+
+  .card-img:hover img {
+    transform: scale(1.5);
+  }
+
+  .card-img img {
+    transition: all 2s;
+  }
+
+  .product-card {
+    background-color: rgb(246, 246, 242);
+  }
+  #inner{
+    margin: 0 100px;
+  }
+
+  .responsive {
+    margin-left: 100px;
+    width: 70%;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    #inner{
+      margin: 0 15px;
+    }
+    .responsive {
+      width: 100%;
+      height: 250px;
+    }
+
+  }
+
+
+
+  @media only screen and (max-width: 768px) {
+    #inner{
+      margin: 0 15px;
+    }
+    .responsive {
+      margin-left: 0;
+      width: 100%;
+      height: 250px;
+    }
+
+  }
+</style>
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>Caffeinehead - Homepage</title>
+{% endblock%}
+
+{% block main_content %}
+<!-- carousel start -->
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for images in coverimage %}
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img src="/{{images.image}}" class="d-block w-100" alt="...">
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- carousel end -->
+
+<!-- Latest Product Part -->
+<div class="latest-products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Latest Products</h2>
+          <a href="/allproducts">view all products <i class="fa fa-angle-right"></i></a>
+        </div>
+      </div>
+      {% for product in products%}
+      <div class="col-md-4">
+        <div class="product-item">
+          <a href="#"><img src="/{{product.image}}" alt="{{product.product_name}}"></a>
+          <div class="down-content">
+            <a href="#"><h4>{{product.product_name}}</h4></a>
+            <h6>Rs. {{product.product_price}}</h6>
+            <p>{{product.description}}</p>
+            <ul class="stars">
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+            </ul>
+            <span>Reviews (24)</span>
+            <a href="/productdetails/{{product.id}}" class="btn btn-success text-center" style="margin-top: 15px;">View Details</a>
+          </div>
+        </div>
+      </div>
+     {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- latest product part end -->
+
+<!-- about part start -->
+<div class="best-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>About Caffeinehead</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="left-content">
+          <img src="{% static 'images/1.jpg'%}" alt="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="right-image">
+          
+          <h4>Looking for the best products?</h4>
+          <p>At CaffeineHead Blockchain Coffee, we are passionate about coffee and harnessing the power of blockchain technology to revolutionize the coffee industry. We believe in creating a transparent, sustainable, and fair coffee supply chain that benefits everyone involved, from farmers to consumers.  <a  href=" ">Contact us</a> for more info.</p>
+          <ul class="featured-list">
+            <li><a href="#">To connect coffee lovers with the stories behind their favorite brews</a></li>
+            <li><a href="#">To promoting transparency, traceability, and ethical practices in the coffee industry</a></li>
+            <li><a href="#">Empower farmers, roasters, and consumers to make informed decisions by leveragin blockchain technology</a></li>
+            <li><a href="#">Contribute to a more equitable and sustainable coffee ecosystem</a></li>
+            
+          </ul>
+          <a href="/about" class="filled-button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- about part end -->
+
+{% endblock%}
