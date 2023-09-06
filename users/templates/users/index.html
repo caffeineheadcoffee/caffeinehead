@@ -1,7 +1,7 @@
 <style>
   .carousel-item img {
-    height: 660px;
-    object-fit: cover;
+    object-fit: contain;
+    height: 374px;
   }
 
   .card-img {
@@ -13,13 +13,13 @@
   }
 
   .card-img img {
-    transition: all 2s;
+    transition: all 0.5s ease-in-out;
   }
 
   .product-card {
     background-color: rgb(246, 246, 242);
   }
-  #inner{
+  #inner {
     margin: 0 100px;
   }
 
@@ -28,21 +28,18 @@
     width: 70%;
   }
 
-  @media only screen and (min-width: 1400px) {
-    #inner{
+  @media only screen and(min-width: 1400px) {
+    #inner {
       margin: 0 15px;
     }
     .responsive {
       width: 100%;
       height: 250px;
     }
-
   }
 
-
-
-  @media only screen and (max-width: 768px) {
-    #inner{
+  @media only screen and(max-width: 768px) {
+    #inner {
       margin: 0 15px;
     }
     .responsive {
@@ -50,70 +47,117 @@
       width: 100%;
       height: 250px;
     }
-
   }
 </style>
 
-{% extends 'layout.html' %}
-{% load static %}
-{% block title %}
+{% extends 'layout.html' %} {% load static %} {% block title %}
 <title>Caffeinehead - Homepage</title>
-{% endblock%}
-
-{% block main_content %}
-<!-- carousel start -->
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    {% for images in coverimage %}
-    <div class="carousel-item active" data-bs-interval="2000">
-      <img src="/{{images.image}}" class="d-block w-100" alt="...">
-    </div>
-    {% endfor %}
+{% endblock %} {% block main_content %}
+<!-- Main Cover Container -->
+<div class="cover-container">
+  <div class="container top-title">
+    <div class="f-20 m-0">Caffeinehead Blockchain</div>
+    <div class="f-14 m-0">Coffee Company</div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+  <!-- carousel start -->
 
-<!-- carousel end -->
-
-<!-- Latest Product Part -->
-<div class="latest-products">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Latest Products</h2>
-          <a href="/allproducts">view all products <i class="fa fa-angle-right"></i></a>
+  <div
+    id="carouselExampleInterval"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="d-flex container align-items-center justify-content-center">
+      <div class="col-md-7 d-flex flex-column gap-4">
+        <div>
+          <p class="cover-title-1 m-0">Feel Good With</p>
+          <p class="cover-title-2 m-0">Coffee</p>
+        </div>
+        <div class="cover-title-3">
+          Start each day with a grateful heart & a cup of coffee.
+        </div>
+        <a href="/allproducts" class="btn primary-btn f-16">SHOP NOW</a>
+      </div>
+      <div class="col-md-5">
+        <div class="carousel-inner">
+          {% for images in coverimage %}
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src="/{{ images.image }}" class="d-block w-100" alt="..." />
+          </div>
+          {% endfor %}
         </div>
       </div>
-      {% for product in products%}
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="#"><img src="/{{product.image}}" alt="{{product.product_name}}"></a>
-          <div class="down-content">
-            <a href="#"><h4>{{product.product_name}}</h4></a>
-            <h6>Rs. {{product.product_price}}</h6>
-            <p>{{product.description}}</p>
-            <ul class="stars">
-              <li><i class="fa fa-star"></i></li>
-              <li><i class="fa fa-star"></i></li>
-              <li><i class="fa fa-star"></i></li>
-              <li><i class="fa fa-star"></i></li>
-              <li><i class="fa fa-star"></i></li>
-            </ul>
-            <span>Reviews (24)</span>
-            <a href="/productdetails/{{product.id}}" class="btn btn-success text-center" style="margin-top: 15px;">View Details</a>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleInterval"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleInterval"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- carousel end -->
+</div>
+
+<!-- Latest Product Part -->
+<div class="latest-products p-40 coffee-bg">
+  <div class="container">
+    <div class="col-md-12">
+      <div
+        class="section-heading d-flex justify-content-between align-items-end"
+      >
+        <div class="d-flex gap-1 flex-column">
+          <p class="heading">Latest Products</p>
+          <p class="sub-heading">Our Popular Goodies</p>
+        </div>
+        <a href="/allproducts" class="link-btn"
+          >view all products
+          <i class="fa fa-angle-right fa-2"></i>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      {% for product in products %}
+
+      <div class="col-md-3">
+        <div class="product-item ele-1">
+          <img
+            class="ele-1 position-absolute start-50 translate-middle-x"
+            src="/{{ product.image }}"
+            alt="{{ product.product_name }}"
+          />
+          <a
+            href="/productdetails/{{product.id}}"
+            class="hidden primary-ghost-btn f-14"
+            >View Details
+            <i class="fa fa-angle-right fa-2"></i>
+          </a>
+          <div class="product-info">
+            <div class="d-flex flex-column gap-1">
+              <p class="product-name mb-0">{{ product.product_name }}</p>
+              <p class="product-discription mb-0">{{ product.description }}</p>
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <p class="mb-0">
+                <s>Rs. {{ product.product_price }}</s>
+              </p>
+              <p class="product-price mb-0">Rs. {{ product.product_price }}</p>
+            </div>
           </div>
         </div>
       </div>
-     {% endfor %}
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -130,20 +174,46 @@
       </div>
       <div class="col-md-6">
         <div class="left-content">
-          <img src="{% static 'images/1.jpg'%}" alt="">
+          <img src="{% static 'images/1.jpg' %}" alt="" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="right-image">
-          
           <h4>Looking for the best products?</h4>
-          <p>At CaffeineHead Blockchain Coffee, we are passionate about coffee and harnessing the power of blockchain technology to revolutionize the coffee industry. We believe in creating a transparent, sustainable, and fair coffee supply chain that benefits everyone involved, from farmers to consumers.  <a  href=" ">Contact us</a> for more info.</p>
+          <p>
+            At CaffeineHead Blockchain Coffee, we are passionate about coffee
+            and harnessing the power of blockchain technology to revolutionize
+            the coffee industry. We believe in creating a transparent,
+            sustainable, and fair coffee supply chain that benefits everyone
+            involved, from farmers to consumers.
+            <a href=" ">Contact us</a>
+            for more info.
+          </p>
           <ul class="featured-list">
-            <li><a href="#">To connect coffee lovers with the stories behind their favorite brews</a></li>
-            <li><a href="#">To promoting transparency, traceability, and ethical practices in the coffee industry</a></li>
-            <li><a href="#">Empower farmers, roasters, and consumers to make informed decisions by leveragin blockchain technology</a></li>
-            <li><a href="#">Contribute to a more equitable and sustainable coffee ecosystem</a></li>
-            
+            <li>
+              <a href="#"
+                >To connect coffee lovers with the stories behind their favorite
+                brews</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >To promoting transparency, traceability, and ethical practices
+                in the coffee industry</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >Empower farmers, roasters, and consumers to make informed
+                decisions by leveragin blockchain technology</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >Contribute to a more equitable and sustainable coffee
+                ecosystem</a
+              >
+            </li>
           </ul>
           <a href="/about" class="filled-button">Read More</a>
         </div>
@@ -153,4 +223,4 @@
 </div>
 <!-- about part end -->
 
-{% endblock%}
+{% endblock %}
