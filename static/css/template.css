@@ -41,7 +41,7 @@ ul {
   gap: 20px;
   border-radius: 10px;
   flex-direction: column;
-  height: 500px;
+  height: 29vw;
   cursor: pointer;
   justify-content: flex-end;
   transition: all 300ms ease-out;
@@ -52,7 +52,6 @@ ul {
 }
 
 .product-item .hidden {
-  margin-top: 262;
   transition: all 300ms ease-out;
 }
 
