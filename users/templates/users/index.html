@@ -1,33 +1,4 @@
 <style>
-  .carousel-item img {
-    object-fit: contain;
-    height: 374px;
-  }
-
-  .card-img {
-    overflow: hidden;
-  }
-
-  .card-img:hover img {
-    transform: scale(1.5);
-  }
-
-  .card-img img {
-    transition: all 0.5s ease-in-out;
-  }
-
-  .product-card {
-    background-color: rgb(246, 246, 242);
-  }
-  #inner {
-    margin: 0 100px;
-  }
-
-  .responsive {
-    margin-left: 100px;
-    width: 70%;
-  }
-
   @media only screen and(min-width: 1400px) {
     #inner {
       margin: 0 15px;
@@ -79,8 +50,15 @@
       </div>
       <div class="col-md-5">
         <div class="carousel-inner">
-          {% for images in coverimage %}
           <div class="carousel-item active" data-bs-interval="2000">
+            <img
+              src="{% static 'images/logo-green.png' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          {% for images in coverimage %}
+          <div class="carousel-item" data-bs-interval="2000">
             <img src="/{{ images.image }}" class="d-block w-100" alt="..." />
           </div>
           {% endfor %}
@@ -139,7 +117,7 @@
           />
           <a
             href="/productdetails/{{product.id}}"
-            class="hidden primary-ghost-btn f-14"
+            class="hidden primary-ghost-btn f-14 w-100"
             >View Details
             <i class="fa fa-angle-right fa-2"></i>
           </a>
@@ -164,63 +142,72 @@
 <!-- latest product part end -->
 
 <!-- about part start -->
-<div class="best-features">
+<div class="about-section p-40">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>About Caffeinehead</h2>
-        </div>
+    <div class="col-md-12">
+      <div class="section-heading d-flex gap-1 flex-column">
+        <p class="heading neutral-500-color">Our Story</p>
+        <p class="sub-heading text-color">The caffeinehead story</p>
       </div>
-      <div class="col-md-6">
-        <div class="left-content">
-          <img src="{% static 'images/1.jpg' %}" alt="" />
-        </div>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-5 d-flex flex-column justify-content-center gap-4">
+        <h4 class="f-20 bold secondary-color m-0">
+          Looking for the best products?
+        </h4>
+        <p class="f-16 regular text-color m-0">
+          At CaffeineHead Blockchain Coffee, we are passionate about coffee and
+          harnessing the power of blockchain technology to revolutionize the
+          coffee industry. We believe in creating a transparent, sustainable,
+          and fair coffee supply chain that benefits everyone involved, from
+          farmers to consumers.
+        </p>
+        <a href="/about" class="btn secondary-ghost-btn">Learn More</a>
       </div>
-      <div class="col-md-6">
-        <div class="right-image">
-          <h4>Looking for the best products?</h4>
-          <p>
-            At CaffeineHead Blockchain Coffee, we are passionate about coffee
-            and harnessing the power of blockchain technology to revolutionize
-            the coffee industry. We believe in creating a transparent,
-            sustainable, and fair coffee supply chain that benefits everyone
-            involved, from farmers to consumers.
-            <a href=" ">Contact us</a>
-            for more info.
-          </p>
-          <ul class="featured-list">
-            <li>
-              <a href="#"
-                >To connect coffee lovers with the stories behind their favorite
-                brews</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >To promoting transparency, traceability, and ethical practices
-                in the coffee industry</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >Empower farmers, roasters, and consumers to make informed
-                decisions by leveragin blockchain technology</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >Contribute to a more equitable and sustainable coffee
-                ecosystem</a
-              >
-            </li>
-          </ul>
-          <a href="/about" class="filled-button">Read More</a>
-        </div>
+      <div class="col-md-7 right-section">
+        <img class="w-100" src="{% static 'images/1.jpg' %} " />
       </div>
+    </div>
+    <div class="col-md-12 video-container">
+      <iframe
+        src="https://www.youtube.com/embed/r8KZeL55u4Q?si=39Zg4_xTMiZ7UHt3"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </div>
 <!-- about part end -->
+
+<!-- Subscribe Part -->
+<div class="subscribe-section p-40 coffee-bg">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-3 position-relative">
+        <div class="w-100 position-absolute top-50 start-0 translate-middle-y">
+          <img class="w-100" src="{% static 'images/1.jpg' %} " />
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="d-flex gap-2 flex-column">
+          <p class="f-20 bold m-0">Subscribe to our newsletter</p>
+          <p class="f-16 regular m-0 white-color">
+            Sign up to stay in the loop. Receive updates, access to exclusive
+            deals, and more.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <form class="d-flex gap-4">
+          <input class="w-100 textbox" type="text" placeholder="Enter Email" />
+          <button class="primary-ghost-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Subscribe part end -->
 
 {% endblock %}
