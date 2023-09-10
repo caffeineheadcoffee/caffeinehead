@@ -31,7 +31,7 @@
     <!-- favicon -->
     <link
       rel="shortcut icon"
-      href="{% static 'images/logo.png' %}"
+      href="{% static 'images/favicon.png' %}"
       type="image/x-icon"
     />
 
@@ -68,7 +68,7 @@
           >
             <i class="fas fa-cart-plus position-relative">
               <span
-                class="position-absolute top-0 start-100 bg-dark badge rounded-pill translate-middle text-white"
+                class="position-absolute top-0 start-100 bg-dark badge rounded-pill translate-middle footer-link"
               >
                 <span style="font-size: 12px"> {{ items|length }} </span>
               </span>
@@ -93,134 +93,174 @@
         </a>
       </div>
     </header>
-
-    <div class="main">{% block main_content %}{% endblock %}</div>
+    {% block main_content %}{% endblock %}
 
     <!-- footer start  -->
-    <div class="">
-      <footer class="p-5 nft-footer">
-        <div class="row">
-          <div class="col-6 col-md-3 mb-3">
-            <h5 class="text-white">Careers</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
-                  class="nav-link p-0 text-white"
-                  >Blockchain Advisor</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
-                  class="nav-link p-0 text-white"
-                  >Blockchain Developer</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
-                  class="nav-link p-0 text-white"
-                  >Business Development Manager</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
-                  class="nav-link p-0 text-white"
-                  >National Sales Manager</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
-                  class="nav-link p-0 text-white"
-                  >International Sales Manager</a
-                >
-              </li>
-            </ul>
-          </div>
+    <footer>
+      <div class="nft-footer p-40">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 d-flex gap-3 flex-column align-items-center">
+              <div
+                class="footer-logo d-flex justify-content-center align-items-center"
+              >
+                <img
+                  class="w-100"
+                  src="{% static 'images/Vertical_White_Logo.png' %}"
+                />
+              </div>
+              <ul class="list-unstyled d-flex gap-4 align-items-center">
+                <li>
+                  <a
+                    class="footer-link fs-4"
+                    target="_blank"
+                    href="https://www.facebook.com/gainju1"
+                  >
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="footer-link fs-4"
+                    target="_blank"
+                    href="https://www.instagram.com/caffeineheadblockchaincoffee/"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="footer-link fs-4"
+                    href="https://www.youtube.com/@Caffeineheadblockchaincoffee/videos"
+                    target="_blank"
+                  >
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-9 d-flex justify-content-between gap-3">
+              <div class="w-100">
+                <h5 class="footer-heading">Careers</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Blockchain Advisor</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Blockchain Developer</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Business Development Manager</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >National Sales Manager</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >International Sales Manager</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="w-100">
+                <h5 class="footer-heading">For Business Partners</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Co-operate</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">In-house</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Merchandaise</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Staffing</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Catering</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Training</a>
+                  </li>
+                </ul>
+              </div>
 
-          <div class="col-6 col-md-3 mb-3">
-            <h5 class="text-white">For Business Partners</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Co-operate</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">In-house</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Merchandaise</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Staffing</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Catering</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Training</a>
-              </li>
-            </ul>
-          </div>
+              <div class="w-100">
+                <h5 class="footer-heading">Social Impact</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Sustainability</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Zero-waste</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Coffee plantation</a>
+                  </li>
+                </ul>
+              </div>
 
-          <div class="col-6 col-md-3 mb-3">
-            <h5 class="text-white">Social Impact</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Sustainability</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white">Zero-waste</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white"
-                  >Coffee plantation</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-6 col-md-3 mb-3">
-            <h5 class="text-white">Order and Pickup</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-white"
-                  >Visit our marketplace</a
-                >
-              </li>
-            </ul>
+              <div class="w-100">
+                <h5 class="footer-heading">Order and Pickup</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link"
+                      >Visit our marketplace</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
+      <div class="copyright-section">
         <div
-          class="d-flex flex-column flex-sm-row justify-content-between p-4 my-4 border-top"
+          class="d-flex justify-content-between align-items-center container"
         >
-          <p class="text-white">
-            &copy; Caffeinehead Blockchain Coffee Company, Inc. All rights
-            reserved.
+          <p class="white-color f-14 regular m-0">
+            &copy; Copyright 2023 Caffeinehead Coffee. All rights reserved.
           </p>
           <ul class="list-unstyled d-flex">
-            <li class="ms-3">
-              <a class="link-dark text-white fs-2" href="#">
-                <i class="fab fa-facebook"></i>
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link"
+                >Privacy Policy
               </a>
             </li>
-            <li class="ms-3">
-              <a class="link-dark text-white fs-2" href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="ms-3">
-              <a class="link-dark text-white fs-2" href="#">
-                <i class="fab fa-instagram"></i>
-              </a>
+            <span class="px-3 footer-link"> | </span>
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link"
+                >Terms & Conditions</a
+              >
             </li>
           </ul>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
     <!-- footer end -->
 
     <!-- JavaScript Bundle with Popper -->
