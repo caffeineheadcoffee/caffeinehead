@@ -17,7 +17,9 @@ ul {
 }
 
 .latest-products,
-.subscribe-section {
+.subscribe-section,
+.promo-icon,
+.our-team {
   background-color: var(--primary);
   color: var(--white);
 }
@@ -33,7 +35,8 @@ ul {
   margin: 4px 6px;
 }
 
-.latest-products .container {
+.latest-products .container,
+.our-team .container {
   display: flex;
   gap: 25px;
   flex-direction: column;
@@ -56,6 +59,13 @@ ul {
 
 .product-discription::first-letter {
   text-transform: capitalize;
+}
+
+.product-discription {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-item .hidden {
@@ -84,7 +94,7 @@ ul {
 
 .product-item img {
   width: 80%;
-  height: 58%;
+  height: 60%;
   overflow: hidden;
   object-fit: contain;
   border-radius: 10px;
@@ -145,70 +155,7 @@ a {
   text-decoration: none !important;
 }
 
-/* About Us */
-
-ul.social-icons li {
-  display: inline-block;
-  margin-right: 3px;
-}
-
-ul.social-icons li:last-child {
-  margin-right: 0;
-}
-
-ul.social-icons li a {
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  line-height: 50px;
-  background-color: #eee;
-  color: #121212;
-  font-size: 18px;
-  text-align: center;
-  transition: all 0.3s;
-  padding-top: 15px;
-}
-
-ul.social-icons li a:hover {
-  background-color: #f33f3f;
-  color: #fff;
-}
-
-.owl-carousel {
-  display: flex;
-  justify-content: space-between;
-}
-
-.carousel-item img {
-  object-fit: contain;
-  height: 374px;
-}
-
-.card-img {
-  overflow: hidden;
-}
-
-.card-img:hover img {
-  transform: scale(1.5);
-}
-
-.card-img img {
-  transition: all 0.5s ease-in-out;
-}
-
-.product-card {
-  background-color: rgb(246, 246, 242);
-}
-#inner {
-  margin: 0 100px;
-}
-
-.responsive {
-  margin-left: 100px;
-  width: 70%;
-}
-
-/* About Us*/
+/* About Us for main page*/
 
 .about-section {
   background-color: var(--neutral-100);
@@ -250,80 +197,119 @@ ul.social-icons li a:hover {
   overflow: hidden;
 }
 
-/* Team Members */
-
-.team-members {
-  margin-top: 100px;
+.right-section img {
+  width: -webkit-fill-available;
 }
 
-.team-member {
-  border: 1px solid #eee;
-  margin-bottom: 30px;
+/* About Us */
+
+.icon-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
 }
 
-.team-member img {
-  width: 100%;
+.social-icons {
+  display: flex;
+  gap: 5px;
+}
+
+.social-icons li a {
+  color: var(--text-colour);
+  font-size: 24px;
+  display: block;
+}
+
+.fa-facebook-square:hover {
+  color: #4267b2;
+}
+
+.fa-linkedin:hover {
+  color: #0077b5;
+}
+
+.fa-twitter-square:hover {
+  color: #1da1f2;
+}
+
+.social-icons li {
+  padding: 7px;
+  height: auto;
+  width: auto;
+}
+
+.owl-carousel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  height: 374px;
+}
+
+.card-img {
   overflow: hidden;
 }
 
-.team-member .product-info {
-  padding: 30px;
+.card-img:hover img {
+  transform: scale(1.5);
+}
+
+.card-img img {
+  transition: all 0.5s ease-in-out;
+}
+
+#inner {
+  margin: 0 100px;
+}
+
+.responsive {
+  margin-left: 100px;
+  width: 70%;
+}
+
+/* Team Members */
+
+.team-member {
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background-position: center;
+}
+
+.team-detail {
   text-align: center;
+  background-color: rgba(250, 250, 250, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
 }
 
-.team-member .thumb-container {
-  position: relative;
+.team-detail div div {
+  max-height: 0;
+  overflow-y: scroll;
+  transition: max-height 500ms ease-in-out, opacity 200ms ease-in-out;
 }
 
-.team-member .thumb-container .hover-effect {
-  position: absolute;
-  background-color: rgba(243, 63, 63, 0.9);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-}
-
-.team-member .thumb-container .hover-effect .hover-content {
-  position: absolute;
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.team-member
-  .thumb-container
-  .hover-effect
-  .hover-content
-  ul.social-icons
-  li
-  a:hover {
-  background-color: #fff;
-  color: #f33f3f;
-}
-
-.team-member:hover .hover-effect {
-  visibility: visible;
+.team-member:hover div div {
+  max-height: 300px;
   opacity: 1;
 }
 
-.team-member .product-info h4 {
-  font-size: 17px;
-  color: #1a6692;
-  margin-bottom: 8px;
-}
-
-.team-member .product-info span {
-  display: block;
-  font-size: 13px;
-  color: #f33f3f;
-  font-weight: 500;
-  margin-bottom: 20px;
+.team-member div div::-webkit-scrollbar {
+  display: none;
 }
 
 /* Services */
@@ -343,7 +329,7 @@ ul.social-icons li a:hover {
 
 .services .service-item .icon {
   background-color: #f7f7f7;
-  padding: 40px;
+  padding: 50px;
 }
 
 .services .service-item .icon i {
@@ -359,7 +345,7 @@ ul.social-icons li a:hover {
 
 .services .service-item .product-info {
   background-color: #fff;
-  padding: 40px 30px;
+  padding: 50px 30px;
 }
 
 .services .service-item .product-info h4 {
@@ -376,7 +362,7 @@ ul.social-icons li a:hover {
 
 .happy-clients {
   margin-top: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .happy-clients .client-item img {

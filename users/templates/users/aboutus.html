@@ -10,180 +10,124 @@
 {% extends 'layout.html' %} {% load static %} {% block title %}
 <title>Caffeinehead - Homepage</title>
 {% endblock%} {% block main_content %}
-<!-- carousel start -->
 
-<div
-  id="carouselExampleInterval"
-  class="carousel slide"
-  data-bs-ride="carousel"
->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">About Caffeinehead</p>
+      <div class="cover-title-3">
+        At CaffeineHead Blockchain Coffee, we're dedicated to using blockchain
+        to transform the coffee industry. Our mission is to create a transparent
+        and sustainable coffee supply chain, benefiting everyone from farmers to
+        consumers. We promote transparency, traceability, and ethics, empowering
+        stakeholders to make informed decisions for a better coffee ecosystem.
+      </div>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
       <img
-        src="{% static 'images/coffee.jpg' %}"
-        class="d-block w-100"
-        alt="image not found"
+        class="w-100"
+        src="{% static 'images/AboutUsCoverImage.png' %}"
+        alt="..."
       />
     </div>
   </div>
 </div>
 
-<!-- carousel end -->
-
-<div class="best-features about-features">
+<!-- Promo-icon Part -->
+<div class="promo-icon p-50 coffee-bg">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Our Background</h2>
-        </div>
+    <div class="row d-flex align-items-center justify-content-center gap-5">
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/together-icon.png'%}"
+          alt=""
+        />
+        <p>Together</p>
       </div>
-      <div class="col-md-6">
-        <div class="right-image">
-          <img src="{% static 'images/1.jpg'%}" alt="" />
-        </div>
+
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/brewing-icon.png'%}"
+          alt=""
+        />
+        <p>Brewing a better future</p>
       </div>
-      <div class="col-md-6">
-        <div class="left-content">
-          <h4>About Us</h4>
-          <p>
-            At CaffeineHead Blockchain Coffee, we are passionate about coffee
-            and harnessing the power of blockchain technology to revolutionize
-            the coffee industry. We believe in creating a transparent,
-            sustainable, and fair coffee supply chain that benefits everyone
-            involved, from farmers to consumers. <br />
-            Our mission is to connect coffee lovers with the stories behind
-            their favorite brews. We are committed to promoting transparency,
-            traceability, and ethical practices in the coffee industry. By
-            leveraging blockchain technology, we empower farmers, roasters, and
-            consumers to make informed decisions and contribute to a more
-            equitable and sustainable coffee ecosystem.
-          </p>
-          <ul class="social-icons">
-            <li>
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6 pt-5">
-        <div class="right-content">
-          <h4 class="font-weight-bold">Our Story and Mission</h4>
-          <p>
-            Together, Brewing a better future, one cup at a time. From the
-            iconic Sydney Opera House to hidden laneway cafes, every sip is a
-            journey of transparency and trust. Through smart contracts and
-            tokenization, they empowered coffee enthusiasts to support local
-            farmers, ensuring fair trade and sustainability. As the aroma of
-            freshly brewed coffee filled the air, CaffeineHead Blockchain Coffee
-            Web 3 became synonymous with a vibrant and ethically-driven coffee
-            scene in Sydney.<br />
-            Awaken your coffee business with CaffeineHead Blockchain Technology.
-            Our revolutionary solution brings together the power of blockchain
-            and the rich aroma of coffee. Trace every bean's journey from farm
-            to cup, ensuring transparency and quality at every step. With a
-            simple scan, customers indulge in the captivating story behind their
-            favorite brews. Connect with passionate coffee lovers, build a loyal
-            community, and empower sustainable choices. Stand out in the
-            competitive market with our cutting-edge technology and elevate your
-            coffee brand to new heights
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 pt-5">
-        <div class="left-image">
-          <img src="{% static 'images/1.jpg'%}" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6 pt-5">
-        <div class="right-image">
-          <img src="{% static 'images/1.jpg'%}" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6 pt-5">
-        <div class="left-content">
-          <h4>Join the CaffeineHead Community</h4>
-          <p>
-            Become a part of the CaffeineHead community and embark on a journey
-            to explore the world of specialty coffee like never before. With our
-            commitment to transparency, sustainability, and exceptional taste,
-            we invite you to join us in shaping a brighter future for coffee
-            growers, consumers, and the planet. Indulge in the perfect cup of
-            coffee while making a meaningful impact. Experience the union of
-            great taste, technology, and social responsibility at CaffeineHead
-            Blockchain Coffee. Start your coffee adventure with us today!
-          </p>
-          <ul class="social-icons">
-            <li>
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
+
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/one-cup-icon.png'%}"
+          alt=""
+        />
+        <p>One cup at a time</p>
       </div>
     </div>
   </div>
 </div>
+<!-- Promo-icon part end -->
 
-<div class="team-members">
+<!-- Our story and mission Part -->
+<div class="about-section p-50">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Our Team Members</h2>
-        </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-5 d-flex flex-column justify-content-center gap-4">
+        <h4 class="f-20 bold secondary-color m-0">Our Story and Mission</h4>
+        <p class="f-16 regular text-color m-0">
+          From Sydney Opera House to hidden cafes, every sip is a journey of
+          trust. With smart contracts and tokenization, CaffeineHead empowers
+          coffee lovers to support local farmers sustainably. Our blockchain
+          tech traces coffee from farm to cup for transparency. Join our
+          community and elevate your coffee brand. <br />
+          <br />Please let me know if you need further adjustments or if there's
+          anything specific you'd like to focus on in the shortened text.
+        </p>
       </div>
-      {% for member in members %}
-      <div class="col-md-4">
-        <div class="team-member">
-          <div class="thumb-container">
-            <img src="/{{member.image}}" alt="{{member.name}}" />
-            <div class="hover-effect">
-              <div class="hover-content">
-                <ul class="social-icons">
-                  <li>
-                    <a href="{{member.facebook}}"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="{{member.twitter}}"
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="{{member.linkdin}}"
-                      ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="down-content">
-            <h4>{{member.name}}</h4>
-            <span>{{member.position}}</span>
-            <p>{{member.description}}</p>
-          </div>
-        </div>
+      <div class="col-md-7">
+        <iframe
+          src="https://www.youtube.com/embed/r8KZeL55u4Q?si=39Zg4_xTMiZ7UHt3"
+          title="YouTube video player"
+          frameborder="0"
+          width="100%"
+          height="420px"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>
+<!-- Our story and mission part end -->
 
-<div class="services">
+<!-- Join Us Part -->
+<div class="p-50">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div
+        class="col-md-7 right-section d-flex justify-content-center align-items-center"
+      >
+        <img src="{% static 'images/1.jpg' %} " />
+      </div>
+      <div class="col-md-5 d-flex flex-column justify-content-center gap-4">
+        <h4 class="f-20 bold secondary-color m-0">
+          Become a Caffeinehead Insider
+        </h4>
+        <p class="f-16 regular text-color m-0">
+          Join the CaffeineHead community for a unique specialty coffee journey.
+          We're committed to transparency, sustainability, and exceptional
+          taste. Together, let's shape a brighter coffee future. Start your
+          meaningful coffee adventure today
+        </p>
+        <a href="/" class="btn secondary-ghost-btn">Join Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Join Us part end -->
+
+<!-- <div class="services">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -233,8 +177,61 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
+<!-- Our Team Part -->
+<div class="our-team p-50 coffee-bg">
+  <div class="container">
+    <div class="col-md-12 d-flex justify-content-center">
+      <p class="sub-heading">The caffeinehead story</p>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center gap-5">
+      {% for member in members %}
+      <div class="col-md-3">
+        <div
+          class="team-member ele-1"
+          style="background-image: url('/{{member.image}}')"
+        >
+          <div class="team-detail">
+            <div
+              class="d-flex flex-column gap-1 align-items-center justify-content-start"
+            >
+              <p class="bold f-20 text-uppercase m-0 text-color">
+                {{member.name}}
+              </p>
+              <span class="m-0 semi-bold f-16 neutral-500-color"
+                >{{member.position}}</span
+              >
+              <div class="regular f-14 text-color hidden">
+                {{member.description}}
+              </div>
+            </div>
+
+            <ul class="social-icons">
+              <li>
+                <a href="{{member.facebook}}"
+                  ><i class="fab fa-facebook-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.twitter}}"
+                  ><i class="fab fa-twitter-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.linkdin}}"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Our Team part end -->
+
+<!-- Happy Client Part -->
 <div class="happy-clients">
   <div class="container">
     <div class="row">
@@ -273,7 +270,5 @@
     </div>
   </div>
 </div>
-
-<h4>Pay with PayPal</h4>
-
-print(form) {% endblock%}
+<!-- Happy Client part end -->
+{% endblock%}
