@@ -127,67 +127,66 @@
 </div>
 <!-- Join Us part end -->
 
-<!-- <div class="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="service-item">
-          <div class="icon">
-            <i class="fa fa-gear"></i>
-          </div>
-          <div class="down-content">
-            <h4>Product Management</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur an adipisicing elit.
-              Itaque, corporis nulla at quia quaerat.
-            </p>
-            <a href="#" class="filled-button">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-item">
-          <div class="icon">
-            <i class="fa fa-gear"></i>
-          </div>
-          <div class="down-content">
-            <h4>Customer Relations</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur an adipisicing elit.
-              Itaque, corporis nulla at quia quaerat.
-            </p>
-            <a href="#" class="filled-button">Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-item">
-          <div class="icon">
-            <i class="fa fa-gear"></i>
-          </div>
-          <div class="down-content">
-            <h4>Global Collection</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur an adipisicing elit.
-              Itaque, corporis nulla at quia quaerat.
-            </p>
-            <a href="#" class="filled-button">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <!-- Our Team Part -->
 <div class="our-team p-50 coffee-bg">
   <div class="container">
-    <div class="col-md-12 d-flex justify-content-center">
-      <p class="sub-heading">The caffeinehead story</p>
+    <div
+      class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3"
+    >
+      <p class="sub-heading">Know our workforce</p>
+      <p class="f-16 regular m-0 white-color text-center w-75">
+        Behind the scenes, our dedicated crew works tirelessly to bring our
+        vision to life. Each member brings a unique set of skills and a shared
+        passion for excellence. Together, we are committed to delivering
+        exceptional results, fueled by creativity and collaboration. Meet the
+        faces driving our success and join us on this exciting journey.
+      </p>
     </div>
-    <div class="row d-flex align-items-center justify-content-center gap-5">
+    <div class="row d-flex align-items-center justify-content-center">
+      <!-- For main People -->
       {% for member in members %}
-      <div class="col-md-3">
+      <div class="col-md-4 mb-4">
+        <div
+          class="team-member ele-1"
+          style="background-image: url('/{{member.image}}')"
+        >
+          <div class="team-detail">
+            <div
+              class="d-flex flex-column gap-1 align-items-center justify-content-start"
+            >
+              <p class="bold f-20 text-uppercase m-0 text-color">
+                {{member.name}}
+              </p>
+              <span class="m-0 semi-bold f-16 neutral-500-color"
+                >{{member.position}}</span
+              >
+              <div class="regular f-14 text-color hidden">
+                {{member.description}}
+              </div>
+            </div>
+
+            <ul class="social-icons">
+              <li>
+                <a href="{{member.facebook}}"
+                  ><i class="fab fa-facebook-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.twitter}}"
+                  ><i class="fab fa-twitter-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.linkdin}}"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% for member in members %}
+
+      <!-- For Other Employee -->
+      <div class="col-md-3 mb-4">
         <div
           class="team-member ele-1"
           style="background-image: url('/{{member.image}}')"
@@ -234,37 +233,42 @@
 <!-- Happy Client Part -->
 <div class="happy-clients">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Happy Partners</h2>
+    <div
+      class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3"
+    >
+      <p class="sub-heading">Happy Partners</p>
+      <p class="f-16 regular m-0 text-color text-center w-75">
+        We are grateful for the strong collaborations that have propelled our
+        success. These valued partnerships fuel innovation, growth, and shared
+        achievements. Together, we are building a future defined by mutual
+        prosperity and pioneering solutions. Thank you for being an integral
+        part of our journey.
+      </p>
+    </div>
+    <div class="col-md-12">
+      <div class="owl-clients owl-carousel">
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="1" />
         </div>
-      </div>
-      <div class="col-md-12">
-        <div class="owl-clients owl-carousel">
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="1" />
-          </div>
 
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="2" />
-          </div>
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="2" />
+        </div>
 
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="3" />
-          </div>
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="3" />
+        </div>
 
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="4" />
-          </div>
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="4" />
+        </div>
 
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="5" />
-          </div>
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="5" />
+        </div>
 
-          <div class="client-item">
-            <img src="{% static 'images/client-01.png'%}" alt="6" />
-          </div>
+        <div class="client-item">
+          <img src="{% static 'images/client-01.png'%}" alt="6" />
         </div>
       </div>
     </div>
