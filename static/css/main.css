@@ -53,6 +53,10 @@
   font-weight: 700;
 }
 
+.semi-bold {
+  font-weight: 600;
+}
+
 .regular {
   font-weight: 400;
 }
@@ -106,9 +110,9 @@
 }
 
 /* Margin */
-.p-40 {
-  padding-top: 40px;
-  padding-bottom: 40px;
+.p-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 /* Shadows */
@@ -243,7 +247,7 @@
   padding-bottom: 56.25%;
 }
 
-iframe {
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -339,7 +343,7 @@ iframe {
 
 .cover-container {
   margin-top: 64px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 /* Footer */
