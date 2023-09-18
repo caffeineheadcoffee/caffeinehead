@@ -341,9 +341,19 @@
   transition: 1s ease-out !important;
 }
 
+.main-cover-container {
+  margin-top: 64px;
+  padding-bottom: 50px;
+}
+
 .cover-container {
   margin-top: 64px;
   padding-bottom: 50px;
+  height: 450px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Footer */

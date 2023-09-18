@@ -360,11 +360,6 @@ a {
 
 /* Clients */
 
-.happy-clients {
-  margin-top: 100px;
-  margin-bottom: 50px;
-}
-
 .happy-clients .client-item img {
   max-width: 100%;
   overflow: hidden;
