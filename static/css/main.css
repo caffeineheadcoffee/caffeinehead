@@ -11,6 +11,7 @@
   --secondary: #b07d50;
   --secondary-dark: #93653d;
   --secondary-light: #cd9665;
+  --secondary-50: #fff9f4;
   --neutral-700: #1f1f1f;
   --neutral-500: #8e8e8e;
   --neutral-400: #cacaca;
@@ -83,6 +84,10 @@
 
 .secondary-color {
   color: var(--secondary) !important;
+}
+
+.secondary-dark {
+  color: var(--secondary-dark) !important;
 }
 
 .text-color {
@@ -341,9 +346,19 @@
   transition: 1s ease-out !important;
 }
 
+.main-cover-container {
+  margin-top: 64px;
+  padding-bottom: 50px;
+}
+
 .cover-container {
   margin-top: 64px;
   padding-bottom: 50px;
+  height: 450px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Footer */

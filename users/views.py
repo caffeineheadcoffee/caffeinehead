@@ -114,6 +114,8 @@ def aboutus(request):
     }
     return render(request, 'users/aboutus.html', context)
 
+def services(request):
+    return render(request, 'users/services.html')
 
 def process_payment(request):
     order_id = request.session.get('order_id')

@@ -163,7 +163,7 @@ a {
 
 .about-section .container {
   display: flex;
-  gap: 25px;
+  gap: 50px;
   flex-direction: column;
 }
 
@@ -313,57 +313,46 @@ a {
 }
 
 /* Services */
-
-.services {
-  background-image: url("../images/services-bg.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 100px 0;
+.services-container {
+  background-color: var(--secondary-50);
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.services .service-item {
-  text-align: center;
+.service-img {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
-.services .service-item .icon {
-  background-color: #f7f7f7;
-  padding: 50px;
+.service-img img {
+  height: 170px;
 }
 
-.services .service-item .icon i {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  text-align: center;
-  line-height: 100px;
-  background-color: #f33f3f;
-  color: #fff;
-  font-size: 32px;
+.service-img div {
+  height: 100%;
+  width: 2px !important;
+  background-color: var(--secondary);
 }
 
-.services .service-item .product-info {
-  background-color: #fff;
-  padding: 50px 30px;
+.services-container hr {
+  opacity: 1 !important;
+  border-top: 1px solid var(--secondary) !important;
 }
 
-.services .service-item .product-info h4 {
-  font-size: 17px;
-  color: #1a6692;
-  margin-bottom: 20px;
+.flex-row-reverse .service-img {
+  flex-direction: row-reverse;
 }
-
-.services .service-item .product-info p {
-  margin-bottom: 25px;
+.services-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Clients */
-
-.happy-clients {
-  margin-top: 100px;
-  margin-bottom: 50px;
-}
 
 .happy-clients .client-item img {
   max-width: 100%;
