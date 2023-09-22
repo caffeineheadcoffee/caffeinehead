@@ -29,5 +29,9 @@ urlpatterns=[
     path('member/', views.show_member),
     path('aboutus/', views.show_aboutus),
     path('coverimage/', views.show_coverimage),
+     path('payment-success/', views.payment_success, name='payment-success'),
+    path('payment-failed/', views.payment_failed, name='payment_failed'),
+    path('complete/', views.complete_order, name='complete'),
+    
     
 ]
