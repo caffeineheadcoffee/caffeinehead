@@ -163,7 +163,7 @@ a {
 
 .about-section .container {
   display: flex;
-  gap: 25px;
+  gap: 50px;
   flex-direction: column;
 }
 
