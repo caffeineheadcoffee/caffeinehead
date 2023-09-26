@@ -1,0 +1,158 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Caffeinehead - Homepage</title>
+{% endblock%} {% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Contract Roasting</p>
+      <div class="cover-title-3">
+        Contract roasting is a business arrangement in the coffee industry where
+        one coffee roasting company, known as the contract roaster, provides
+        roasting services for another company, known as the client or brand
+        owner. This arrangement allows the client to focus on other aspects of
+        their coffee business, such as sourcing beans, branding, marketing, and
+        distribution, while outsourcing the roasting process to a specialized
+        roasting company.
+      </div>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-100"
+        src="{% static 'images/Contract Roasting.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Services Part Start -->
+
+<div class="services-container">
+  <div class="container">
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        Detailed Description
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 service-card">
+        <h3>1. Client-Centric Approach</h3>
+        <p class="f-16 regular text-color m-0">
+          Contract roasting allows coffee brands to maintain control over the
+          quality and flavor profile of their coffee beans without the need for
+          significant investments in roasting equipment and expertise. The
+          client typically works closely with the contract roaster to specify
+          their desired roast profiles and quality standards.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>2. Bean Sourcing</h3>
+        <p class="f-16 regular text-color m-0">
+          The client is responsible for sourcing green coffee beans from
+          suppliers or coffee producers. They choose the beans based on factors
+          like origin, variety, quality, and sustainability.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>3. Roasting Expertise</h3>
+        <p class="f-16 regular text-color m-0">
+          The contract roaster is an expert in coffee roasting. They use their
+          knowledge, experience, and specialized equipment to roast the beans to
+          the client's specifications. This includes determining the roast level
+          (light, medium, dark, etc.) and the roast profile (temperature, time,
+          airflow) to achieve the desired flavor characteristics.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>4. Quality Control</h3>
+        <p class="f-16 regular text-color m-0">
+          Contract roasters often have stringent quality control processes in
+          place to ensure the coffee meets the agreed-upon standards. This can
+          involve cupping sessions, sensory analysis, and feedback loops with
+          the client to fine-tune the roast profiles.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>5. Scalability</h3>
+        <p class="f-16 regular text-color m-0">
+          Contract roasting allows coffee brands to scale their production more
+          easily. They can adjust the volume of beans roasted based on market
+          demand without the need to invest in additional roasting equipment or
+          space.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>6. Branding and Packaging</h3>
+        <p class="f-16 regular text-color m-0">
+          After roasting, the coffee is typically packaged and labeled according
+          to the client's branding guidelines. Some contract roasters may also
+          offer packaging services, while others focus solely on roasting.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>7. Distribution</h3>
+        <p class="f-16 regular text-color m-0">
+          The client is usually responsible for distributing the roasted coffee
+          to their customers, whether it be through retail channels, online
+          sales, or wholesale distribution.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>8. Cost Structure</h3>
+        <p class="f-16 regular text-color m-0">
+          Contract roasting is often priced based on the volume of beans roasted
+          or a fixed fee per batch, making it a cost-effective solution for
+          small to medium-sized coffee brands.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>9. Confidentiality</h3>
+        <p class="f-16 regular text-color m-0">
+          Contract roasters understand the importance of confidentiality, as
+          they may work with multiple clients who have proprietary roast
+          recipes. They typically have strict confidentiality agreements in
+          place to protect their clients' intellectual property.
+        </p>
+      </div>
+    </div>
+
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        In Summary
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <p class="f-16 regular text-color m-0 text-center">
+      Contract roasting is a collaborative arrangement in the coffee industry
+      that allows coffee brands to leverage the expertise and equipment of
+      specialized roasting companies, ensuring consistent and high-quality
+      coffee while freeing up resources for other aspects of their business.
+    </p>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <i class="fa fa-angle-left fa-2 mt-1 secondary-color"></i>
+      <a href="/services" class="w-fit secondary-color link-btn"
+        >Back to Services</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Services Part end -->
+{% endblock%}

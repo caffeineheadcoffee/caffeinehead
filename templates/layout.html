@@ -34,7 +34,6 @@
       href="{% static 'images/favicon.png' %}"
       type="image/x-icon"
     />
-
   </head>
 
   <body>
@@ -63,8 +62,6 @@
 
         <div class="d-flex gap-3 text-end">
           {% if user.is_authenticated %}
-
-          <a href="/logout" class="btn btn-danger">Logout</a>
           <a
             href="/products/mycart"
             class="btn text-dark fs-4"
@@ -78,6 +75,8 @@
               </span>
             </i>
           </a>
+          <a href="/logout" class="primary-ghost-btn">Logout</a>
+
           {% else %}
           <a href="/login" class="btn primary-ghost-btn f-14">Sign In</a>
           <a href="/register" class="btn primary-btn f-14">Join Now</a>

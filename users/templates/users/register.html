@@ -1,6 +1,6 @@
 <style>
     .asteriskField{
-        color: red;
+        color: var(--danger);
     }
     
 </style>
@@ -30,7 +30,7 @@
                         {% for field in registration_form %}
                             {% if field.label == "Full name" %}
                                 {% for error in field.errors %}
-                                    <p style="color: red;">{{ error }}</p>
+                                    <p style="color: var(--danger);">{{ error }}</p>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
@@ -43,7 +43,7 @@
                         {% for field in registration_form %}
                             {% if field.label == "Email" %}
                                 {% for error in field.errors %}
-                                    <p style="color: red;">{{ error }}</p>
+                                    <p style="color: var(--danger);">{{ error }}</p>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
@@ -57,7 +57,7 @@
                         {% for field in registration_form %}
                             {% if field.label == "Password" %}
                                 {% for error in field.errors %}
-                                    <p style="color: red;">{{ error }}</p>
+                                    <p style="color: var(--danger);">{{ error }}</p>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
@@ -70,7 +70,7 @@
                         {% for field in registration_form %}
                             {% if field.label == "Password confirmation" %}
                                 {% for error in field.errors %}
-                                    <p style="color: red;">{{ error }}</p>
+                                    <p style="color: var(--danger);">{{ error }}</p>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
@@ -78,7 +78,7 @@
     
                 </div>
                 {% if registration_form.non_field_errors %}
-                    <div style="color: red;">
+                    <div style="color: var(--danger);">
                         <p>{{ registration_form.non_field_errors }}</p>
                     </div>
                 {% endif %}
@@ -92,7 +92,7 @@
 
                 <div class="d-flex justify-content-center">
                   <button type="submit"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                    class="primary-btn">Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"

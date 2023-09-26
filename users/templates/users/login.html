@@ -1,6 +1,6 @@
 <style>
     .asteriskField {
-        color: red;
+        color: var(--danger);
     }
 </style>
 
@@ -32,7 +32,7 @@
                                         {% for field in login_form %}
                                         {% if field.label == "Email" %}
                                         {% for error in field.errors %}
-                                        <p style="color: red;">{{ error }}</p>
+                                        <p style="color: var(--danger);">{{ error }}</p>
                                         {% endfor %}
                                         {% endif %}
                                         {% endfor %}
@@ -46,21 +46,21 @@
                                         {% for field in login_form %}
                                         {% if field.label == "Password" %}
                                         {% for error in field.errors %}
-                                        <p style="color: red;">{{ error }}</p>
+                                        <p style="color: var(--danger);">{{ error }}</p>
                                         {% endfor %}
                                         {% endif %}
                                         {% endfor %}
                                     </div>
                                 </div>
                                 {% if login_form.non_field_errors %}
-                                <div style="color: red;">
+                                <div style="color: var(--danger);">
                                     <p>{{ login_form.non_field_errors }}</p>
                                 </div>
                                 {% endif %}
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Sign
+                                        class="primary-btn">Sign
                                         In</button>
                                 </div>
                                 <p class="text-center text-muted mt-3 mb-0"><a href="" class="fw-bold text-body">Forgot

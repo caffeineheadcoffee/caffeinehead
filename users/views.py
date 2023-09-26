@@ -117,6 +117,18 @@ def aboutus(request):
 def services(request):
     return render(request, 'users/services.html')
 
+def services_contractRoasting(request):
+    return render(request, 'users/services_contractRoasting.html')
+
+def services_Wholesale(request):
+    return render(request, 'users/services_Wholesale.html')
+
+def services_POS(request):
+    return render(request, 'users/services_POS.html')
+
+def services_Appdev(request):
+    return render(request, 'users/services_Appdev.html')
+
 def process_payment(request):
     order_id = request.session.get('order_id')
     order = get_object_or_404(Order, id=order_id)
