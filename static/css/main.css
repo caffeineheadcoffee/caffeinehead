@@ -39,31 +39,35 @@
 
 /* Font */
 .f-14 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .f-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .f-18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .f-20 {
-  font-size: 20px;
+  font-size: 20px !important;
+}
+
+.f-32{
+  font-size: 32px !important;
 }
 
 .bold {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .semi-bold {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .regular {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .heading {
@@ -83,7 +87,7 @@
 /* Color*/
 
 .primary-color {
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .secondary-color {
@@ -104,6 +108,10 @@
 
 .white-color {
   color: var(--white) !important;
+}
+
+.neutral-400-bg{
+  background-color: var(--neutral-400) !important;
 }
 
 .white-bg {
@@ -211,7 +219,7 @@
   font-weight: 600;
   display: flex;
   gap: 10px;
-  padding: 7px 16px;
+  padding: 7px 7px;
   align-items: center;
   justify-content: center;
   color: var(--white);
@@ -220,6 +228,7 @@
 
 .link-btn:hover {
   color: var(--primary-100);
+  text-decoration: underline !important;
 }
 
 .textbox {
