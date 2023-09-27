@@ -258,6 +258,27 @@
   outline: none;
 }
 
+.form-check-input,
+.form-check-input:focus{
+border-color: var(--neutral-500) !important;
+cursor: pointer;
+}
+
+.form-check-input:checked{
+  background-color: var(--primary) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.form-check-input:focus{
+  outline: none !important; 
+  box-shadow: none !important;
+}
+
+.form-check-input:hover{
+  background-color: var(--primary-50);
+  border-color: var(--primary-dark) !important;
+}
+
 .video-container {
   position: relative;
   width: 100%;
