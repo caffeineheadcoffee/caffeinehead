@@ -129,6 +129,15 @@ def services_POS(request):
 def services_Appdev(request):
     return render(request, 'users/services_Appdev.html')
 
+def services_MSP(request):
+    return render(request, 'users/services_MSP.html')
+
+def services_CyberSecurity(request):
+    return render(request, 'users/services_CyberSecurity.html')
+
+def services_CoffeeCocktails(request):
+    return render(request, 'users/services_CoffeeCocktails.html')
+
 def process_payment(request):
     order_id = request.session.get('order_id')
     order = get_object_or_404(Order, id=order_id)
