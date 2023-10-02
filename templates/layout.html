@@ -64,8 +64,7 @@
           {% if user.is_authenticated %}
           <a
             href="/products/mycart"
-            class="btn text-dark fs-4"
-            style="background-color: #e6cc24"
+            class="btn text-dark fs-4 d-flex align-items-center"
           >
             <i class="fas fa-cart-plus position-relative">
               <span
@@ -75,8 +74,31 @@
               </span>
             </i>
           </a>
-          <a href="/logout" class="primary-ghost-btn">Logout</a>
 
+          <li class="nav-item dropdown" style="list-style-type: none">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              ><img
+                src="https://image.shutterstock.com/image-vector/man-shirt-tie-businessman-avatar-260nw-548848999.jpg"
+                alt=""
+                style="width: 40px; height: auto"
+                class="rounded-circle"
+              />
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="/admins/dashboard">Dashboard</a>
+              </li>
+              <li><a class="dropdown-item" href="#">Sales</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a href="/logout" class="dropdown-item logout">Logout</a></li>
+            </ul>
+          </li>
           {% else %}
           <a href="/login" class="btn primary-ghost-btn f-14">Sign In</a>
           <a href="/register" class="btn primary-btn f-14">Join Now</a>

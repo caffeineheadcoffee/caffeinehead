@@ -54,7 +54,7 @@
   font-size: 20px !important;
 }
 
-.f-32{
+.f-32 {
   font-size: 32px !important;
 }
 
@@ -110,7 +110,7 @@
   color: var(--white) !important;
 }
 
-.neutral-400-bg{
+.neutral-400-bg {
   background-color: var(--neutral-400) !important;
 }
 
@@ -259,22 +259,22 @@
 }
 
 .form-check-input,
-.form-check-input:focus{
-border-color: var(--neutral-500) !important;
-cursor: pointer;
+.form-check-input:focus {
+  border-color: var(--neutral-500) !important;
+  cursor: pointer;
 }
 
-.form-check-input:checked{
+.form-check-input:checked {
   background-color: var(--primary) !important;
   border-color: var(--primary-dark) !important;
 }
 
-.form-check-input:focus{
-  outline: none !important; 
+.form-check-input:focus {
+  outline: none !important;
   box-shadow: none !important;
 }
 
-.form-check-input:hover{
+.form-check-input:hover {
   background-color: var(--primary-50);
   border-color: var(--primary-dark) !important;
 }
@@ -343,6 +343,10 @@ cursor: pointer;
   width: 20px;
   height: 2px;
   background-color: var(--primary);
+}
+
+.nav-link:focus-visible {
+  outline: none !important;
 }
 
 .top-title {
