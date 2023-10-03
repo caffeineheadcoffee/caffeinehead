@@ -381,14 +381,14 @@ a {
 
 /* Clients */
 
-.happy-clients .client-item img {
-  max-width: 100%;
+.client-item img {
+  max-width: 80%;
   overflow: hidden;
   transition: all 0.3s;
   cursor: pointer;
 }
 
-.happy-clients .client-item img:hover {
+.client-item img:hover {
   opacity: 0.8;
 }
 

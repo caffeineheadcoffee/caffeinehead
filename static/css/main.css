@@ -150,6 +150,12 @@
   font-family: var(--font-family);
 }
 
+/* Width */
+
+.w-90 {
+  width: 90% !important;
+}
+
 /* Button */
 
 .primary-btn,
