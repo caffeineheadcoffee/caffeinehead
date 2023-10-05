@@ -385,11 +385,6 @@ a {
   max-width: 80%;
   overflow: hidden;
   transition: all 0.3s;
-  cursor: pointer;
-}
-
-.client-item img:hover {
-  opacity: 0.8;
 }
 
 /* Best Features */
