@@ -1,189 +1,240 @@
-<style>
-    .card-img {
-        overflow: hidden;
-    }
-
-    .card-img:hover img {
-        transform: scale(1.5);
-    }
-
-    .card-img img {
-        transition: all 2s;
-    }
-
-    .form label {
-        display: none;
-    }
-    .form input{
-        border: 2px solid rgb(70, 69, 69);
-        border-radius: 4px;
-        margin-right: 5px;
-        height: 36px;
-        width: 250px;
-    }
-</style>
-
-{% extends 'layout.html' %}
-{% load static %}
-{% block title %}
+{% extends 'layout.html' %} {% load static %} {% block title %}
 <title>E-commerce - ProductPage</title>
-{% endblock%}
-
-
-{% block main_content %}
-
-<!-- <div class="container-fluid mt-4 bg-warning">
-    <form action="" class="form" method="GET">
-        {{product_filter.form}}
-        <button class="btn btn-primary" type="submit">
-            Search
-        </button>
-    </form>
-    {% for msg in messages %}
-    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-    <div class="alert alert-success">
-        {{ msg }}
-    </div>
-
-    {% endif%}
-
-    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-    <div class="alert alert-danger">
-        {{ msg }}
-    </div>
-
-    {% endif%}
-
-    {% endfor %} -->
-    <!-- <h2>Category</h2>
-    <div class="row row-cols-1 row-cols-md-4 g-4 mt-5 pb-5">
-        {% for category in category %}
-        <div class="col">
-            <div class="card shadow-lg">
-                <div class="card-img">
-                    <img src="/{{product.image}}" class="card-img-top" alt="{{product.product_name}}" height="250px">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{category.category_name}}</h5>
-                    <h5 class="card-title">Rs. {{product.product_price}}</h5>
-                    <a href="" class="btn btn-success">View Details</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div> -->
-
-</div>
+{% endblock%} {% block main_content %}
 
 <!-- card start -->
-<!-- <div class="container-fluid">
-    <div class="d-flex justify-content-between py-3">
-        <h2>Products</h2>
-        <form action="" class="form d-flex align-items-center" method="GET">
-            {{product_filter.form}}
-            <button class="btn btn-primary" type="submit">
-                Search
-            </button>
-        </form> 
-    </div>
-    
-    {% for msg in messages %}
-    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-    <div class="alert alert-success">
-        {{ msg }}
-    </div>
-
-    {% endif%}
-
-    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-    <div class="alert alert-danger">
-        {{ msg }}
+<div>
+  <div class="ad_banner">
+    <img
+      src="{% static 'images/ad banner.png' %}"
+      class="w-100 h-auto"
+      alt=""
+    />
+  </div>
+  <div class="d-flex flex-column">
+    <div
+      class="col-md-12 d-flex justify-content-end search-container container mt-5"
+    >
+      <form class="d-flex gap-2 search col-md-3 p-1">
+        <label><i class="far fa-search f-16"></i> </label>
+        <input
+          class="w-100 searchbox"
+          type="search"
+          placeholder="Search products"
+        />
+      </form>
     </div>
 
-    {% endif%}
-
-    {% endfor %}
-    <div class="row row-cols-1 row-cols-md-4 g-4 ">
-        {% for product in products%}
-        <div class="col">
-            <div class="card shadow-lg">
-                <div class="card-img">
-                    <img src="/{{product.image}}" class="card-img-top" alt="{{product.product_name}}" height="250px">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{product.product_name}}</h5>
-                    <h5 class="card-title">Rs. {{product.product_price}}</h5>
-                    <a href="/productdetails/{{product.id}}" class="btn btn-success">View Details</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-</div> -->
-
-
-<div class="products">
-    <div class="container">
-      <div class="row">
+    <!-- All Products Section -->
+    <div class="col-md-12">
+      <div class="filters-content container p-50">
         <div class="col-md-12">
-          <div class="filters">
-            <ul>
-                <li class="active" data-filter="*">All Products</li>
-                <li data-filter=".des">Featured</li>
-                <li data-filter=".dev">Flash Deals</li>
-                <li data-filter=".gra">Last Minute</li>
-            </ul>
+          <div
+            class="section-heading d-flex justify-content-between align-items-end mb-4"
+          >
+            <p class="f-24 bold text-color m-0">All Products</p>
+            <a href="#" class="link-btn text-color"
+              ><p class="m-0">view More</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="filters-content">
-              <div class="row grid">
-                  {% for product in products%}
-                  <div class="col-md-3">
-        <div class="product-item ele-1">
-          <img
-            class="ele-1 position-absolute top-0 start-50 translate-middle-x"
-            src="/{{ product.image }}"
-            alt="{{ product.product_name }}"
-          />
-          <a href="/productdetails/{{product.id}}" class="hidden primary-ghost-btn f-14"
-            >View Details
-            <i class="fa fa-angle-right fa-2"></i>
-          </a>
-          <div class="product-info">
-            <div class="d-flex flex-column gap-1">
-              <p class="product-name mb-0">{{ product.product_name }}</p>
-              <p class="product-discription mb-0">{{ product.description }}</p>
-            </div>
-            <div class="d-flex flex-column gap-1">
-              <p class="mb-0">
-                <p>Rs. {{ product.product_price }}</p>
-              </p>
-              <p class="product-price mb-0">Rs. {{ product.product_price }}</p>
+        <div class="row grid">
+          {% for product in products%}
+          <div class="col-md-3">
+            <div class="product-item ele-1">
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="/{{ product.image }}"
+                alt="{{ product.product_name }}"
+              />
+              <a
+                href="/productdetails/{{product.id}}"
+                class="hidden primary-ghost-btn f-14 w-100"
+                >View Details
+                <i class="fa fa-angle-right fa-2"></i>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.product_name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <p class="mb-0">
+                    <s>$ {{ product.product_price }}</s>
+                  </p>
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
-                  {% endfor %}
-                  
-                 
-              </div>
+    </div>
+
+    <!-- Featured Section-->
+    <div class="col-md-12 neutral-100-bg">
+      <div class="filters-content container p-50">
+        <div class="col-md-12">
+          <div
+            class="section-heading d-flex justify-content-between align-items-end mb-4"
+          >
+            <p class="f-24 bold text-color m-0">Featured</p>
+            <a href="#" class="link-btn text-color"
+              ><p class="m-0">view More</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
           </div>
         </div>
+        <div class="row grid">
+          {% for product in products%}
+          <div class="col-md-3">
+            <div class="product-item ele-1">
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="/{{ product.image }}"
+                alt="{{ product.product_name }}"
+              />
+              <a
+                href="/productdetails/{{product.id}}"
+                class="hidden primary-ghost-btn f-14 w-100"
+                >View Details
+                <i class="fa fa-angle-right fa-2"></i>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.product_name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <p class="mb-0">
+                    <s>$ {{ product.product_price }}</s>
+                  </p>
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Flash Deals Section -->
+    <div class="col-md-12">
+      <div class="filters-content container p-50">
         <div class="col-md-12">
-          <ul class="pages">
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-          </ul>
+          <div
+            class="section-heading d-flex justify-content-between align-items-end mb-4"
+          >
+            <p class="f-24 bold text-color m-0">Flash Deals</p>
+            <a href="#" class="link-btn text-color"
+              ><p class="m-0">view More</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
+          </div>
+        </div>
+        <div class="row grid">
+          {% for product in products%}
+          <div class="col-md-3">
+            <div class="product-item ele-1">
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="/{{ product.image }}"
+                alt="{{ product.product_name }}"
+              />
+              <a
+                href="/productdetails/{{product.id}}"
+                class="hidden primary-ghost-btn f-14 w-100"
+                >View Details
+                <i class="fa fa-angle-right fa-2"></i>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.product_name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <p class="mb-0">
+                    <s>$ {{ product.product_price }}</s>
+                  </p>
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Last Minute Section -->
+    <div class="col-md-12 neutral-100-bg">
+      <div class="filters-content container p-50">
+        <div class="col-md-12">
+          <div
+            class="section-heading d-flex justify-content-between align-items-end mb-4"
+          >
+            <p class="f-24 bold text-color m-0">Last Minute</p>
+            <a href="#" class="link-btn text-color"
+              ><p class="m-0">view More</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
+          </div>
+        </div>
+        <div class="row grid">
+          {% for product in products%}
+          <div class="col-md-3">
+            <div class="product-item ele-1">
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="/{{ product.image }}"
+                alt="{{ product.product_name }}"
+              />
+              <a
+                href="/productdetails/{{product.id}}"
+                class="hidden primary-ghost-btn f-14 w-100"
+                >View Details
+                <i class="fa fa-angle-right fa-2"></i>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.product_name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <p class="mb-0">
+                    <s>$ {{ product.product_price }}</s>
+                  </p>
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
-<!-- card end -->
+</div>
 
+<!-- card end -->
 
 {% endblock%}

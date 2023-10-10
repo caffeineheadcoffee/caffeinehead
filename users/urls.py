@@ -6,7 +6,7 @@ urlpatterns=[
     path('login/', views.login_user),
     path('logout/',views.logout_user),
     path('',views.homepage),
-    path('allproducts/',views.productpage),
+    path('productspage/',views.productpage),
     path('productdetails/<int:product_id>', views.product_details),
     path('about/',views.aboutus),
     path('services/',views.services),

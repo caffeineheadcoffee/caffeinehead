@@ -11,6 +11,10 @@
   --secondary: #b07d50;
   --secondary-dark: #93653d;
   --secondary-light: #cd9665;
+  --secondary-400: #eab07c;
+  --secondary-300: #ffc490;
+  --secondary-200: #ffe7d2;
+  --secondary-100: #ffe7d2;
   --secondary-50: #fff9f4;
   --neutral-700: #1f1f1f;
   --neutral-500: #8e8e8e;
@@ -52,6 +56,10 @@
 
 .f-20 {
   font-size: 20px !important;
+}
+
+.f-24 {
+  font-size: 24px !important;
 }
 
 .f-32 {
@@ -116,6 +124,10 @@
 
 .white-bg {
   background-color: var(--white) !important;
+}
+
+.neutral-100-bg {
+  background-color: var(--neutral-100) !important;
 }
 
 /* Image Background*/
@@ -234,7 +246,60 @@
 
 .link-btn:hover {
   color: var(--primary-100);
+}
+
+.link-btn p:hover {
   text-decoration: underline !important;
+}
+
+.searchbox,
+.search {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.searchbox::placeholder {
+  color: var(--secondary);
+  font-size: 14px;
+  margin: 0 !important;
+}
+
+.searchbox:hover::placeholder {
+  color: var(--secondary-light);
+}
+
+.searchbox:focus-visible {
+  outline: none;
+}
+
+.search {
+  border-bottom: 1px solid var(--secondary) !important;
+}
+
+.search:hover {
+  border-bottom: 1px solid var(--secondary-light) !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/regular/times.svg)
+    no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: 0.5;
+  pointer-events: all;
+  cursor: pointer;
+  color: var(--secondary);
 }
 
 .textbox {
@@ -322,7 +387,7 @@
   width: 100%;
 }
 
-.nav-link {
+.nft-navbar .nav-link {
   position: relative;
   color: var(--text-colour);
   padding: 8px 16px;
@@ -330,17 +395,17 @@
   font-size: 14px;
 }
 
-.nav-link:hover {
+.nft-navbar .nav-link:hover {
   color: var(--primary) !important;
   transition: 0.3s;
 }
 
-.nav-link.active {
+.nft-navbar .nav-link.active {
   font-weight: 700;
   color: var(--primary);
 }
 
-.nav-link.active::after {
+.nft-navbar .nav-link.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -351,7 +416,7 @@
   background-color: var(--primary);
 }
 
-.nav-link:focus-visible {
+.nft-navbar .nav-link:focus-visible {
   outline: none !important;
 }
 

@@ -117,6 +117,10 @@ ul {
 .product-price {
   font-size: 24px;
   font-weight: 700;
+  color: var(--text-colour);
+}
+
+s {
   color: var(--danger);
 }
 
@@ -464,60 +468,16 @@ a {
 
 /* Product Page */
 
-.products {
-  margin-top: 100px;
+.ad_banner {
+  width: 100vw;
+  height: auto;
+  margin-top: 64px;
 }
 
-.products .filters {
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 60px;
-}
-
-.products .filters li {
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  color: #121212;
-  display: inline-block;
-  margin: 0 10px;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.products .filters ul li.active,
-.products .filters ul li:hover {
-  color: #f33f3f;
-}
-
-.products ul.pages {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.products ul.pages li {
-  display: inline-block;
-  margin: 0 2px;
-}
-
-.products ul.pages li a {
-  width: 44px;
-  height: 44px;
-  display: inline-block;
-  line-height: 42px;
-  border: 1px solid #eee;
-  font-size: 15px;
-  font-weight: 700;
-  color: #121212;
-  transition: all 0.3s;
-}
-
-.products ul.pages li a:hover,
-.products ul.pages li.active a {
-  background-color: #f33f3f;
-  border-color: #f33f3f;
-  color: #fff;
+.search-container {
+  background-color: var(--neutral-100);
+  padding: 10px 20px;
+  border-radius: 3px;
 }
 
 /* Responsive Style */

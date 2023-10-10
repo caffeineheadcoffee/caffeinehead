@@ -315,7 +315,7 @@ def add_to_cart(request,product_id):
     check_item_presence = Cart.objects.filter(user=user,product=product)
     if check_item_presence:
         messages.add_message(request,messages.ERROR,'Product is already present in the cart')
-        return redirect('/allproducts')
+        return redirect('/products')
 
     else:
         cart = Cart.objects.create(product=product,user=user)
