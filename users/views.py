@@ -115,38 +115,3 @@ def aboutus(request):
     return render(request, 'users/aboutus.html', context)
 
 
-def process_payment(request):
-    order_id = request.session.get('order_id')
-    order = get_object_or_404(Order, id=order_id)
-    host = request.get_host()
-    
-
-    paypal_dict = {
-        'business': "sb-pmllk26578065@business.example.com",
-        'amount': '%.2f' % order.total_cost().quantize(
-            Decimal('.01')),
-        'item_name': 'Order {}'.format(order.id),
-        'invoice': str(order.id),
-        'currency_code': 'USD',
-        'notify_url': 'http://{}{}'.format(host,
-                                           reverse('paypal-ipn')),
-        'return_url': 'http://{}{}'.format(host,
-                                           reverse('payment_done')),
-        'cancel_return': 'http://{}{}'.format(host,
-                                              reverse('payment_cancelled')),
-    }
-    
-
-    form = PayPalPaymentsForm(initial=paypal_dict)
-    print(form)
-    return render(request, 'users/aboutus.html', {'order': order, 'form': form})
-
-
-@csrf_exempt
-def payment_done(request):
-    return render(request, 'users/payment_done.html')
-
-
-@csrf_exempt
-def payment_canceled(request):
-    return render(request, 'users/payment_cancelled.html')

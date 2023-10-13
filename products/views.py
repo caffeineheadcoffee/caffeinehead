@@ -15,6 +15,7 @@ from django.conf import settings
 from decimal import Decimal
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # Create your views here.
@@ -378,7 +379,7 @@ def order_item_form(request,product_id,cart_id):
                     'order':order,
                     'cart': cart_item
                 }
-                return render(request,'users/process_payment.html',context)
+                return render(request,'users/paypal_payment.html',context)
 
             else:
                 message.add_message(request,messages.ERROR,'Something went wrong')
@@ -390,8 +391,35 @@ def order_item_form(request,product_id,cart_id):
     return render(request, 'users/orderform.html', context)
 
 
+def paypal_request(request):
+   o_id = request.GET.get("o_id")
+   order = Order.objects.get(id=o_id)
+   context = {
+    "order": order
+   }
+   return render(request, "paypal_payment.html", context)
+
+def complete_order(request):
+    body = json.loads(request.body)
+    o_id = request.GET.get('oid')
+    print('oid:', body)
+    Order.objects.filter(id=body['orderID']).update(payment_status=True)
+    cart = Cart.objects.get(id=body['cartID'])
+    cart.delete()
+    return JsonResponse('Payment completed!', safe=False)
+
+    
 
 
+def payment_success(request):
+   
+     messages.add_message(request,messages.SUCCESS,'Payment Successfull and Your is Order is ready to go.')
+     return redirect('/products/my_order')
+
+
+def payment_failed(request):
+
+    return render(request, 'users/payment_failed.html')
 
 @login_required
 def my_order(request):
