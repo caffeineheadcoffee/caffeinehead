@@ -1,0 +1,41 @@
+<style>
+    @media only screen and (max-width: 768px) {
+      .responsive {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+  
+  {% extends 'layout.html' %} {% load static %} {% block title %}
+  <title>Caffeinehead - Homepage</title>
+  {% endblock%} {% block main_content %}
+  
+  <!-- Main Cover Container -->
+  <div class="cover-container container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-7 d-flex flex-column gap-4">
+        <p class="cover-title-1 m-0">Services</p>
+        <div class="cover-title-3">
+          Our services are designed with you in mind. Whether you're looking for
+          expert guidance in technology, creative solutions in design, or
+          dependable support in consulting, we have you covered. Our team of
+          experienced professionals is committed to delivering top-notch services
+          that meet your unique needs. From concept to completion, we're here to
+          help you achieve your goals and exceed your expectations. Explore our
+          range of services and let us be your partner in success.
+        </div>
+      </div>
+      <div class="col-md-5 d-flex justify-content-center align-items-center">
+        <img
+          class="w-100"
+          src="{% static 'images/ServicesCoverImage.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+  </div>
+  
+
+  {% endblock%}
+  

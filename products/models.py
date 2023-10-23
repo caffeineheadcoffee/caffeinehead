@@ -62,6 +62,7 @@ class Member(models.Model):
     facebook = models.URLField(max_length=200)
     twitter = models.URLField(max_length=200)
     linkdin = models.URLField(max_length=200)
+    role = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Aboutus(models.Model):

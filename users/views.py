@@ -138,6 +138,9 @@ def services_CyberSecurity(request):
 def services_CoffeeCocktails(request):
     return render(request, 'users/services_CoffeeCocktails.html')
 
+def contact(request):
+    return render(request, 'users/contact.html')
+
 def process_payment(request):
     order_id = request.session.get('order_id')
     order = get_object_or_404(Order, id=order_id)
