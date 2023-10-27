@@ -126,6 +126,26 @@ def post_coverimage(request):
 
 @login_required
 @admin_only
+def post_service(request):
+    if request.method == "POST":
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Service added')
+            return redirect('/products/addservice')
+        else:
+            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
+            return render(request,'products/addservice.html',{
+                'form':form
+            })        
+    context = {
+            'form':ServiceForm
+        }
+    return render(request,'products/addservice.html',context)
+
+
+@login_required
+@admin_only
 def update_product(request,product_id):
     instance = Product.objects.get(id=product_id)
     if request.method == 'POST':
@@ -413,4 +433,80 @@ def all_order(request):
     return render(request,'products/allorders.html',context)
 
 
+@login_required
+@admin_only
+def show_contact(request):
+    contacts = Contact_us.objects.all()
+    context = {
+        'contacts': contacts
+    }
+    return render(request, 'products/contactlist.html', context)
+
+
+@login_required
+@admin_only
+def show_service(request):
+    services = Service.objects.all()
+    context = {
+        'services':services
+    }
+    return render(request, 'products/servicelist.html', context)
+
+@login_required
+@admin_only
+def update_contactus(request,contact_us_id):
+    instance = Contact_us.objects.get(id=contact_us_id)
+    if request.method == 'POST':
+        form = Contact_usForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'contact updated')
+            return redirect('/products/contact')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'products/updatecontact.html',{
+                'form':form
+            })
+    context={
+        'form':Contact_usForm(instance=instance)
+    }
+
+    return render(request,'products/updatecontact.html',context)
+
+@login_required
+@admin_only
+def update_service(request,service_id):
+    instance = Service.objects.get(id=service_id)
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'service updated')
+            return redirect('/products/service')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'products/updateservice.html',{
+                'form':form
+            })
+    context={
+        'form':ServiceForm(instance=instance)
+    }
+
+    return render(request,'products/updateservice.html',context)
+
+@login_required
+@admin_only
+def delete_contact(request, contact_us_id):
+    contacts=Contact_us.objects.get(id=contact_us_id)
+    contacts.delete()
+    messages.add_message(request,messages.SUCCESS,'Contact Deleted')
+    return redirect('/products/contact')
+
+@login_required
+@admin_only
+def delete_service(request,service_id):
+    services=Service.objects.get(id=service_id)
+    services.delete()
+    messages.add_message(request,messages.SUCCESS,'Service Deleted')
+    return redirect('/products/service')
 

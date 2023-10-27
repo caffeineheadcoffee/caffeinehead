@@ -29,5 +29,11 @@ urlpatterns=[
     path('member/', views.show_member),
     path('aboutus/', views.show_aboutus),
     path('coverimage/', views.show_coverimage),
-    
+    path('addservice/', views.post_service),
+    path('contact/', views.show_contact),
+    path('service/', views.show_service),
+    path('updatecontact/<int:contact_us_id>', views.update_contactus),
+    path('deletecontact/<int:contact_us_id>', views.delete_contact),
+    path('updateservice/<int:service_id>', views.update_service),
+    path('deleteservice/<int:service_id>', views.delete_service),  
 ]

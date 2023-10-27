@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import *
 from django.core import validators
+from phonenumber_field.modelfields import PhoneNumberField
+
 # from djongo import models
 
 User = get_user_model()
@@ -25,7 +27,7 @@ class Product(models.Model):
     image = models.FileField(upload_to='static/uploads', null=True)
     description = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True,default=1)
 
     def __str__(self):
         return self.product_name
@@ -33,8 +35,8 @@ class Product(models.Model):
 
 
 class Cart(models.Model):
-    product = models.ForeignKey(Product,on_delete=models.CASCADE,null=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,null=True,default=1)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     created_data = models.DateTimeField(auto_now_add=True)
 
 class Order(models.Model):
@@ -42,8 +44,8 @@ class Order(models.Model):
         ('Cash on Delivery','Cash on Delivery'),
         ('Paypal','Paypal'),
     )
-    product=models.ForeignKey(Product,on_delete=models.CASCADE, null=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product=models.ForeignKey(Product,on_delete=models.CASCADE, null=True,default=1)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     quantity = models.IntegerField()
     total_price = models.IntegerField(null=True)
     status = models.CharField(default='Pending', max_length=200)
@@ -65,6 +67,9 @@ class Member(models.Model):
     role = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 class Aboutus(models.Model):
     title = models.CharField(max_length=250)
     image = models.FileField(upload_to='static/uploads')
@@ -73,5 +78,27 @@ class Aboutus(models.Model):
     twitter = models.URLField(max_length=200)
     linkedin = models.URLField(max_length=200)
 
+    def __str__(self):
+        return self.title
+
 class Imageslider(models.Model):
     image = models.FileField(upload_to='static/uploads')
+
+class Service(models.Model):
+    service_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.service_name
+
+class Contact_us(models.Model):
+    full_name = models.CharField(max_length=250)
+    email = models.EmailField()
+    address = models.CharField(max_length=250)
+    phone_number = PhoneNumberField()
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, default=1)
+
+    def __str__(self):
+        return self.full_name
+
+
+
