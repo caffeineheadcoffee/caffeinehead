@@ -43,7 +43,7 @@
         <ul
           class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
         >
-          <li class="d-flex flex-column align-items-end">
+          <!-- <li class="d-flex flex-column align-items-end">
             <a
               href="/"
               class="nav-link "
@@ -78,6 +78,22 @@
               class="nav-link "
               >Contact Us</a
             >
+          </li> -->
+
+          <a href="{% url 'home' %}" class="nav-link {% if request.path == home %} active {% endif %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}" class="nav-link {% if request.path == about %} active {% endif %}">Our Story</a>
+          </li>
+          <li>
+            <a href="{% url 'services' %}" class="nav-link {% if  request.path == services %} active {% endif %}">Services</a>
+          </li>
+          <li>
+            <a href="{% url 'products' %}" class="nav-link {% if request.path == products %} active {% endif %}">Merch</a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}" class="nav-link {% if request.path == contact %} active {% endif %}">Contact Us</a>
           </li>
         </ul>
 
