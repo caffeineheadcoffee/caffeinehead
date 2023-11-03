@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import *
 from products.models import *
 from .filters import *
+from products .forms import *
+from django.contrib.auth.decorators import login_required
 
 def register_user(request):
     if request.method == "POST":
@@ -25,6 +27,27 @@ def register_user(request):
         "registration_form": form,
     }
     return render(request, "users/register.html", context)
+
+def update_user(request,user_id):
+    instance = User.objects.get(id=user_id)
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'Profile updated')
+            return redirect('/users/dashboard')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'users/dashboard.html',{
+                'form':form
+            })
+    context={
+        'form':RegistrationForm(instance=instance)
+    }
+
+    return render(request,'users/dashboard.html',context)
+
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -138,6 +161,9 @@ def services_CyberSecurity(request):
 def services_CoffeeCocktails(request):
     return render(request, 'users/services_CoffeeCocktails.html')
 
+def contact(request):
+    return render(request, 'users/contact.html')
+
 def process_payment(request):
     order_id = request.session.get('order_id')
     order = get_object_or_404(Order, id=order_id)
@@ -173,3 +199,24 @@ def payment_done(request):
 @csrf_exempt
 def payment_canceled(request):
     return render(request, 'users/payment_cancelled.html')
+
+
+
+def save_contact(request):
+    if request.method == "POST":
+        form = Contact_usForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Contact added')
+            return redirect('/contact')
+        else:
+            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
+            return render(request,'users/contact.html',{
+                'form':form
+            })        
+    context = {
+            'form':Contact_usForm
+        }
+    return render(request,'users/contact.html',context)
+
+

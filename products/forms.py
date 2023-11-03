@@ -1,6 +1,8 @@
 import imp
 from django.forms import ModelForm,fields
 from .models import *
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 class ProductForm(ModelForm):
     class Meta:
@@ -39,3 +41,15 @@ class ImagesliderForm(ModelForm):
         model = Imageslider
         fields = "__all__"
 
+class ServiceForm(ModelForm):
+    class Meta:
+        model = Service
+        fields = "__all__"
+
+class Contact_usForm(ModelForm):
+    phone_number = PhoneNumberField(
+        widget=PhoneNumberPrefixWidget(initial='AU')
+    )
+    class Meta:
+        model = Contact_us
+        fields = "__all__"

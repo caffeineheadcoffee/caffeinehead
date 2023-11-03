@@ -1,7 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-
+from django.forms import ModelForm
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from products .models import *
 
 from .models import User
 
@@ -27,3 +30,17 @@ class AccountAuthenticationForm(forms.ModelForm):
             password = self.cleaned_data['password']
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError('Invalid email or password')
+            
+
+# class ServiceForm(ModelForm):
+#     class Meta:
+#         model = Service
+#         fields = "__all__"
+
+# class Contact_usForm(ModelForm):
+#     phone_number = PhoneNumberField(
+#         widget=PhoneNumberPrefixWidget(initial='AUS')
+#     )
+#     class Meta:
+#         model = Contact_us
+#         fields = "__all__"

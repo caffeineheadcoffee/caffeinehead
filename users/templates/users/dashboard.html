@@ -1,0 +1,86 @@
+<style>
+    .asteriskField{
+        color: red;
+    }
+    #id_phone_number_0{
+        width: 150px;
+    }
+    #id_phone_number_1{
+        margin-top: 10px;
+        width: 300px;
+    }
+    @media only screen and (max-width: 768px) {
+      .responsive {
+        width: 100%;
+        height: auto;
+      }
+    }
+</style>
+
+  
+  {% extends 'layout.html' %} {% load static %} {% block title %}
+  <title>Caffeinehead - Homepage</title>
+  {% endblock%} 
+  {% load bootstrap %}
+  {% load crispy_forms_tags %}
+
+{% block main_content %}
+
+ <!-- Main Cover Container -->
+ <div class="cover-container container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-7 d-flex flex-column gap-4">
+        <p class="cover-title-1 m-0">Services</p>
+        <div class="cover-title-3">
+          Our services are designed with you in mind. Whether you're looking for
+          expert guidance in technology, creative solutions in design, or
+          dependable support in consulting, we have you covered. Our team of
+          experienced professionals is committed to delivering top-notch services
+          that meet your unique needs. From concept to completion, we're here to
+          help you achieve your goals and exceed your expectations. Explore our
+          range of services and let us be your partner in success.
+        </div>
+      </div>
+      <div class="col-md-5 d-flex justify-content-center align-items-center">
+        <img
+          class="w-100"
+          src="{% static 'images/ServicesCoverImage.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+  </div>
+
+<div class="d-flex justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text-center text-success">Contact Form</h2>
+        {% for msg in messages %}
+        {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+
+        {% endif%}
+
+        {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger">
+            {{ msg }}
+        </div>
+
+        {% endif%}
+
+        {% endfor %}
+        <form action="" method="post" class="shadow-lg p-3" enctype="multipart/form-data">
+             <!-- to send data in secure way -->
+             {% csrf_token %}
+             {{ form | crispy }}
+             <div class="mt-3">
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+             </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock%}
+  
