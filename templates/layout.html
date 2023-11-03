@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
- {% load static %} {% block title %} {{ section.title }} {% endblock %}
+
+    {% url 'home' as home %}
+    {% url 'about' as about %}
+    {% url 'services' as services %}
+    {% url 'products' as products %}
+    {% url 'contact' as contact %}
+    {% load static %} {% block title %} {{ section.title }} {% endblock %}
 
     <!-- bootstrap only -->
 
@@ -43,43 +48,7 @@
         <ul
           class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
         >
-          <!-- <li class="d-flex flex-column align-items-end">
-            <a
-              href="/"
-              class="nav-link "
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              class="nav-link"
-              >Our Story</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              class="nav-link"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              class="nav-link "
-              >Merch</a
-            >
-          </li>
-
-          <li>
-            <a
-              href="/"
-              class="nav-link "
-              >Contact Us</a
-            >
-          </li> -->
-
+        <li>
           <a href="{% url 'home' %}" class="nav-link {% if request.path == home %} active {% endif %}">Home</a>
           </li>
           <li>
