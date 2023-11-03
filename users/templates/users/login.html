@@ -1,81 +1,80 @@
 <style>
     .asteriskField {
-        color: red;
+        color: var(--danger);
     }
 </style>
 
 {% extends 'layout.html' %}
+{% load static %}
 {% load bootstrap %}
+{% block title %}
+<title>Caffeinehead - Sign In</title>
+{% endblock%}
 {% load crispy_forms_tags %}
-
 {% block main_content %}
 
-<section class="bg-image"
-    style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-    <div class="mask d-flex align-items-center gradient-custom-3">
-        <div class="container my-4 ">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-sm-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Login your account</h2>
-
-
-                            <form method="POST">
-                                {% csrf_token %}
-                                <div class="row mb-3">
-                                    <label for="email" class="col-sm-2 col-md-12 form-label">Email</label>
-                                    <div class="col-sm-10 col-md-12">
-                                        <input type="email" class="form-control" id="email" name="email" required
-                                            autofocus>
-
-                                        {% for field in login_form %}
-                                        {% if field.label == "Email" %}
-                                        {% for error in field.errors %}
-                                        <p style="color: red;">{{ error }}</p>
-                                        {% endfor %}
-                                        {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="password" class="col-sm-2 col-md-12 form-label">Password</label>
-                                    <div class="col-sm-10 col-md-12">
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            required>
-                                        {% for field in login_form %}
-                                        {% if field.label == "Password" %}
-                                        {% for error in field.errors %}
-                                        <p style="color: red;">{{ error }}</p>
-                                        {% endfor %}
-                                        {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                {% if login_form.non_field_errors %}
-                                <div style="color: red;">
-                                    <p>{{ login_form.non_field_errors }}</p>
-                                </div>
-                                {% endif %}
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Sign
-                                        In</button>
-                                </div>
-                                <p class="text-center text-muted mt-3 mb-0"><a href="" class="fw-bold text-body">Forgot
-                                        password?</a></p>
-                                <p class="text-center text-muted mt-3 mb-0">Wanna become regisered User? <a
-                                        href="/register" class="fw-bold text-body"><u>Register Here</u></a></p>
-                            </form>
-                        </div>
-                    </div>
+<section>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-sm-10 col-md-7 col-lg-5 col-xl-4 login-card">
+                <div class="d-flex gap-2 flex-column">
+                    <h2 class="text-center bold f-32 m-0 text-color">Welcome Back</h2>
+                    <p class="regular text-center f-16 text-color m-0">Enter your credentials to access your account</p>
                 </div>
+                <button class="third-party-btn">
+                    <img src="{% static 'images/MetaMask_Fox.png' %}" alt="..."/>Sign in with Metamask
+                </button>
+                <div class="row line-header w-100">
+                    <div class="col-md neutral-400-bg"></div>
+                    <p class="col-md-auto f-14 regular neutral-500-color m-0 text-center">
+                        or
+                    </p>
+                    <div class="col-md neutral-400-bg"></div>
+                </div>
+                <form method="POST" class="login-form w-100">
+                {% csrf_token %}
+                        <div class="col-sm-10 col-md-12 w-100">
+                            <input type="email" class="text-box form-control w-100" id="email" placeholder="Email" name="email" required>
+                            {% for field in login_form %}
+                                {% if field.label == "Email" %}
+                                    {% for error in field.errors %}
+                                        <p style="color: var(--danger);">{{ error }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-sm-10 col-md-12 w-100">
+                            <input type="password" class="text-box form-control w-100" id="password" placeholder="Password" name="password" required>
+                            {% for field in login_form %}
+                                {% if field.label == "Password" %}
+                                    {% for error in field.errors %}
+                                        <p style="color: var(--danger);">{{ error }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% if login_form.non_field_errors %}
+                        <div style="color: var(--danger);">
+                            <p>{{ login_form.non_field_errors }}</p>
+                        </div>
+                    {% endif %}
+                    <div class="row justify-content-between">
+                        <div class="col-md align-items-center d-flex gap-2">
+                            <input type="checkbox" class="form-check-input mt-0" id="exampleCheck1">
+                            <label class="form-check-label f-14 regular text-color" for="exampleCheck1">Remember me</label>
+                        </div>
+                        <a href="" class="col-md-auto bold link-btn f-14 text-color">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="primary-btn w-100">Sign In</button>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <p class="text-center text-muted m-0 f-14 text-color">Don’t have an account?</p>
+                        <a href="/register" class="f-14 float-none link-btn primary-color">
+                            Join Now
+                        </a>  
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
-
-
-
 {% endblock%}
