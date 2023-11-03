@@ -1,0 +1,183 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Caffeinehead - Services</title>
+{% endblock%} {% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Cyber Security Training for Hospitality</p>
+      <div class="cover-title-3">
+        Cybersecurity training for the hospitality industry is a specialized
+        program designed to educate employees, managers, and stakeholders within
+        hotels, resorts, restaurants, and other hospitality establishments about
+        the importance of cybersecurity and how to protect sensitive guest
+        information and critical business data from cyber threats. With the
+        increasing reliance on technology in the hospitality sector, such
+        training is essential to safeguard customer privacy and maintain the
+        trust of guests.
+      </div>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-50"
+        src="{% static 'images/Cyber Security Training for Hospitality.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Services Part Start -->
+
+<div class="services-container">
+  <div class="container">
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        Detailed Description
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <div class="service-card">
+      <h3>1. Training Objectives</h3>
+      <ul class="disc-list text-color">
+        <li>
+          Understanding Cyber Threats: The training program aims to provide
+          participants with a comprehensive understanding of the various cyber
+          threats that hospitality businesses face, including phishing attacks,
+          malware, data breaches, and social engineering.
+        </li>
+        <li>
+          Guest Data Protection: It emphasizes the importance of protecting
+          guest data, such as personal information, credit card details, and
+          booking records, and educates employees on their role in securing this
+          data.
+        </li>
+        <li>
+          Secure Payment Processing: Training covers secure payment processing
+          methods, PCI DSS (Payment Card Industry Data Security Standard)
+          compliance, and best practices for handling payment information.
+        </li>
+        <li>
+          Email and Communication Security: Participants learn how to recognize
+          phishing emails and the importance of secure communication channels in
+          preventing cyberattacks.
+        </li>
+        <li>
+          Password Management: The training program instructs employees on the
+          importance of strong, unique passwords and secure password management
+          practices.
+        </li>
+        <li>
+          Physical Security: It includes information on physical security
+          measures, such as securing computer terminals and restricting access
+          to server rooms or data centers.
+        </li>
+        <li>
+          Incident Response: Employees are trained on how to recognize and
+          report security incidents promptly and appropriately.
+        </li>
+        <li>
+          Data Backup and Recovery: Participants learn the significance of
+          regular data backups and the steps to take in the event of data loss
+          or a ransomware attack.
+        </li>
+        <li>
+          Social Media and Online Presence: The training may cover the
+          responsible use of social media and the potential risks associated
+          with sharing information online.
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h3>2. Training Methods</h3>
+      <ul class="disc-list text-color">
+        <li>
+          Instructor-Led Sessions: Cybersecurity training can be conducted
+          through in-person or virtual instructor-led sessions, where
+          participants interact with a knowledgeable trainer.
+        </li>
+        <li>
+          E-Learning Modules: Online courses and e-learning modules offer
+          flexibility, allowing employees to complete training at their own
+          pace.
+        </li>
+        <li>
+          Simulations and Exercises: Realistic cybersecurity simulations and
+          tabletop exercises can help employees practice responding to cyber
+          incidents.
+        </li>
+        <li>
+          Role-Based Training: Tailored training programs may be developed for
+          different roles within the hospitality industry, such as front-desk
+          staff, IT personnel, and managers.
+        </li>
+        <li>
+          Testing and Assessments: Periodic assessments and quizzes help measure
+          the effectiveness of the training and identify areas that may require
+          additional focus.
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h3>3. Benefits of Cybersecurity Training for Hospitality</h3>
+      <ul class="disc-list text-color">
+        <li>
+          Data Protection: Training reduces the risk of data breaches and helps
+          protect guest information, ensuring compliance with data protection
+          regulations.
+        </li>
+        <li>
+          Guest Trust: Enhanced cybersecurity measures demonstrate a commitment
+          to guest privacy and security, building trust and loyalty.
+        </li>
+        <li>
+          Cost Savings: Prevention of cyber incidents can lead to significant
+          cost savings associated with data breach remediation.
+        </li>
+        <li>
+          Compliance: Training helps hospitality establishments meet legal and
+          regulatory requirements related to data protection and cybersecurity.
+        </li>
+        <li>
+          Reputation Management: Effective cybersecurity measures and employee
+          training contribute to a positive brand image and reputation.
+        </li>
+        <li>
+          Business Continuity: Preparedness for cyber incidents ensures
+          uninterrupted operations and guest services.
+        </li>
+      </ul>
+    </div>
+
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        In Summary
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <p class="f-16 regular text-color m-0 text-center">
+      Cybersecurity training for the hospitality industry is crucial to protect
+      guest data, maintain trust, and mitigate the financial and reputational
+      risks associated with cyber threats. It equips employees and management
+      with the knowledge and skills needed to defend against cyberattacks and
+      respond effectively in the event of a security incident.
+    </p>
+  </div>
+</div>
+
+<!-- Services Part end -->
+{% endblock%}
