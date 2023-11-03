@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
+    <<<<<<< HEAD
 
     <!-- home url -->
     {% url 'home' as home %}
@@ -17,14 +17,10 @@
     <!-- contact url -->
     {% url 'contact' as contact %}
     <!-- load static -->
-=======
-    {% url 'home' as home %}
-    {% url 'about' as about %}
-    {% url 'services' as services %}
-    {% url 'products' as products %}
-    {% url 'contact' as contact %}
->>>>>>> 3d5d0b90940b58cf0c723bb7b3f5947889e96060
-    {% load static %} {% block title %} {{ section.title }} {% endblock %}
+    ======= {% url 'home' as home %} {% url 'about' as about %} {% url
+    'services' as services %} {% url 'products' as products %} {% url 'contact'
+    as contact %} >>>>>>> 3d5d0b90940b58cf0c723bb7b3f5947889e96060 {% load
+    static %} {% block title %} {{ section.title }} {% endblock %}
 
     <!-- bootstrap only -->
 
@@ -63,7 +59,7 @@
           class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
         >
           <li class="d-flex flex-column align-items-end">
-<<<<<<< HEAD
+            <<<<<<< HEAD
             <a
               href="/"
               class="nav-link {% if request.path == home %} active {% endif %}"
@@ -98,22 +94,42 @@
               class="nav-link {% if request.path == contact %} active {% endif %}"
               >Contact Us</a
             >
-=======
-            <a href="{% url 'home' %}" class="nav-link {% if request.path == home %} active {% endif %}">Home</a>
+            =======
+            <a
+              href="{% url 'home' %}"
+              class="nav-link {% if request.path == home %} active {% endif %}"
+              >Home</a
+            >
           </li>
           <li>
-            <a href="{% url 'about' %}" class="nav-link {% if request.path == about %} active {% endif %}">Our Story</a>
+            <a
+              href="{% url 'about' %}"
+              class="nav-link {% if request.path == about %} active {% endif %}"
+              >Our Story</a
+            >
           </li>
           <li>
-            <a href="{% url 'services' %}" class="nav-link {% if  request.path == services %} active {% endif %}">Services</a>
+            <a
+              href="{% url 'services' %}"
+              class="nav-link {% if request.path == services %} active {% endif %}"
+              >Services</a
+            >
           </li>
           <li>
-            <a href="{% url 'products' %}" class="nav-link {% if request.path == products %} active {% endif %}">Merch</a>
+            <a
+              href="{% url 'products' %}"
+              class="nav-link {% if request.path == products %} active {% endif %}"
+              >Merch</a
+            >
           </li>
 
           <li>
-            <a href="{% url 'contact' %}" class="nav-link {% if request.path == contact %} active {% endif %}">Contact Us</a>
->>>>>>> 3d5d0b90940b58cf0c723bb7b3f5947889e96060
+            <a
+              href="{% url 'contact' %}"
+              class="nav-link {% if request.path == contact %} active {% endif %}"
+              >Contact Us</a
+            >
+            >>>>>>> 3d5d0b90940b58cf0c723bb7b3f5947889e96060
           </li>
         </ul>
 
