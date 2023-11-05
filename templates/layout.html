@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- home url -->
     {% url 'home' as home %}
+    <!-- about url -->
     {% url 'about' as about %}
+    <!-- services url -->
     {% url 'services' as services %}
+    <!-- products url -->
     {% url 'products' as products %}
+    <!-- contact url -->
     {% url 'contact' as contact %}
+    <!-- load static -->
     {% load static %} {% block title %} {{ section.title }} {% endblock %}
 
     <!-- bootstrap only -->
