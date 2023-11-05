@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import *
 from products.models import *
 from .filters import *
+from products .forms import *
+from django.contrib.auth.decorators import login_required
 
 def register_user(request):
     if request.method == "POST":
@@ -25,6 +27,27 @@ def register_user(request):
         "registration_form": form,
     }
     return render(request, "users/register.html", context)
+
+def update_user(request,user_id):
+    instance = User.objects.get(id=user_id)
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'Profile updated')
+            return redirect('/users/dashboard')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'users/dashboard.html',{
+                'form':form
+            })
+    context={
+        'form':RegistrationForm(instance=instance)
+    }
+
+    return render(request,'users/dashboard.html',context)
+
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -113,5 +136,87 @@ def aboutus(request):
         'members':members
     }
     return render(request, 'users/aboutus.html', context)
+
+def services(request):
+    return render(request, 'users/services.html')
+
+def services_contractRoasting(request):
+    return render(request, 'users/services_contractRoasting.html')
+
+def services_Wholesale(request):
+    return render(request, 'users/services_Wholesale.html')
+
+def services_POS(request):
+    return render(request, 'users/services_POS.html')
+
+def services_Appdev(request):
+    return render(request, 'users/services_Appdev.html')
+
+def services_MSP(request):
+    return render(request, 'users/services_MSP.html')
+
+def services_CyberSecurity(request):
+    return render(request, 'users/services_CyberSecurity.html')
+
+def services_CoffeeCocktails(request):
+    return render(request, 'users/services_CoffeeCocktails.html')
+
+def contact(request):
+    return render(request, 'users/contact.html')
+
+def process_payment(request):
+    order_id = request.session.get('order_id')
+    order = get_object_or_404(Order, id=order_id)
+    host = request.get_host()
+    
+
+    paypal_dict = {
+        'business': "sb-pmllk26578065@business.example.com",
+        'amount': '%.2f' % order.total_cost().quantize(
+            Decimal('.01')),
+        'item_name': 'Order {}'.format(order.id),
+        'invoice': str(order.id),
+        'currency_code': 'USD',
+        'notify_url': 'http://{}{}'.format(host,
+                                           reverse('paypal-ipn')),
+        'return_url': 'http://{}{}'.format(host,
+                                           reverse('payment_done')),
+        'cancel_return': 'http://{}{}'.format(host,
+                                              reverse('payment_cancelled')),
+    }
+    
+
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    print(form)
+    return render(request, 'users/aboutus.html', {'order': order, 'form': form})
+
+
+@csrf_exempt
+def payment_done(request):
+    return render(request, 'users/payment_done.html')
+
+
+@csrf_exempt
+def payment_canceled(request):
+    return render(request, 'users/payment_cancelled.html')
+
+
+
+def save_contact(request):
+    if request.method == "POST":
+        form = Contact_usForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Contact added')
+            return redirect('/contact')
+        else:
+            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
+            return render(request,'users/contact.html',{
+                'form':form
+            })        
+    context = {
+            'form':Contact_usForm
+        }
+    return render(request,'users/contact.html',context)
 
 
