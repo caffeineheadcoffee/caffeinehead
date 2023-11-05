@@ -79,7 +79,7 @@ def logout_user(request):
     return redirect('/login')
 
 def homepage(request):
-    products = Product.objects.all().order_by('-id')[:9]
+    products = Product.objects.all().order_by('-id')[:4]
     coverimage = Imageslider.objects.all()
     if request.user.is_authenticated:
         user = request.user
