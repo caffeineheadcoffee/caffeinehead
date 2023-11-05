@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import *
 from django.core import validators
+from phonenumber_field.modelfields import PhoneNumberField
 # from djongo import models
 
 User = get_user_model()
@@ -55,6 +56,10 @@ class Order(models.Model):
 
     
 class Member(models.Model):
+    ROLE = (
+        ('Main','Main'),
+        ('Other','Other'),
+    )
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     image = models.FileField(upload_to='static/uploads')
@@ -62,6 +67,7 @@ class Member(models.Model):
     facebook = models.URLField(max_length=200)
     twitter = models.URLField(max_length=200)
     linkdin = models.URLField(max_length=200)
+    role = models.CharField(max_length=100, choices=ROLE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Aboutus(models.Model):
@@ -74,3 +80,19 @@ class Aboutus(models.Model):
 
 class Imageslider(models.Model):
     image = models.FileField(upload_to='static/uploads')
+
+class Service(models.Model):
+    service_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.service_name
+
+class Contact_us(models.Model):
+    full_name = models.CharField(max_length=250)
+    email = models.EmailField()
+    address = models.CharField(max_length=250)
+    phone_number = PhoneNumberField()
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, default=1)
+
+    def __str__(self):
+        return self.full_name

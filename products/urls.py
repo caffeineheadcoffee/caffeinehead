@@ -28,9 +28,13 @@ urlpatterns=[
     path('member/', views.show_member),
     path('aboutus/', views.show_aboutus),
     path('coverimage/', views.show_coverimage),
-     path('payment-success/', views.payment_success, name='payment-success'),
-    path('payment-failed/', views.payment_failed, name='payment_failed'),
-    path('complete/', views.complete_order, name='complete'),
+    path('addservice/', views.post_service),
+    path('contact/', views.show_contact),
+    path('service/', views.show_service),
+    path('updatecontact/<int:contact_us_id>', views.update_contactus),
+    path('deletecontact/<int:contact_us_id>', views.delete_contact),
+    path('updateservice/<int:service_id>', views.update_service),
+    path('deleteservice/<int:service_id>', views.delete_service),
     
     
 ]
