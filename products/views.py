@@ -15,7 +15,6 @@ from django.conf import settings
 from decimal import Decimal
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
-import json
 
 
 # Create your views here.
@@ -124,6 +123,26 @@ def post_coverimage(request):
             'form':ImagesliderForm
         }
     return render(request,'products/addcoverimage.html',context)
+
+@login_required
+@admin_only
+def post_service(request):
+    if request.method == "POST":
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Service added')
+            return redirect('/products/addservice')
+        else:
+            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
+            return render(request,'products/addservice.html',{
+                'form':form
+            })        
+    context = {
+            'form':ServiceForm
+        }
+    return render(request,'products/addservice.html',context)
+
 
 @login_required
 @admin_only
@@ -316,7 +335,7 @@ def add_to_cart(request,product_id):
     check_item_presence = Cart.objects.filter(user=user,product=product)
     if check_item_presence:
         messages.add_message(request,messages.ERROR,'Product is already present in the cart')
-        return redirect('/allproducts')
+        return redirect('/products')
 
     else:
         cart = Cart.objects.create(product=product,user=user)
@@ -379,7 +398,7 @@ def order_item_form(request,product_id,cart_id):
                     'order':order,
                     'cart': cart_item
                 }
-                return render(request,'users/paypal_payment.html',context)
+                return render(request,'users/process_payment.html',context)
 
             else:
                 message.add_message(request,messages.ERROR,'Something went wrong')
@@ -391,35 +410,8 @@ def order_item_form(request,product_id,cart_id):
     return render(request, 'users/orderform.html', context)
 
 
-def paypal_request(request):
-   o_id = request.GET.get("o_id")
-   order = Order.objects.get(id=o_id)
-   context = {
-    "order": order
-   }
-   return render(request, "paypal_payment.html", context)
-
-def complete_order(request):
-    body = json.loads(request.body)
-    o_id = request.GET.get('oid')
-    print('oid:', body)
-    Order.objects.filter(id=body['orderID']).update(payment_status=True)
-    cart = Cart.objects.get(id=body['cartID'])
-    cart.delete()
-    return JsonResponse('Payment completed!', safe=False)
-
-    
 
 
-def payment_success(request):
-   
-     messages.add_message(request,messages.SUCCESS,'Payment Successfull and Your is Order is ready to go.')
-     return redirect('/products/my_order')
-
-
-def payment_failed(request):
-
-    return render(request, 'users/payment_failed.html')
 
 @login_required
 def my_order(request):
@@ -441,4 +433,80 @@ def all_order(request):
     return render(request,'products/allorders.html',context)
 
 
+@login_required
+@admin_only
+def show_contact(request):
+    contacts = Contact_us.objects.all()
+    context = {
+        'contacts': contacts
+    }
+    return render(request, 'products/contactlist.html', context)
+
+
+@login_required
+@admin_only
+def show_service(request):
+    services = Service.objects.all()
+    context = {
+        'services':services
+    }
+    return render(request, 'products/servicelist.html', context)
+
+@login_required
+@admin_only
+def update_contactus(request,contact_us_id):
+    instance = Contact_us.objects.get(id=contact_us_id)
+    if request.method == 'POST':
+        form = Contact_usForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'contact updated')
+            return redirect('/products/contact')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'products/updatecontact.html',{
+                'form':form
+            })
+    context={
+        'form':Contact_usForm(instance=instance)
+    }
+
+    return render(request,'products/updatecontact.html',context)
+
+@login_required
+@admin_only
+def update_service(request,service_id):
+    instance = Service.objects.get(id=service_id)
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'service updated')
+            return redirect('/products/service')
+        else:
+            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
+            return render(request,'products/updateservice.html',{
+                'form':form
+            })
+    context={
+        'form':ServiceForm(instance=instance)
+    }
+
+    return render(request,'products/updateservice.html',context)
+
+@login_required
+@admin_only
+def delete_contact(request, contact_us_id):
+    contacts=Contact_us.objects.get(id=contact_us_id)
+    contacts.delete()
+    messages.add_message(request,messages.SUCCESS,'Contact Deleted')
+    return redirect('/products/contact')
+
+@login_required
+@admin_only
+def delete_service(request,service_id):
+    services=Service.objects.get(id=service_id)
+    services.delete()
+    messages.add_message(request,messages.SUCCESS,'Service Deleted')
+    return redirect('/products/service')
 
