@@ -1,6 +1,6 @@
 <style>
   .asteriskField{
-      color: red;
+      color: var(--danger);
   }
   #id_phone_number_0{
       width: 150px;
@@ -32,28 +32,28 @@
     <div class="col-md-7 d-flex flex-column gap-4">
       <p class="cover-title-1 m-0">Contact Us</p>
       <div class="cover-title-3">
-        Our services are designed with you in mind. Whether you're looking for
-        expert guidance in technology, creative solutions in design, or
-        dependable support in consulting, we have you covered. Our team of
-        experienced professionals is committed to delivering top-notch services
-        that meet your unique needs. From concept to completion, we're here to
-        help you achieve your goals and exceed your expectations. Explore our
-        range of services and let us be your partner in success.
-      </div>
+        Get in touch with us easily through our contact form, email, or phone. We're here to assist you with any questions or feedback you have. Your inquiries are important to us, and we'll respond promptly. We look forward to hearing from you!</div>
+      <a href="/" class="btn primary-btn f-16">JOIN US</a>
     </div>
     <div class="col-md-5 d-flex justify-content-center align-items-center">
       <img
-        class="w-100"
-        src="{% static 'images/ServicesCoverImage.png' %}"
+        class="w-80"
+        src="{% static 'images/contactus.png' %}"
         alt="..."
       />
     </div>
   </div>
 </div>
 
-<div class="d-flex justify-content-center">
-  <div class="col-md-6">
-      <h2 class="text-center text-success">Contact Form</h2>
+<div class="p-50 off-white-bg coffee-bg-brown">
+  <div class="container justify-content-center">
+
+    <div class="col-md-12 d-flex justify-content-center align-items-center flex-column">
+      <p class="sub-heading secondary-color">Contact Form</p>
+    </div>
+
+    <div class="row pt-5 d-flex align-items-center justify-content-center">
+     <div class="col-sm-12 col-md-9 col-lg-7 col-xl-6 contact-form">
       {% for msg in messages %}
       {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
       <div class="alert alert-success">
@@ -70,14 +70,17 @@
       {% endif%}
 
       {% endfor %}
-      <form action="" method="post" class="shadow-lg p-3" enctype="multipart/form-data">
+      <form action="" method="post"  enctype="multipart/form-data">
            <!-- to send data in secure way -->
            {% csrf_token %}
            {{ form | crispy }}
-           <div class="mt-3">
-              <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+           <div>
+              <input type="submit" name="submit" value="Submit" class=" w-100 secondary-btn">
            </div>
       </form>
+    </div>
+    </div>
+      
   </div>
 </div>
 

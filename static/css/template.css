@@ -19,9 +19,9 @@ ul {
 .latest-products,
 .subscribe-section,
 .promo-icon,
-.our-team {
-  background-color: var(--primary);
-  color: var(--white);
+.our-team{
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
 }
 
 .subscribe-section {
@@ -478,6 +478,16 @@ a {
   background-color: var(--neutral-100);
   padding: 10px 20px;
   border-radius: 3px;
+}
+
+.contact-form form{
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.contact-form form .mb-3{
+  margin-bottom: 0 !important;
 }
 
 /* Responsive Style */

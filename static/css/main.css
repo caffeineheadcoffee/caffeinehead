@@ -126,6 +126,10 @@
   background-color: var(--white) !important;
 }
 
+.off-white-bg{
+  background-color: var(--secondary-50) !important;
+}
+
 .neutral-100-bg {
   background-color: var(--neutral-100) !important;
 }
@@ -133,6 +137,13 @@
 /* Image Background*/
 .coffee-bg {
   background-image: url(../images/Bg-object.png), url(../images/Bg-object.png);
+  background-position: right -1% bottom -2%, left -1% top -3%;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 116px;
+}
+
+.coffee-bg-brown {
+  background-image: url(../images/Bg-object-brown.png), url(../images/Bg-object-brown.png);
   background-position: right -1% bottom -2%, left -1% top -3%;
   background-repeat: no-repeat, no-repeat;
   background-size: 116px;
@@ -171,7 +182,9 @@
 /* Button */
 
 .primary-btn,
-.primary-btn:hover {
+.primary-btn:hover,
+.secondary-btn,
+.secondary-btn:hover {
   padding: 7px 16px;
   display: flex;
   justify-content: center;
@@ -190,6 +203,14 @@
 
 .primary-btn:hover {
   background-color: var(--primary-light) !important;
+}
+
+.secondary-btn{
+  background-color: var(--secondary);
+}
+
+.secondary-btn:hover{
+  background-color: var(--secondary-light) !important;
 }
 
 .primary-ghost-btn,

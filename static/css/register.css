@@ -64,8 +64,12 @@
         gap: 30px;
     }
 
-    .text-box{
-        background: transparent;
+    .text-box,
+    .textinput,
+    .emailinput,
+    .phoneprefixselect,
+    .select{
+        background-color: transparent;
         border: none !important;
         color: var(--text-color) !important;
         font-size: 14px;
@@ -76,7 +80,15 @@
     }
 
     .text-box:focus,
-    .text-box:hover{
+    .text-box:hover,
+    .textinput:focus,
+    .emailinput:focus,
+    .phoneprefixselect:focus,
+    .select:focus,
+    .textinput:hover,
+    .emailinput:hover,
+    .phoneprefixselect:hover,
+    .select:hover{
         border-bottom: 1px solid var(--primary) !important;
         color: var(--text-color) !important;
         background-color: transparent !important;
@@ -89,8 +101,14 @@
         color: var(--text-color) !important;
     }
 
-    .text-box::placeholder{
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--neutral-500);
+    .text-box::placeholder,
+    .form-label{
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        color: var(--neutral-500) !important;
+        margin: 0 !important;
+    }
+
+    .form-label{
+        margin-bottom: -3px !important;
     }
