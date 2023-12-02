@@ -1,0 +1,6 @@
+-r base.txt
+-r local.txt
+
+# requirements for deployment
+gunicorn==21.2.0
+Collectfast==2.2.0
