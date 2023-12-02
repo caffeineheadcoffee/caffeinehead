@@ -36,7 +36,6 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.postgres",
-    "django.contrib.gis",
 ]
 
 THIRD_PARTY_APPS = [
