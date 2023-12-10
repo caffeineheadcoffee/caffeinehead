@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, \
     get_object_or_404, reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 from paypal.standard.forms import PayPalPaymentsForm
 
 from .filters import *
@@ -79,59 +80,71 @@ def logout_user(request):
     return redirect('/login')
 
 
-def homepage(request):
-    products = Product.objects.all().order_by('-id')[:4]
-    coverimage = ImageSlider.objects.all()
-    if request.user.is_authenticated:
-        user = request.user
+class HomePageView(TemplateView):
+    template_name = 'users/index.html'
 
-        context = {
-            'products': products,
-            'coverimage': coverimage,
-
-        }
-        return render(request, 'users/index.html', context)
-    context = {
-        'products': products,
-        'coverimage': coverimage,
-    }
-    return render(request, 'users/index.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(HomePageView, self).get_context_data(**kwargs)
+        context['products_list'] = Product.objects.all().order_by('-id')[:4]
+        context['cover_images'] = ImageSlider.objects.all()
+        return context
 
 
-def productpage(request):
-    products = Product.objects.all()
-    category = Category.objects.all().order_by('-id')
-    product_filter = ProductFilter(request.GET, queryset=products)
-    category_filter = CategoryFilter(request.GET, queryset=category)
-    product_final = product_filter.qs
-    category_final = category_filter.qs
-    if request.user.is_authenticated:
-        user = request.user
-        items = Cart.objects.filter(user=user)
-        context = {
-            'products': products,
-            'items': items,
-            'product_filter': product_filter,
-            'category': category_final
-        }
-        return render(request, 'users/products.html', context)
-    context = {
-        'products': product_final,
-        'product_filter': product_filter,
-        'category': category_final
-    }
-    return render(request, 'users/products.html', context)
+class AllProductPageView(TemplateView):
+    template_name = 'users/products.html'
+
+    def get_context_data(self, **kwargs):
+        products = Product.objects.all()
+        category = Category.objects.all().order_by('-id')
+        context = super(AllProductPageView, self).get_context_data(**kwargs)
+        context.update({
+            'product_list': ProductFilter(self.request.GET, queryset=products).qs,
+            'product_filter': ProductFilter(self.request.GET, queryset=products),
+            'category': CategoryFilter(self.request.GET, queryset=category).qs
+        })
+        if self.request.user.is_authenticated:
+            items = Cart.objects.filter(user=self.request.user)
+            context.update({
+                'items': items,
+            })
+        return context
 
 
-def product_details(request, product_id):
-    products = Product.objects.get(id=product_id)
-    product = Product.objects.all().order_by('-id')[:3]
-    context = {
-        'products': products,
-        'product': product
-    }
+# def productpage(request):
+#     products = Product.objects.all()
+#     category = Category.objects.all().order_by('-id')
+#     product_filter = ProductFilter(request.GET, queryset=products)
+#     category_filter = CategoryFilter(request.GET, queryset=category)
+#     product_final = product_filter.qs
+#     category_final = category_filter.qs
+#     if request.user.is_authenticated:
+#         user = request.user
+#         items = Cart.objects.filter(user=user)
+#         context = {
+#             'products': products,
+#             'items': items,
+#             'product_filter': product_filter,
+#             'category': category_final
+#         }
+#         return render(request, 'users/products.html', context)
+#     context = {
+#         'products': product_final,
+#         'product_filter': product_filter,
+#         'category': category_final
+#     }
+#     return render(request, 'users/products.html', context)
 
-    return render(request, 'users/productdetails.html', context)
+
+class ProductDetailView(TemplateView):
+    template_name = 'users/productdetails.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetailView, self).get_context_data(**kwargs)
+        context.update({
+            'product_list': Product.objects.all()[:3],
+            'product': Product.objects.get(pk=self.kwargs['product_id'])
+        })
+        return context
 
 
 def aboutus(request):

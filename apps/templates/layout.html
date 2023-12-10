@@ -64,9 +64,9 @@
           <li>
             <a href="{% url 'services' %}" class="nav-link {% if  request.path == services %} active {% endif %}">Services</a>
           </li>
-          <li>
-            <a href="{% url 'products' %}" class="nav-link {% if request.path == products %} active {% endif %}">Merch</a>
-          </li>
+{#          <li>#}
+{#            <a href="{% url 'all-products' %}" class="nav-link {% if request.path == all_products %} active {% endif %}">Merch</a>#}
+{#          </li>#}
 
           <li>
             <a href="{% url 'contact' %}" class="nav-link {% if request.path == contact %} active {% endif %}">Contact Us</a>

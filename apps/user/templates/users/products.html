@@ -40,16 +40,16 @@
           </div>
         </div>
         <div class="row grid">
-          {% for product in products %}
+          {% for product in product_list %}
           <div class="col-md-3">
             <div class="product-item ele-1">
               <img
                 class="ele-1 position-absolute start-50 translate-middle-x"
-                src="/{{ product.image }}"
+                src="{{ MEDIA_URL }}{{ product.image }}"
                 alt="{{ product.product_name }}"
               />
               <a
-                href="/productdetails/{{product.id}}"
+                href="{% url 'product-detail' product.id %}"
                 class="hidden primary-ghost-btn f-14 w-100"
                 >View Details
                 <i class="fa fa-angle-right fa-2"></i>
@@ -97,11 +97,11 @@
             <div class="product-item ele-1">
               <img
                 class="ele-1 position-absolute start-50 translate-middle-x"
-                src="/{{ product.image }}"
+                src="{{ MEDIA_URL }}{{ product.image }}"
                 alt="{{ product.product_name }}"
               />
               <a
-                href="/productdetails/{{product.id}}"
+                href="{% url 'product-detail' product.id %}"
                 class="hidden primary-ghost-btn f-14 w-100"
                 >View Details
                 <i class="fa fa-angle-right fa-2"></i>
@@ -153,7 +153,7 @@
                 alt="{{ product.product_name }}"
               />
               <a
-                href="/productdetails/{{product.id}}"
+                href="{% url 'product-detail' product.id %}"
                 class="hidden primary-ghost-btn f-14 w-100"
                 >View Details
                 <i class="fa fa-angle-right fa-2"></i>
@@ -205,7 +205,7 @@
                 alt="{{ product.product_name }}"
               />
               <a
-                href="/productdetails/{{product.id}}"
+                href="{% url 'product-detail' product.id %}"
                 class="hidden primary-ghost-btn f-14 w-100"
                 >View Details
                 <i class="fa fa-angle-right fa-2"></i>

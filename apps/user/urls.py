@@ -6,9 +6,21 @@ urlpatterns = [
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('dashboard/<int:user_id>', views.update_user, name='dashboard'),
-    path('', views.homepage, name='home'),
-    path('allproducts/', views.productpage, name='products'),
-    path('productdetails/<int:product_id>', views.product_details, name='productdetail'),
+    path(
+        '',
+        views.HomePageView.as_view(),
+        name='home'
+    ),
+    path(
+        'all-products/',
+        views.AllProductPageView.as_view(),
+        name='all-products'
+    ),
+    path(
+        'product/<int:product_id>/product-detail',
+        views.ProductDetailView.as_view(),
+        name='product-detail'
+    ),
     path('about/', views.aboutus, name='about'),
     path('services/', views.services, name='services'),
     path('services_contractRoasting/', views.services_contractRoasting),
