@@ -47,7 +47,7 @@ ul {
   background-color: var(--white);
   display: flex;
   padding: 30px;
-  padding-top: 130%;
+  padding-top: 100%;
   gap: 20px;
   border-radius: 10px;
   flex-direction: column;
