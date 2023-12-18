@@ -10,7 +10,7 @@ urlpatterns=[
     path('category/', views.show_category),
     path('updatecategory/<int:category_id>',views.update_category),
     path('deletecategory/<int:category_id>',views.delete_category),
-    path('add_to_cart/<int:product_id>',views.add_to_cart),
+    path('add_to_cart/<int:product_id>',views.add_to_cart,name="add_to_cart"),
     path('mycart',views.show_cart_item),
     path('deletecartitems/<int:cart_id>', views.remove_cart_item),
     path('orderitemform/<int:product_id>/<int:cart_id>', views.order_item_form),
@@ -35,6 +35,8 @@ urlpatterns=[
     path('deletecontact/<int:contact_us_id>', views.delete_contact),
     path('updateservice/<int:service_id>', views.update_service),
     path('deleteservice/<int:service_id>', views.delete_service),
-    
+    path('payment-success/', views.payment_success, name='payment-success'),
+    path('payment-failed/', views.payment_failed, name='payment_failed'),
+    path('complete/', views.complete_order, name='complete'),
     
 ]
