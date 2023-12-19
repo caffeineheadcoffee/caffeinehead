@@ -12,7 +12,7 @@
     <!-- services url -->
     {% url 'services' as services %}
     <!-- products url -->
-    {% url 'products' as products %}
+    {% url 'all-products' as all_products %}
     <!-- contact url -->
     {% url 'contact' as contact %}
     <!-- load static -->
@@ -105,7 +105,7 @@
 
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
               <li>
                 <a class="dropdown-item" href="#">Sales</a>

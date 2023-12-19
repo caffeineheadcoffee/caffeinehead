@@ -242,3 +242,10 @@ def save_contact(request):
         'form': Contact_usForm
     }
     return render(request, 'users/contact.html', context)
+
+def user_profile(request):
+    profilelist = User.objects.get(pk=request.user.pk)
+    context ={
+        "profile":profilelist
+    }
+    return render(request,"users/dashboard.html",context)
