@@ -77,14 +77,14 @@
       </div>
     </div>
 
-    <!-- Featured Section-->
+    <!-- Espresso Machines Section-->
     <div class="col-md-12 neutral-100-bg">
       <div class="filters-content container p-50">
         <div class="col-md-12">
           <div
             class="section-heading d-flex justify-content-between align-items-end mb-4"
           >
-            <p class="f-24 bold text-color m-0">Featured</p>
+            <p class="f-24 bold text-color m-0">Espresso Machines</p>
             <a href="#" class="link-btn text-color"
               ><p class="m-0">view More</p>
               <i class="fa fa-angle-right fa-2"></i>
@@ -129,14 +129,14 @@
       </div>
     </div>
 
-    <!-- Flash Deals Section -->
+    <!-- Coffee Grinders Section -->
     <div class="col-md-12">
       <div class="filters-content container p-50">
         <div class="col-md-12">
           <div
             class="section-heading d-flex justify-content-between align-items-end mb-4"
           >
-            <p class="f-24 bold text-color m-0">Flash Deals</p>
+            <p class="f-24 bold text-color m-0">Coffee Grinders</p>
             <a href="#" class="link-btn text-color"
               ><p class="m-0">view More</p>
               <i class="fa fa-angle-right fa-2"></i>
@@ -181,14 +181,66 @@
       </div>
     </div>
 
-    <!-- Last Minute Section -->
+    <!-- Coffee Accessories Section -->
     <div class="col-md-12 neutral-100-bg">
       <div class="filters-content container p-50">
         <div class="col-md-12">
           <div
             class="section-heading d-flex justify-content-between align-items-end mb-4"
           >
-            <p class="f-24 bold text-color m-0">Last Minute</p>
+            <p class="f-24 bold text-color m-0">Coffee Accessories</p>
+            <a href="#" class="link-btn text-color"
+              ><p class="m-0">view More</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
+          </div>
+        </div>
+        <div class="row grid">
+          {% for product in products %}
+          <div class="col-md-3">
+            <div class="product-item ele-1">
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="/{{ product.image }}"
+                alt="{{ product.product_name }}"
+              />
+              <a
+                href="{% url 'product-detail' product.id %}"
+                class="hidden primary-ghost-btn f-14 w-100"
+                >View Details
+                <i class="fa fa-angle-right fa-2"></i>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.product_name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <p class="mb-0">
+                    <s>$ {{ product.product_price }}</s>
+                  </p>
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Coffee Roasters Section -->
+    <div class="col-md-12">
+      <div class="filters-content container p-50">
+        <div class="col-md-12">
+          <div
+            class="section-heading d-flex justify-content-between align-items-end mb-4"
+          >
+            <p class="f-24 bold text-color m-0">Coffee Roasters</p>
             <a href="#" class="link-btn text-color"
               ><p class="m-0">view More</p>
               <i class="fa fa-angle-right fa-2"></i>

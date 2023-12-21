@@ -19,7 +19,7 @@ ul {
 .latest-products,
 .subscribe-section,
 .promo-icon,
-.our-team{
+.our-team {
   background-color: var(--primary) !important;
   color: var(--white) !important;
 }
@@ -47,11 +47,10 @@ ul {
   background-color: var(--white);
   display: flex;
   padding: 30px;
-  padding-top: 146%;
+  padding-top: 100%;
   gap: 20px;
   border-radius: 10px;
   flex-direction: column;
-  height: 29vw;
   cursor: pointer;
   justify-content: flex-end;
   transition: all 300ms ease-out;
@@ -142,6 +141,11 @@ s {
   font-weight: 500;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5% !important;
+}
+
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232e8a57' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
@@ -183,7 +187,7 @@ a {
   height: 450px;
 }
 
-.pdf-carousel .carousel-item img{
+.pdf-carousel .carousel-item img {
   height: 100% !important;
 }
 
@@ -492,13 +496,13 @@ a {
   border-radius: 3px;
 }
 
-.contact-form form{
+.contact-form form {
   display: flex;
   gap: 30px;
   flex-direction: column;
 }
 
-.contact-form form .mb-3{
+.contact-form form .mb-3 {
   margin-bottom: 0 !important;
 }
 
