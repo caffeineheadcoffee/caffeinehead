@@ -22,6 +22,8 @@ urlpatterns = [
         views.ProductDetailView.as_view(),
         name='product-detail'
     ),
+        
+  
     path('about/', views.aboutus, name='about'),
     path('services/', views.services, name='services'),
     path('services_contractRoasting/', views.services_contractRoasting),
@@ -48,4 +50,5 @@ urlpatterns = [
     path('reset/done/',
          auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
          name='password_reset_complete'),
+    path("dashboard/",views.user_profile, name="dashboard"),
 ]

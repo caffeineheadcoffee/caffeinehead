@@ -1,12 +1,12 @@
 from email import message
-
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from apps.user.auth import admin_only
 
 from .forms import *
-
+import json
 
 # Create your views here.
 @login_required
@@ -389,7 +389,7 @@ def order_item_form(request,product_id,cart_id):
                     'order':order,
                     'cart': cart_item
                 }
-                return render(request,'users/process_payment.html',context)
+                return render(request,'users/paypal_payment.html',context)
 
             else:
                 message.add_message(request,messages.ERROR,'Something went wrong')
@@ -501,3 +501,21 @@ def delete_service(request,service_id):
     messages.add_message(request,messages.SUCCESS,'Service Deleted')
     return redirect('/products/service')
 
+def complete_order(request):
+    body = json.loads(request.body)
+    o_id = request.GET.get('oid')
+    print('oid:', body)
+    Order.objects.filter(id=body['orderID']).update(payment_status=True)
+    cart = Cart.objects.get(id=body['cartID'])
+    cart.delete()
+    return JsonResponse('Payment completed!', safe=False)
+
+def payment_success(request):
+   
+     messages.add_message(request,messages.SUCCESS,'Payment Successfull and Your is Order is ready to go.')
+     return redirect('/products/my_order')
+
+
+def payment_failed(request):
+
+    return render(request, 'users/payment_failed.html')

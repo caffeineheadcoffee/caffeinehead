@@ -12,7 +12,7 @@
     <!-- services url -->
     {% url 'services' as services %}
     <!-- products url -->
-    {% url 'products' as products %}
+    {% url 'all-products' as all_products %}
     <!-- contact url -->
     {% url 'contact' as contact %}
     <!-- load static -->
@@ -83,6 +83,12 @@
               >Merch</a
             >
           </li>
+<<<<<<< HEAD
+=======
+          <li>
+            <a href="{% url 'all-products' %}" class="nav-link {% if request.path == all_products %} active {% endif %}">Merch</a>
+          </li>
+>>>>>>> cd66e173488568bcccca37500654eac9ad1e919a
 
           <li>
             <a
@@ -125,7 +131,7 @@
 
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
               <li>
                 <a class="dropdown-item" href="#">Sales</a>
