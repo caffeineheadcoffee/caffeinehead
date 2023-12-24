@@ -22,9 +22,9 @@
 
 
 <!-- card start -->
-<div class="container-fluid">
+<div class="container">
     <div class="d-flex justify-content-center">
-        <div class="col-md-10">
+        <div class="col">
 
             {% for msg in messages %}
 
@@ -45,9 +45,16 @@
             {% endfor %}
 
             {% if items|length < 1 %}
-            <h2 class="text-center mt-5 text-danger shadow-lg p-5">
-                No Item in the cart
-            </h2>
+            <div class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50">
+                <img
+                    class="w-25"
+                    src="{% static 'images/empty cart.png' %}"
+                    alt="..."
+                />
+                <h2 class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center">No Items Found!</h2>
+                <p class="text-color m-0 text-center">Looks like you have no items in your shopping cart.</p>
+                <a href="{% url 'all-products' %}" class="btn primary-btn f-16 ">SHOP NOW</a>
+            </div>
             {% else%}
             <h2 class="text-center text-muted my-3">
                 My Cart Items
