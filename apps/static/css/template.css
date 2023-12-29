@@ -511,6 +511,10 @@ a {
   margin-bottom: 0 !important;
 }
 
+.table > :not(caption) > * > * {
+  border-bottom-width: 0 !important;
+}
+
 /* Responsive Style */
 @media (max-width: 768px) {
   .banner .text-content {

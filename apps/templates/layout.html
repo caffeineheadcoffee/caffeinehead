@@ -136,14 +136,13 @@
                 <hr class="dropdown-divider" />
               </li>
               <li>
-                <a href="/logout" class="dropdown-item logout">Logout</a>
+                <a href="{% url 'logout' %}" class="dropdown-item logout">Logout</a>
               </li>
             </ul>
           </li>
           {% else %}
-          <a href="/login" class="btn primary-ghost-btn f-14">Sign In</a>
-          <a href="/register" class="btn primary-btn f-14">Join Now</a>
-
+          <a href="{% url 'login' %}" class="btn primary-ghost-btn f-14">Sign In</a>
+          <a href="{% url 'register' %}" class="btn primary-btn f-14">Join Now</a>
           {% endif %}
         </div>
         <a

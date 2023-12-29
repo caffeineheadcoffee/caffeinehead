@@ -42,6 +42,10 @@
 }
 
 /* Font */
+.f-12 {
+  font-size: 12px !important;
+}
+
 .f-14 {
   font-size: 14px !important;
 }
@@ -126,12 +130,16 @@
   background-color: var(--white) !important;
 }
 
-.off-white-bg{
+.off-white-bg {
   background-color: var(--secondary-50) !important;
 }
 
 .neutral-100-bg {
   background-color: var(--neutral-100) !important;
+}
+
+.success-color {
+  color: var(--success) !important;
 }
 
 /* Image Background*/
@@ -143,7 +151,8 @@
 }
 
 .coffee-bg-brown {
-  background-image: url(../images/Bg-object-brown.png), url(../images/Bg-object-brown.png);
+  background-image: url(../images/Bg-object-brown.png),
+    url(../images/Bg-object-brown.png);
   background-position: right -1% bottom -2%, left -1% top -3%;
   background-repeat: no-repeat, no-repeat;
   background-size: 116px;
@@ -179,6 +188,28 @@
   width: 90% !important;
 }
 
+table tr td:nth-child(3),
+table tr th:nth-child(3) {
+  background-color: rgba(255, 231, 210, 0.5) !important;
+}
+
+table tr th {
+  padding: 2rem 1rem !important;
+}
+
+table tr td {
+  padding: 1rem 1rem !important;
+  vertical-align: middle !important;
+  text-align: center;
+  font-weight: 600 !important;
+  color: var(--text-colour) !important;
+}
+
+table tr td:nth-child(1),
+table tr th:nth-child(1) {
+  width: 30% !important;
+  text-align: left;
+}
 /* Button */
 
 .primary-btn,
@@ -205,11 +236,11 @@
   background-color: var(--primary-light) !important;
 }
 
-.secondary-btn{
+.secondary-btn {
   background-color: var(--secondary);
 }
 
-.secondary-btn:hover{
+.secondary-btn:hover {
   background-color: var(--secondary-light) !important;
 }
 
