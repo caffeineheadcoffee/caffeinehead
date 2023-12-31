@@ -212,6 +212,10 @@
   width: 15% !important;
 }
 
+.mt-64 {
+  margin-top: 64px;
+}
+
 table tr td:nth-child(3),
 table tr th:nth-child(3) {
   background-color: rgba(255, 231, 210, 0.5) !important;

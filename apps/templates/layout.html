@@ -12,7 +12,7 @@
     <!-- services url -->
     {% url 'services' as services %}
     <!-- products url -->
-    {% url 'all-products' as all_products %}
+    {% url 'collection' as collection %}
     <!-- contact url -->
     {% url 'contact' as contact %}
     <!-- load static -->
@@ -78,7 +78,7 @@
           </li>
           <li>
             <a
-              href="{% url 'all-products' %}"
+              href="{% url 'collection' %}"
               class="nav-link {% if request.path == all_products %} active {% endif %}"
               >Merch</a
             >
@@ -136,13 +136,19 @@
                 <hr class="dropdown-divider" />
               </li>
               <li>
-                <a href="{% url 'logout' %}" class="dropdown-item logout">Logout</a>
+                <a href="{% url 'logout' %}" class="dropdown-item logout"
+                  >Logout</a
+                >
               </li>
             </ul>
           </li>
           {% else %}
-          <a href="{% url 'login' %}" class="btn primary-ghost-btn f-14">Sign In</a>
-          <a href="{% url 'register' %}" class="btn primary-btn f-14">Join Now</a>
+          <a href="{% url 'login' %}" class="btn primary-ghost-btn f-14"
+            >Sign In</a
+          >
+          <a href="{% url 'register' %}" class="btn primary-btn f-14"
+            >Join Now</a
+          >
           {% endif %}
         </div>
         <a

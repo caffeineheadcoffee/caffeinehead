@@ -13,16 +13,15 @@ urlpatterns = [
         name='home'
     ),
     path(
-        'all-products/',
-        views.AllProductPageView.as_view(),
-        name='all-products'
+        'collection/',
+        views.CollectionPageView.as_view(),
+        name='collection'
     ),
     path(
         'product/<int:product_id>/product-detail',
         views.ProductDetailView.as_view(),
         name='product-detail'
     ),
-        
   
     path('about/', views.aboutus, name='about'),
     path('services/', views.services, name='services'),

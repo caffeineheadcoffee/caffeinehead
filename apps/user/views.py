@@ -90,13 +90,13 @@ class HomePageView(TemplateView):
         return context
 
 
-class AllProductPageView(TemplateView):
-    template_name = 'users/products.html'
+class CollectionPageView(TemplateView):
+    template_name = 'users/collection.html'
 
     def get_context_data(self, **kwargs):
         products = Product.objects.all()
         category = Category.objects.all().order_by('-id')
-        context = super(AllProductPageView, self).get_context_data(**kwargs)
+        context = super(CollectionPageView, self).get_context_data(**kwargs)
         context.update({
             'product_list': ProductFilter(self.request.GET, queryset=products).qs,
             'product_filter': ProductFilter(self.request.GET, queryset=products),
