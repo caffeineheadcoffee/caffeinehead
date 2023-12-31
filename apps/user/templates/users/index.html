@@ -112,16 +112,20 @@
       {% for product in products_list %}
       <div class="col-md-3">
         <div class="product-item ele-1">
+          <a
+            href="{% url 'product-detail' product.id %}"
+            class="product-link"
+          ></a>
           <img
             class="ele-1 position-absolute start-50 translate-middle-x"
             src="{{MEDIA_URL }}{{ product.image }}"
             alt="{{ product.product_name }}"
           />
           <a
-            href="{% url 'product-detail' product.id %}"
-            class="hidden primary-ghost-btn f-14 w-100"
-            >View Details
-            <i class="fa fa-angle-right fa-2"></i>
+            href="/products/add_to_cart/{{product.id}}"
+            class="hidden primary-ghost-btn gap-2 f-14 w-100"
+            >Add To Cart
+            <i class="far f-16 fa-shopping-cart"></i>
           </a>
           <div class="product-info">
             <div class="d-flex flex-column gap-1">
