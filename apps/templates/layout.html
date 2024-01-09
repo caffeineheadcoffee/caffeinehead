@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi">
 
     <!-- home url -->
     {% url 'home' as home %}
@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/template.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/p.css' %}" />
 
     <!-- fontawasome only -->
     <link
@@ -52,6 +51,116 @@
   <body>
     <header class="navbar p-0 ele-1 white-bg sticky-top">
       <div class="container position-relative nft-navbar">
+        <div class="hambuger-nav d-none"><button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <i class="fa fa-stream regular"></i>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" aria-modal="true" role="dialog">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="side-nav pe-3">
+          <li>
+            <a
+              href="{% url 'home' %}"
+              class="nav-link {% if request.path == home %} active {% endif %}"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'about' %}"
+              class="nav-link {% if request.path == about %} active {% endif %}"
+              >Our Story</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'services' %}"
+              class="nav-link {% if request.path == services %} active {% endif %}"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'collection' %}"
+              class="nav-link {% if request.path == collection %} active {% endif %}"
+              >Merch</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="{% url 'contact' %}"
+              class="nav-link {% if request.path == contact %} active {% endif %}"
+              >Contact Us</a
+            >
+          </li>
+          
+        </ul>
+        <div class="d-flex gap-3 text-end">
+          {% if user.is_authenticated %}
+          <a
+            href="/products/mycart"
+            class="btn text-dark fs-4 d-flex align-items-center"
+          >
+            <i class="fas fa-cart-plus position-relative">
+              <span
+                class="position-absolute top-0 start-100 bg-dark badge rounded-pill translate-middle footer-link"
+              >
+                <span style="font-size: 12px"> {{ items|length }} </span>
+              </span>
+            </i>
+          </a>
+
+          <li class="nav-item dropdown" style="list-style-type: none">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              ><img
+                src="https://image.shutterstock.com/image-vector/man-shirt-tie-businessman-avatar-260nw-548848999.jpg"
+                alt=""
+                style="width: 40px; height: auto"
+                class="rounded-circle"
+              />
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{% url 'dashboard' %}"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Sales</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a href="{% url 'logout' %}" class="dropdown-item logout"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </li>
+          {% else %}
+          <a href="{% url 'login' %}" class="w-100 btn primary-ghost-btn f-14"
+            >Sign In</a
+          >
+          <a href="{% url 'register' %}" class="w-100 btn primary-btn f-14"
+            >Join Now</a
+          >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+        
         <ul
           class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
         >
@@ -79,7 +188,7 @@
           <li>
             <a
               href="{% url 'collection' %}"
-              class="nav-link {% if request.path == all_products %} active {% endif %}"
+              class="nav-link {% if request.path == collection %} active {% endif %}"
               >Merch</a
             >
           </li>
@@ -163,6 +272,7 @@
           />
         </a>
       </div>
+    
     </header>
     {% block main_content %}{% endblock %}
 
@@ -210,9 +320,12 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-9 d-flex justify-content-between gap-3">
+
+            <!-- Desktop Footer -->
+            <div class="footer-list col-md-9 d-flex justify-content-between gap-3 desktop-footer">
               <div class="w-100">
-                <h5 class="footer-heading">Careers</h5>
+                <h5 class="footer-heading">Careers
+                </h5>
                 <ul class="nav flex-column">
                   <li class="nav-item mb-2">
                     <a
@@ -258,6 +371,7 @@
                   </li>
                 </ul>
               </div>
+
               <div class="w-100">
                 <h5 class="footer-heading">For Business Partners</h5>
                 <ul class="nav flex-column">
@@ -300,12 +414,122 @@
               <div class="w-100">
                 <h5 class="footer-heading">Order and Pickup</h5>
                 <ul class="nav flex-column">
+                    <a href="#" class="p-0 footer-link"
+                      >Visit our marketplace</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Mobile Footer -->
+            <div class="footer-list col-md-9 d-flex justify-content-between gap-3 mobile-footer" id="accordionFlushExample">
+              <div class="w-100">
+                <h5 class="accordion-button collapsed footer-heading" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" id="flush-headingOne">Careers
+                </h5>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <ul class="nav flex-column accordion-body">
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Business Development Manager</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Head Of Sales</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Sales Representative</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Brand Ambassador</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Senior Python Developer</a
+                    >
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                      class="p-0 footer-link"
+                      >Blockchain Technologist</a
+                    >
+                  </li>
+                </ul>
+                </div>
+                
+              </div>
+
+              <div class="w-100">
+                <h5 class="accordion-button collapsed footer-heading" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" id="flush-headingTwo">For Business Partners</h5>
+                <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <ul class="nav flex-column accordion-body">
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Co-operate</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">In-house</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Merchandaise</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Staffing</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Catering</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Training</a>
+                  </li>
+                </ul>
+                </div>
+              </div>
+
+              <div class="w-100">
+                <h5 class="accordion-button collapsed footer-heading" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" id="flush-headingThree">Social Impact</h5>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <ul class="nav flex-column accordion-body">
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Sustainability</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Zero-waste</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="#" class="p-0 footer-link">Coffee plantation</a>
+                  </li>
+                </ul>
+                </div>
+              </div>
+
+              <div class="w-100">
+                <h5 class="accordion-button collapsed footer-heading" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour" id="flush-headingFour">Order and Pickup</h5>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                <ul class="nav flex-column accordion-body">
                   <li class="nav-item mb-2">
                     <a href="#" class="p-0 footer-link"
                       >Visit our marketplace</a
                     >
                   </li>
                 </ul>
+                </div>
               </div>
             </div>
           </div>

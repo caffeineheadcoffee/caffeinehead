@@ -110,10 +110,12 @@
       <div class="preview col-md-6">
         <div class="preview-pic d-flex gap-3 flex-column tab-content">
           <div class="tab-pane active" id="pic-1">
-            <img
-              class="detail-img p-5"
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image: src'{{ MEDIA_URL }}{{product.image}}'">
+  <img
+              class="p-5"
               src="{{ MEDIA_URL }}{{product.image}}"
             />
+</figure>
           </div>
           <div class="d-flex gap-4">
             <img
@@ -301,5 +303,15 @@
 </div>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+  function zoom(e){
+          var zoomer = e.currentTarget;
+          e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+          e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+          x = offsetX/zoomer.offsetWidth*100
+          y = offsetY/zoomer.offsetHeight*100
+          zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+</script>
 
 {% endblock%}
