@@ -839,6 +839,10 @@ figure.zoom img {
     display: block !important;
   }
 
+  .sub-heading{
+    text-align: center;
+  }
+
   .nft-navbar .nav-link {
     padding: 8px 0px;
   }
