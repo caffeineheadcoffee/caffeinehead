@@ -822,7 +822,7 @@ figure.zoom img {
   }
 
   .navbar .nav,
-  .navbar .container :nth-child(3) {
+  .navbar .container .button-section {
     display: none !important;
   }
 
@@ -833,6 +833,10 @@ figure.zoom img {
   .nft-footer .row {
     justify-content: center;
     gap: 2rem;
+  }
+
+  .side-nav li{
+    display: block !important;
   }
 
   .nft-navbar .nav-link {
