@@ -774,7 +774,8 @@ a {
     width: 90%;
   }
 
-  .latest-products .container .row {
+  .latest-products .container .row ,
+  .filters-content .row{
     flex-wrap: nowrap;
     overflow-y: scroll;
     width: 100vw;
@@ -782,11 +783,33 @@ a {
     scrollbar-width: none;
   }
 
- .latest-products .container .row::-webkit-scrollbar {
+ .latest-products .container .row::-webkit-scrollbar,
+ .filters-content .row::-webkit-scrollbar {
     display: none;
   }
 
   .product-info {
     height: auto;
+  }
+
+  .ad_banner{
+    display: none;
+  }
+
+  .search-container{
+    margin-top: 0 !important;
+  }
+  
+  .contact-form,
+  .login-card{
+    padding: 0 2rem;
+  }
+
+  .line-header div{
+    width: 40%;
+  }
+
+  .line-header p{
+    width: 20%;
   }
 }

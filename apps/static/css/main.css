@@ -745,9 +745,15 @@ figure.zoom img {
     font-size: 12px;
   }
 
-  .carousel .container {
+  .carousel .container,
+   .cover-container .row{
     flex-direction: column-reverse;
     gap: 2rem;
+  }
+
+  .cover-container .row div{
+    justify-content: center;
+    align-items: center;
   }
 
   .carousel-control-prev,
@@ -886,4 +892,34 @@ figure.zoom img {
 .main-cover-container {
     margin-top: 50px;
 }
+
+.cover-container{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.about-section .container .row{
+  gap: 50px;
+}
+
+.join-us{
+  text-align: center;
+}
+
+.join-us .container .row div{
+  align-items: center;
+}
+
+.our-team .container p,
+.happy-clients .container p{
+  text-align: center;
+  width: auto !important;
+}
+
+.owl-clients div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 }
