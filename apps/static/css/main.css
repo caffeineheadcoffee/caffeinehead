@@ -736,7 +736,7 @@ figure.zoom img {
   background-color: none !important;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 540px) {
   .accordion-body {
     background-color: var(--text-colour) !important;
     padding: 1rem;
@@ -753,7 +753,6 @@ figure.zoom img {
   .carousel .container,
   .cover-container .row {
     flex-direction: column-reverse;
-    gap: 2rem;
   }
 
   .cover-container .row div {
@@ -764,22 +763,6 @@ figure.zoom img {
   .carousel-control-prev,
   .carousel-control-next {
     width: 15% !important;
-  }
-
-  .cover-title-1 {
-    font-size: 28px;
-    text-align: center;
-  }
-
-  .cover-title-2 {
-    font-size: 56px;
-    text-align: center;
-    height: auto;
-  }
-
-  .cover-title-3 {
-    font-size: 14px;
-    text-align: center;
   }
 
   .carousel .container .d-flex {
@@ -917,9 +900,48 @@ figure.zoom img {
     gap: 2rem;
     margin-top: 2rem;
   }
+
+  .cover-title-1,
+  .cover-title-2,
+  .cover-title-3 {
+    text-align: center;
+  }
 }
 
-@media only screen and (max-width: 480px), only screen and (min-width: 768px) {
+@media only screen and (max-width: 912px) {
+  .col-12 {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .product-item a .fa-shopping-cart {
+    display: none;
+  }
+
+  .col-md-3 {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 540px), only screen and (max-width: 1024px) {
+  .cover-title-1 {
+    font-size: 28px;
+  }
+
+  .cover-title-2 {
+    font-size: 56px;
+    height: auto;
+  }
+
+  .carousel .container .col-md-7 {
+    width: 50%;
+  }
+
+  .cover-title-3 {
+    font-size: 14px;
+  }
+
   .main-logo {
     justify-content: center;
     padding: 0;
