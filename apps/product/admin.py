@@ -22,6 +22,11 @@ class ProductAdmin(nested.NestedModelAdmin, BaseModelAdmin):
         ProductImageInline,
     ]
 
+    class Media:
+        js = (
+            'js/steps.js',
+        )
+
 
 @admin.register(models.ProductImage)
 class ProductImageAdmin(BaseModelAdmin):
