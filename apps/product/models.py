@@ -25,6 +25,7 @@ class Product(BaseModel):
         null=True
     )
     name = models.CharField(max_length=100)
+    image = models.ImageField(null=True)
     price = fields.AmountField()
     discounted_price = fields.AmountField(null=True, blank=True)
     stock = models.PositiveIntegerField()
