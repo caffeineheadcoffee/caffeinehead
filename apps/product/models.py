@@ -3,36 +3,67 @@ from django.core.validators import *
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+from apps.core import fields
+from apps.core.models import BaseModel
+from apps.core.validators import validate_image
+from apps.product.utils import upload_product_image_to
+
 User = get_user_model()
 
 
-class Category(models.Model):
-    category_name = models.CharField(max_length=100, unique=True)
+class Category(BaseModel):
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.category_name
+        return self.name
 
 
-class Product(models.Model):
-    product_name = models.CharField(max_length=100)
-    product_price = models.FloatField()
-    stock = models.IntegerField()
-    image = models.ImageField(null=True)
+class Product(BaseModel):
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        null=True
+    )
+    name = models.CharField(max_length=100)
+    price = fields.AmountField()
+    discounted_price = fields.AmountField(null=True, blank=True)
+    stock = models.PositiveIntegerField()
     description = models.TextField(null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.product_name
+        return self.name
+
+    @property
+    def display_image(self):
+        return self.productimage_set.filter(is_display_image=True).last()
+
+    @property
+    def product_price(self):
+        return self.discounted_price if self.discounted_price else self.price
 
 
-class Cart(models.Model):
+class ProductImage(BaseModel):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE
+    )
+    is_display_image = models.BooleanField(default=False)
+    image = models.ImageField(
+        upload_to=upload_product_image_to,
+        validators=[validate_image]
+    )
+
+    def __str__(self):
+        return str(self.pk)
+
+
+class Cart(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_data = models.DateTimeField(auto_now_add=True)
 
 
-class Order(models.Model):
+class Order(BaseModel):
     PAYMENT = (
         ('Cash on Delivery', 'Cash on Delivery'),
         ('Paypal', 'Paypal'),

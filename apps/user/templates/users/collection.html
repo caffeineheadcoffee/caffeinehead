@@ -49,8 +49,8 @@
                                     ></a>
                                     <img
                                             class="ele-1 position-absolute start-50 translate-middle-x"
-                                            src="{{MEDIA_URL }}{{ product.image }}"
-                                            alt="{{ product.product_name }}"
+                                            src="{{MEDIA_URL }}{{ product.display_image }}"
+                                            alt="{{ product.name }}"
                                     />
                                     <a
                                             href="/products/add_to_cart/{{product.id}}"
@@ -60,7 +60,7 @@
                                     </a>
                                     <div class="product-info">
                                         <div class="d-flex flex-column gap-1">
-                                            <p class="product-name mb-0">{{ product.product_name }}</p>
+                                            <p class="product-name mb-0">{{ product.name }}</p>
                                             <p class="product-discription mb-0">
                                                 {{ product.description }}
                                             </p>
@@ -102,7 +102,7 @@
                                     <div class="product-item ele-1">
                                         <img
                                                 class="ele-1 position-absolute start-50 translate-middle-x"
-                                                src="{{ MEDIA_URL }}{{ product.image }}"
+                                                src="{{ MEDIA_URL }}{{ product.display_image }}"
                                                 alt="{{ product.name }}"
                                         />
                                         <a

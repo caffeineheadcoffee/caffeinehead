@@ -62,14 +62,14 @@
                     </thead>
                     <tbody>
                     {% for i in items %}
-                        <!-- <li>Name : {{ i.product_name }}</li>
+                        <!-- <li>Name : {{ i.name }}</li>
                     <li><img src="/{{i.image}}" alt="" width="200"></li> -->
                         <tr>
-                            <td>{{ i.product.product_name }}</td>
+                            <td>{{ i.product.name }}</td>
                             <td>{{ i.product.product_price }}</td>
                             <td>
                                 <img
-                                        src="{{ MEDIA_URL }}{{i.product.image}}"
+                                        src="{{ MEDIA_URL }}{{i.product.display_image}}"
                                         alt=""
                                         width="180"
                                         height="200"
