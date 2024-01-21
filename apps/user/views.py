@@ -94,13 +94,19 @@ class CollectionPageView(TemplateView):
     template_name = 'users/collection.html'
 
     def get_context_data(self, **kwargs):
-        products = Product.objects.all()
-        category = Category.objects.all().order_by('-id')
         context = super(CollectionPageView, self).get_context_data(**kwargs)
+        categories = Category.objects.all()
+
+        category_products = [
+            {
+                'id': category.id,
+                'name': category.category_name,
+                'products': category.product_set.all()[:5]
+            } for category in categories
+        ]
         context.update({
-            'product_list': ProductFilter(self.request.GET, queryset=products).qs,
-            'product_filter': ProductFilter(self.request.GET, queryset=products),
-            'category': CategoryFilter(self.request.GET, queryset=category).qs
+            'products': Product.objects.all()[:5],
+            'category_products': category_products
         })
         if self.request.user.is_authenticated:
             items = Cart.objects.filter(user=self.request.user)
