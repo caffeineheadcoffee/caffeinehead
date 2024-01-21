@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
+from django.db.models import Count
 from django.shortcuts import render, redirect, \
     get_object_or_404, reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -95,7 +96,9 @@ class CollectionPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CollectionPageView, self).get_context_data(**kwargs)
-        categories = Category.objects.all()
+        categories = Category.objects.annotate(
+            product_count=Count('product')
+        ).filter(product_count__gt=0)
 
         category_products = [
             {
@@ -249,9 +252,10 @@ def save_contact(request):
     }
     return render(request, 'users/contact.html', context)
 
+
 def user_profile(request):
     profilelist = User.objects.get(pk=request.user.pk)
-    context ={
-        "profile":profilelist
+    context = {
+        "profile": profilelist
     }
-    return render(request,"users/dashboard.html",context)
+    return render(request, "users/dashboard.html", context)

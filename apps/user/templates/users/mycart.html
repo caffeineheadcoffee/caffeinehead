@@ -1,105 +1,104 @@
 <style>
-  .card-img {
-    overflow: hidden;
-  }
+    .card-img {
+        overflow: hidden;
+    }
 
-  .card-img:hover img {
-    transform: scale(1.5);
-  }
+    .card-img:hover img {
+        transform: scale(1.5);
+    }
 
-  .card-img img {
-    transition: all 2s;
-  }
+    .card-img img {
+        transition: all 2s;
+    }
 </style>
 
 {% extends 'layout.html' %} {% load static %} {% block title %}
-<title>E-commerce - CartPage</title>
+    <title>E-commerce - CartPage</title>
 {% endblock%} {% block main_content %}
 
-<!-- card start -->
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <div class="col">
-      {% for msg in messages %} {% if msg.level ==
-      DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-      <div class="alert alert-success">{{ msg }}</div>
+    <!-- card start -->
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col">
+                {% for msg in messages %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <div class="alert alert-success">{{ msg }}</div>
+                    {% elif msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <div class="alert alert-danger">{{ msg }}</div>
+                    {% endif%}
+                {% endfor %} {% if items|length < 1 %}
+                <div
+                        class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
+                >
+                    <img
+                            class="w-25"
+                            src="{% static 'images/empty cart.png' %}"
+                            alt="..."
+                    />
+                    <h2
+                            class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
+                    >
+                        No Items Found!
+                    </h2>
+                    <p class="text-color m-0 text-center">
+                        Looks like you have no items in your shopping cart.
+                    </p>
+                    <a href="{% url 'collection' %}" class="btn primary-btn f-16"
+                    >SHOP NOW</a
+                    >
+                </div>
+            {% else%}
+                <h2 class="text-center text-muted my-3">My Cart Items</h2>
 
-      {% endif%} {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-      <div class="alert alert-danger">{{ msg }}</div>
-
-      {% endif%} {% endfor %} {% if items|length < 1 %}
-      <div
-        class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
-      >
-        <img
-          class="w-25"
-          src="{% static 'images/empty cart.png' %}"
-          alt="..."
-        />
-        <h2
-          class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
-        >
-          No Items Found!
-        </h2>
-        <p class="text-color m-0 text-center">
-          Looks like you have no items in your shopping cart.
-        </p>
-        <a href="{% url 'collection' %}" class="btn primary-btn f-16"
-          >SHOP NOW</a
-        >
-      </div>
-      {% else%}
-      <h2 class="text-center text-muted my-3">My Cart Items</h2>
-
-      <table class="table table-bordered table-striped table-light">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Product Image</th>
-            <th>Date Added</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in items %}
-          <!-- <li>Name : {{ i.product_name }}</li>
+                <table class="table table-bordered table-striped table-light">
+                    <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Image</th>
+                        <th>Date Added</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in items %}
+                        <!-- <li>Name : {{ i.product_name }}</li>
                     <li><img src="/{{i.image}}" alt="" width="200"></li> -->
-          <tr>
-            <td>{{ i.product.product_name }}</td>
-            <td>{{ i.product.product_price }}</td>
-            <td>
-              <img
-                src="{{ MEDIA_URL }}{{i.product.image}}"
-                alt=""
-                width="180"
-                height="200"
-              />
-            </td>
-            <td>{{ i.created_date }}</td>
-            <td>
-              <a
-                href="/products/deletecartitems/{{i.id}}"
-                class="btn btn-danger"
-                onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
-              >
-                <i class="fas fa-trash-alt"></i>
-              </a>
-              <a
-                href="/products/orderitemform/{{i.product.id}}/{{i.id}}"
-                class="btn btn-info btn-sm"
-                >Order Now</a
-              >
-            </td>
-          </tr>
+                        <tr>
+                            <td>{{ i.product.product_name }}</td>
+                            <td>{{ i.product.product_price }}</td>
+                            <td>
+                                <img
+                                        src="{{ MEDIA_URL }}{{i.product.image}}"
+                                        alt=""
+                                        width="180"
+                                        height="200"
+                                />
+                            </td>
+                            <td>{{ i.created_date }}</td>
+                            <td>
+                                <a
+                                        href="/products/deletecartitems/{{i.id}}"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
+                                >
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <a
+                                        href="/products/orderitemform/{{i.product.id}}/{{i.id}}"
+                                        class="btn btn-info btn-sm"
+                                >Order Now</a
+                                >
+                            </td>
+                        </tr>
 
-          {% endfor %}
-        </tbody>
-      </table>
-      {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<!-- card end -->
+    <!-- card end -->
 
 {% endblock%}
