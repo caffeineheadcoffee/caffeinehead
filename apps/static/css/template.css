@@ -511,7 +511,8 @@ a {
   margin-bottom: 0 !important;
 }
 
-.table > :not(caption) > * > * {
+ .no-lines > :not(caption) > * > * ,
+ .summary-table > :not(caption) > * > *{
   border-bottom-width: 0 !important;
 }
 
@@ -881,7 +882,12 @@ a {
   }
 }
 
-@media only screen and (max-width: 540px), only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
+  .service-img img {
+    width: 100%;
+    height: auto;
+  }
+
   .product-item img {
     width: auto;
     height: 100%;
