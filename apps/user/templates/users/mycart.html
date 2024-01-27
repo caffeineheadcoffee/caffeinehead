@@ -1,104 +1,160 @@
 <style>
-    .card-img {
-        overflow: hidden;
-    }
+  .card-img {
+    overflow: hidden;
+  }
 
-    .card-img:hover img {
-        transform: scale(1.5);
-    }
+  .card-img:hover img {
+    transform: scale(1.5);
+  }
 
-    .card-img img {
-        transition: all 2s;
-    }
+  .card-img img {
+    transition: all 2s;
+  }
 </style>
 
-{% extends 'layout.html' %} {% load static %} {% block title %}
-    <title>E-commerce - CartPage</title>
-{% endblock%} {% block main_content %}
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>E-commerce - CartPage</title>
+{% endblock%}
+{% block main_content %}
 
-    <!-- card start -->
-    <div class="container">
-        <div class="d-flex justify-content-center">
-            <div class="col">
-                {% for msg in messages %}
-                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                        <div class="alert alert-success">{{ msg }}</div>
-                    {% elif msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                        <div class="alert alert-danger">{{ msg }}</div>
-                    {% endif%}
-                {% endfor %} {% if items|length < 1 %}
-                <div
-                        class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
-                >
-                    <img
-                            class="w-25"
-                            src="{% static 'images/empty cart.png' %}"
-                            alt="..."
-                    />
-                    <h2
-                            class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
-                    >
-                        No Items Found!
-                    </h2>
-                    <p class="text-color m-0 text-center">
-                        Looks like you have no items in your shopping cart.
-                    </p>
-                    <a href="{% url 'collection' %}" class="btn primary-btn f-16"
-                    >SHOP NOW</a
-                    >
-                </div>
-            {% else%}
-                <h2 class="text-center text-muted my-3">My Cart Items</h2>
+<!-- card start -->
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="col">
+      {% for msg in messages %}
+        {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="alert alert-success">{{ msg }}</div>
 
-                <table class="table table-bordered table-striped table-light">
-                    <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Product Image</th>
-                        <th>Date Added</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in items %}
-                        <!-- <li>Name : {{ i.name }}</li>
+        {% endif%}
+        {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="alert alert-danger">{{ msg }}</div>
+
+        {% endif%}
+      {% endfor %}
+      {% if items|length < 1 %}
+      <div
+        class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
+      >
+        <img
+          class="w-25"
+          src="{% static 'images/empty cart.png' %}"
+          alt="..."
+        />
+        <h2
+          class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
+        >
+          No Items Found!
+        </h2>
+        <p class="text-color m-0 text-center">
+          Looks like you have no items in your shopping cart.
+        </p>
+        <a href="{% url 'collection' %}" class="btn primary-btn f-16"
+          >SHOP NOW</a
+        >
+      </div>
+      {% else%}
+      <div class="col">
+        <div class="p-50 row gap-5 ">
+          <div class="d-flex justify-content-between">
+            <h2 class="cart-title">Items in my cart</h2>
+            <a href="#" class="link-btn neutral-500-color"><p class="m-0">Continue Shopping</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
+          </div>
+          <div class="d-flex gap-5 cart-container">
+            <table class="w-75 mt-4 table">
+          <thead>
+          <tr class="text-uppercase neutral-500-color f-14">
+            <th scope="col">Item</th>
+            <th scope="col" class="text-center">UNIT PRICE</th>
+            <th scope="col" class="text-center">QUANTITY</th>
+            <th scope="col" class="text-center">FINAL PRICE</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for i in items %}
+          <!-- <li>Name : {{ i.product_name }}</li>
                     <li><img src="/{{i.image}}" alt="" width="200"></li> -->
-                        <tr>
-                            <td>{{ i.product.name }}</td>
-                            <td>{{ i.product.product_price }}</td>
-                            <td>
-                                <img
-                                        src="{{ MEDIA_URL }}{{i.product.display_image}}"
-                                        alt=""
-                                        width="180"
-                                        height="200"
-                                />
-                            </td>
-                            <td>{{ i.created_date }}</td>
-                            <td>
-                                <a
-                                        href="/products/deletecartitems/{{i.id}}"
-                                        class="btn btn-danger"
-                                        onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
-                                >
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
-                                <a
-                                        href="/products/orderitemform/{{i.product.id}}/{{i.id}}"
-                                        class="btn btn-info btn-sm"
-                                >Order Now</a
-                                >
-                            </td>
-                        </tr>
+          <tr>
+            <td>
+              <div class="d-flex gap-3 align-items-center">
+                <div style="height: 70px; width: 70px;" class="d-flex align-items-center">
+                  <img
+                  height="100%"
+                src="{{ MEDIA_URL }}{{i.product.image}}"
+                alt=""
+              />
+                </div>
 
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
+              <p class="f-16 bold m-0">{{ i.product.product_name }}</p>
+
+              </div>
+            </td>
+            <td class="f-16 bold m-0">{{ i.product.product_price }}</td>
+            <td>
+              <div class="d-flex gap-2 align-items-center justify-content-center ">
+                <a class="icon-btn" onclick="decrement()">
+                <i class="fa f-12 fa-minus"></i></a>
+                <input id=quantity type=number min=1 max=20 value="1">
+                <a class="icon-btn" onclick="increment()">
+                <i class="fa f-12 fa-plus"></i></a></td>
+            <td>
+
+            </td>
+            <td>
+              <a
+                href="/products/deletecartitems/{{i.id}}"
+                onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
+              >
+                <i class="fa fa-solid fa-times danger-color"></i>
+              </a>
+            </td>
+          </tr>
+
+          {% endfor %}
+          </tbody>
+            </table>
+            <div class="summary-container">
+            <h3 class="bold f-20 text-color m-0">Summary</h3>
+            <table class="table summary-table m-0">
+              <tbody class="f-14 text-color text-uppercase">
+                <tr>
+                  <th class="bold">Subtotal</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th class="bold">Shipping Est</th>
+                  <td></td>
+                </tr>
+                <tr class=" border-top">
+                  <th class="bold pt-4">Total Price</th>
+                  <td class="bold pt-4"></td>
+                </tr>
+              </tbody>
+            </table>
+            <a class="primary-ghost-btn w-100 text-uppercase">Goto Checkout</a>
             </div>
+          </div>
+
         </div>
+      </div>
+      {% endif %}
     </div>
-    <!-- card end -->
+  </div>
+</div>
+<!-- card end -->
+
+<script>
+  	function increment() {
+      document.getElementById('quantity').stepUp();
+   }
+   function decrement() {
+      document.getElementById('quantity').stepDown();
+   }
+</script>
 
 {% endblock%}
