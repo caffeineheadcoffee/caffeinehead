@@ -23,7 +23,11 @@ from django.views import defaults as default_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('apps.product.urls')),
-    path('', include('apps.user.urls')),
+    path(
+        '',
+        include('apps.website.urls')
+    ),
+    # path('', include('apps.user.urls')),
     path('admins/', include('apps.dashboard.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
 ]

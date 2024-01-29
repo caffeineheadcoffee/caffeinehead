@@ -8,6 +8,7 @@ from apps.user.auth import admin_only
 from .forms import *
 import json
 
+
 # Create your views here.
 @login_required
 @admin_only
@@ -29,14 +30,15 @@ def post_product(request):
             messages.add_message(request, messages.SUCCESS, 'Product added')
             return redirect('/products/addproduct')
         else:
-            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
-            return render(request,'products/addproduct.html',{
-                'form':form
-            })        
+            messages.add_message(request, messages.ERROR, 'Please verify forms fields. ')
+            return render(request, 'products/addproduct.html', {
+                'form': form
+            })
     context = {
-            'form':ProductForm
-        }
-    return render(request,'products/addproduct.html',context)
+        'form': ProductForm
+    }
+    return render(request, 'products/addproduct.html', context)
+
 
 @login_required
 @admin_only
@@ -45,18 +47,19 @@ def post_category(request):
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'category added')
+            messages.add_message(request, messages.SUCCESS, 'category added')
             return redirect('/products/addcategory')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/addcategory.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/addcategory.html', {
+                'form': form
             })
     context = {
-        'form':CategoryForm
+        'form': CategoryForm
     }
 
-    return render(request, 'products/addcategory.html',context)
+    return render(request, 'products/addcategory.html', context)
+
 
 @login_required
 @admin_only
@@ -68,14 +71,15 @@ def post_member(request):
             messages.add_message(request, messages.SUCCESS, 'member added')
             return redirect('/products/addmember')
         else:
-            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
-            return render(request,'products/addmember.html',{
-                'form':form
-                })
+            messages.add_message(request, messages.ERROR, 'Please verify forms fields. ')
+            return render(request, 'products/addmember.html', {
+                'form': form
+            })
     context = {
-            'form':MemberForm
-        }
-    return render(request,'products/addmember.html',context)
+        'form': MemberForm
+    }
+    return render(request, 'products/addmember.html', context)
+
 
 @login_required
 @admin_only
@@ -87,14 +91,15 @@ def post_aboutus(request):
             messages.add_message(request, messages.SUCCESS, 'aboutus added')
             return redirect('/products/addaboutus')
         else:
-            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
-            return render(request,'products/addaboutus.html',{
-                'form':form
-                })
+            messages.add_message(request, messages.ERROR, 'Please verify forms fields. ')
+            return render(request, 'products/addaboutus.html', {
+                'form': form
+            })
     context = {
-            'form':AboutusForm
-        }
-    return render(request,'products/addaboutus.html',context)
+        'form': AboutusForm
+    }
+    return render(request, 'products/addaboutus.html', context)
+
 
 @login_required
 @admin_only
@@ -106,14 +111,15 @@ def post_coverimage(request):
             messages.add_message(request, messages.SUCCESS, 'coverimage added')
             return redirect('/products/addcoverimage')
         else:
-            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
-            return render(request,'products/addcoverimage.html',{
-                'form':form
-                })
+            messages.add_message(request, messages.ERROR, 'Please verify forms fields. ')
+            return render(request, 'products/addcoverimage.html', {
+                'form': form
+            })
     context = {
-            'form':ImagesliderForm
-        }
-    return render(request,'products/addcoverimage.html',context)
+        'form': ImagesliderForm
+    }
+    return render(request, 'products/addcoverimage.html', context)
+
 
 @login_required
 @admin_only
@@ -125,44 +131,46 @@ def post_service(request):
             messages.add_message(request, messages.SUCCESS, 'Service added')
             return redirect('/products/addservice')
         else:
-            messages.add_message(request,messages.ERROR,'Please verify forms fields. ')
-            return render(request,'products/addservice.html',{
-                'form':form
-            })        
+            messages.add_message(request, messages.ERROR, 'Please verify forms fields. ')
+            return render(request, 'products/addservice.html', {
+                'form': form
+            })
     context = {
-            'form':ServiceForm
-        }
-    return render(request,'products/addservice.html',context)
+        'form': ServiceForm
+    }
+    return render(request, 'products/addservice.html', context)
 
 
 @login_required
 @admin_only
-def update_product(request,product_id):
+def update_product(request, product_id):
     instance = Product.objects.get(id=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'product updated')
+            messages.add_message(request, messages.SUCCESS, 'product updated')
             return redirect('/products')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updateproduct.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updateproduct.html', {
+                'form': form
             })
-    context={
-        'form':ProductForm(instance=instance)
+    context = {
+        'form': ProductForm(instance=instance)
     }
 
-    return render(request,'products/updateproduct.html',context)
+    return render(request, 'products/updateproduct.html', context)
+
 
 @login_required
 @admin_only
-def delete_product(request,product_id):
-        product=Product.objects.get(id=product_id)
-        product.delete()
-        messages.add_message(request,messages.SUCCESS,'product deleted')
-        return redirect('/products')
+def delete_product(request, product_id):
+    product = Product.objects.get(id=product_id)
+    product.delete()
+    messages.add_message(request, messages.SUCCESS, 'product deleted')
+    return redirect('/products')
+
 
 @login_required
 @admin_only
@@ -173,34 +181,37 @@ def show_category(request):
     }
     return render(request, 'products/allcategory.html', context)
 
+
 @login_required
 @admin_only
-def update_category(request,category_id):
+def update_category(request, category_id):
     instance = Category.objects.get(id=category_id)
     if request.method == 'POST':
         form = CategoryForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'category updated')
+            messages.add_message(request, messages.SUCCESS, 'category updated')
             return redirect('/products/category')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updatecategory.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updatecategory.html', {
+                'form': form
             })
-    context={
-        'form':CategoryForm(instance=instance)
+    context = {
+        'form': CategoryForm(instance=instance)
     }
 
-    return render(request,'products/updatecategory.html',context)
+    return render(request, 'products/updatecategory.html', context)
+
 
 @login_required
 @admin_only
-def delete_category(request,category_id):
-        category=Category.objects.get(id=category_id)
-        category.delete()
-        messages.add_message(request,messages.SUCCESS,'category deleted')
-        return redirect('/products/category')
+def delete_category(request, category_id):
+    category = Category.objects.get(id=category_id)
+    category.delete()
+    messages.add_message(request, messages.SUCCESS, 'category deleted')
+    return redirect('/products/category')
+
 
 @login_required
 @admin_only
@@ -211,83 +222,88 @@ def show_member(request):
     }
     return render(request, 'products/allmember.html', context)
 
+
 @login_required
 @admin_only
-def update_member(request,member_id):
+def update_member(request, member_id):
     instance = Member.objects.get(id=member_id)
     if request.method == 'POST':
         form = MemberForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'Member updated')
+            messages.add_message(request, messages.SUCCESS, 'Member updated')
             return redirect('/products/member')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updatemember.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updatemember.html', {
+                'form': form
             })
-    context={
-        'form':MemberForm(instance=instance)
+    context = {
+        'form': MemberForm(instance=instance)
     }
 
-    return render(request,'products/updatemember.html',context)
+    return render(request, 'products/updatemember.html', context)
 
 
 @login_required
 @admin_only
-def delete_member(request,member_id):
-    member=Member.objects.get(id=member_id)
+def delete_member(request, member_id):
+    member = Member.objects.get(id=member_id)
     member.delete()
-    messages.add_message(request,messages.SUCCESS,'Member Deleted')
+    messages.add_message(request, messages.SUCCESS, 'Member Deleted')
     return redirect('/products/member')
+
 
 @login_required
 @admin_only
 def show_aboutus(request):
     aboutus = AboutUs.objects.all()
     context = {
-        'aboutus':aboutus
+        'aboutus': aboutus
     }
     return render(request, 'products/aboutuslist.html', context)
 
+
 @login_required
 @admin_only
-def update_aboutus(request,aboutus_id):
+def update_aboutus(request, aboutus_id):
     instance = AboutUs.objects.get(id=aboutus_id)
     if request.method == 'POST':
         form = AboutusForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'Aboutus updated')
+            messages.add_message(request, messages.SUCCESS, 'Aboutus updated')
             return redirect('/products/aboutus')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updateaboutus.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updateaboutus.html', {
+                'form': form
             })
-    context={
-        'form':AboutusForm(instance=instance)
+    context = {
+        'form': AboutusForm(instance=instance)
     }
 
-    return render(request,'products/updateaboutus.html',context)
+    return render(request, 'products/updateaboutus.html', context)
 
 
 @login_required
 @admin_only
-def delete_aboutus(request,aboutus_id):
-    aboutus=AboutUs.objects.get(id=aboutus_id)
+def delete_aboutus(request, aboutus_id):
+    aboutus = AboutUs.objects.get(id=aboutus_id)
     aboutus.delete()
-    messages.add_message(request,messages.SUCCESS,'Aboutus Deleted')
+    messages.add_message(request, messages.SUCCESS, 'Aboutus Deleted')
     return redirect('/products/aboutus')
+
 
 @login_required
 @admin_only
 def show_coverimage(request):
     coverimage = ImageSlider.objects.all()
     context = {
-        'coverimage':coverimage
+        'coverimage': coverimage
     }
     return render(request, 'products/coverimagelist.html', context)
+
 
 @login_required
 @admin_only
@@ -297,83 +313,88 @@ def update_coverimage(request, imageslider_id):
         form = ImagesliderForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'coverimage updated')
+            messages.add_message(request, messages.SUCCESS, 'coverimage updated')
             return redirect('/products/coverimage')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updatecoverimage.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updatecoverimage.html', {
+                'form': form
             })
-    context={
-        'form':ImagesliderForm(instance=instance)
+    context = {
+        'form': ImagesliderForm(instance=instance)
     }
 
-    return render(request,'products/updatecoverimage.html',context)
+    return render(request, 'products/updatecoverimage.html', context)
+
 
 @login_required
 @admin_only
-def delete_coverimage(request,imageslider_id):
-    imageslider=ImageSlider.objects.get(id=imageslider_id)
+def delete_coverimage(request, imageslider_id):
+    imageslider = ImageSlider.objects.get(id=imageslider_id)
     imageslider.delete()
-    messages.add_message(request,messages.SUCCESS,'Coverimage Deleted')
+    messages.add_message(request, messages.SUCCESS, 'Coverimage Deleted')
     return redirect('/products/coverimage')
 
+
 @login_required
-def add_to_cart(request,product_id):
-    user=request.user
+def add_to_cart(request, product_id):
+    user = request.user
     product = Product.objects.get(id=product_id)
-    
-    check_item_presence = Cart.objects.filter(user=user,product=product)
+
+    check_item_presence = Cart.objects.filter(user=user, product=product)
     if check_item_presence:
-        messages.add_message(request,messages.ERROR,'Product is already present in the cart')
+        messages.add_message(request, messages.ERROR, 'Product is already present in the cart')
         return redirect('/products')
 
     else:
-        cart = Cart.objects.create(product=product,user=user)
+        cart = Cart.objects.create(product=product, user=user)
         if cart:
-            messages.add_message(request,messages.SUCCESS,'Product added to cart')
+            messages.add_message(request, messages.SUCCESS, 'Product added to cart')
             return redirect('/products/mycart')
         else:
-            messages.add_message(request,messages.ERROR,'Unable to add item to cart')
+            messages.add_message(request, messages.ERROR, 'Unable to add item to cart')
+
 
 @login_required
 def show_cart_item(request):
     user = request.user
-    items=Cart.objects.filter(user=user)
-    context={
-        'items':items
+    items = Cart.objects.filter(user=user)
+    context = {
+        'items': items
     }
-    return render(request,'users/mycart.html',context)
+    return render(request, 'users/mycart.html', context)
+
 
 @login_required
-def remove_cart_item(request,cart_id):
+def remove_cart_item(request, cart_id):
     item = Cart.objects.get(id=cart_id)
     item.delete()
-    messages.add_message(request,messages.SUCCESS,'Item remove from the cart')
+    messages.add_message(request, messages.SUCCESS, 'Item remove from the cart')
     return redirect('/products/mycart')
 
+
 @login_required
-def order_item_form(request,product_id,cart_id):
-    user=request.user
-    product=Product.objects.get(id=product_id)
+def order_item_form(request, product_id, cart_id):
+    user = request.user
+    product = Product.objects.get(id=product_id)
     cart_item = Cart.objects.get(id=cart_id)
 
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            quantity=request.POST.get('quantity')
-            price=product.product_price
-            total_price = int(quantity)*int(price)
+            quantity = request.POST.get('quantity')
+            price = product.product_price
+            total_price = int(quantity) * int(price)
             contact_no = request.POST.get('contact_no')
             address = request.POST.get('address')
             payment_method = request.POST.get('payment_method')
             payment_status = request.POST.get('payment_status')
             order = Order.objects.create(
-                product = product,
+                product=product,
                 user=user,
                 quantity=quantity,
                 total_price=total_price,
-                contact_no = contact_no,
+                contact_no=contact_no,
                 address=address,
                 payment_method=payment_method,
                 payment_status=payment_status,
@@ -381,27 +402,24 @@ def order_item_form(request,product_id,cart_id):
             if order.payment_method == 'Cash on Delivery':
                 cart = Cart.objects.get(id=cart_id)
                 cart.delete()
-                messages.add_message(request,messages.SUCCESS,'Order Successful')
+                messages.add_message(request, messages.SUCCESS, 'Order Successful')
                 return redirect('/products/my_order')
 
             elif order.payment_method == 'Paypal':
-                context={
-                    'order':order,
+                context = {
+                    'order': order,
                     'cart': cart_item
                 }
-                return render(request,'users/paypal_payment.html',context)
+                return render(request, 'users/paypal_payment.html', context)
 
             else:
-                message.add_message(request,messages.ERROR,'Something went wrong')
-                return render(request,'users/orderform.html',context)
+                message.add_message(request, messages.ERROR, 'Something went wrong')
+                return render(request, 'users/orderform.html', context)
 
     context = {
         'form': OrderForm
     }
     return render(request, 'users/orderform.html', context)
-
-
-
 
 
 @login_required
@@ -410,18 +428,19 @@ def my_order(request):
     items = Order.objects.filter(user=user)
 
     context = {
-        'items':items
+        'items': items
     }
-    return render(request,'users/my_order.html',context)
+    return render(request, 'users/my_order.html', context)
+
 
 @login_required
 @admin_only
 def all_order(request):
     items = Order.objects.all()
     context = {
-        'items':items
+        'items': items
     }
-    return render(request,'products/allorders.html',context)
+    return render(request, 'products/allorders.html', context)
 
 
 @login_required
@@ -439,67 +458,72 @@ def show_contact(request):
 def show_service(request):
     services = Service.objects.all()
     context = {
-        'services':services
+        'services': services
     }
     return render(request, 'products/servicelist.html', context)
 
+
 @login_required
 @admin_only
-def update_contactus(request,contact_us_id):
+def update_contactus(request, contact_us_id):
     instance = ContactUs.objects.get(id=contact_us_id)
     if request.method == 'POST':
         form = Contact_usForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'contact updated')
+            messages.add_message(request, messages.SUCCESS, 'contact updated')
             return redirect('/products/contact')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updatecontact.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updatecontact.html', {
+                'form': form
             })
-    context={
-        'form':Contact_usForm(instance=instance)
+    context = {
+        'form': Contact_usForm(instance=instance)
     }
 
-    return render(request,'products/updatecontact.html',context)
+    return render(request, 'products/updatecontact.html', context)
+
 
 @login_required
 @admin_only
-def update_service(request,service_id):
+def update_service(request, service_id):
     instance = Service.objects.get(id=service_id)
     if request.method == 'POST':
         form = ServiceForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,'service updated')
+            messages.add_message(request, messages.SUCCESS, 'service updated')
             return redirect('/products/service')
         else:
-            messages.add_message(request,messages.ERROR,'please verify forms fields. ')
-            return render(request,'products/updateservice.html',{
-                'form':form
+            messages.add_message(request, messages.ERROR, 'please verify forms fields. ')
+            return render(request, 'products/updateservice.html', {
+                'form': form
             })
-    context={
-        'form':ServiceForm(instance=instance)
+    context = {
+        'form': ServiceForm(instance=instance)
     }
 
-    return render(request,'products/updateservice.html',context)
+    return render(request, 'products/updateservice.html', context)
+
 
 @login_required
 @admin_only
 def delete_contact(request, contact_us_id):
-    contacts=ContactUs.objects.get(id=contact_us_id)
+    contacts = ContactUs.objects.get(id=contact_us_id)
     contacts.delete()
-    messages.add_message(request,messages.SUCCESS,'Contact Deleted')
+    messages.add_message(request, messages.SUCCESS, 'Contact Deleted')
     return redirect('/products/contact')
+
 
 @login_required
 @admin_only
-def delete_service(request,service_id):
-    services=Service.objects.get(id=service_id)
+def delete_service(request, service_id):
+    services = Service.objects.get(id=service_id)
     services.delete()
-    messages.add_message(request,messages.SUCCESS,'Service Deleted')
+    messages.add_message(request, messages.SUCCESS, 'Service Deleted')
     return redirect('/products/service')
+
 
 def complete_order(request):
     body = json.loads(request.body)
@@ -510,12 +534,11 @@ def complete_order(request):
     cart.delete()
     return JsonResponse('Payment completed!', safe=False)
 
+
 def payment_success(request):
-   
-     messages.add_message(request,messages.SUCCESS,'Payment Successfull and Your is Order is ready to go.')
-     return redirect('/products/my_order')
+    messages.add_message(request, messages.SUCCESS, 'Payment Successfull and Your is Order is ready to go.')
+    return redirect('/products/my_order')
 
 
 def payment_failed(request):
-
     return render(request, 'users/payment_failed.html')

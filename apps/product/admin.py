@@ -1,10 +1,46 @@
 from django.contrib import admin
-from .models import *
+from nested_admin import nested
 
-# Register your models here.
-admin.site.register(Product)
-admin.site.register(Category)
-admin.site.register(Member)
-admin.site.register(AboutUs)
-admin.site.register(ImageSlider)
+from apps.core.admin import BaseModelAdmin
+from apps.product import models
 
+
+class ProductImageInline(nested.NestedStackedInline):
+    model = models.ProductImage
+    extra = 0
+
+
+@admin.register(models.Product)
+class ProductAdmin(nested.NestedModelAdmin, BaseModelAdmin):
+    list_display = (
+        'id',
+        'name',
+        'product_price',
+        'created'
+    )
+    inlines = [
+        ProductImageInline,
+    ]
+
+    class Media:
+        js = (
+            'js/steps.js',
+        )
+
+
+@admin.register(models.ProductImage)
+class ProductImageAdmin(BaseModelAdmin):
+    pass
+
+
+@admin.register(models.Category)
+class CategoryAdmin(BaseModelAdmin):
+    list_display = (
+        'id',
+        'name'
+    )
+
+
+admin.site.register(models.Member)
+admin.site.register(models.AboutUs)
+admin.site.register(models.ImageSlider)

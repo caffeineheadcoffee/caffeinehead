@@ -28,12 +28,12 @@
         {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
       <div class="alert alert-success">{{ msg }}</div>
 
-        {% endif%} 
+        {% endif%}
         {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
       <div class="alert alert-danger">{{ msg }}</div>
 
-        {% endif%} 
-      {% endfor %} 
+        {% endif%}
+      {% endfor %}
       {% if items|length < 1 %}
       <div
         class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
@@ -89,9 +89,9 @@
                 alt=""
               />
                 </div>
-                
+
               <p class="f-16 bold m-0">{{ i.product.product_name }}</p>
-              
+
               </div>
             </td>
             <td class="f-16 bold m-0">{{ i.product.product_price }}</td>
@@ -103,7 +103,7 @@
                 <a class="icon-btn" onclick="increment()">
                 <i class="fa f-12 fa-plus"></i></a></td>
             <td>
-              
+
             </td>
             <td>
               <a
@@ -139,7 +139,7 @@
             <a href="/products/orderitemform/{{i.product.id}}/{{i.id}}" class="primary-ghost-btn w-100 text-uppercase">Goto Checkout</a>                      
             </div>
           </div>
-          
+
         </div>
       </div>
       {% endif %}

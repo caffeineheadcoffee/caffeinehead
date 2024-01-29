@@ -1,21 +1,21 @@
 from django.urls import path, include
 from . import views
 
-urlpatterns=[
+urlpatterns = [
     path('', views.index),
     path('addproduct/', views.post_product),
     path('addcategory/', views.post_category),
     path('updateproduct/<int:product_id>', views.update_product),
     path('deleteproduct/<int:product_id>', views.delete_product),
     path('category/', views.show_category),
-    path('updatecategory/<int:category_id>',views.update_category),
-    path('deletecategory/<int:category_id>',views.delete_category),
-    path('add_to_cart/<int:product_id>',views.add_to_cart,name="add_to_cart"),
-    path('mycart',views.show_cart_item),
+    path('updatecategory/<int:category_id>', views.update_category),
+    path('deletecategory/<int:category_id>', views.delete_category),
+    path('add_to_cart/<int:product_id>', views.add_to_cart, name="add_to_cart"),
+    path('mycart', views.show_cart_item),
     path('deletecartitems/<int:cart_id>', views.remove_cart_item),
     path('orderitemform/<int:product_id>/<int:cart_id>', views.order_item_form),
-    path('my_order',views.my_order),
-    path('allorder',views.all_order),
+    path('my_order', views.my_order),
+    path('allorder', views.all_order),
     path('addmember/', views.post_member),
     path('updatemember/<int:member_id>', views.update_member),
     path('deletemember/<int:member_id>', views.delete_member),
@@ -38,5 +38,5 @@ urlpatterns=[
     path('payment-success/', views.payment_success, name='payment-success'),
     path('payment-failed/', views.payment_failed, name='payment_failed'),
     path('complete/', views.complete_order, name='complete'),
-    
+
 ]

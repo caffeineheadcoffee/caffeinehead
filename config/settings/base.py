@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_filters",
+    "nested_admin",
     "paypal.standard.ipn",
 ]
 
@@ -50,6 +51,8 @@ LOCAL_APPS = [
     'apps.user',
     'apps.product',
     'apps.dashboard',
+    'apps.website',
+    'apps.order',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

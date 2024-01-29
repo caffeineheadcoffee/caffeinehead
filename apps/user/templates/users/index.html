@@ -21,9 +21,12 @@
   }
 </style>
 
-{% extends 'layout.html' %} {% load static %} {% block title %}
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
 <title>Caffeinehead - Homepage</title>
-{% endblock %} {% block main_content %}
+{% endblock %}
+{% block main_content %}
 <!-- Main Cover Container -->
 <div class="main-cover-container">
   <div class="container top-title">
@@ -118,8 +121,8 @@
           ></a>
           <img
             class="ele-1 position-absolute start-50 translate-middle-x"
-            src="{{MEDIA_URL }}{{ product.image }}"
-            alt="{{ product.product_name }}"
+            src="{{MEDIA_URL }}{{ product.display_image.image }}"
+            alt="{{ product.name }}"
           />
           <a
             href="/products/add_to_cart/{{product.id}}"
@@ -129,13 +132,15 @@
           </a>
           <div class="product-info">
             <div class="d-flex flex-column gap-1">
-              <p class="product-name mb-0">{{ product.product_name }}</p>
+              <p class="product-name mb-0">{{ product.name }}</p>
               <p class="product-discription mb-0">{{ product.description }}</p>
             </div>
             <div class="d-flex flex-column gap-1">
+                {% if product.discounted_price %}
               <p class="mb-0">
-                <s>$ {{ product.product_price }}</s>
+                <s>$ {{ product.price }}</s>
               </p>
+                {% endif %}
               <p class="product-price mb-0">$ {{ product.product_price }}</p>
             </div>
           </div>

@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
+from django.db.models import Count
 from django.shortcuts import render, redirect, \
     get_object_or_404, reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -94,13 +95,21 @@ class CollectionPageView(TemplateView):
     template_name = 'users/collection.html'
 
     def get_context_data(self, **kwargs):
-        products = Product.objects.all()
-        category = Category.objects.all().order_by('-id')
         context = super(CollectionPageView, self).get_context_data(**kwargs)
+        categories = Category.objects.annotate(
+            product_count=Count('product')
+        ).filter(product_count__gt=0)
+
+        category_products = [
+            {
+                'id': category.id,
+                'name': category.name,
+                'products': category.product_set.all()[:5]
+            } for category in categories
+        ]
         context.update({
-            'product_list': ProductFilter(self.request.GET, queryset=products).qs,
-            'product_filter': ProductFilter(self.request.GET, queryset=products),
-            'category': CategoryFilter(self.request.GET, queryset=category).qs
+            'products': Product.objects.all()[:5],
+            'category_products': category_products
         })
         if self.request.user.is_authenticated:
             items = Cart.objects.filter(user=self.request.user)
@@ -243,9 +252,10 @@ def save_contact(request):
     }
     return render(request, 'users/contact.html', context)
 
+
 def user_profile(request):
     profilelist = User.objects.get(pk=request.user.pk)
-    context ={
-        "profile":profilelist
+    context = {
+        "profile": profilelist
     }
-    return render(request,"users/dashboard.html",context)
+    return render(request, "users/dashboard.html", context)

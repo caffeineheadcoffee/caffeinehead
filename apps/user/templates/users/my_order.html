@@ -54,14 +54,14 @@
                 </thead>
                 <tbody>
                     {% for i in items %}
-                    <!-- <li>Name : {{ i.product_name }}</li>
+                    <!-- <li>Name : {{ i.name }}</li>
                     <li><img src="/{{i.image}}" alt="" width="200"></li> -->
                     <tr>
-                        <td> {{ i.product.product_name }}</td>
+                        <td> {{ i.product.name }}</td>
                         <td> {{ i.product.product_price }}</td>
                         <td> {{i.quantity}} </td>
                         <td> {{i.total_price}} </td>
-                        <td><img src="/{{i.product.image}}" alt="" width="240" height="150"></td>
+                        <td><img src="/{{i.product.display_image}}" alt="" width="240" height="150"></td>
                         <td>{{ i.created_date }}</td>
                         <td>{{i.status}}</td>
                     </tr>
