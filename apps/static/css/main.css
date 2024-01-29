@@ -404,6 +404,50 @@ input::-webkit-inner-spin-button {
   background-color: var(--primary-50);
 }
 
+.steps-btn{
+  color: var(--neutral-500) ;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-50);
+  border: 2px solid var(--neutral-500);
+  border-radius: 50%;
+  padding: 1rem;
+  cursor: default;
+}
+
+.steps-btn .visited{
+  background-color: var(--primary-50) !important;
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  cursor: pointer !important;
+}
+
+.steps-btn .visited:hover{
+  background-color: var(--primary-50);
+  border: 2px solid var(--primary-light);
+  color: var(--primary-light) !important;
+}
+
+.steps-container{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.steps-container span{
+  height: 0;
+  border: 1px dashed var(--neutral-500);
+  width: auto;
+}
+
+.steps-container span .visited{
+  border: 1px dashed var(--neutral-500);
+}
+
 #quantity{
   border: none !important;
   color: var(--primary) !important;
