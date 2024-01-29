@@ -8,9 +8,10 @@ class AboutUsView(OrderMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutUsView, self).get_context_data(**kwargs)
-        context.update({
-            'order_items_count': self.get_order_items_count(),
-        })
+        if self.request.user.is_authenticated:
+            context.update({
+                'order_items_count': self.get_order_items_count(),
+            })
         return context
 
 
@@ -19,7 +20,8 @@ class ServicesView(OrderMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServicesView, self).get_context_data(**kwargs)
-        context.update({
-            'order_items_count': self.get_order_items_count(),
-        })
+        if self.request.user.is_authenticated:
+            context.update({
+                'order_items_count': self.get_order_items_count(),
+            })
         return context
