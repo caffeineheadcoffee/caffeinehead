@@ -1,0 +1,264 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Caffeinehead - OurStory</title>
+{% endblock%} {% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">About Caffeinehead</p>
+      <div class="cover-title-3">
+        At CaffeineHead Blockchain Coffee, we're dedicated to using blockchain
+        to transform the coffee industry. Our mission is to create a transparent
+        and sustainable coffee supply chain, benefiting everyone from farmers to
+        consumers. We promote transparency, traceability, and ethics, empowering
+        stakeholders to make informed decisions for a better coffee ecosystem.
+      </div>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-100"
+        src="{% static 'images/AboutUsCoverImage.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Promo-icon Part -->
+<div class="promo-icon p-50 coffee-bg">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center gap-5">
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/together-icon.png'%}"
+          alt=""
+        />
+        <p>Together</p>
+      </div>
+
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/brewing-icon.png'%}"
+          alt=""
+        />
+        <p>Brewing a better future</p>
+      </div>
+
+      <div class="col-md-3 icon-flex">
+        <img
+          class="col-md-6"
+          src="{% static 'images/one-cup-icon.png'%}"
+          alt=""
+        />
+        <p>One cup at a time</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Promo-icon part end -->
+
+<!-- Our story and mission Part -->
+<div class="about-section p-50">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-5 d-flex flex-column justify-content-center gap-4">
+        <h4 class="f-20 bold secondary-color m-0">Our Story and Mission</h4>
+        <p class="f-16 regular text-color m-0">
+          From Sydney Opera House to hidden cafes, every sip is a journey of
+          trust. With smart contracts and tokenization, CaffeineHead empowers
+          coffee lovers to support local farmers sustainably. Our blockchain
+          tech traces coffee from farm to cup for transparency. Join our
+          community and elevate your coffee brand.
+        </p>
+      </div>
+      <div class="col-md-7">
+        <iframe
+          src="https://www.youtube.com/embed/r8KZeL55u4Q?si=39Zg4_xTMiZ7UHt3"
+          title="YouTube video player"
+          frameborder="0"
+          width="100%"
+          height="420px"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Our story and mission part end -->
+
+<!-- Join Us Part -->
+<div class="join-us p-50">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div
+        class="col-md-7 right-section d-flex justify-content-center align-items-center"
+      >
+        <img src="{% static 'images/BecomeCaffeine.png' %} " />
+      </div>
+      <div class="col-md-5 d-flex flex-column justify-content-center gap-4">
+        <h4 class="f-20 bold secondary-color m-0">
+          Become Caffeinehead Brand Ambassador/Insider
+        </h4>
+        <p class="f-16 regular text-color m-0">
+          Join the CaffeineHead community for a unique specialty coffee journey.
+          We're committed to transparency, sustainability, and exceptional
+          taste. Together, let's shape a brighter coffee future. Start your
+          meaningful coffee adventure today
+        </p>
+        <a href="/" class="btn secondary-ghost-btn">Join Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Join Us part end -->
+
+<!-- Our Team Part -->
+<div class="our-team p-50 coffee-bg">
+  <div class="container">
+    <div
+      class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3"
+    >
+      <p class="sub-heading">Our Associates</p>
+      <p class="f-16 regular m-0 white-color text-center w-75">
+        Behind the scenes, our dedicated crew works tirelessly to bring our
+        vision to life. Each member brings a unique set of skills and a shared
+        passion for excellence. Together, we are committed to delivering
+        exceptional results, fueled by creativity and collaboration. Meet the
+        faces driving our success and join us on this exciting journey.
+      </p>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <!-- For main People -->
+      {% for member in members %}
+      {% if member.role == 'Main' %}
+      <div class="col-md-4 mb-4">
+        <div
+          class="team-member ele-1"
+          style="background-image: url('/{{member.image}}')"
+        >
+          <div class="team-detail">
+            <div
+              class="d-flex flex-column gap-1 align-items-center justify-content-start"
+            >
+              <p class="bold f-20 text-uppercase m-0 text-color">
+                {{member.name}}
+              </p>
+              <span class="m-0 semi-bold f-16 neutral-500-color"
+                >{{member.position}}</span
+              >
+              <div class="regular f-14 text-color hidden">
+                {{member.description}}
+              </div>
+            </div>
+
+            <ul class="social-icons">
+              <li>
+                <a href="{{member.facebook}}"
+                  ><i class="fab fa-facebook-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.twitter}}"
+                  ><i class="fab fa-twitter-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.linkdin}}"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      {% else %}
+      <!-- For Other Employee -->
+      <div class="col-md-3 mb-4">
+        <div
+          class="team-member ele-1"
+          style="background-image: url('/{{member.image}}')"
+        >
+          <div class="team-detail">
+            <div
+              class="d-flex flex-column gap-1 align-items-center justify-content-start"
+            >
+              <p class="bold f-20 text-uppercase m-0 text-color">
+                {{member.name}}
+              </p>
+              <span class="m-0 semi-bold f-16 neutral-500-color"
+                >{{member.position}}</span
+              >
+              <div class="regular f-14 text-color hidden">
+                {{member.description}}
+              </div>
+            </div>
+
+            <ul class="social-icons">
+              <li>
+                <a href="{{member.facebook}}"
+                  ><i class="fab fa-facebook-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.twitter}}"
+                  ><i class="fab fa-twitter-square"></i
+                ></a>
+              </li>
+              <li>
+                <a href="{{member.linkdin}}"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Our Team part end -->
+
+<!-- Happy Client Part -->
+<div class="happy-clients p-50">
+  <div class="container">
+    <div
+      class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3"
+    >
+      <p class="sub-heading">Happy Partners</p>
+      <p class="f-16 regular m-0 text-color text-center w-75">
+        We are grateful for the strong collaborations that have propelled our
+        success. These valued partnerships fuel innovation, growth, and shared
+        achievements. Together, we are building a future defined by mutual
+        prosperity and pioneering solutions. Thank you for being an integral
+        part of our journey.
+      </p>
+    </div>
+    <div class="row mt-4">
+      <div
+        class="owl-clients owl-carousel d-flex justify-content-center align-items-center"
+      >
+        <div class="client-item col-md-2">
+          <img src="{% static 'images/odoo_logo.png'%}" alt="1" />
+        </div>
+
+        <div class="client-item col-md-2">
+          <img src="{% static 'images/Polygon_blockchain_logo.png'%}" alt="2" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Happy Client part end -->
+{% endblock%}

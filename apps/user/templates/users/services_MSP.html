@@ -1,0 +1,1186 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Caffeinehead - Services</title>
+{% endblock%} {% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Managed Service Provider</p>
+      <div class="cover-title-3">
+        A Managed Service Provider (MSP) is a company or organization that
+        offers a comprehensive suite of IT (Information Technology) services and
+        solutions to businesses and clients, typically on a subscription or
+        contractual basis. MSPs are responsible for proactively managing,
+        monitoring, and maintaining their clients' IT infrastructure, networks,
+        systems, and applications, with the goal of ensuring optimal
+        performance, security, and efficiency.
+      </div>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-50"
+        src="{% static 'images/Managed Service Provider.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Services Part Start -->
+
+<div class="services-container">
+  <!-- Desktop View -->
+  <div class="container desktop-view">
+    <table class="table table-striped msp-table">
+      <thead>
+        <tr class="bold f-32 secondary-color align-top">
+          <th>Plans & <br />Features</th>
+          <th>
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="mb-0">Starter</p>
+              <p class="regular text-color f-16 mb-0 text-center">
+                Begin with our essential plans, packed with key tools for a
+                strong start.
+              </p>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="mb-0">Standard <span class="primary-color">*</span></p>
+              <p class="regular text-color f-16 mb-0 text-center">
+                Step up with our standard plans, providing enhanced features for
+                your evolving needs.
+              </p>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="mb-0">Premium</p>
+              <p class="regular text-color f-16 mb-0 text-center">
+                Upgrade to Premium for exclusive advanced features and a premium
+                user experience.
+              </p>
+            </div>
+          </th>
+        </tr>
+        <tr class="bold f-32 secondary-color align-top">
+          <th class="p-2 pb-5"></th>
+          <th class="p-2 pb-5">
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="f-24 mb-0 text-center">
+                $130 <span class="f-14 regular text-color">/month</span>
+              </p>
+              <a href="" class="btn secondary-ghost-btn f-16">GET STARTED</a>
+            </div>
+          </th>
+          <th class="p-2 pb-5">
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="f-24 mb-0 text-center">
+                $160 <span class="f-14 regular text-color">/month</span>
+              </p>
+              <a href="" class="btn secondary-ghost-btn f-16">GET STARTED</a>
+            </div>
+          </th>
+          <th class="p-2 pb-5">
+            <div class="d-flex gap-2 flex-column align-items-center">
+              <p class="f-24 mb-0 text-center">
+                $210 <span class="f-14 regular text-color">/month</span>
+              </p>
+              <a href="" class="btn secondary-ghost-btn f-16">GET STARTED</a>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="accordion" id="accordionPanelsStayOpenExample">
+        <tr>
+          <td scope="row" class="white-bg accordion-header" colspan="4">
+            <h5
+              class="accordion-button p-0 mb-0 f-18 secondary-color"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne"
+            >
+              MANAGED SERVICES
+            </h5>
+          </td>
+        </tr>
+      </tbody>
+      <tbody
+        id="panelsStayOpen-collapseOne"
+        class="accordion-collapse collapse show"
+      >
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            24x7x365 Remote Support
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Ticketing System</td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Desktop Support</td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Onsite Support *</td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Continuous System Health Checks
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Staff IT On-Boarding / Off-Boarding
+          </td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Backup as a Service</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">DR as a Service</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">BCP as a Service</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Annual BCP Testing</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Monthly IT Report</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Microsoft 365 Licenses (Business Standard)
+          </td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Microsoft 365 Licenses (Business Premium)
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Cyber Security Report
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Mobile Device Management
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody class="accordion" id="accordionPanelsStayOpenExample">
+        <tr>
+          <td scope="row" class="white-bg accordion-header" colspan="4">
+            <h5
+              class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseTwo"
+            >
+              CYBER SECURITY
+            </h5>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody
+        id="panelsStayOpen-collapseTwo"
+        class="accordion-collapse collapse"
+      >
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Network Monitoring</td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <div>
+            <td scope="row" class="f-16 secondary-color">
+              Dark Web Monitoring
+            </td>
+            <td>
+              <i class="far f-18 fa-check-circle success-color"></i>
+            </td>
+            <td>
+              <i class="far f-18 fa-check-circle success-color"></i>
+            </td>
+            <td>
+              <i class="far f-18 fa-check-circle success-color"></i>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Endpoint Protection</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Anti-Virus</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Anti-Malware</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Anti-Phishing</td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Ransomware Protection
+          </td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Email Security</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Web Security</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Cloud Protection</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Network Security</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">Detection & Response</td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" class="f-16 secondary-color">
+            Automatic Threat Remediation
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+      </tbody>
+      <tbody class="accordion" id="accordionPanelsStayOpenExample">
+        <tr>
+          <td scope="row" class="white-bg accordion-header" colspan="4">
+            <h5
+              class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseThree"
+            >
+              VALUE ADDED SERVICES
+            </h5>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">
+            Quarterly IT Strategy Meeting
+          </td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">Annual IT Budget</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">Vendor Management</td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">
+            2 Hour Service Level Agreement
+          </td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">
+            Managed Cyber Security
+          </td>
+          <td></td>
+          <td></td>
+          <td><i class="far f-18 fa-check-circle success-color"></i></td>
+        </tr>
+        <tr
+          id="panelsStayOpen-collapseThree"
+          class="accordion-collapse collapse"
+        >
+          <td scope="row" class="f-16 secondary-color">
+            Up to 5 hours onsite Support
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <i class="far f-18 fa-check-circle success-color"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mobile View -->
+  <div class="container mobile-card">
+    <div class="row">
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators mb-0">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item p-3 active">
+            <table class="table no-lines table-striped msp-table">
+              <thead>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="mb-0">Starter</p>
+                      <p class="regular text-color f-16 mb-0 text-center">
+                        Begin with our essential plans, packed with key tools
+                        for a strong start.
+                      </p>
+                    </div>
+                  </th>
+                </tr>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2" class="p-0 pb-5">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="f-24 mb-0 text-center">
+                        $130 <span class="f-14 regular text-color">/month</span>
+                      </p>
+                      <a href="" class="btn secondary-ghost-btn f-16"
+                        >GET STARTED</a
+                      >
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      MANAGED SERVICES
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseOne"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    24x7x365 Remote Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Ticketing System
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Desktop Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Onsite Support *
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Continuous System Health Checks
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      CYBER SECURITY
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseTwo"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Network Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Dark Web Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="carousel-item p-3">
+            <table class="table table-striped msp-table">
+              <thead>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="mb-0">
+                        Standard <span class="primary-color">*</span>
+                      </p>
+                      <p class="regular text-color f-16 mb-0 text-center">
+                        Step up with our standard plans, providing enhanced
+                        features for your evolving needs.
+                      </p>
+                    </div>
+                  </th>
+                </tr>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2" class="p-0 pb-5">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="f-24 mb-0 text-center">
+                        $160 <span class="f-14 regular text-color">/month</span>
+                      </p>
+                      <a href="" class="btn secondary-ghost-btn f-16"
+                        >GET STARTED</a
+                      >
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      MANAGED SERVICES
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseOne"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    24x7x365 Remote Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Ticketing System
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Desktop Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Onsite Support *
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Continuous System Health Checks
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Staff IT On-Boarding / Off-Boarding
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Backup as a Service
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Monthly IT Report
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Microsoft 365 Licenses (Business Standard)
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      CYBER SECURITY
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseTwo"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Network Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Dark Web Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Endpoint Protection
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">Anti-Virus</td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">Anti-Malware</td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Anti-Phishing
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Ransomware Protection
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="carousel-item p-3">
+            <table class="table .no-lines table-striped msp-table">
+              <thead>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="mb-0">Premium</p>
+                      <p class="regular text-color f-16 mb-0 text-center">
+                        Upgrade to Premium for exclusive advanced features and a
+                        premium user experience.
+                      </p>
+                    </div>
+                  </th>
+                </tr>
+                <tr class="bold f-32 secondary-color align-top">
+                  <th colspan="2" class="p-0 pb-5">
+                    <div class="d-flex gap-2 flex-column align-items-center">
+                      <p class="f-24 mb-0 text-center">
+                        $210 <span class="f-14 regular text-color">/month</span>
+                      </p>
+                      <a href="" class="btn secondary-ghost-btn f-16"
+                        >GET STARTED</a
+                      >
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      MANAGED SERVICES
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseOne"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    24x7x365 Remote Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Ticketing System
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Desktop Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Onsite Support *
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Continuous System Health Checks
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Staff IT On-Boarding / Off-Boarding
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Backup as a Service
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    DR as a Service
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    BCP as a Service
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Annual BCP Testing
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Monthly IT Report
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Microsoft 365 Licenses (Business Premium)
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Cyber Security Report
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Mobile Device Management ~
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseTwo"
+                    >
+                      CYBER SECURITY
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseTwo"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Network Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Dark Web Monitoring
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Endpoint Protection
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">Anti-Virus</td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">Anti-Malware</td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Anti-Phishing
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Ransomware Protection
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Email Security
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">Web Security</td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Cloud Protection
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Network Security
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Detection & Response
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Automatic Threat Remediation
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody class="accordion" id="accordionPanelsStayOpenExample">
+                <tr>
+                  <td scope="row" class="white-bg accordion-header" colspan="2">
+                    <h5
+                      class="accordion-button collapsed p-0 mb-0 f-18 secondary-color"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseThree"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseThree"
+                    >
+                      VALUE ADDED SERVICES
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody
+                id="panelsStayOpen-collapseThree"
+                class="accordion-collapse collapse"
+              >
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Quarterly IT Strategy Meeting
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Annual IT Budget
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Vendor Management
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    2 Hour Service Level Agreement
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Managed Cyber Security
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row" class="f-16 secondary-color">
+                    Up to 5 hours onsite Support
+                  </td>
+                  <td>
+                    <i class="far f-18 fa-check-circle success-color"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Services Part end -->
+  {% endblock%}
+</div>

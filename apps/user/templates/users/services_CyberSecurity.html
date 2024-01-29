@@ -1,0 +1,274 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Caffeinehead - Services</title>
+{% endblock%} {% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Cyber Security Training for Hospitality</p>
+      <div class="cover-title-3">
+        Cybersecurity training for the hospitality industry is a specialized
+        program designed to educate employees, managers, and stakeholders within
+        hotels, resorts, restaurants, and other hospitality establishments about
+        the importance of cybersecurity and how to protect sensitive guest
+        information and critical business data from cyber threats. With the
+        increasing reliance on technology in the hospitality sector, such
+        training is essential to safeguard customer privacy and maintain the
+        trust of guests.
+      </div>
+      <a href="{% url 'contact' %}" class="btn primary-btn f-16 ">GET QUOTATION</a>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-50"
+        src="{% static 'images/Cyber Security Training for Hospitality.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Services Part Start -->
+
+<div class="services-container">
+  <div class="container">
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        Detailed Description
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <div class="service-card">
+      <h3>IT Health Check</h3>
+      <div class="text-color">
+        We conduct a comprehensive assessment of an organization's IT
+        infrastructure and systems to verify their effective and secure
+        operation. Our evaluation encompasses network security, data protection
+        protocols, system performance, software and hardware vulnerabilities,
+        and overall IT governance. Through the identification of potential
+        weaknesses and areas for improvement, we assist organizations in
+        fortifying their IT security, improving system performance, and
+        implementing best practices to establish a dependable and robust IT
+        environment.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>VAPT Service</h3>
+      <div class="text-color">
+        We aid organizations in recognizing and addressing security
+        vulnerabilities within their Information Systems Assets. Our approach
+        involves a methodical vulnerability assessment aimed at revealing
+        weaknesses in networks, servers, applications, and crucial components.
+        Following the assessment, we perform manual penetration testing,
+        mimicking real-world attacks to exploit vulnerabilities and assess
+        existing security measures. Through Vulnerability Assessment and
+        Penetration Testing (VAPT), we support organizations in strengthening
+        their security stance, safeguarding sensitive data, and proactively
+        managing cyber threats.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Managed Security Service</h3>
+      <div class="text-color">
+        We offer ongoing oversight, administration, and swift response to
+        security incidents for organizations. Functioning as a Managed Security
+        Service Provider (MSSP), we play a crucial role in overseeing and
+        securing various facets of an organization's digital infrastructure,
+        including networks, systems, applications, and data. Utilizing advanced
+        security tools and technologies, we actively identify and thwart
+        potential threats in real-time, such as intrusion attempts, malware, and
+        unauthorized access. Additionally, we contribute to the analysis of
+        security logs, generate reports, and assist in incident response and
+        recovery efforts. Through our provision of managed security services,
+        our goal is to fortify the organization's security stance and provide
+        reassurance by effectively addressing security challenges.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>SIEM Solution</h3>
+      <div class="text-color">
+        We present a comprehensive platform that empowers organizations to
+        collect, correlate, and analyze security events and data from diverse
+        sources. Our Security Information and Event Management (SIEM) solution
+        gather log data from networks, systems, applications, and security
+        devices, facilitating centralized visibility and monitoring. Through the
+        application of advanced analytics and machine learning algorithms, we
+        pinpoint patterns, detect anomalies, and generate alerts for potential
+        security incidents. Our SIEM solution ensures real-time threat
+        detection, incident response, and forensic investigation capabilities,
+        aiding organizations in proactively identifying and addressing security
+        risks. With a centralized and holistic view of security events, we
+        contribute to improved situational awareness, faster incident response,
+        and an overall enhanced security posture.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>SWIFT CSP Assessment</h3>
+      <div class="text-color">
+        We deliver comprehensive services in SWIFT CSP (Customer Security
+        Programme), focusing on evaluating and improving the security and
+        compliance of financial institutions utilizing the SWIFT network for
+        financial transactions. Our assessment involves a thorough examination
+        of the organization's existing security controls, policies, and
+        procedures to ensure alignment with the SWIFT CSP framework. We perform
+        vulnerability assessments, penetration testing, and security
+        architecture reviews to pinpoint potential weaknesses and gaps in
+        security. Additionally, we provide recommendations and guidance to
+        fortify security measures, implement necessary controls, and enhance the
+        overall cybersecurity posture. Essentially, our goal is to assist
+        financial institutions in meeting the rigorous security requirements
+        outlined by SWIFT, thereby safeguarding their financial transactions and
+        mitigating potential threats and unauthorized access.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Digital Forensic Service</h3>
+      <div class="text-color">
+        We specialize in the methodical investigation, analysis, and
+        preservation of electronic evidence following a data breach. Our
+        services cover the scrutiny of digital devices, including computers,
+        smartphones, storage media, and networks. We undertake activities such
+        as data recovery, authentication, and analysis to gather information
+        usable in legal proceedings. This involves tasks such as data recovery,
+        data analysis, password cracking, metadata examination, and timeline
+        reconstruction. Leveraging specialized tools and techniques, we
+        identify, preserve, and interpret digital evidence, ensuring the
+        integrity and admissibility of the data in the investigative process.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Security Review/Audit</h3>
+      <div class="text-color">
+        We conduct comprehensive evaluations of an organization's security
+        practices, systems, and infrastructure to pinpoint vulnerabilities,
+        weaknesses, and compliance gaps. Our assessments extend to a thorough
+        examination of security policies, procedures, network configurations,
+        access controls, data handling practices, and incident response
+        capabilities. Primarily, our objective is to evaluate the overall
+        security posture, guarantee compliance with pertinent regulations, and
+        provide recommendations for improvements that mitigate risks and enhance
+        the effectiveness of security measures.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>IT Risk Assessment</h3>
+      <div class="text-color">
+        We offer a thorough IT Risk Assessment Service designed to assist
+        organizations in evaluating and mitigating potential risks within their
+        information technology environments. Our methodology includes the
+        identification and documentation of critical IT assets, the assessment
+        of threats and vulnerabilities, conducting vulnerability assessments,
+        and analyzing the potential impact of IT risks. <br /><br />We
+        scrutinize various aspects, including data security, access controls,
+        network architecture, software applications, and compliance
+        requirements. Our primary goal is to help organizations comprehend their
+        IT risk landscape, prioritize risks based on severity and likelihood,
+        and formulate practical action plans to address vulnerabilities.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Data Security/Privacy</h3>
+      <div class="text-color">
+        Our focus is on protecting sensitive information and ensuring its
+        confidentiality, integrity, and availability. In this service, we
+        provide guidance in developing and implementing control mechanisms that
+        facilitate organizations in managing how data is collected, shared, and
+        utilized. Our primary objective is to safeguard valuable data from
+        unauthorized access, minimize data risks, and uphold the trust of both
+        individuals and organizations.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Dark Web & Brand Monitoring Service</h3>
+      <div class="text-color">
+        We offer a thorough IT Risk Assessment Service designed to assist
+        organizations in evaluating and mitigating potential risks within their
+        information technology environments. Our methodology includes the
+        identification and documentation of critical IT assets, the assessment
+        of threats and vulnerabilities, conducting vulnerability assessments,
+        and analyzing the potential impact of IT risks. <br />
+        <br />
+        We scrutinize various aspects, including data security, access controls,
+        network architecture, software applications, and compliance
+        requirements. Our primary goal is to help organizations comprehend their
+        IT risk landscape, prioritize risks based on severity and likelihood,
+        and formulate practical action plans to address vulnerabilities.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>IT Risk Assessment</h3>
+      <div class="text-color">
+        We provide a comprehensive service designed to assist businesses in
+        safeguarding their brand reputation and mitigating potential risks on
+        the dark web. Our service involves continuous monitoring and analysis of
+        dark web marketplaces, forums, and social media platforms to identify
+        any unauthorized use or mention of an organization's brands. We actively
+        search for counterfeit goods, stolen data, phishing attempts, and other
+        illicit activities associated with the organization's brand names or
+        trademarks.<br />
+        <br />
+        Utilizing advanced technology and expert analysis, we promptly detect
+        and report any suspicious activities, enabling the organization to take
+        immediate action and protect their brand integrity. Through proactive
+        monitoring of the dark web, we help businesses safeguard their
+        reputation, maintain customer trust, and minimize the impact of
+        cyberattacks or brand infringement.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Cyber Security Awareness</h3>
+      <div class="text-color">
+        Our goal is to educate both individuals and organizations about
+        potential cyber threats, best practices, and strategies to guard against
+        cyberattacks. Through our Cybersecurity Awareness Service, we offer
+        training programs, workshops, awareness campaigns, and resources aimed
+        at fostering a cybersecurity-conscious mindset. By elevating awareness,
+        users can cultivate the skills necessary to identify and respond to
+        online threats, ultimately contributing to a safer digital environment.
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <a href="/services" class="link-btn secondary-color">
+        <i class="fa fa-angle-left fa-2"></i>
+        <p class="m-0">back to services</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Services Part end -->
+
+<!-- Get Services -->
+  <div class="container p-50">
+    <div class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3">
+      <p class="sub-heading">Get Cyber Security Training for Hospitality Services Today!</p>
+      <p class="f-16 regular m-0 text-color text-center w-75">
+        We can assist your organization in selecting, implementing, and training on industry-leading vulnerability management solutions tailored to your specific needs and requirements.
+      </p>
+      <a href="{% url 'contact' %}" class="btn primary-btn f-16 ">CONTACT US</a>
+    </div>
+</div>
+{% endblock%}

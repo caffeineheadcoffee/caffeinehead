@@ -1,0 +1,239 @@
+{% extends 'components/base.html' %}
+{% load static %}
+<style>
+    @media only screen and (max-width: 768px) {
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+
+{% block title %}
+    <title>Caffeinehead - Services</title>
+{% endblock%}
+{% block main_content %}
+
+    <!-- Main Cover Container -->
+    <div class="cover-container container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-7 d-flex flex-column gap-4">
+                <p class="cover-title-1 m-0">Services</p>
+                <div class="cover-title-3">
+                    Our services are designed with you in mind. Whether you're looking for
+                    expert guidance in technology, creative solutions in design, or
+                    dependable support in consulting, we have you covered. Our team of
+                    experienced professionals is committed to delivering top-notch services
+                    that meet your unique needs. From concept to completion, we're here to
+                    help you achieve your goals and exceed your expectations. Explore our
+                    range of services and let us be your partner in success.
+                </div>
+            </div>
+            <div class="col-md-5 d-flex justify-content-center align-items-center">
+                <img
+                        class="w-100"
+                        src="{% static 'images/ServicesCoverImage.png' %}"
+                        alt="..."
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Part Start -->
+
+    <div class="services-container">
+        <div class="container">
+            <div class="row">
+                <div class="service-img col-md-4">
+                    <img src="{% static 'images/Contract Roasting.png' %}" alt="..." />
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">Contract Roasting</p>
+                    <p class="f-16 regular secondary-color m-0">
+                        Contract roasting is a business arrangement in the coffee industry
+                        where one coffee roasting company, known as the contract roaster,
+                        provides roasting services for another company, known as the client or
+                        brand owner. This arrangement allows the client to focus on other
+                        aspects of their coffee business, such as sourcing beans, branding,
+                        marketing, and distribution, while outsourcing the roasting process to
+                        a specialized roasting company.
+                    </p>
+                    <a href="/services_contractRoasting" class="secondary-ghost-btn"
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row d-flex flex-row-reverse">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center">
+          <img
+                  src="{% static 'images/Wholesale Coffee and Equipment.png' %}"
+                  alt="..."
+          />
+        </span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">
+                        Wholesale Coffee and Equipment
+                    </p>
+                    <p class="f-16 regular secondary-color m-0">
+                        Wholesale coffee and equipment are key components of the coffee
+                        industry, facilitating the distribution of coffee beans and related
+                        equipment to various businesses, including cafes, restaurants, hotels,
+                        and specialty coffee shops.
+                    </p>
+                    <a href="/services_Wholesale" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center">
+          <img src="{% static 'images/POS.png' %}" alt="..."
+          /></span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">POS</p>
+                    <p class="f-16 regular secondary-color m-0">
+                        A Point of Sale (POS) system is a software and hardware combination
+                        used by businesses to facilitate the sale of products or services to
+                        customers at the physical location where the transaction occurs. POS
+                        systems are commonly employed in various industries, including retail,
+                        hospitality, restaurants, and service-based businesses.
+                    </p>
+                    <a href="/services_POS" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row d-flex flex-row-reverse">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center"
+        ><img
+                src="{% static 'images/Web and Mobile Application Development.png' %}"
+                alt="..."
+        /></span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">
+                        Web and Mobile Application Development
+                    </p>
+                    <p class="f-16 regular secondary-color m-0">
+                        Web and mobile application development is the process of creating
+                        software applications specifically designed to operate on the internet
+                        (web applications) or mobile devices (mobile applications). These
+                        applications serve a wide range of purposes, from entertainment and
+                        communication to business productivity and e-commerce.
+                    </p>
+                    <a href="/services_Appdev" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center"
+        ><img
+                src="{% static 'images/Managed Service Provider.png' %}"
+                alt="..."
+        /></span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">Managed Service Provider</p>
+                    <p class="f-16 regular secondary-color m-0">
+                        A Managed Service Provider (MSP) is a company or organization that
+                        offers a comprehensive suite of IT (Information Technology) services
+                        and solutions to businesses and clients, typically on a subscription
+                        or contractual basis. MSPs are responsible for proactively managing,
+                        monitoring, and maintaining their clients' IT infrastructure,
+                        networks, systems, and applications, with the goal of ensuring optimal
+                        performance, security, and efficiency.
+                    </p>
+                    <a href="/services_MSP" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row d-flex flex-row-reverse">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center">
+          <img
+                  src="{% static 'images/Cyber Security Training for Hospitality.png' %}"
+                  alt="..."
+          /></span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">
+                        Cyber Security Training for Hospitality
+                    </p>
+                    <p class="f-16 regular secondary-color m-0">
+                        Cybersecurity training for the hospitality industry is a specialized
+                        program designed to educate employees, managers, and stakeholders
+                        within hotels, resorts, restaurants, and other hospitality
+                        establishments about the importance of cybersecurity and how to
+                        protect sensitive guest information and critical business data from
+                        cyber threats. With the increasing reliance on technology in the
+                        hospitality sector, such training is essential to safeguard customer
+                        privacy and maintain the trust of guests.
+                    </p>
+                    <a href="/services_CyberSecurity" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="service-img col-md-4">
+        <span class="w-100 d-flex justify-content-center align-items-center"
+        ><img
+                src="{% static 'images/Coffee Cocktails Guest Shift.png' %}"
+                alt="..."
+        /></span>
+
+                    <div></div>
+                </div>
+
+                <div class="d-flex flex-column gap-3 col-md-8">
+                    <p class="f-20 bold secondary-dark m-0">Coffee Cocktails Guest Shift</p>
+                    <p class="f-16 regular secondary-color m-0">
+                        "Guest Shift" is a term often used in the hospitality industry,
+                        particularly in bars and restaurants, to describe a special event
+                        where a guest bartender or mixologist is invited to work a shift and
+                        create unique cocktails for patrons. When combined with the concept of
+                        "coffee cocktails," it typically involves a skilled coffee-based
+                        mixologist or barista who specializes in crafting cocktails that
+                        incorporate coffee as a key ingredient.
+                    </p>
+                    <a href="/services_CoffeeCocktails" class="secondary-ghost-btn" href=""
+                    >Learn More</a
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Part end -->
+{% endblock%}

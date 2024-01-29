@@ -1,0 +1,84 @@
+<style>
+    .asteriskField{
+        color: red;
+    }
+    #id_phone_number_0{
+        width: 150px;
+    }
+    #id_phone_number_1{
+        margin-top: 10px;
+        width: 300px;
+    }
+    @media only screen and (max-width: 768px) {
+      .responsive {
+        width: 100%;
+        height: auto;
+      }
+    }
+</style>
+
+  
+  {% extends 'layout.html' %} {% load static %} {% block title %}
+  <title>Caffeinehead - Homepage</title>
+  {% endblock%} 
+  {% load bootstrap %}
+  {% load crispy_forms_tags %}
+
+{% block main_content %}
+
+ <!-- Main Cover Container -->
+ <div class="container rounded">
+  <div class="row align-items-center" style="float: left; padding-top: 50px; padding-left: 50px;">
+      
+      {% if profile.image %}
+          <img src="{{ profile.image.url }} " alt="Avatar" style="border-radius: 50%; width: 250px; height: 200px;">
+      {% else %}
+          <span>Image not uploaded</span>
+      {% endif %}
+      <h2 style="color: rgb(68, 116, 96); padding-left: 50px;">User Image</h2>
+  </div>
+  <div class="row " style="padding-right: 50px;">
+      <div class="col-md-2 ">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img class="rounded-circle mt-5" src="">	
+          </div>
+      </div>
+      <div class="col-md-10 border-right">
+          <div class="pt-8 py-10">
+              <div class="row">
+                  
+                  <div class="col-md-12">
+                      <label class="labels">Full Name</label>
+                      <input type="text" class="form-control" placeholder="full name" value="{{ profile.full_name }}">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels">Email</label>
+                      <input type="text" class="form-control" placeholder="enter Email" value="{{ profile.email }}">
+                  </div>
+                  <!-- <div class="col-md-12">
+                      <label class="labels">D.O.B.</label>
+                      <input type="text" class="form-control" placeholder="enter dob" value="{{ profile.dob }}">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels">Gender</label>
+                      <input type="text" class="form-control" value="{{ profile.gender }}">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels">Contact</label>
+                      <input type="text" class="form-control" placeholder="enter contact" value="{{ profile.contact }}">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels">Address</label>
+                      <input type="text" class="form-control" placeholder="Address" value="{{ profile.address }}">
+                  </div> -->
+              </div>
+              <div class="mt-4 text-center">
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock%}
+  

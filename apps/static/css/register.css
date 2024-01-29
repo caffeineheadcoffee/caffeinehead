@@ -1,0 +1,114 @@
+
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+
+    .login-card{
+        margin: 5rem 0;
+        display: flex;
+        gap: 40px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .third-party-btn,
+    .third-party-btn:hover{
+        background-color: var(--neutral-50);
+        padding: 7px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-weight: 600;
+        transition: 0.3s;
+        border-radius: 5px;
+        gap: 15px;
+    }
+
+    .third-party-btn{
+        color: var(--neutral-500);
+        border: 1px solid var(--neutral-500);
+    }
+
+    .third-party-btn:hover{
+        color: var(--primary);
+        border: 1px solid var(--primary);
+    }
+
+    button img{
+        width: 24px;
+        height: auto;
+    }
+
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .text-box,
+    .textinput,
+    .emailinput,
+    .phoneprefixselect,
+    .select{
+        background-color: transparent;
+        border: none !important;
+        color: var(--text-color) !important;
+        font-size: 14px;
+        font-weight: 400;
+        border-bottom: 1px solid var(--neutral-500) !important;
+        border-radius: 0 !important;
+        padding-left: 5px !important;
+    }
+
+    .text-box:focus,
+    .text-box:hover,
+    .textinput:focus,
+    .emailinput:focus,
+    .phoneprefixselect:focus,
+    .select:focus,
+    .textinput:hover,
+    .emailinput:hover,
+    .phoneprefixselect:hover,
+    .select:hover{
+        border-bottom: 1px solid var(--primary) !important;
+        color: var(--text-color) !important;
+        background-color: transparent !important;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .text-box:focus::placeholder,
+    .text-box:hover::placeholder{
+        color: var(--text-color) !important;
+    }
+
+    .text-box::placeholder,
+    .form-label{
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        color: var(--neutral-500) !important;
+        margin: 0 !important;
+    }
+
+    .form-label{
+        margin-bottom: -3px !important;
+    }
