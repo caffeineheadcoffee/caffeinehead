@@ -1,28 +1,20 @@
-import imp
-from django.forms import ModelForm,fields
+from django.forms import ModelForm, fields
 from .models import *
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
+
 
 class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
 
+
 class CategoryForm(ModelForm):
     class Meta:
         model = Category
         fields = '__all__'
 
-class OrderForm(ModelForm):
-    class Meta:
-        model = Order
-        fields = ['quantity','payment_method','contact_no','address']
-
-class EditOrderForm(ModelForm):
-    class Meta:
-        model = Order
-        fields = ['status','payment_status']
 
 class MemberForm(ModelForm):
     class Meta:
@@ -34,22 +26,25 @@ class AboutusForm(ModelForm):
     class Meta:
         model = AboutUs
         fields = "__all__"
-    
+
 
 class ImagesliderForm(ModelForm):
     class Meta:
         model = ImageSlider
         fields = "__all__"
 
+
 class ServiceForm(ModelForm):
     class Meta:
         model = Service
         fields = "__all__"
 
+
 class Contact_usForm(ModelForm):
     phone_number = PhoneNumberField(
         widget=PhoneNumberPrefixWidget(initial='AU')
     )
+
     class Meta:
         model = ContactUs
         fields = "__all__"

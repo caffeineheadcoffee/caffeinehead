@@ -103,7 +103,7 @@ class CollectionPageView(TemplateView):
         category_products = [
             {
                 'id': category.id,
-                'name': category.category_name,
+                'name': category.name,
                 'products': category.product_set.all()[:5]
             } for category in categories
         ]

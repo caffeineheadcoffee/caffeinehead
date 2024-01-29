@@ -58,29 +58,6 @@ class ProductImage(BaseModel):
         return str(self.pk)
 
 
-class Cart(BaseModel):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_data = models.DateTimeField(auto_now_add=True)
-
-
-class Order(BaseModel):
-    PAYMENT = (
-        ('Cash on Delivery', 'Cash on Delivery'),
-        ('Paypal', 'Paypal'),
-    )
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    total_price = models.IntegerField(null=True)
-    status = models.CharField(default='Pending', max_length=200)
-    payment_method = models.CharField(max_length=200, choices=PAYMENT)
-    payment_status = models.BooleanField(default=False, null=True, blank=True)
-    contact_no = models.CharField(validators=[MinLengthValidator(9), MaxLengthValidator(10)], max_length=10)
-    address = models.CharField(max_length=200, null=True)
-    created_date = models.DateTimeField(auto_now_add=True)
-
-
 class Member(models.Model):
     ROLE = (
         ('Main', 'Main'),

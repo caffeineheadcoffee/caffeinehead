@@ -35,7 +35,10 @@ class ProductImageAdmin(BaseModelAdmin):
 
 @admin.register(models.Category)
 class CategoryAdmin(BaseModelAdmin):
-    pass
+    list_display = (
+        'id',
+        'name'
+    )
 
 
 admin.site.register(models.Member)
