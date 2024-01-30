@@ -58,7 +58,8 @@
         height: auto;
     }
 
-    .login-form{
+    .login-form,
+    .payment-form{
         display: flex;
         flex-direction: column;
         gap: 30px;

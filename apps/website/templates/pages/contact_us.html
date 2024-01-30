@@ -1,0 +1,69 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% block title %}
+    <title>E-commerce - ProductPage</title>
+{% endblock%}
+{% load bootstrap %}
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+
+    <!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Contact Us</p>
+      <div class="cover-title-3">
+        Get in touch with us easily through our contact form, email, or phone. We're here to assist you with any questions or feedback you have. Your inquiries are important to us, and we'll respond promptly. We look forward to hearing from you!</div>
+      <a href="{% url 'signup' %}" class="btn primary-btn f-16 ">JOIN NOW</a>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-80"
+        src="{% static 'images/contactus.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<div class="p-50 off-white-bg coffee-bg-brown">
+  <div class="container justify-content-center">
+
+    <div class="col-md-12 d-flex justify-content-center align-items-center flex-column">
+      <p class="sub-heading secondary-color">Contact Form</p>
+    </div>
+
+    <div class="row pt-5 d-flex align-items-center justify-content-center">
+     <div class="col-sm-12 col-md-9 col-lg-7 col-xl-6 contact-form">
+      {% for msg in messages %}
+      {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="alert alert-success">
+          {{ msg }}
+      </div>
+
+      {% endif%}
+
+      {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="alert alert-danger">
+          {{ msg }}
+      </div>
+
+      {% endif%}
+
+      {% endfor %}
+      <form action="" method="post"  enctype="multipart/form-data">
+           <!-- to send data in secure way -->
+           {% csrf_token %}
+           {{ form | crispy }}
+           <div>
+              <input type="submit" name="submit" value="Submit" class=" w-100 secondary-btn">
+           </div>
+      </form>
+    </div>
+    </div>
+      
+  </div>
+</div>
+
+{% endblock %}

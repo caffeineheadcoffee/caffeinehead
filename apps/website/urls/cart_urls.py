@@ -13,4 +13,9 @@ urlpatterns = [
         cart_views.AddToCartView.as_view(),
         name='add_to_cart'
     ),
+    path(
+        'payment',
+        cart_views.PaymentView.as_view(),
+        name='payment'
+    ),
 ]
