@@ -1,5 +1,6 @@
 from django.views import generic
 
+from apps.website import forms
 from apps.website.mixins import OrderMixin
 
 
@@ -16,7 +17,7 @@ class AboutUsView(OrderMixin, generic.TemplateView):
 
 
 class ServicesView(OrderMixin, generic.TemplateView):
-    template_name = 'pages/services.html'
+    template_name = 'pages/services/index.html'
 
     def get_context_data(self, **kwargs):
         context = super(ServicesView, self).get_context_data(**kwargs)
@@ -27,8 +28,37 @@ class ServicesView(OrderMixin, generic.TemplateView):
         return context
 
 
-class ContactUsView(OrderMixin, generic.TemplateView):
+class ContractRoastingServiceView(ServicesView):
+    template_name = 'pages/services/contract_roasting.html'
+
+
+class AppDevelopmentServiceView(ServicesView):
+    template_name = 'pages/services/app_development.html'
+
+
+class CoffeeCocktailsServiceView(ServicesView):
+    template_name = 'pages/services/coffee_cocktails.html'
+
+
+class CyberSecurityServiceView(ServicesView):
+    template_name = 'pages/services/cyber_security.html'
+
+
+class MspServiceView(ServicesView):
+    template_name = 'pages/services/msp.html'
+
+
+class PosServiceView(ServicesView):
+    template_name = 'pages/services/pos.html'
+
+
+class WholesaleServiceView(ServicesView):
+    template_name = 'pages/services/wholesale.html'
+
+
+class ContactUsView(OrderMixin, generic.FormView):
     template_name = 'pages/contact_us.html'
+    form_class = forms.EnquiryForm
 
     def get_context_data(self, **kwargs):
         context = super(ContactUsView, self).get_context_data(**kwargs)
@@ -36,3 +66,7 @@ class ContactUsView(OrderMixin, generic.TemplateView):
             'order_items_count': self.get_order_items_count(),
         })
         return context
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

@@ -39,12 +39,3 @@ class ServiceForm(ModelForm):
         model = Service
         fields = "__all__"
 
-
-class Contact_usForm(ModelForm):
-    phone_number = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget(initial='AU')
-    )
-
-    class Meta:
-        model = ContactUs
-        fields = "__all__"

@@ -92,14 +92,3 @@ class Service(models.Model):
 
     def __str__(self):
         return self.service_name
-
-
-class ContactUs(models.Model):
-    full_name = models.CharField(max_length=250)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    phone_number = PhoneNumberField()
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, default=1)
-
-    def __str__(self):
-        return self.full_name
