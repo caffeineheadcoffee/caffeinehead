@@ -288,6 +288,7 @@ input::-webkit-inner-spin-button {
   transition: 0.3s;
   width: fit-content;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .primary-btn {
@@ -320,6 +321,7 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
   width: fit-content;
   gap: 10px;
+  cursor: pointer;
 }
 
 .primary-ghost-btn {
@@ -454,6 +456,7 @@ input[type="radio"] + label > .fa-circle:before {
   position: relative;
   cursor: pointer;
   width: -webkit-fill-available;
+  font-size: 14px;
 }
 
 .radio-container {

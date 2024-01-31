@@ -28,7 +28,7 @@
       </div>
 
       <div id="shipping-tab" class="d-flex flex-row gap-4 col-md-3">
-        <div onclick="shippingView()">
+        <div>
           <p href="" class="steps-btn m-0">
             <i class="far fa-truck fa-2"></i>
           </p>
@@ -36,7 +36,7 @@
         </div>
         <span class="w-100"></span>
       </div>
-      <div id="payment-tab" class="" onclick="paymentView()">
+      <div id="payment-tab" class="">
         <p href="" class="steps-btn m-0">
           <i class="far fa-credit-card fa-2"></i>
         </p>
@@ -176,11 +176,13 @@
               required
             />
             <div class="d-flex justify-content-between">
-              <a href="#" class="link-btn neutral-500-color"
+              <a href="{% url 'cart' %}" class="link-btn neutral-500-color"
                 ><i class="fa fa-angle-left fa-2"></i>
                 <p class="m-0">Return To Cart</p>
               </a>
-              <a class="primary-btn">Continue To Shipping</a>
+              <a class="primary-btn" onclick="shippingView()"
+                >Continue To Shipping</a
+              >
             </div>
           </div>
         </div>
@@ -216,17 +218,28 @@
     <shipping id="shipping-section" class="p-5 col-md-6 payment-section">
       <form method="POST" class="payment-form w-100">
         {% csrf_token %}
-        <div class="col-sm-10 col-md-12 w-100">
-          <p class="f-18 bold text-color">Contact</p>
-          <input
-            type="email"
-            class="text-box form-control w-100"
-            id="email"
-            placeholder="Email"
-            name="email"
-            required
-          />
+        <div
+          class="d-flex flex-column p-3 border gap-2 rounded f-14 text-color"
+        >
+          <div class="d-flex justify-content-between gap-5">
+            <p class="p-2 m-0 neutral-500-color">Contact</p>
+            <p class="p-2 flex-grow-1 m-0 text-color">abc@gmail.com</p>
+            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
+              <i class="far fa-edit d-flex align-items-center"></i>Change
+            </p>
+          </div>
+          <hr class="m-2" />
+          <div class="d-flex justify-content-between gap-5">
+            <p class="p-2 m-0 neutral-500-color">Ship To</p>
+            <p class="p-2 flex-grow-1 m-0 text-color">
+              Sydney, Sydney NSW 1234, Australia
+            </p>
+            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
+              <i class="far fa-edit d-flex align-items-center"></i>Change
+            </p>
+          </div>
         </div>
+
         <div class="col-sm-10 col-md-12 w-100">
           <p class="f-18 bold text-color">Shipping Method</p>
 
@@ -239,8 +252,18 @@
                 id="flexRadioDefault1"
                 checked
               />
-              <label class="form-check-label" for="flexRadioDefault1">
-                <i class="far fa-circle"></i>Standard
+              <label
+                class="w-100 form-check-label d-flex justify-content-between"
+                for="flexRadioDefault1"
+              >
+                <i class="far fa-circle pt-1"></i>
+                <p
+                  class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
+                >
+                  <span>Standard</span
+                  ><span class="neutral-500-color">2 to 8 business days</span>
+                </p>
+                <p class="m-0 f-14 bold text-color">Free</p>
               </label>
             </div>
             <div class="radio-container" id="radio-btn">
@@ -250,17 +273,29 @@
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
               />
-              <label class="form-check-label" for="flexRadioDefault2">
-                <i class="far fa-circle"></i>Express
+              <label
+                class="w-100 form-check-label d-flex justify-content-between"
+                for="flexRadioDefault2"
+              >
+                <i class="far fa-circle pt-1"></i>
+                <p
+                  class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
+                >
+                  <span>Express</span
+                  ><span class="neutral-500-color">2 to 8 business days</span>
+                </p>
+                <p class="m-0 f-14 bold text-color">$12.00</p>
               </label>
             </div>
           </div>
         </div>
-        {% if login_form.non_field_errors %}
-        <div style="color: var(--danger)">
-          <p>{{ login_form.non_field_errors }}</p>
+        <div class="d-flex justify-content-between">
+          <a href="#" class="link-btn neutral-500-color"
+            ><i class="fa fa-angle-left fa-2"></i>
+            <p class="m-0">Return To Cart</p>
+          </a>
+          <a class="primary-btn" onclick="paymentView()">Continue To Payment</a>
         </div>
-        {% endif %}
         <div class="d-flex flex-column gap-2">
           <hr class="m-1" />
           <ul class="list-unstyled d-flex">
@@ -281,25 +316,53 @@
             </li>
           </ul>
         </div>
+        {% if login_form.non_field_errors %}
+        <div style="color: var(--danger)">
+          <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endif %}
       </form>
     </shipping>
 
     <payment id="payment-section" class="p-5 col-md-6 payment-section">
       <form method="POST" class="payment-form w-100">
         {% csrf_token %}
-        <div class="col-sm-10 col-md-12 w-100">
-          <p class="f-18 bold text-color">Contact</p>
-          <input
-            type="email"
-            class="text-box form-control w-100"
-            id="email"
-            placeholder="Email"
-            name="email"
-            required
-          />
+        <div
+          class="d-flex flex-column p-3 border gap-2 rounded f-14 text-color"
+        >
+          <div class="d-flex justify-content-between gap-5">
+            <p class="p-2 m-0 neutral-500-color">Contact</p>
+            <p class="p-2 flex-grow-1 m-0 text-color">abc@gmail.com</p>
+            <p
+              onclick="shippingView()"
+              class="p-2 m-0 link-btn f-14 text-color"
+            >
+              <i class="far fa-edit d-flex align-items-center"></i>Change
+            </p>
+          </div>
+          <hr class="m-2" />
+          <div class="d-flex justify-content-between gap-5">
+            <p class="p-2 m-0 neutral-500-color">Ship To</p>
+            <p class="p-2 flex-grow-1 m-0 text-color">
+              Sydney, Sydney NSW 1234, Australia
+            </p>
+            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
+              <i class="far fa-edit d-flex align-items-center"></i>Change
+            </p>
+          </div>
+          <hr class="m-2" />
+          <div class="d-flex justify-content-between gap-5">
+            <p class="p-2 m-0 neutral-500-color">Shipping Method</p>
+            <p class="p-2 flex-grow-1 m-0 text-color">Standard : Free</p>
+            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
+              <i class="far fa-edit d-flex align-items-center"></i>Change
+            </p>
+          </div>
         </div>
+
         <div class="col-sm-10 col-md-12 w-100">
-          <p class="f-18 bold text-color">Delivery Method</p>
+          <p class="f-18 bold text-color">Payment</p>
+          <p>All transactions are secure and encrypted</p>
 
           <div class="d-flex gap-2 flex-wrap">
             <div class="radio-container">
@@ -310,8 +373,18 @@
                 id="flexRadioDefault1"
                 checked
               />
-              <label class="form-check-label" for="flexRadioDefault1">
-                <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
+              <label
+                class="w-100 form-check-label d-flex justify-content-between"
+                for="flexRadioDefault1"
+              >
+                <i class="far fa-circle pt-1"></i>
+                <p
+                  class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
+                >
+                  <span>Standard</span
+                  ><span class="neutral-500-color">2 to 8 business days</span>
+                </p>
+                <p class="m-0 f-14 bold text-color">Free</p>
               </label>
             </div>
             <div class="radio-container" id="radio-btn">
@@ -321,48 +394,54 @@
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
               />
-              <label class="form-check-label" for="flexRadioDefault2">
-                <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up
+              <label
+                class="w-100 form-check-label d-flex justify-content-between"
+                for="flexRadioDefault2"
+              >
+                <i class="far fa-circle pt-1"></i>
+                <p
+                  class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
+                >
+                  <span>Express</span
+                  ><span class="neutral-500-color">2 to 8 business days</span>
+                </p>
+                <p class="m-0 f-14 bold text-color">$12.00</p>
               </label>
             </div>
           </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <a href="#" class="link-btn neutral-500-color"
+            ><i class="fa fa-angle-left fa-2"></i>
+            <p class="m-0">Return To Cart</p>
+          </a>
+          <a class="primary-btn" onclick="paymentView()">Continue To Payment</a>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <hr class="m-1" />
+          <ul class="list-unstyled d-flex">
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Privacy Policy
+              </a>
+            </li>
+            <span class="px-3 footer-link text-color"> | </span>
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Terms &amp; Conditions</a
+              >
+            </li>
+          </ul>
         </div>
         {% if login_form.non_field_errors %}
         <div style="color: var(--danger)">
           <p>{{ login_form.non_field_errors }}</p>
         </div>
         {% endif %}
-        <div class="row justify-content-between">
-          <div class="col-md align-items-center d-flex gap-2">
-            <input
-              type="checkbox"
-              class="form-check-input mt-0"
-              id="exampleCheck1"
-            />
-            <label
-              class="form-check-label f-14 regular text-color"
-              for="exampleCheck1"
-              >Remember me</label
-            >
-          </div>
-          <a
-            href="/password_reset"
-            class="col-md-auto bold link-btn f-14 text-color"
-            >Forgot password?</a
-          >
-        </div>
-        <button type="submit" class="primary-btn w-100">Sign In</button>
-        <div class="d-flex justify-content-center align-items-center">
-          <p class="text-center text-muted m-0 f-14 text-color">
-            Don’t have an account?
-          </p>
-          <a
-            href="{% url 'signup' %}"
-            class="f-14 float-none link-btn primary-color"
-          >
-            Join Now
-          </a>
-        </div>
       </form>
     </payment>
 
