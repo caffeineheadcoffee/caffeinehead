@@ -68,10 +68,10 @@
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault1"
+                id="shipRadio"
                 checked
               />
-              <label class="form-check-label" for="flexRadioDefault1">
+              <label class="form-check-label" for="shipRadio">
                 <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
               </label>
             </div>
@@ -80,9 +80,9 @@
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault2"
+                id="pickUpRadio"
               />
-              <label class="form-check-label" for="flexRadioDefault2">
+              <label class="form-check-label" for="pickUpRadio">
                 <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up
               </label>
             </div>
@@ -218,26 +218,31 @@
     <shipping id="shipping-section" class="p-5 col-md-6 payment-section">
       <form method="POST" class="payment-form w-100">
         {% csrf_token %}
-        <div
-          class="d-flex flex-column p-3 border gap-2 rounded f-14 text-color"
-        >
-          <div class="d-flex justify-content-between gap-5">
-            <p class="p-2 m-0 neutral-500-color">Contact</p>
-            <p class="p-2 flex-grow-1 m-0 text-color">abc@gmail.com</p>
-            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
-              <i class="far fa-edit d-flex align-items-center"></i>Change
-            </p>
-          </div>
-          <hr class="m-2" />
-          <div class="d-flex justify-content-between gap-5">
-            <p class="p-2 m-0 neutral-500-color">Ship To</p>
-            <p class="p-2 flex-grow-1 m-0 text-color">
-              Sydney, Sydney NSW 1234, Australia
-            </p>
-            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
-              <i class="far fa-edit d-flex align-items-center"></i>Change
-            </p>
-          </div>
+        <div class="p-3 border rounded f-14 text-color">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="text-start neutral-500-color p-1">Contact</td>
+                <td class="text-start p-1">abc@gmail.com</td>
+                <td onclick="shippingView()" class="text-start p-1">
+                  <p class="m-0 link-btn f-14 text-color">
+                    <i class="far fa-edit d-flex align-items-center"></i>Change
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-start neutral-500-color p-1">Ship To</td>
+                <td class="text-start p-1">
+                  Sydney, Sydney NSW 1234, Australia
+                </td>
+                <td onclick="shippingView()" class="text-start p-1">
+                  <p class="m-0 link-btn f-14 text-color">
+                    <i class="far fa-edit d-flex align-items-center"></i>Change
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="col-sm-10 col-md-12 w-100">
@@ -249,12 +254,12 @@
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault1"
+                id="standardShipRadio"
                 checked
               />
               <label
                 class="w-100 form-check-label d-flex justify-content-between"
-                for="flexRadioDefault1"
+                for="standardShipRadio"
               >
                 <i class="far fa-circle pt-1"></i>
                 <p
@@ -271,11 +276,11 @@
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault2"
+                id="expressShipRadio"
               />
               <label
                 class="w-100 form-check-label d-flex justify-content-between"
-                for="flexRadioDefault2"
+                for="expressShipRadio"
               >
                 <i class="far fa-circle pt-1"></i>
                 <p
@@ -330,82 +335,126 @@
         <div
           class="d-flex flex-column p-3 border gap-2 rounded f-14 text-color"
         >
-          <div class="d-flex justify-content-between gap-5">
-            <p class="p-2 m-0 neutral-500-color">Contact</p>
-            <p class="p-2 flex-grow-1 m-0 text-color">abc@gmail.com</p>
-            <p
-              onclick="shippingView()"
-              class="p-2 m-0 link-btn f-14 text-color"
-            >
-              <i class="far fa-edit d-flex align-items-center"></i>Change
-            </p>
-          </div>
-          <hr class="m-2" />
-          <div class="d-flex justify-content-between gap-5">
-            <p class="p-2 m-0 neutral-500-color">Ship To</p>
-            <p class="p-2 flex-grow-1 m-0 text-color">
-              Sydney, Sydney NSW 1234, Australia
-            </p>
-            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
-              <i class="far fa-edit d-flex align-items-center"></i>Change
-            </p>
-          </div>
-          <hr class="m-2" />
-          <div class="d-flex justify-content-between gap-5">
-            <p class="p-2 m-0 neutral-500-color">Shipping Method</p>
-            <p class="p-2 flex-grow-1 m-0 text-color">Standard : Free</p>
-            <p onclick="detailView()" class="p-2 m-0 link-btn f-14 text-color">
-              <i class="far fa-edit d-flex align-items-center"></i>Change
-            </p>
-          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="text-start neutral-500-color p-1">Contact</td>
+                <td class="text-start p-1">abc@gmail.com</td>
+                <td onclick="shippingView()" class="text-start p-1">
+                  <p class="m-0 link-btn f-14 text-color">
+                    <i class="far fa-edit d-flex align-items-center"></i>Change
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-start neutral-500-color p-1">Ship To</td>
+                <td class="text-start p-1">
+                  Sydney, Sydney NSW 1234, Australia
+                </td>
+                <td onclick="shippingView()" class="text-start p-1">
+                  <p class="m-0 link-btn f-14 text-color">
+                    <i class="far fa-edit d-flex align-items-center"></i>Change
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-start neutral-500-color p-1">
+                  Shipping Method
+                </td>
+                <td class="text-start p-1">Standard : Free</td>
+                <td onclick="shippingView()" class="text-start p-1">
+                  <p class="m-0 link-btn f-14 text-color">
+                    <i class="far fa-edit d-flex align-items-center"></i>Change
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="col-sm-10 col-md-12 w-100">
           <p class="f-18 bold text-color">Payment</p>
-          <p>All transactions are secure and encrypted</p>
+          <p class="f-14 neutral-500-color">
+            All transactions are secure and encrypted
+          </p>
 
           <div class="d-flex gap-2 flex-wrap">
-            <div class="radio-container">
+            <div class="radio-container flex-column" onclick="activeRadio()">
               <input
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault1"
+                id="creditCardRadio"
                 checked
               />
               <label
                 class="w-100 form-check-label d-flex justify-content-between"
-                for="flexRadioDefault1"
+                for="creditCardRadio"
               >
                 <i class="far fa-circle pt-1"></i>
-                <p
-                  class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
-                >
-                  <span>Standard</span
-                  ><span class="neutral-500-color">2 to 8 business days</span>
+                <p class="flex-grow-1 f-14 m-0 text-color">
+                  <span>Credit Card</span>
                 </p>
-                <p class="m-0 f-14 bold text-color">Free</p>
+                <img src="../../../static/images/card-samples.png" />
               </label>
+
+              <div class="d-flex flex-column gap-4" id="credit-info">
+                <input
+                  type="tel"
+                  class="text-box form-control w-100"
+                  id="card_Number"
+                  placeholder="Card Number"
+                  pattern="[0-9]*"
+                  maxlength="16"
+                  name="card_Number"
+                  required=""
+                />
+                <input
+                  type="text"
+                  class="text-box form-control w-100"
+                  id="cName"
+                  placeholder="Name On Card"
+                  name="cName"
+                  required=""
+                />
+                <div class="d-flex justify-content-between gap-3">
+                  <input
+                    type="month"
+                    class="text-box form-control w-100"
+                    id="exDate"
+                    placeholder="Expiration Date (MM / YY)"
+                    name="exDate"
+                    required=""
+                  />
+                  <input
+                    type="tel"
+                    class="text-box form-control w-100"
+                    id="sCode"
+                    placeholder="Security Code"
+                    name="sCode"
+                    required=""
+                  />
+                </div>
+              </div>
             </div>
-            <div class="radio-container" id="radio-btn">
+            <div class="radio-container" onclick="activeRadio()">
               <input
                 class="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="flexRadioDefault2"
+                id="payPalRadio"
               />
               <label
                 class="w-100 form-check-label d-flex justify-content-between"
-                for="flexRadioDefault2"
+                for="payPalRadio"
               >
                 <i class="far fa-circle pt-1"></i>
                 <p
                   class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
                 >
-                  <span>Express</span
-                  ><span class="neutral-500-color">2 to 8 business days</span>
+                  <span>Express</span>
                 </p>
-                <p class="m-0 f-14 bold text-color">$12.00</p>
+                <i class="fab fa-paypal f-18"></i>
               </label>
             </div>
           </div>
@@ -532,6 +581,9 @@
   const shippingSec = document.getElementById("shipping-section");
   const paymentSec = document.getElementById("payment-section");
 
+  const radioBtn = document.getElementById("creditCardRadio");
+  const cInfo = document.getElementById("credit-info");
+
   function detailView() {
     detail.classList.add("visited");
     shipping.classList.remove("visited");
@@ -556,6 +608,21 @@
     detailSec.style.display = "none";
     paymentSec.style.display = "flex";
   }
+
+  function activeRadio() {
+    if (radioBtn.checked) {
+      radioBtn.style.height = "8%";
+      cInfo.classList.add("d-flex");
+    } else {
+      radioBtn.style.height = "100%";
+      cInfo.classList.remove("d-flex");
+      cInfo.style.display = "none";
+    }
+  }
+
+  $(document).ready(function () {
+    activeRadio();
+  });
 </script>
 
 {% endblock %}
