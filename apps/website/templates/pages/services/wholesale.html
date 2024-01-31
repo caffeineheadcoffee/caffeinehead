@@ -1,0 +1,315 @@
+{% extends 'components/base.html' %}
+{% load static %}
+<style>
+  @media only screen and (max-width: 768px) {
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+
+{% block title %}
+<title>Caffeinehead - Services</title>
+{% endblock%}
+{% block main_content %}
+
+<!-- Main Cover Container -->
+<div class="cover-container container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-7 d-flex flex-column gap-4">
+      <p class="cover-title-1 m-0">Wholesale Coffee & Equipment</p>
+      <div class="cover-title-3">
+        Wholesale coffee and equipment are key components of the coffee
+        industry, facilitating the distribution of coffee beans and related
+        equipment to various businesses, including cafes, restaurants, hotels,
+        and specialty coffee shops.
+      </div>
+      <a href="{% url 'collection' %}" class="btn primary-btn f-16">SHOP NOW</a>
+    </div>
+    <div class="col-md-5 d-flex justify-content-center align-items-center">
+      <img
+        class="w-50"
+        src="{% static 'images/Wholesale Coffee and Equipment.png' %}"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Services Part Start -->
+
+<!-- <div class="services-container">
+  <div class="container">
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        Wholesale Coffee
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <p class="f-16 regular text-color text-center m-0">
+      Wholesale coffee refers to the sale of coffee beans in larger quantities,
+      typically to businesses or individuals who intend to resell or use the
+      coffee for commercial purposes. Here are some key aspects of wholesale
+      coffee:
+    </p>
+    <div class="row">
+      <div class="col-md-4 service-card">
+        <h3>1. Coffee Beans</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale coffee suppliers offer a wide range of coffee beans sourced
+          from various origins, each with unique flavor profiles,
+          characteristics, and processing methods. Customers can choose from
+          options such as single-origin beans, blends, or specialty coffee
+          beans.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>2. Roast Levels</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale coffee providers often offer beans at different roast
+          levels, including light, medium, and dark roast, to cater to diverse
+          customer preferences.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>3. Customization</h3>
+        <p class="f-16 regular text-color m-0">
+          Many wholesale coffee suppliers allow customers to customize their
+          coffee blends and roast profiles to suit their specific taste
+          preferences or brand identity. This can include creating proprietary
+          blends.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>4. Packaging</h3>
+        <p class="f-16 regular text-color m-0">
+          Coffee beans are typically packaged in bulk, such as bags or bulk
+          bins, to accommodate the needs of businesses that consume larger
+          quantities. Customized packaging options, including private labeling,
+          may also be available.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>5. Quality Control</h3>
+        <p class="f-16 regular text-color m-0">
+          Reputable wholesale coffee suppliers prioritize quality control and
+          consistency to ensure that each batch of beans meets established
+          standards. This may involve cupping and sensory evaluations to
+          maintain the quality of the coffee.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>6. Distribution</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale coffee suppliers distribute their products to a variety of
+          customers, including cafes, restaurants, hotels, and retailers. They
+          often have distribution networks or partnerships in place to ensure
+          timely delivery.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>7. Price Structure</h3>
+        <p class="f-16 regular text-color m-0">
+          Pricing for wholesale coffee is typically volume-based, with discounts
+          offered for larger orders. Some suppliers may offer tiered pricing
+          structures based on the quantity purchased.
+        </p>
+      </div>
+    </div>
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold text-center m-0 secondary-color">
+        Wholesale Coffee Equipment
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <p class="f-16 regular text-color text-center m-0">
+      In addition to coffee beans, wholesale coffee equipment encompasses a wide
+      range of tools and machinery used in the coffee industry. Here are some
+      key aspects of wholesale coffee equipment:
+    </p>
+    <div class="row">
+      <div class="col-md-4 service-card">
+        <h3>1. Espresso Machines</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale coffee equipment suppliers may offer commercial-grade
+          espresso machines, including traditional and automatic models,
+          suitable for cafes and restaurants.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>2. Grinders</h3>
+        <p class="f-16 regular text-color m-0">
+          Commercial coffee grinders designed for consistent grinding of coffee
+          beans are often available. These grinders come in various sizes and
+          configurations to meet the needs of different businesses.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>3. Brewing Equipment</h3>
+        <p class="f-16 regular text-color m-0">
+          This category includes pour-over devices, drip coffee makers, batch
+          brewers, and other brewing equipment designed for high-volume coffee
+          production in commercial settings.
+        </p>
+      </div>
+
+      <div class="col-md-4 service-card">
+        <h3>4. Accessories</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale suppliers may offer coffee-related accessories, such as
+          filters, tampers, frothing pitchers, and scales, to complement coffee
+          preparation and serving.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>5. Maintenance and Service</h3>
+        <p class="f-16 regular text-color m-0">
+          Some suppliers provide maintenance services, training, and support for
+          the equipment they sell to ensure that businesses can operate
+          smoothly.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>6. Customization</h3>
+        <p class="f-16 regular text-color m-0">
+          Businesses can often choose equipment that aligns with their specific
+          needs and preferences, including options for customization and
+          branding.
+        </p>
+      </div>
+      <div class="col-md-4 service-card">
+        <h3>7. Bulk Purchases</h3>
+        <p class="f-16 regular text-color m-0">
+          Wholesale coffee equipment suppliers typically offer competitive
+          pricing for businesses looking to purchase equipment in larger
+          quantities or as part of a package deal.
+        </p>
+      </div>
+    </div>
+    <div class="row line-header">
+      <div class="col-md"></div>
+      <p class="col-md-auto f-18 bold secondary-color m-0 text-center">
+        In Summary
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <p class="f-16 regular text-color m-0 text-center">
+      Wholesale coffee and equipment are essential components of the coffee
+      industry, enabling businesses to source high-quality coffee beans and
+      acquire the necessary equipment to brew and serve coffee in commercial
+      settings. These services and products are crucial for the success of
+      coffee shops, restaurants, and other establishments that serve coffee to
+      their customers.
+    </p>
+  </div>
+</div> -->
+
+<div class="services-container">
+  <div class="container d-flex justify-content-center align-items-center gap-5">
+    <div class="row d-flex gap-3 line-header w-100">
+      <div class="col-md"></div>
+      <p
+        class="col-md-auto f-32 text-capitalize bold secondary-color m-0 text-center"
+      >
+        Discover excellence <br />without the expensive price tag!
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <div class="col-md-9 d-flex justify-content-between align-items-center p-3">
+      <div class="col-md-4 d-flex flex-column gap-2">
+        <p class="f-24 bold secondary-dark m-0">Espresso Machines</p>
+        <p class="f-16 regular">Choose the machine that's perfect for you.</p>
+        <a href="" class="btn secondary-btn">View Machines</a>
+      </div>
+      <div
+        class="col-md-6 p-2 d-flex justify-content-center align-items-center"
+      >
+        <img
+          class="w-100"
+          src="{% static 'images/Espresso Machines.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+
+    <div
+      class="col-md-9 d-flex flex-row-reverse justify-content-between align-items-center p-3"
+    >
+      <div class="col-md-4 d-flex flex-column gap-2">
+        <p class="f-24 bold secondary-dark m-0">Coffee Grinders</p>
+        <p class="f-16 regular">
+          Coffee Grinders are one of the most important parts of the coffee
+          brewing process, with fresh coffee beans being a key part of the
+          perfect coffee.
+        </p>
+        <a href="" class="btn secondary-btn">View Grinders</a>
+      </div>
+      <div
+        class="col-md-6 p-2 d-flex justify-content-center align-items-center"
+      >
+        <img
+          class="w-100"
+          src="{% static 'images/Coffee Grinders.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+
+    <div class="col-md-9 d-flex justify-content-between align-items-center p-3">
+      <div class="col-md-4 d-flex flex-column gap-2">
+        <p class="f-24 bold secondary-dark m-0">Coffee Accessories</p>
+        <p class="f-16 regular">
+          As the coffee industry has developed and boomed, the range of coffee
+          accessories available has skyrocketed! Have a squiz.
+        </p>
+        <a href="" class="btn secondary-btn">View Accessories</a>
+      </div>
+      <div
+        class="col-md-6 p-2 d-flex justify-content-center align-items-center"
+      >
+        <img
+          class="w-100"
+          src="{% static 'images/Puqpress Wide.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+
+    <div
+      class="col-md-9 d-flex flex-row-reverse justify-content-between align-items-center p-3"
+    >
+      <div class="col-md-4 d-flex flex-column gap-2">
+        <p class="f-24 bold secondary-dark m-0">Coffee Roasters</p>
+        <p class="f-16 regular">Get the drum rolling on your roastery today!</p>
+        <a href="" class="btn secondary-btn">View Roasters</a>
+      </div>
+      <div
+        class="col-md-6 p-2 d-flex justify-content-center align-items-center"
+      >
+        <img
+          class="w-100"
+          src="{% static 'images/Coffee Roaster.png' %}"
+          alt="..."
+        />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center w-100">
+      <a href="/services" class="link-btn secondary-color">
+        <i class="fa fa-angle-left fa-2"></i>
+        <p class="m-0">back to services</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Services Part end -->
+{% endblock%}
