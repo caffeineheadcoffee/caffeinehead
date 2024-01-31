@@ -1,3 +1,14 @@
+<!-- home url -->
+    {% url 'home' as home %}
+    <!-- about url -->
+    {% url 'about_us' as about_us %}
+    <!-- services url -->
+    {% url 'services' as services %}
+    <!-- products url -->
+    {% url 'collection' as collection %}
+    <!-- contact url -->
+    {% url 'contact_us' as contact_us %}
+
 {% load static %}
 <header class="navbar p-0 ele-1 white-bg sticky-top">
     <div class="container position-relative nft-navbar">
@@ -43,18 +54,18 @@
 
                         <li>
                             <a
-                                    href="#"
-                                    class="nav-link {% if request.path == contact %} active {% endif %}"
+                                    href="{% url 'contact_us' %}"
+                                    class="nav-link {% if request.path == contact_us %} active {% endif %}"
                             >Contact Us</a
                             >
                         </li>
 
                     </ul>
-                    <div class="d-flex gap-3 text-end">
+                    <div class="mt-auto d-flex flex-column gap-3 text-end">
                         {% if user.is_authenticated %}
                             <a
                                     href="{% url 'cart' %}"
-                                    class="btn text-dark fs-4 d-flex align-items-center"
+                                    class="btn p-3 border text-dark w-100 fs-4 d-flex align-items-center justify-content-center gap-4"
                             >
                                 <i class="fas fa-cart-plus position-relative">
               <span
@@ -62,15 +73,13 @@
               >
                 <span style="font-size: 12px"> {{ items|length }} </span>
               </span>
-                                </i>
+                                </i> <p class="m-0 f-14">View Cart</p>
                             </a>
 
-                            <li class="nav-item dropdown" style="list-style-type: none">
-                                <a
-                                        class="nav-link dropdown-toggle"
+                            <a
+                                        class="btn p-3 border text-dark w-100 fs-4 d-flex align-items-center justify-content-center gap-4"
                                         href="#"
                                         role="button"
-                                        data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                 ><img
                                         src="https://image.shutterstock.com/image-vector/man-shirt-tie-businessman-avatar-260nw-548848999.jpg"
@@ -78,30 +87,13 @@
                                         style="width: 40px; height: auto"
                                         class="rounded-circle"
                                 />
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item"
-                                           href="#"
-                                        >Dashboard</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Sales</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a
-                                                href="#"
-                                                class="dropdown-item logout"
-                                        >Logout</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
+                                <p class="m-0 f-14">View Profile</p>
+                            </a>
+                            <a href="#" class="danger-bg btn p-3 border text-dark w-100 fs-4 d-flex align-items-center justify-content-center gap-4">
+                                <i class="far fa-sign-out-alt white-color"></i>
+                                <p class="m-0 f-14 white-color">Logout</p>
+                            </a>
+                            
                         {% else %}
                             <a
                                     href="{% url 'login' %}"
@@ -152,8 +144,8 @@
 
             <li>
                 <a
-                        href="#"
-                        class="nav-link {% if request.path == contact %} active {% endif %}"
+                        href="{% url 'contact_us' %}"
+                        class="nav-link {% if request.path == contact_us %} active {% endif %}"
                 >Contact Us</a
                 >
             </li>
@@ -163,13 +155,13 @@
             {% if user.is_authenticated %}
                 <a
                         href="{% url 'cart' %}"
-                        class="btn text-dark fs-4 d-flex align-items-center"
+                        class="text-color fs-4 d-flex align-items-center"
                 >
                     <i class="fas fa-cart-plus position-relative">
               <span
-                      class="position-absolute top-0 start-100 bg-dark badge rounded-pill translate-middle footer-link"
+                      class="position-absolute top-0 start-100 neutral-700-bg border badge rounded-pill translate-middle footer-link opacity-75"
               >
-                <span style="font-size: 12px"> {{ order_items_count }} </span>
+                <span class="f-12 white-color bold" > {{ order_items_count }} </span>
               </span>
                     </i>
                 </a>

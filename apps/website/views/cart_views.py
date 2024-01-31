@@ -36,3 +36,22 @@ class AddToCartView(LoginRequiredMixin, ProductMixin, generic.View):
             user=self.request.user
         ).execute()
         return HttpResponseRedirect(request.GET.get('next'))
+
+
+class PaymentView(OrderMixin, generic.TemplateView):
+    template_name = 'pages/payment.html'
+    login_url = '/login'
+
+    def get_context_data(self, **kwargs):
+        context = super(PaymentView, self).get_context_data(**kwargs)
+        order = Order.objects.filter(
+            user=self.request.user,
+            is_archived=False,
+            status='initiated'
+        ).last()
+        context.update({
+            'order': order,
+            'order_items': order.orderitem_set.unarchived(),
+            'order_items_count': self.get_order_items_count(),
+        })
+        return context

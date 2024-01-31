@@ -1,0 +1,482 @@
+{% extends 'components/base.html' %} {% load static %} {% block title %}
+<title>E-commerce - ProductPage</title>
+{% endblock%} {% block main_content %} {% load crispy_forms_tags %}
+
+<!-- card start -->
+<div class="container p-50 payment-container">
+  <div class="row d-flex gap-4 flex-column mb-3">
+    <h1 class="f-24 bold text-color">CaffeineHead</h1>
+    <div class="steps-container">
+      <div id="cart-tab" class="d-flex flex-row gap-4 col-md-3 visited">
+        <div>
+          <a href="{% url 'cart' %}" class="steps-btn">
+            <i class="far fa-shopping-cart fa-2"></i>
+          </a>
+          <p class="f-12 text-color">Cart</p>
+        </div>
+        <span class="w-100"></span>
+      </div>
+
+      <div id="detail-tab" class="d-flex flex-row gap-4 col-md-3 visited">
+        <div onclick="detailView()">
+          <p href="" class="steps-btn m-0">
+            <i class="far fa-user fa-2"></i>
+          </p>
+          <p class="f-12 text-color">Details</p>
+        </div>
+        <span class="w-100"></span>
+      </div>
+
+      <div id="shipping-tab" class="d-flex flex-row gap-4 col-md-3">
+        <div onclick="shippingView()">
+          <p href="" class="steps-btn m-0">
+            <i class="far fa-truck fa-2"></i>
+          </p>
+          <p class="f-12 text-color">Shipping</p>
+        </div>
+        <span class="w-100"></span>
+      </div>
+      <div id="payment-tab" class="" onclick="paymentView()">
+        <p href="" class="steps-btn m-0">
+          <i class="far fa-credit-card fa-2"></i>
+        </p>
+        <p class="f-12 text-color">Payment</p>
+      </div>
+    </div>
+  </div>
+  <section class="row justify-content-between">
+    <detail id="detail-section" class="p-5 col-md-6 payment-section">
+      <form method="POST" class="payment-form w-100">
+        {% csrf_token %}
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Contact</p>
+          <input
+            type="email"
+            class="text-box form-control w-100"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Delivery Method</p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <div class="radio-container">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
+              </label>
+            </div>
+            <div class="radio-container" id="radio-btn">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Shipping Address</p>
+          <div class="d-flex flex-column gap-4">
+            <input
+              type="text"
+              class="text-box form-control w-100"
+              id="Country_Region"
+              placeholder="Country / Region"
+              name="Country_Region"
+              required
+            />
+            <div class="d-flex justify-content-between gap-3">
+              <input
+                type="text"
+                class="text-box form-control w-100"
+                id="fname"
+                placeholder="First Name (optional)"
+                name="fname"
+                required
+              />
+              <input
+                type="text"
+                class="text-box form-control w-100"
+                id="lname"
+                placeholder="Last Name"
+                name="lname"
+                required
+              />
+            </div>
+            <input
+              type="text"
+              class="text-box form-control w-100"
+              id="company"
+              placeholder="Company (optional)"
+              name="company"
+              required
+            />
+            <input
+              type="text"
+              class="text-box form-control w-100"
+              id="address"
+              placeholder="Address"
+              name="address"
+              required
+            />
+            <input
+              type="text"
+              class="text-box form-control w-100"
+              id="apartment"
+              placeholder="Apartment, suite, etc. (optional)"
+              name="apartment"
+              required
+            />
+            <div class="d-flex justify-content-between gap-3">
+              <input
+                type="text"
+                class="text-box form-control w-100"
+                id="city"
+                placeholder="City"
+                name="city"
+                required
+              />
+              <input
+                type="text"
+                class="text-box form-control w-100"
+                id="state"
+                placeholder="State / Territory"
+                name="state"
+                required
+              />
+              <input
+                type="number"
+                class="text-box form-control w-100"
+                id="postcode"
+                placeholder="Postcode"
+                name="postcode"
+                required
+              />
+            </div>
+            <input
+              type="tel"
+              class="text-box form-control w-100"
+              id="phone"
+              placeholder="Phone"
+              name="phone"
+              required
+            />
+            <div class="d-flex justify-content-between">
+              <a href="#" class="link-btn neutral-500-color"
+                ><i class="fa fa-angle-left fa-2"></i>
+                <p class="m-0">Return To Cart</p>
+              </a>
+              <a class="primary-btn">Continue To Shipping</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          <hr class="m-1" />
+          <ul class="list-unstyled d-flex">
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Privacy Policy
+              </a>
+            </li>
+            <span class="px-3 footer-link text-color"> | </span>
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Terms &amp; Conditions</a
+              >
+            </li>
+          </ul>
+        </div>
+        {% if login_form.non_field_errors %}
+        <div style="color: var(--danger)">
+          <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endif %}
+      </form>
+    </detail>
+
+    <shipping id="shipping-section" class="p-5 col-md-6 payment-section">
+      <form method="POST" class="payment-form w-100">
+        {% csrf_token %}
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Contact</p>
+          <input
+            type="email"
+            class="text-box form-control w-100"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Shipping Method</p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <div class="radio-container">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                <i class="far fa-circle"></i>Standard
+              </label>
+            </div>
+            <div class="radio-container" id="radio-btn">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                <i class="far fa-circle"></i>Express
+              </label>
+            </div>
+          </div>
+        </div>
+        {% if login_form.non_field_errors %}
+        <div style="color: var(--danger)">
+          <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endif %}
+        <div class="d-flex flex-column gap-2">
+          <hr class="m-1" />
+          <ul class="list-unstyled d-flex">
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Privacy Policy
+              </a>
+            </li>
+            <span class="px-3 footer-link text-color"> | </span>
+            <li class="nav-item mb-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfK7gJZ6VvvpIV50kCpVdw6Tlp-DlppeRwtfN4mpnN2qOTlTA/viewform"
+                class="p-0 footer-link text-color"
+                >Terms &amp; Conditions</a
+              >
+            </li>
+          </ul>
+        </div>
+      </form>
+    </shipping>
+
+    <payment id="payment-section" class="p-5 col-md-6 payment-section">
+      <form method="POST" class="payment-form w-100">
+        {% csrf_token %}
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Contact</p>
+          <input
+            type="email"
+            class="text-box form-control w-100"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="col-sm-10 col-md-12 w-100">
+          <p class="f-18 bold text-color">Delivery Method</p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <div class="radio-container">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
+              </label>
+            </div>
+            <div class="radio-container" id="radio-btn">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up
+              </label>
+            </div>
+          </div>
+        </div>
+        {% if login_form.non_field_errors %}
+        <div style="color: var(--danger)">
+          <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endif %}
+        <div class="row justify-content-between">
+          <div class="col-md align-items-center d-flex gap-2">
+            <input
+              type="checkbox"
+              class="form-check-input mt-0"
+              id="exampleCheck1"
+            />
+            <label
+              class="form-check-label f-14 regular text-color"
+              for="exampleCheck1"
+              >Remember me</label
+            >
+          </div>
+          <a
+            href="/password_reset"
+            class="col-md-auto bold link-btn f-14 text-color"
+            >Forgot password?</a
+          >
+        </div>
+        <button type="submit" class="primary-btn w-100">Sign In</button>
+        <div class="d-flex justify-content-center align-items-center">
+          <p class="text-center text-muted m-0 f-14 text-color">
+            Don’t have an account?
+          </p>
+          <a
+            href="{% url 'signup' %}"
+            class="f-14 float-none link-btn primary-color"
+          >
+            Join Now
+          </a>
+        </div>
+      </form>
+    </payment>
+
+    <div class="p-5 border-start col-md-6 payment-summary">
+      <div class="col">
+        <div class="row gap-4">
+          <table class="table-borderless mt-4 table">
+            <tbody>
+              {% for order_item in order_items %}
+              <tr>
+                <td>
+                  <div class="d-flex gap-3 align-items-center">
+                    <div
+                      style="height: 70px; width: 70px"
+                      class="d-flex align-items-center position-relative"
+                    >
+                      <img
+                        height="100%"
+                        src="{{ MEDIA_URL }}{{order_item.product.display_image.image}}"
+                        alt=""
+                      />
+                      <span
+                        class="position-absolute top-0 start-100 neutral-700-bg border badge rounded-pill translate-middle footer-link opacity-50"
+                      >
+                        <span class="f-12 white-color bold">
+                          {{ order_items_count }}
+                        </span>
+                      </span>
+                    </div>
+
+                    <p class="f-16 m-0">{{ order_item.product.name }}</p>
+                  </div>
+                </td>
+                <td class="f-16 m-0">$ {{ order_item.amount }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="d-flex gap-4">
+            <input
+              type="email"
+              class="text-box form-control w-100"
+              id="discount-code"
+              placeholder="Discount Code / Gift Card"
+              name="discount"
+            />
+            <a class="secondary-btn w-auto">Apply</a>
+          </div>
+          <div>
+            <p class="f-14 text-color w-100 d-flex justify-content-between">
+              <span> Subtotal </span>
+              <span class="bold"> $30.00 </span>
+            </p>
+
+            <p class="f-14 text-color w-100 d-flex justify-content-between">
+              <span> Shipping </span>
+              <span> Calculated at next step </span>
+            </p>
+
+            <p
+              class="f-16 bold text-color w-100 d-flex justify-content-between"
+            >
+              <span> Total </span>
+              <span>
+                <span class="f-12 regular text-uppercase">aud</span>
+                $216.50
+              </span>
+            </p>
+
+            <p class="f-12 text-color d-flex justify-content-end">
+              *Including $ in taxes
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- card end -->
+
+<script>
+  const cart = document.getElementById("cart-tab");
+  const detail = document.getElementById("detail-tab");
+  const shipping = document.getElementById("shipping-tab");
+  const payment = document.getElementById("payment-tab");
+
+  const detailSec = document.getElementById("detail-section");
+  const shippingSec = document.getElementById("shipping-section");
+  const paymentSec = document.getElementById("payment-section");
+
+  function detailView() {
+    detail.classList.add("visited");
+    shipping.classList.remove("visited");
+    payment.classList.remove("visited");
+    shippingSec.style.display = "none";
+    detailSec.style.display = "flex";
+    paymentSec.style.display = "none";
+  }
+
+  function shippingView() {
+    shipping.classList.add("visited");
+    payment.classList.remove("visited");
+    shippingSec.style.display = "flex";
+    detailSec.style.display = "none";
+    paymentSec.style.display = "none";
+  }
+
+  function paymentView() {
+    shipping.classList.add("visited");
+    payment.classList.add("visited");
+    shippingSec.style.display = "none";
+    detailSec.style.display = "none";
+    paymentSec.style.display = "flex";
+  }
+</script>
+
+{% endblock %}

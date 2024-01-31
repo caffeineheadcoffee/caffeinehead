@@ -158,7 +158,7 @@
   background-color: var(--danger) !important;
 }
 
-.danger-color{
+.danger-color {
   color: var(--danger) !important;
 }
 
@@ -229,7 +229,7 @@
   padding: 2rem 1rem !important;
 }
 
-table{
+table {
   height: fit-content;
 }
 
@@ -393,7 +393,7 @@ input::-webkit-inner-spin-button {
   border-bottom: 1px solid var(--secondary) !important;
 }
 
-.icon-btn{
+.icon-btn {
   color: var(--primary) !important;
   cursor: pointer;
   width: 24px;
@@ -404,7 +404,115 @@ input::-webkit-inner-spin-button {
   background-color: var(--primary-50);
 }
 
-#quantity{
+.steps-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: var(--neutral-50);
+  border: 2px solid var(--neutral-500);
+  color: var(--neutral-500);
+  cursor: default;
+}
+
+.steps-container div {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"] {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 0 !important;
+  opacity: 0;
+}
+
+input[type="radio"]:checked + label > .fa-circle:before {
+  content: "\f192";
+  color: var(--primary);
+}
+
+input[type="radio"] + label > .fa-circle:before {
+  content: "\f111";
+}
+
+.radio-container,
+.radio-container-active {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  width: -webkit-fill-available;
+}
+
+.radio-container {
+  border: 1px solid var(--neutral-500);
+  color: var(--text-colour);
+}
+
+.radio-container:hover,
+.radio-container-active {
+  border: 1px solid var(--primary-light);
+  color: var(--primary);
+}
+
+.radio-container i,
+.radio-container-active i {
+  color: var(--text-color);
+  margin-right: 15px;
+}
+
+.visited .steps-btn {
+  background-color: var(--primary-50) !important;
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  cursor: pointer !important;
+}
+
+#shipping-section,
+#payment-section {
+  display: none;
+}
+
+.visited p {
+  color: var(--primary) !important;
+}
+
+.visited .steps-btn:hover {
+  background-color: var(--primary-50);
+  border: 2px solid var(--primary-light);
+  color: var(--primary-light) !important;
+}
+
+.steps-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.steps-container span {
+  height: 0;
+  border: 1px dashed var(--neutral-500);
+}
+
+.visited span {
+  border: 1px dashed var(--primary);
+}
+
+#quantity {
   border: none !important;
   color: var(--primary) !important;
   text-align: center;
@@ -642,13 +750,12 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   flex-direction: column;
 }
 
-.cart-title{
+.cart-title {
   font-weight: 700;
   font-size: 24px;
-
 }
 
-.summary-container{
+.summary-container {
   background-color: var(--neutral-100);
   width: 25%;
   padding: 2rem;
@@ -972,7 +1079,7 @@ figure.zoom img {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width: 768px) {
   .product-item a .fa-shopping-cart {
     display: none;
   }
@@ -1063,15 +1170,15 @@ figure.zoom img {
     align-items: center;
   }
 
-  .cart-container{
+  .cart-container {
     flex-direction: column;
   }
 
-  .cart-container table{
+  .cart-container table {
     width: 100% !important;
   }
 
-  .summary-container{
+  .summary-container {
     width: fit-content !important;
   }
 }
