@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 
 from apps.core import usecases
 from apps.order.models import Order, OrderItem
@@ -25,3 +26,17 @@ class AddToCartUseCase(usecases.BaseUseCase):
         )
         order_item.quantity += 1
         order_item.save()
+
+
+class DeleteOrderItemUseCase(usecases.BaseUseCase):
+    def __init__(self, order_item: OrderItem, user: User):
+        self._user = user
+        self._order_item = order_item
+
+    def _factory(self):
+        self._order_item.archive()
+
+    def is_valid(self):
+        # 1. check if order item is of same user
+        if self._order_item.order.user != self._user:
+            raise ValidationError('Not a valid order item id')

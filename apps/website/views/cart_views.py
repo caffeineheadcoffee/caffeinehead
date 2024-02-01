@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views import generic
 
+from apps.order.mixins import OrderMixin, OrderItemMixin
 from apps.order.models import Order
 from apps.product.mixins import ProductMixin
-from apps.website.mixins import OrderMixin
 from apps.website.usecases import cart_usecases
 
 
@@ -38,6 +38,17 @@ class AddToCartView(LoginRequiredMixin, ProductMixin, generic.View):
         return HttpResponseRedirect(request.GET.get('next'))
 
 
+class DeleteOrderItemView(LoginRequiredMixin, OrderItemMixin, generic.View):
+    login_url = '/login'
+
+    def get(self, request, *args, **kwargs):
+        cart_usecases.DeleteOrderItemUseCase(
+            order_item=self.get_order_item(),
+            user=self.request.user
+        ).execute()
+        return HttpResponseRedirect(request.GET.get('next'))
+
+
 class PaymentView(OrderMixin, generic.TemplateView):
     template_name = 'pages/payment.html'
     login_url = '/login'
@@ -55,6 +66,9 @@ class PaymentView(OrderMixin, generic.TemplateView):
             'order_items_count': self.get_order_items_count(),
         })
         return context
+<<<<<<< HEAD
     
 class OrderCompleteView(OrderMixin, generic.TemplateView):
     order_complete = 'pages/order_complete.html'
+=======
+>>>>>>> a5013a4960e10b7439ca6dd1dd353411ea92996f

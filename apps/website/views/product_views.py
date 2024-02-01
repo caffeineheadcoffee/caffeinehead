@@ -1,10 +1,9 @@
 from django.db.models import Count
 from django.views import generic
 
-from apps.order.models import Order, OrderItem
+from apps.order.mixins import OrderMixin
 from apps.product.mixins import ProductMixin
 from apps.product.models import Product, Category
-from apps.website.mixins import OrderMixin
 
 
 class ProductDetailView(generic.TemplateView, OrderMixin, ProductMixin):

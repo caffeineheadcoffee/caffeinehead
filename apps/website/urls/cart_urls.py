@@ -14,6 +14,11 @@ urlpatterns = [
         name='add_to_cart'
     ),
     path(
+        'order-item/<int:order_item_id>/delete-order-item',
+        cart_views.DeleteOrderItemView.as_view(),
+        name='delete_order_item'
+    ),
+    path(
         'payment',
         cart_views.PaymentView.as_view(),
         name='payment'

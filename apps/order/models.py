@@ -48,7 +48,7 @@ class Order(BaseModel):
 class OrderItem(BaseModel):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=0)
     per_price = fields.AmountField(null=True, blank=True)
     amount = fields.AmountField(null=True, blank=True)
 
