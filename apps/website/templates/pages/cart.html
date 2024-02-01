@@ -105,7 +105,7 @@
                                             <td class="f-16 bold m-0">{{ order_item.amount }}</td>
                                             <td>
                                                 <a
-                                                        href="/products/deletecartitems/{{order_item.id}}"
+                                                        href="{% url 'delete_order_item' order_item.pk %}?next=/cart"
                                                         onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
                                                 >
                                                     <i class="fa fa-solid fa-times danger-color"></i>

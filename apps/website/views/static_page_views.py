@@ -1,7 +1,7 @@
 from django.views import generic
 
+from apps.order.mixins import OrderMixin
 from apps.website import forms
-from apps.website.mixins import OrderMixin
 
 
 class AboutUsView(OrderMixin, generic.TemplateView):

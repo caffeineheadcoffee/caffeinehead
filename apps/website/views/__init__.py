@@ -1,7 +1,7 @@
 from django.views import generic
 
+from apps.order.mixins import OrderMixin
 from apps.product.models import Product, ImageSlider
-from apps.website.mixins import OrderMixin
 
 
 class HomeView(OrderMixin, generic.TemplateView):
