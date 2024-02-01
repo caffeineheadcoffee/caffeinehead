@@ -1,0 +1,22 @@
+{% extends 'components/base.html' %} {% load static %} {% block title %}
+<title>E-commerce - ProductPage</title>
+{% endblock%} {% block main_content %} {% load crispy_forms_tags %}
+
+<!-- card start -->
+<div class="container bor p-50 payment-container">
+  <div class="row d-flex gap-4 flex-column mb-3">
+    <h1 class="f-24 bold text-color">CaffeineHead</h1>
+    <div class="d-flex p-5 border gap-4">
+      <i class="far fa-badge-check"> </i>
+      <h2>Order Complete!</h2>
+      <p>
+        Your payment has been received.<br />
+        Thank you for shopping with us.
+      </p>
+      <a class="primary-btn">Return Home</a>
+    </div>
+  </div>
+</div>
+<!-- card end -->
+
+{% endblock %}

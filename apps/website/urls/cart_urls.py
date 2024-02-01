@@ -18,4 +18,8 @@ urlpatterns = [
         cart_views.PaymentView.as_view(),
         name='payment'
     ),
+    path(
+        'order_complete',
+        cart_views.OrderCompleteView.as_view(),
+    ),
 ]

@@ -55,3 +55,6 @@ class PaymentView(OrderMixin, generic.TemplateView):
             'order_items_count': self.get_order_items_count(),
         })
         return context
+    
+class OrderCompleteView(OrderMixin, generic.TemplateView):
+    order_complete = 'pages/order_complete.html'
