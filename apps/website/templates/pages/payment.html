@@ -1,4 +1,4 @@
-{% extends 'components/base.html' %} {% load static %} {% block title %}
+{% extends 'components/base_without_footernav.html' %} {% load static %} {% block title %}
 <title>E-commerce - ProductPage</title>
 {% endblock%} {% block main_content %} {% load crispy_forms_tags %}
 
@@ -175,7 +175,7 @@
               name="phone"
               required
             />
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between btn-container">
               <a href="{% url 'cart' %}" class="link-btn neutral-500-color"
                 ><i class="fa fa-angle-left fa-2"></i>
                 <p class="m-0">Return To Cart</p>
@@ -187,7 +187,7 @@
           </div>
         </div>
 
-        <div class="d-flex flex-column gap-2">
+        <div class="d-flex flex-column gap-2 policy-section">
           <hr class="m-1" />
           <ul class="list-unstyled d-flex">
             <li class="nav-item mb-2">
@@ -294,14 +294,14 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between btn-container">
           <a href="#" class="link-btn neutral-500-color"
             ><i class="fa fa-angle-left fa-2"></i>
             <p class="m-0">Return To Cart</p>
           </a>
           <a class="primary-btn" onclick="paymentView()">Continue To Payment</a>
         </div>
-        <div class="d-flex flex-column gap-2">
+        <div class="d-flex flex-column gap-2 policy-section">
           <hr class="m-1" />
           <ul class="list-unstyled d-flex">
             <li class="nav-item mb-2">
@@ -459,14 +459,14 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-between">
-          <a href="#" class="link-btn neutral-500-color"
+        <div class="d-flex justify-content-between btn-container">
+          <a href="{% url 'cart' %}" class="link-btn neutral-500-color"
             ><i class="fa fa-angle-left fa-2"></i>
             <p class="m-0">Return To Cart</p>
           </a>
           <a class="primary-btn" href="{% url 'order_complete' %}">Continue</a>
         </div>
-        <div class="d-flex flex-column gap-2">
+        <div class="d-flex flex-column gap-2 policy-section">
           <hr class="m-1" />
           <ul class="list-unstyled d-flex">
             <li class="nav-item mb-2">
@@ -529,7 +529,7 @@
               {% endfor %}
             </tbody>
           </table>
-          <div class="d-flex gap-4">
+          <div id="discount-code">
             <input
               type="email"
               class="text-box form-control w-100"
@@ -583,6 +583,8 @@
 
   const radioBtn = document.getElementById("creditCardRadio");
   const cInfo = document.getElementById("credit-info");
+  const dis = document.getElementById("discount-code");
+  
 
   function detailView() {
     detail.classList.add("visited");
@@ -591,6 +593,7 @@
     shippingSec.style.display = "none";
     detailSec.style.display = "flex";
     paymentSec.style.display = "none";
+    dis.style.display = "flex";
   }
 
   function shippingView() {
@@ -599,6 +602,7 @@
     shippingSec.style.display = "flex";
     detailSec.style.display = "none";
     paymentSec.style.display = "none";
+    dis.style.display = "flex";
   }
 
   function paymentView() {
@@ -607,6 +611,7 @@
     shippingSec.style.display = "none";
     detailSec.style.display = "none";
     paymentSec.style.display = "flex";
+    dis.style.display = "none";
   }
 
   function activeRadio() {

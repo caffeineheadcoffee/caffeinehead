@@ -12,5 +12,10 @@ urlpatterns = [
         'collection',
         product_views.CollectionView.as_view(),
         name='collection'
+    ),
+    path(
+        'view_products',
+        product_views.ViewProductsView.as_view(),
+        name='view_products'
     )
 ]

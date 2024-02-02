@@ -49,3 +49,31 @@ class CollectionView(OrderMixin, generic.TemplateView):
                 'order_items_count': self.get_order_items_count(),
             })
         return context
+    
+
+class ViewProductsView(OrderMixin, generic.TemplateView):
+    template_name = 'pages/view_products.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ViewProductsView, self).get_context_data(**kwargs)
+        categories = Category.objects.annotate(
+            product_count=Count('product')
+        ).filter(product_count__gt=0)
+
+        category_products = [
+            {
+                'id': category.id,
+                'name': category.name,
+                'products': category.product_set.all()[:5]
+            } for category in categories
+        ]
+        context.update({
+            'products': Product.objects.all()[:5],
+            'category_products': category_products,
+            'current_route': self.request.path
+        })
+        if self.request.user.is_authenticated:
+            context.update({
+                'order_items_count': self.get_order_items_count(),
+            })
+        return context

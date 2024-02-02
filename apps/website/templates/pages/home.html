@@ -106,7 +106,7 @@
                         <p class="heading">Latest Products</p>
                         <p class="sub-heading">Our Popular Goodies</p>
                     </div>
-                    <a href="#" class="link-btn"
+                    <a href="{% url 'collection' %}" class="link-btn"
                     ><p class="m-0">view all products</p>
                         <i class="fa fa-angle-right fa-2"></i>
                     </a>
@@ -115,38 +115,40 @@
             <div class="row">
                 {% for product in products_list %}
                     <div class="col-md-3">
-                        <div class="product-item ele-1">
-                            <a
-                                    href="{% url 'product_detail' product.pk %}"
-                                    class="product-link"
-                            ></a>
-                            <img
-                                    class="ele-1 position-absolute start-50 translate-middle-x"
-                                    src="{{MEDIA_URL }}{{ product.display_image.image }}"
-                                    alt="{{ product.name }}"
-                            />
-                            <a
-                                    href="{% url 'add_to_cart' product.pk %}?next={{ current_route }}"
-                                    class="hidden primary-ghost-btn gap-2 f-14 w-100"
-                            >Add To Cart
-                                <i class="far f-16 fa-shopping-cart"></i>
-                            </a>
-                            <div class="product-info">
-                                <div class="d-flex flex-column gap-1">
-                                    <p class="product-name mb-0">{{ product.name }}</p>
-                                    <p class="product-discription mb-0">{{ product.description }}</p>
-                                </div>
-                                <div class="d-flex flex-column gap-1">
-                                    {% if product.discounted_price %}
-                                        <p class="mb-0">
-                                            <s>$ {{ product.price }}</s>
-                                        </p>
-                                    {% endif %}
-                                    <p class="product-price mb-0">$ {{ product.product_price }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="product-item ele-1">
+          <a
+            href="{% url 'product_detail' product.id %}"
+            class="product-link"
+          ></a>
+          <img
+            class="ele-1 position-absolute start-50 translate-middle-x"
+            src="{{MEDIA_URL }}{{ product.display_image.image }}"
+            alt="{{ product.name }}"
+          />
+          
+          <a
+            href="{% url 'add_to_cart' product.pk %}"
+            class="hidden primary-ghost-btn gap-2 f-14 w-100"
+            ><span data-bs-toggle="modal"
+            data-bs-target="#addedToCart">Add To Cart
+            <i class="far f-16 fa-shopping-cart"></i></span>
+          </a>
+          <div class="product-info">
+            <div class="d-flex flex-column gap-1">
+              <p class="product-name mb-0">{{ product.name }}</p>
+              <p class="product-discription mb-0">{{ product.description }}</p>
+            </div>
+            <div class="d-flex flex-column gap-1">
+              {% if product.discounted_price %}
+              <p class="mb-0">
+                <s>$ {{ product.price }}</s>
+              </p>
+              {% endif %}
+              <p class="product-price mb-0">$ {{ product.product_price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
                 {% endfor %}
             </div>
         </div>

@@ -26,5 +26,6 @@ urlpatterns = [
     path(
         'order_complete',
         cart_views.OrderCompleteView.as_view(),
+        name='order_complete'
     ),
 ]

@@ -1,0 +1,179 @@
+{% extends 'components/base.html' %} {% load static %} {% block title %}
+<title>E-commerce - ProductPage</title>
+{% endblock%} {% block main_content %}
+
+<!-- card start -->
+<div class="container d-flex flex-column p-50">
+  <div class="dropdown">
+    <a
+      type="button"
+      class="link-btn float-start"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <h1 class="f-32 bold m-0 text-color">All Products</h1>
+      <i class="fa f-24 fa-angle-down text-color"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">All Products</a></li>
+      <li><a class="dropdown-item" href="#">Espresso Machines</a></li>
+      <li><a class="dropdown-item" href="#">Coffee Grinders</a></li>
+      <li><a class="dropdown-item" href="#">Coffee Accessories</a></li>
+    </ul>
+  </div>
+  <div
+    class="col-md-12 d-flex justify-content-end search-container container mt-5"
+  >
+    <form class="d-flex gap-2 search col-md-3 p-1">
+      <label><i class="far fa-search f-16"></i> </label>
+      <input
+        class="w-100 searchbox"
+        type="search"
+        placeholder="Search products"
+      />
+    </form>
+  </div>
+
+  <!-- All Products Section -->
+  <div class="container p-50">
+    <form class="row f-14">
+      <div class="col-md-3 d-flex gap-4 flex-column text-color">
+        <h1 class="f-18 bold m-0">Filter</h1>
+        <hr class="m-0" />
+
+        <div class="d-flex flex-column gap-3">
+          <h2 class="f-16 bold m-0">Categories</h2>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >Hoodie</label
+            >
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >T-shirt</label
+            >
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >Coffee</label
+            >
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >Coffee Machines</label
+            >
+          </div>
+        </div>
+        <hr class="m-0" />
+        <div class="d-flex flex-column gap-3">
+          <h2 class="f-16 bold m-0">Price</h2>
+          <div class="d-flex gap-3 align-items-center">
+            <p class="neutral-500-color f-14 m-0">$</p>
+            <input
+              type="number"
+              class="text-box form-control w-100"
+              placeholder="Min-Price"
+            />
+            <input
+              type="number"
+              class="text-box form-control w-100"
+              placeholder="Max-Price"
+            />
+          </div>
+        </div>
+        <hr class="m-0" />
+        <div class="d-flex flex-column gap-3">
+          <h2 class="f-16 bold m-0">Availability</h2>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >In stock (10)</label
+            >
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label ms-2" for="exampleCheck1"
+              >Out of stock (2)</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="filters-content col-md-9 container">
+        <div class="row grid">
+          {% for product in products %}
+          <div class="col-md-3 mb-4">
+            <div class="product-item ele-1">
+              <a
+                href="{% url 'product_detail' product.id %}"
+                class="product-link"
+              ></a>
+              <img
+                class="ele-1 position-absolute start-50 translate-middle-x"
+                src="{{MEDIA_URL }}{{ product.display_image.image }}"
+                alt="{{ product.name }}"
+              />
+              <a
+                href="{% url 'add_to_cart' product.pk %}"
+                class="hidden primary-ghost-btn gap-2 f-14 w-100"
+                ><span data-bs-toggle="modal" data-bs-target="#addedToCart"
+                  >Add To Cart <i class="far f-16 fa-shopping-cart"></i
+                ></span>
+              </a>
+              <div class="product-info">
+                <div class="d-flex flex-column gap-1">
+                  <p class="product-name mb-0">{{ product.name }}</p>
+                  <p class="product-discription mb-0">
+                    {{ product.description }}
+                  </p>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  {% if product.discounted_price %}
+                  <p class="mb-0">
+                    <s>$ {{ product.price }}</s>
+                  </p>
+                  {% endif %}
+                  <p class="product-price mb-0">
+                    $ {{ product.product_price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- card end -->
+
+{% endblock %}

@@ -1,158 +1,291 @@
-{% extends 'components/base.html' %}
-{% load static %}
-{% load bootstrap %}
+{% extends 'components/base.html' %} {% load static %} {% load bootstrap %}
 <style>
-    .card-img {
-        overflow: hidden;
-    }
+  .card-img {
+    overflow: hidden;
+  }
 
-    .card-img:hover img {
-        transform: scale(1.5);
-    }
+  .card-img:hover img {
+    transform: scale(1.5);
+  }
 
-    .card-img img {
-        transition: all 2s;
-    }
+  .card-img img {
+    transition: all 2s;
+  }
 </style>
 
 {% block title %}
-    <title>E-commerce - CartPage</title>
-{% endblock%}
-{% block main_content %}
+<title>E-commerce - CartPage</title>
+{% endblock%} {% block main_content %}
 
-    <!-- card start -->
-    <div class="container">
-        <div class="d-flex justify-content-center">
-            <div class="col">
-                {% for msg in messages %}
-                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                        <div class="alert alert-success">{{ msg }}</div>
+<!-- card start -->
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col p-50">
+      {% for msg in messages %} 
+      {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="alert alert-success">{{ msg }}</div>
 
-                    {% endif%}
-                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                        <div class="alert alert-danger">{{ msg }}</div>
+      {% endif%} 
+      {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="alert alert-danger">{{ msg }}</div>
 
-                    {% endif%}
-                {% endfor %}
-                {% if order_items|length < 1 %}
-                    <div
-                            class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-50"
-                    >
+      {% endif%} 
+      {% endfor %} 
+      {% if order_items|length < 1 %}
+      <div
+        class="rounded-4 flex-column gap-3 d-flex align-items-center mt-5 mb-5 justify-content-center white-bg ele-2 p-5"
+      >
+        <img
+          class="w-25"
+          src="{% static 'images/empty cart.png' %}"
+          alt="..."
+        />
+        <h2
+          class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
+        >
+          No Items Found!
+        </h2>
+        <p class="text-color m-0 text-center">
+          Looks like you have no items in your shopping cart.
+        </p>
+        <a href="{% url 'collection' %}" class="btn primary-btn f-16"
+          >SHOP NOW</a
+        >
+      </div>
+      {% else%}
+      <div class="col">
+        <div class="row gap-5">
+          <div class="d-flex justify-content-between cart-title-container">
+            <h2 class="cart-title">Items in my cart</h2>
+            <a href="#" class="link-btn neutral-500-color"
+              ><p class="m-0">Continue Shopping</p>
+              <i class="fa fa-angle-right fa-2"></i>
+            </a>
+          </div>
+          <div class="d-flex gap-5 cart-container">
+            <table class="w-75 mt-4 table desktop-view">
+              <thead>
+                <tr class="text-uppercase neutral-500-color f-14">
+                  <th scope="col">Item</th>
+                  <th scope="col" class="text-center">UNIT PRICE</th>
+                  <th scope="col" class="text-center">QUANTITY</th>
+                  <th scope="col" class="text-center">FINAL PRICE</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order_item in order_items %}
+                <tr>
+                  <td>
+                    <div class="d-flex gap-3 align-items-center">
+                      <div
+                        style="height: 70px; width: 70px"
+                        class="d-flex align-items-center"
+                      >
                         <img
-                                class="w-25"
-                                src="{% static 'images/empty cart.png' %}"
-                                alt="..."
+                          height="100%"
+                          src="{{ MEDIA_URL }}{{order_item.product.display_image.image}}"
+                          alt=""
                         />
-                        <h2
-                                class="col-md-auto f-32 text-capitalize bold text-color m-0 text-center"
-                        >
-                            No Items Found!
-                        </h2>
-                        <p class="text-color m-0 text-center">
-                            Looks like you have no items in your shopping cart.
-                        </p>
-                        <a href="{% url 'collection' %}" class="btn primary-btn f-16"
-                        >SHOP NOW</a
-                        >
+                      </div>
+
+                      <p class="f-16 bold m-0">{{ order_item.product.name }}</p>
                     </div>
-                {% else%}
-                    <div class="col">
-                        <div class="p-50 row gap-5 ">
-                            <div class="d-flex justify-content-between">
-                                <h2 class="cart-title">Items in my cart</h2>
-                                <a href="#" class="link-btn neutral-500-color"><p class="m-0">Continue Shopping</p>
-                                    <i class="fa fa-angle-right fa-2"></i>
-                                </a>
+                  </td>
+                  <td class="f-16 bold m-0">{{ order_item.per_price }}</td>
+                  <td>
+                    <div
+                      class="d-flex gap-2 align-items-center justify-content-center"
+                    >
+                      <a class="icon-btn" onclick="decrement()">
+                        <i class="fa f-12 fa-minus"></i
+                      ></a>
+                      <input
+                        id="quantity"
+                        type="number"
+                        min="1"
+                        max="20"
+                        value="{{ order_item.quantity }}"
+                      />
+                      <a class="icon-btn" onclick="increment()">
+                        <i class="fa f-12 fa-plus"></i
+                      ></a>
+                    </div>
+                  </td>
+                  <td class="f-16 bold m-0">{{ order_item.amount }}</td>
+                  <td>
+                    <div
+                      class="modal"
+                      id="deleteItem"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title f-20 danger-color text-capitalize d-flex gap-2 align-items-center">
+                                <i class="far fa-exclamation-triangle"></i>Remove Item?</h5>
+                            <a data-bs-dismiss="modal" aria-label="Close" type="button">
+                                <i class="fa fa-solid fa-times neutral-500-color"></i>
+                            </a>
+                          </div>
+                          <div class="modal-body d-flex gap-2 p-4 flex-column">
+                            <p class="f-16 neutral-500-color">Are you sure you want to remove this item?</p>
+                            <div class="d-flex justify-content-center gap-4 w-100">
+                                <button
+                              type="button"
+                              class="primary-btn"
+                              data-bs-dismiss="modal"
+                            >
+                              Cancel
+                            </button>
+                            <a type="button" href="{% url 'delete_order_item' order_item.pk %}?next=/cart" class="primary-ghost-btn">
+                              Remove
+                            </a>
                             </div>
-                            <div class="d-flex gap-5 cart-container">
-                                <table class="w-75 mt-4 table">
-                                    <thead>
-                                    <tr class="text-uppercase neutral-500-color f-14">
-                                        <th scope="col">Item</th>
-                                        <th scope="col" class="text-center">UNIT PRICE</th>
-                                        <th scope="col" class="text-center">QUANTITY</th>
-                                        <th scope="col" class="text-center">FINAL PRICE</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for order_item in order_items %}
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex gap-3 align-items-center">
-                                                    <div style="height: 70px; width: 70px;" class="d-flex align-items-center">
-                                                        <img
-                                                                height="100%"
-                                                                src="{{ MEDIA_URL }}{{order_item.product.display_image.image}}"
-                                                                alt=""
-                                                        />
-                                                    </div>
-
-                                                    <p class="f-16 bold m-0">{{ order_item.product.name }}</p>
-
-                                                </div>
-                                            </td>
-                                            <td class="f-16 bold m-0">{{ order_item.per_price }}</td>
-                                            <td>
-                                                <div class="d-flex gap-2 align-items-center justify-content-center ">
-                                                    <a class="icon-btn" onclick="decrement()">
-                                                        <i class="fa f-12 fa-minus"></i></a>
-                                                    <input id=quantity type=number min=1 max=20 value="{{ order_item.quantity }}">
-                                                    <a class="icon-btn" onclick="increment()">
-                                                        <i class="fa f-12 fa-plus"></i></a>
-                                                </div>
-                                            </td>
-                                            <td class="f-16 bold m-0">{{ order_item.amount }}</td>
-                                            <td>
-                                                <a
-                                                        href="{% url 'delete_order_item' order_item.pk %}?next=/cart"
-                                                        onclick="return confirm('Are You Sure Want To Delete This Cart item ?')"
-                                                >
-                                                    <i class="fa fa-solid fa-times danger-color"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
-                                <div class="summary-container">
-                                    <h3 class="bold f-20 text-color m-0">Summary</h3>
-                                    <table class="table summary-table m-0">
-                                        <tbody class="f-14 text-color text-uppercase">
-                                        <tr>
-                                            <th class="bold">Subtotal</th>
-                                            <td>{{ order.sub_total }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bold">Shipping Charge</th>
-                                            <td>{{ order.shipping_amount }}</td>
-                                        </tr>
-                                        <tr class=" border-top">
-                                            <th class="bold pt-4">Total Price</th>
-                                            <td class="bold pt-4">{{ order.total }}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <a href="{% url 'payment' %}" class="primary-ghost-btn w-100 text-uppercase">Goto Checkout</a>
-                                </div>
-                            </div>
-
+                          </div>
                         </div>
+                      </div>
                     </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <!-- card end -->
+                    <a
+                      href="{% url 'delete_order_item' order_item.pk %}?next=/cart"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteItem"
+                    >
+                      <i class="fa fa-solid fa-times danger-color"></i>
+                    </a>
+                  </td>
+                </tr>
 
-    <script>
-        function increment() {
-            document.getElementById('quantity').stepUp();
-        }
-        function decrement() {
-            document.getElementById('quantity').stepDown();
-        }
-    </script>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="mt-4 table mobile-view">
+              <tbody>
+                {% for order_item in order_items %}
+                <tr>
+                  <td class="position-relative mobile-view">
+                    <div class="position-absolute top-0 end-0">
+                    <div
+                      class="modal"
+                      id="deleteItem"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title f-20 danger-color text-capitalize d-flex gap-2 align-items-center">
+                                <i class="far fa-exclamation-triangle"></i>Remove Item?</h5>
+                            <a data-bs-dismiss="modal" aria-label="Close" type="button">
+                                <i class="fa fa-solid fa-times neutral-500-color"></i>
+                            </a>
+                          </div>
+                          <div class="modal-body d-flex gap-2 p-4 flex-column">
+                            <p class="f-16 neutral-500-color">Are you sure you want to remove this item?</p>
+                            <div class="d-flex justify-content-center gap-4 w-100">
+                                <button
+                              type="button"
+                              class="primary-btn"
+                              data-bs-dismiss="modal"
+                            >
+                              Cancel
+                            </button>
+                            <a type="button" href="{% url 'delete_order_item' order_item.pk %}?next=/cart" class="primary-ghost-btn">
+                              Remove
+                            </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      href="{% url 'delete_order_item' order_item.pk %}?next=/cart"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteItem"
+                    >
+                      <i class="fa fa-solid fa-times danger-color"></i>
+                    </a>
+                  </div>
+                    <div class="d-flex gap-3 align-items-center">
+                      <div
+                        style="height: 70px; width: 70px"
+                        class="d-flex align-items-center"
+                      >
+                        <img
+                          height="100%"
+                          src="{{ MEDIA_URL }}{{order_item.product.display_image.image}}"
+                          alt=""
+                        />
+                      </div>
+
+                      <p class="f-16 bold m-0">{{ order_item.product.name }}</p>
+                      <p class="f-16 bold m-0">{{ order_item.per_price }}</p>
+                      <div
+                      class="d-flex gap-2 align-items-center justify-content-center"
+                    >
+                      <a class="icon-btn" onclick="decrement()">
+                        <i class="fa f-12 fa-minus"></i
+                      ></a>
+                      <input
+                        id="quantity"
+                        type="number"
+                        min="1"
+                        max="20"
+                        value="{{ order_item.quantity }}"
+                      />
+                      <a class="icon-btn" onclick="increment()">
+                        <i class="fa f-12 fa-plus"></i
+                      ></a>
+                    </div>
+                    </div>
+                  </td>
+                  
+                </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+            <div class="summary-container">
+              <h3 class="bold f-20 text-color m-0">Summary</h3>
+              <table class="table summary-table m-0">
+                <tbody class="f-14 text-color text-uppercase">
+                  <tr>
+                    <th class="bold">Subtotal</th>
+                    <td>{{ order.sub_total }}</td>
+                  </tr>
+                  <tr>
+                    <th class="bold">Shipping Charge</th>
+                    <td>{{ order.shipping_amount }}</td>
+                  </tr>
+                  <tr class="border-top">
+                    <th class="bold pt-4">Total Price</th>
+                    <td class="bold pt-4">{{ order.total }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <a
+                href="{% url 'payment' %}"
+                class="primary-ghost-btn w-100 text-uppercase"
+                >Goto Checkout</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+  </div>
+</div>
+</div>
+<!-- card end -->
+
+<script>
+  function increment() {
+    document.getElementById("quantity").stepUp();
+  }
+  function decrement() {
+    document.getElementById("quantity").stepDown();
+  }
+</script>
 
 {% endblock%}

@@ -12,6 +12,7 @@
 {% load static %}
 <header class="navbar p-0 ele-1 white-bg sticky-top">
     <div class="container position-relative nft-navbar">
+          <!-- mobile navbar -->
         <div class="hambuger-nav d-none">
             <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <i class="fa fa-stream regular"></i>
@@ -110,6 +111,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- desktop navbar -->
         <ul
                 class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
         >
@@ -228,7 +231,62 @@
             />
         </a>
     </div>
+    <div>
+        <!-- modal -->
+        <div class="modal fade container end-0 mt-5" id="addedToCart" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog mt-5 position-absolute end-0 top-0">
+              <div class="modal-content">
+                <div class="d-flex gap-3 flex-column p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                       <h5 class="modal-title f-14 text-color d-flex gap-2 align-items-center"><i class="far fa-check text-color"></i>Item(s) added to your cart</h5>
+                        <a data-bs-dismiss="modal" aria-label="Close" type="button">
+                            <i class="fa fa-solid fa-times neutral-500-color"></i>
+                        </a>
+                    </div>
+                    <table class="table-borderless mt-4 table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <div
+                                        style="height: 70px; width: 70px"
+                                        class="d-flex align-items-center position-relative"
+                                        >
+                                            <img
+                                            height="100%"
+                                            src="{{ MEDIA_URL }}{{order_item.product.display_image.image}}"
+                                            alt=""
+                                            />
+                                            <span
+                                            class="position-absolute top-0 start-100 neutral-700-bg border badge rounded-pill translate-middle footer-link opacity-50"
+                                            >
+                                                <span class="f-12 white-color bold">
+                                                    {{ order_items_count }}
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <p class="f-16 m-0">{{ order_item.product.name }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex flex-column gap-3">
+                         <a class="w-100 primary-ghost-btn" href="{% url 'cart' %}">View Cart (*items number in cart*)
+                        </a>
+                        <a href="{% url 'payment' %}" class="w-100 primary-btn">GOTO CHECKOUT
+                        </a>
+                    </div>
 
+                    <a type="button" data-bs-dismiss="modal" class="link-btn text-color"><p class="m-0">Continue Shopping</p>
+          <i class="fa fa-angle-right fa-2"></i>
+        </a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
 </header>
 
 <script
