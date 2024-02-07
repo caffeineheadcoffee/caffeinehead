@@ -60,6 +60,7 @@
                                 id="email"
                                 placeholder="Email"
                                 name="email"
+                                value="{{ user.email }}"
                                 required
                         />
                     </div>
@@ -79,17 +80,17 @@
                                     <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
                                 </label>
                             </div>
-                            <div class="radio-container" id="radio-btn">
-                                <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="flexRadioDefault"
-                                        id="pickUpRadio"
-                                />
-                                <label class="form-check-label" for="pickUpRadio">
-                                    <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up
-                                </label>
-                            </div>
+{#                            <div class="radio-container" id="radio-btn">#}
+{#                                <input#}
+{#                                        class="form-check-input"#}
+{#                                        type="radio"#}
+{#                                        name="flexRadioDefault"#}
+{#                                        id="pickUpRadio"#}
+{#                                />#}
+{#                                <label class="form-check-label" for="pickUpRadio">#}
+{#                                    <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up#}
+{#                                </label>#}
+{#                            </div>#}
                         </div>
                     </div>
                     <div class="col-sm-10 col-md-12 w-100">
@@ -98,51 +99,47 @@
                             <input
                                     type="text"
                                     class="text-box form-control w-100"
-                                    id="Country_Region"
-                                    placeholder="Country / Region"
-                                    name="Country_Region"
+                                    id="fullName"
+                                    placeholder="Enter Fullname"
+                                    name="fullName"
+                                    value="{{ user.full_name }}"
                                     required
                             />
-                            <div class="d-flex justify-content-between gap-3">
-                                <input
-                                        type="text"
-                                        class="text-box form-control w-100"
-                                        id="fname"
-                                        placeholder="First Name (optional)"
-                                        name="fname"
-                                        required
-                                />
-                                <input
-                                        type="text"
-                                        class="text-box form-control w-100"
-                                        id="lname"
-                                        placeholder="Last Name"
-                                        name="lname"
-                                        required
-                                />
-                            </div>
+                            <input
+                                    type="text"
+                                    class="text-box form-control w-100"
+                                    id="phoneNumber"
+                                    placeholder="Company (optional)"
+                                    name="phoneNumber"
+                            />
                             <input
                                     type="text"
                                     class="text-box form-control w-100"
                                     id="company"
                                     placeholder="Company (optional)"
                                     name="company"
+                            />
+                            <input
+                                    type="text"
+                                    class="text-box form-control w-100"
+                                    id="addressLine1"
+                                    placeholder="Address Line 1"
+                                    name="addressLine1"
                                     required
                             />
                             <input
                                     type="text"
                                     class="text-box form-control w-100"
-                                    id="address"
-                                    placeholder="Address"
-                                    name="address"
-                                    required
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="apartment"
-                                    placeholder="Apartment, suite, etc. (optional)"
+                                    id="addressLine1"
+                                    placeholder="Address Line 2 (optional)"
                                     name="apartment"
+                            />
+                            <input
+                                    type="text"
+                                    class="text-box form-control w-100"
+                                    id="country"
+                                    placeholder="Country"
+                                    name="country"
                                     required
                             />
                             <div class="d-flex justify-content-between gap-3">
@@ -165,20 +162,12 @@
                                 <input
                                         type="number"
                                         class="text-box form-control w-100"
-                                        id="postcode"
-                                        placeholder="Postcode"
-                                        name="postcode"
+                                        id="zipcode"
+                                        placeholder="Zipcode"
+                                        name="zipcode"
                                         required
                                 />
                             </div>
-                            <input
-                                    type="tel"
-                                    class="text-box form-control w-100"
-                                    id="phone"
-                                    placeholder="Phone"
-                                    name="phone"
-                                    required
-                            />
                             <div class="d-flex justify-content-between btn-container">
                                 <a href="{% url 'cart' %}" class="link-btn neutral-500-color"
                                 ><i class="fa fa-angle-left fa-2"></i>
@@ -249,55 +238,55 @@
                         </table>
                     </div>
 
-                    <div class="col-sm-10 col-md-12 w-100">
-                        <p class="f-18 bold text-color">Shipping Method</p>
-
-                        <div class="d-flex gap-2 flex-wrap">
-                            <div class="radio-container">
-                                <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="flexRadioDefault"
-                                        id="standardShipRadio"
-                                        checked
-                                />
-                                <label
-                                        class="w-100 form-check-label d-flex justify-content-between"
-                                        for="standardShipRadio"
-                                >
-                                    <i class="far fa-circle pt-1"></i>
-                                    <p
-                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
-                                    >
-                  <span>Standard</span
-                  ><span class="neutral-500-color">2 to 8 business days</span>
-                                    </p>
-                                    <p class="m-0 f-14 bold text-color">Free</p>
-                                </label>
-                            </div>
-                            <div class="radio-container" id="radio-btn">
-                                <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="flexRadioDefault"
-                                        id="expressShipRadio"
-                                />
-                                <label
-                                        class="w-100 form-check-label d-flex justify-content-between"
-                                        for="expressShipRadio"
-                                >
-                                    <i class="far fa-circle pt-1"></i>
-                                    <p
-                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
-                                    >
-                  <span>Express</span
-                  ><span class="neutral-500-color">2 to 8 business days</span>
-                                    </p>
-                                    <p class="m-0 f-14 bold text-color">$12.00</p>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+{#                    <div class="col-sm-10 col-md-12 w-100">#}
+{#                        <p class="f-18 bold text-color">Shipping Method</p>#}
+{##}
+{#                        <div class="d-flex gap-2 flex-wrap">#}
+{#                            <div class="radio-container">#}
+{#                                <input#}
+{#                                        class="form-check-input"#}
+{#                                        type="radio"#}
+{#                                        name="flexRadioDefault"#}
+{#                                        id="standardShipRadio"#}
+{#                                        checked#}
+{#                                />#}
+{#                                <label#}
+{#                                        class="w-100 form-check-label d-flex justify-content-between"#}
+{#                                        for="standardShipRadio"#}
+{#                                >#}
+{#                                    <i class="far fa-circle pt-1"></i>#}
+{#                                    <p#}
+{#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
+{#                                    >#}
+{#                  <span>Standard</span#}
+{#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
+{#                                    </p>#}
+{#                                    <p class="m-0 f-14 bold text-color">Free</p>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                            <div class="radio-container" id="radio-btn">#}
+{#                                <input#}
+{#                                        class="form-check-input"#}
+{#                                        type="radio"#}
+{#                                        name="flexRadioDefault"#}
+{#                                        id="expressShipRadio"#}
+{#                                />#}
+{#                                <label#}
+{#                                        class="w-100 form-check-label d-flex justify-content-between"#}
+{#                                        for="expressShipRadio"#}
+{#                                >#}
+{#                                    <i class="far fa-circle pt-1"></i>#}
+{#                                    <p#}
+{#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
+{#                                    >#}
+{#                  <span>Express</span#}
+{#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
+{#                                    </p>#}
+{#                                    <p class="m-0 f-14 bold text-color">$12.00</p>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                     <div class="d-flex justify-content-between btn-container">
                         <a href="#" class="link-btn neutral-500-color"
                         ><i class="fa fa-angle-left fa-2"></i>
@@ -520,7 +509,7 @@
                                                         class="position-absolute top-0 start-100 neutral-700-bg border badge rounded-pill translate-middle footer-link opacity-50"
                                                 >
                         <span class="f-12 white-color bold">
-                          {{ order_items_count }}
+                          {{ order_item.quantity }}
                         </span>
                       </span>
                                             </div>
@@ -546,12 +535,12 @@
                         <div>
                             <p class="f-14 text-color w-100 d-flex justify-content-between">
                                 <span> Subtotal </span>
-                                <span class="bold"> $30.00 </span>
+                                <span class="bold"> ${{ order.sub_total }} </span>
                             </p>
 
                             <p class="f-14 text-color w-100 d-flex justify-content-between">
                                 <span> Shipping </span>
-                                <span> Calculated at next step </span>
+                                <span class="bold"> ${{ order.shipping_amount }} </span>
                             </p>
 
                             <p
@@ -560,7 +549,7 @@
                                 <span> Total </span>
                                 <span>
                 <span class="f-12 regular text-uppercase">aud</span>
-                $216.50
+                ${{ order.total }}
               </span>
                             </p>
 
