@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 
+
 from environ import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -212,6 +213,8 @@ DJANGO_ADMIN = {
     'EMAIL': env.str('DJANGO_ADMIN_EMAIL', default='admin@admin.com'),
     'PASSWORD': env.str('DJANGO_ADMIN_PASSWORD', default='root1234')
 }
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
