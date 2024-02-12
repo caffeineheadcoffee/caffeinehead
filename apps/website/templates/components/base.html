@@ -46,4 +46,23 @@
 
 {% include 'components/footer.html' %}
 </body>
+
+<script type="text/javascript">
+        window.onload = function(){
+                checkRange();
+        }
+
+        const price =document.getElementById('price').textContent;
+        const btn = document.getElementById('prod-btn');
+        let checktxt = "-";
+        const sprice = price.toString();
+
+        function checkRange(){
+                        if (sprice.includes(checktxt)){
+                        btn.classList.add("range-btn");
+                        btn.setAttribute("href", "{% url 'contact_us' %}");
+                }
+        }
+        console.log(checktxt);
+</script>
 </html>

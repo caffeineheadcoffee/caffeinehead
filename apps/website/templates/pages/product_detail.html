@@ -92,9 +92,9 @@
             <figure
               class="zoom"
               onmousemove="zoom(event)"
-              style="background-image: src'{{ MEDIA_URL }}{{product.display_image}}'"
             >
               <img
+              id="expandedImg"
                 class="p-5"
                 src="{{ MEDIA_URL }}{{product.display_image.image}}"
               />
@@ -105,6 +105,7 @@
             <img
               class="detail-img w-15 h-auto"
               src="{{MEDIA_URL }}{{ product.display_image.image }}"
+              onclick="imgGallery(this);"
             />
             {% endfor %}
           </div>
@@ -305,6 +306,11 @@
     y = (offsetY / zoomer.offsetHeight) * 100;
     zoomer.style.backgroundPosition = x + "% " + y + "%";
   }
+
+function imgGallery(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  expandImg.src = imgs.src;
+}
 </script>
 
 {% endblock%}

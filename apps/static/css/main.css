@@ -826,6 +826,14 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   font-weight: 400;
 }
 
+.zoom{
+  background-image: url("{{ MEDIA_URL }}{{product.display_image.image}}");
+}
+
+.detail-img{
+  cursor: pointer;
+}
+
 .footer-link:hover {
   color: var(--neutral-400) !important;
 }
@@ -905,7 +913,7 @@ input[name="size-radio"]:checked + label p {
 figure.zoom {
   background-position: 50% 50%;
   position: relative;
-  height: 600px;
+  height: fit-content;
   overflow: hidden;
   cursor: zoom-in;
 }
@@ -943,6 +951,25 @@ figure.zoom img {
   gap: 25px;
   flex-direction: column;
 }
+
+.range-btn span{
+  visibility: hidden;
+  position: relative;
+}
+
+.range-btn span:after{
+  visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+  content: 'Learn More';
+}
+
+.range-btn i{
+  display: none;
+}
+
+
 
 @media only screen and (max-width: 540px) {
   .accordion-body {
