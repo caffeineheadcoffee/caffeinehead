@@ -222,7 +222,7 @@
         <!-- buttons -->
         <div class="action d-flex w-100 gap-4 flex-column">
           <a
-            href="/products/add_to_cart/{{product.id}}"
+            href="{% url 'add_to_cart' product.id %}?next={{ request.get_full_path }}"
             class="w-100 primary-btn gap-2"
             ><span data-bs-toggle="modal"
             data-bs-target="#addedToCart">Add To Cart <i class="far f-16 fa-shopping-cart white-color"></i
