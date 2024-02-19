@@ -44,7 +44,6 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_filters",
-    "debug_toolbar",
     "nested_admin",
     "paypal.standard.ipn",
     
