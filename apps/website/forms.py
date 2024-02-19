@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
+from apps.order.models import ShippingAddress
 from apps.website.models import Enquiry
 
 User = get_user_model()
@@ -45,3 +46,12 @@ class EnquiryForm(forms.ModelForm):
     class Meta:
         model = Enquiry
         fields = "__all__"
+
+
+class AddShippingAddressForm(forms.ModelForm):
+    class Meta:
+        model = ShippingAddress
+        fields = "__all__"
+        exclude = (
+            'order',
+        )

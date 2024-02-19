@@ -54,15 +54,27 @@
                     {% csrf_token %}
                     <div class="col-sm-10 col-md-12 w-100">
                         <p class="f-18 bold text-color">Contact</p>
-                        <input
-                                type="email"
-                                class="text-box form-control w-100"
-                                id="email"
-                                placeholder="Email"
-                                name="email"
-                                value="{{ user.email }}"
-                                required
-                        />
+                        {% if shipping_address %}
+                            <input
+                                    type="email"
+                                    class="text-box form-control w-100"
+                                    id="shippingEmail"
+                                    placeholder="Email"
+                                    name="email"
+                                    value="{{ shipping_address.email }}"
+                                    required
+                            />
+                        {% else %}
+                            <input
+                                    type="email"
+                                    class="text-box form-control w-100"
+                                    id="shippingEmail"
+                                    placeholder="Email"
+                                    name="email"
+                                    value="{{ user.email }}"
+                                    required
+                            />
+                        {% endif %}
                     </div>
                     <div class="col-sm-10 col-md-12 w-100">
                         <p class="f-18 bold text-color">Delivery Method</p>
@@ -80,94 +92,184 @@
                                     <i class="far fa-circle"></i><i class="far fa-truck"></i>Ship
                                 </label>
                             </div>
-{#                            <div class="radio-container" id="radio-btn">#}
-{#                                <input#}
-{#                                        class="form-check-input"#}
-{#                                        type="radio"#}
-{#                                        name="flexRadioDefault"#}
-{#                                        id="pickUpRadio"#}
-{#                                />#}
-{#                                <label class="form-check-label" for="pickUpRadio">#}
-{#                                    <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up#}
-{#                                </label>#}
-{#                            </div>#}
+                            {#                            <div class="radio-container" id="radio-btn">#}
+                            {#                                <input#}
+                            {#                                        class="form-check-input"#}
+                            {#                                        type="radio"#}
+                            {#                                        name="flexRadioDefault"#}
+                            {#                                        id="pickUpRadio"#}
+                            {#                                />#}
+                            {#                                <label class="form-check-label" for="pickUpRadio">#}
+                            {#                                    <i class="far fa-circle"></i><i class="far fa-store"></i>Pick Up#}
+                            {#                                </label>#}
+                            {#                            </div>#}
                         </div>
                     </div>
                     <div class="col-sm-10 col-md-12 w-100">
                         <p class="f-18 bold text-color">Shipping Address</p>
                         <div class="d-flex flex-column gap-4">
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="fullName"
-                                    placeholder="Enter Fullname"
-                                    name="fullName"
-                                    value="{{ user.full_name }}"
-                                    required
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="phoneNumber"
-                                    placeholder="Company (optional)"
-                                    name="phoneNumber"
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="company"
-                                    placeholder="Company (optional)"
-                                    name="company"
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="addressLine1"
-                                    placeholder="Address Line 1"
-                                    name="addressLine1"
-                                    required
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="addressLine1"
-                                    placeholder="Address Line 2 (optional)"
-                                    name="apartment"
-                            />
-                            <input
-                                    type="text"
-                                    class="text-box form-control w-100"
-                                    id="country"
-                                    placeholder="Country"
-                                    name="country"
-                                    required
-                            />
-                            <div class="d-flex justify-content-between gap-3">
+                            {% if shipping_address %}
                                 <input
                                         type="text"
                                         class="text-box form-control w-100"
-                                        id="city"
-                                        placeholder="City"
-                                        name="city"
+                                        id="shippingFullName"
+                                        placeholder="Enter Fullname"
+                                        name="fullName"
+                                        value="{{ shipping_address.fullname }}"
                                         required
                                 />
                                 <input
                                         type="text"
                                         class="text-box form-control w-100"
-                                        id="state"
-                                        placeholder="State / Territory"
-                                        name="state"
+                                        id="shippingPhoneNumber"
+                                        placeholder="Enter Phone Number"
+                                        value="{{ shipping_address.phone_number }}"
+                                        name="phoneNumber"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingCompany"
+                                        value="{{ shipping_address.company }}"
+
+                                        placeholder="Company (optional)"
+                                        name="company"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingAddressLine1"
+                                        value="{{ shipping_address.address_line_1 }}"
+
+                                        placeholder="Address Line 1"
+                                        name="addressLine1"
                                         required
                                 />
                                 <input
-                                        type="number"
+                                        type="text"
                                         class="text-box form-control w-100"
-                                        id="zipcode"
-                                        placeholder="Zipcode"
-                                        name="zipcode"
+                                        id="shippingAddressLine2"
+                                        value="{{ shipping_address.address_line_2 }}"
+
+                                        placeholder="Address Line 2 (optional)"
+                                        name="apartment"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingCountry"
+                                        placeholder="Country"
+                                        value="{{ shipping_address.country }}"
+                                        name="country"
                                         required
                                 />
-                            </div>
+                                <div class="d-flex justify-content-between gap-3">
+                                    <input
+                                            type="text"
+                                            class="text-box form-control w-100"
+                                            id="shippingCity"
+                                            placeholder="City"
+                                            value="{{ shipping_address.city }}"
+                                            name="city"
+                                            required
+                                    />
+                                    <input
+                                            type="text"
+                                            class="text-box form-control w-100"
+                                            id="shippingState"
+                                            value="{{ shipping_address.state }}"
+                                            placeholder="State / Territory"
+                                            name="state"
+                                            required
+                                    />
+                                    <input
+                                            type="number"
+                                            class="text-box form-control w-100"
+                                            id="shippingZipcode"
+                                            placeholder="Zipcode"
+                                            value="{{ shipping_address.zipcode }}"
+                                            name="zipcode"
+                                            required
+                                    />
+                                </div>
+
+                            {% else %}
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingFullName"
+                                        placeholder="Enter Fullname"
+                                        name="fullName"
+                                        value="{{ user.full_name }}"
+                                        required
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingPhoneNumber"
+                                        placeholder="Enter Phone Number"
+                                        name="phoneNumber"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingCompany"
+                                        placeholder="Company (optional)"
+                                        name="company"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingAddressLine1"
+                                        placeholder="Address Line 1"
+                                        name="addressLine1"
+                                        required
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingAddressLine2"
+                                        placeholder="Address Line 2 (optional)"
+                                        name="apartment"
+                                />
+                                <input
+                                        type="text"
+                                        class="text-box form-control w-100"
+                                        id="shippingCountry"
+                                        placeholder="Country"
+                                        name="country"
+                                        required
+                                />
+                                <div class="d-flex justify-content-between gap-3">
+                                    <input
+                                            type="text"
+                                            class="text-box form-control w-100"
+                                            id="shippingCity"
+                                            placeholder="City"
+                                            name="city"
+                                            required
+                                    />
+                                    <input
+                                            type="text"
+                                            class="text-box form-control w-100"
+                                            id="shippingState"
+                                            placeholder="State / Territory"
+                                            name="state"
+                                            required
+                                    />
+                                    <input
+                                            type="number"
+                                            class="text-box form-control w-100"
+                                            id="shippingZipcode"
+                                            placeholder="Zipcode"
+                                            name="zipcode"
+                                            required
+                                    />
+                                </div>
+
+                            {% endif %}
+
+
                             <div class="d-flex justify-content-between btn-container">
                                 <a href="{% url 'cart' %}" class="link-btn neutral-500-color"
                                 ><i class="fa fa-angle-left fa-2"></i>
@@ -216,7 +318,7 @@
                             <tbody>
                             <tr>
                                 <td class="text-start neutral-500-color p-1">Contact</td>
-                                <td class="text-start p-1">abc@gmail.com</td>
+                                <td class="text-start p-1" id="confirmShippingEmail"></td>
                                 <td onclick="shippingView()" class="text-start p-1">
                                     <p class="m-0 link-btn f-14 text-color">
                                         <i class="far fa-edit d-flex align-items-center"></i>Change
@@ -225,9 +327,7 @@
                             </tr>
                             <tr>
                                 <td class="text-start neutral-500-color p-1">Ship To</td>
-                                <td class="text-start p-1">
-                                    Sydney, Sydney NSW 1234, Australia
-                                </td>
+                                <td class="text-start p-1" id="confirmShippingAddress"></td>
                                 <td onclick="shippingView()" class="text-start p-1">
                                     <p class="m-0 link-btn f-14 text-color">
                                         <i class="far fa-edit d-flex align-items-center"></i>Change
@@ -238,55 +338,55 @@
                         </table>
                     </div>
 
-{#                    <div class="col-sm-10 col-md-12 w-100">#}
-{#                        <p class="f-18 bold text-color">Shipping Method</p>#}
-{##}
-{#                        <div class="d-flex gap-2 flex-wrap">#}
-{#                            <div class="radio-container">#}
-{#                                <input#}
-{#                                        class="form-check-input"#}
-{#                                        type="radio"#}
-{#                                        name="flexRadioDefault"#}
-{#                                        id="standardShipRadio"#}
-{#                                        checked#}
-{#                                />#}
-{#                                <label#}
-{#                                        class="w-100 form-check-label d-flex justify-content-between"#}
-{#                                        for="standardShipRadio"#}
-{#                                >#}
-{#                                    <i class="far fa-circle pt-1"></i>#}
-{#                                    <p#}
-{#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
-{#                                    >#}
-{#                  <span>Standard</span#}
-{#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
-{#                                    </p>#}
-{#                                    <p class="m-0 f-14 bold text-color">Free</p>#}
-{#                                </label>#}
-{#                            </div>#}
-{#                            <div class="radio-container" id="radio-btn">#}
-{#                                <input#}
-{#                                        class="form-check-input"#}
-{#                                        type="radio"#}
-{#                                        name="flexRadioDefault"#}
-{#                                        id="expressShipRadio"#}
-{#                                />#}
-{#                                <label#}
-{#                                        class="w-100 form-check-label d-flex justify-content-between"#}
-{#                                        for="expressShipRadio"#}
-{#                                >#}
-{#                                    <i class="far fa-circle pt-1"></i>#}
-{#                                    <p#}
-{#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
-{#                                    >#}
-{#                  <span>Express</span#}
-{#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
-{#                                    </p>#}
-{#                                    <p class="m-0 f-14 bold text-color">$12.00</p>#}
-{#                                </label>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                    {#                    <div class="col-sm-10 col-md-12 w-100">#}
+                    {#                        <p class="f-18 bold text-color">Shipping Method</p>#}
+                    {##}
+                    {#                        <div class="d-flex gap-2 flex-wrap">#}
+                    {#                            <div class="radio-container">#}
+                    {#                                <input#}
+                    {#                                        class="form-check-input"#}
+                    {#                                        type="radio"#}
+                    {#                                        name="flexRadioDefault"#}
+                    {#                                        id="standardShipRadio"#}
+                    {#                                        checked#}
+                    {#                                />#}
+                    {#                                <label#}
+                    {#                                        class="w-100 form-check-label d-flex justify-content-between"#}
+                    {#                                        for="standardShipRadio"#}
+                    {#                                >#}
+                    {#                                    <i class="far fa-circle pt-1"></i>#}
+                    {#                                    <p#}
+                    {#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
+                    {#                                    >#}
+                    {#                  <span>Standard</span#}
+                    {#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
+                    {#                                    </p>#}
+                    {#                                    <p class="m-0 f-14 bold text-color">Free</p>#}
+                    {#                                </label>#}
+                    {#                            </div>#}
+                    {#                            <div class="radio-container" id="radio-btn">#}
+                    {#                                <input#}
+                    {#                                        class="form-check-input"#}
+                    {#                                        type="radio"#}
+                    {#                                        name="flexRadioDefault"#}
+                    {#                                        id="expressShipRadio"#}
+                    {#                                />#}
+                    {#                                <label#}
+                    {#                                        class="w-100 form-check-label d-flex justify-content-between"#}
+                    {#                                        for="expressShipRadio"#}
+                    {#                                >#}
+                    {#                                    <i class="far fa-circle pt-1"></i>#}
+                    {#                                    <p#}
+                    {#                                            class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"#}
+                    {#                                    >#}
+                    {#                  <span>Express</span#}
+                    {#                  ><span class="neutral-500-color">2 to 8 business days</span>#}
+                    {#                                    </p>#}
+                    {#                                    <p class="m-0 f-14 bold text-color">$12.00</p>#}
+                    {#                                </label>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="d-flex justify-content-between btn-container">
                         <a href="#" class="link-btn neutral-500-color"
                         ><i class="fa fa-angle-left fa-2"></i>
@@ -332,7 +432,7 @@
                             <tbody>
                             <tr>
                                 <td class="text-start neutral-500-color p-1">Contact</td>
-                                <td class="text-start p-1">abc@gmail.com</td>
+                                <td class="text-start p-1" id="confirmShippingEmailView"> </td>
                                 <td onclick="shippingView()" class="text-start p-1">
                                     <p class="m-0 link-btn f-14 text-color">
                                         <i class="far fa-edit d-flex align-items-center"></i>Change
@@ -341,20 +441,7 @@
                             </tr>
                             <tr>
                                 <td class="text-start neutral-500-color p-1">Ship To</td>
-                                <td class="text-start p-1">
-                                    Sydney, Sydney NSW 1234, Australia
-                                </td>
-                                <td onclick="shippingView()" class="text-start p-1">
-                                    <p class="m-0 link-btn f-14 text-color">
-                                        <i class="far fa-edit d-flex align-items-center"></i>Change
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-start neutral-500-color p-1">
-                                    Shipping Method
-                                </td>
-                                <td class="text-start p-1">Standard : Free</td>
+                                <td class="text-start p-1" id="confirmShippingAddressView"></td>
                                 <td onclick="shippingView()" class="text-start p-1">
                                     <p class="m-0 link-btn f-14 text-color">
                                         <i class="far fa-edit d-flex align-items-center"></i>Change
@@ -590,12 +677,53 @@
         }
 
         function shippingView() {
-            shipping.classList.add("visited");
-            payment.classList.remove("visited");
-            shippingSec.style.display = "flex";
-            detailSec.style.display = "none";
-            paymentSec.style.display = "none";
-            dis.style.display = "flex";
+            const formData = new FormData();
+            formData.append('fullname', document.getElementById('shippingFullName').value);
+            formData.append('email', document.getElementById('shippingEmail').value);
+            formData.append('phone_number', document.getElementById('shippingPhoneNumber').value);
+            formData.append('company', document.getElementById('shippingCompany').value);
+            formData.append('address_line_1', document.getElementById('shippingAddressLine1').value);
+            formData.append('address_line_2', document.getElementById('shippingAddressLine2').value);
+            formData.append('country', document.getElementById('shippingCountry').value);
+            formData.append('city', document.getElementById('shippingCity').value);
+            formData.append('state', document.getElementById('shippingState').value);
+            formData.append('zipcode', document.getElementById('shippingZipcode').value);
+
+            const url = "{% url 'add_shipping_address' order.pk %}";
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Assuming the response is JSON
+                })
+                .then(data => {
+                    console.log(data)
+                    shipping.classList.add("visited");
+                    payment.classList.remove("visited");
+                    shippingSec.style.display = "flex";
+                    detailSec.style.display = "none";
+                    paymentSec.style.display = "none";
+                    dis.style.display = "flex";
+
+                    document.getElementById("confirmShippingEmail").innerHTML = data.email;
+                    document.getElementById("confirmShippingEmailView").innerHTML = data.email;
+                    document.getElementById("confirmShippingAddress").innerHTML = `${data.address_line_1}, ${data.city}, ${data.state}, ${data.country} ${data.zipcode}`;
+                    document.getElementById("confirmShippingAddressView").innerHTML = `${data.address_line_1}, ${data.city}, ${data.state}, ${data.country} ${data.zipcode}`;
+
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+
         }
 
         function paymentView() {
@@ -621,6 +749,22 @@
         $(document).ready(function () {
             activeRadio();
         });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
     </script>
 
 {% endblock %}

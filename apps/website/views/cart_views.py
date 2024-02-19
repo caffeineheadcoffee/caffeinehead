@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.views import generic
 
 from apps.order.mixins import OrderMixin, OrderItemMixin
 from apps.order.models import Order
 from apps.product.mixins import ProductMixin
+from apps.website import forms
 from apps.website.usecases import cart_usecases
 
 
@@ -62,6 +63,7 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
         ).last()
         context.update({
             'order': order,
+            'shipping_address': order.shippingaddress,
             'order_items': order.orderitem_set.unarchived(),
         })
         return context
@@ -69,3 +71,23 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
 
 class OrderCompleteView(OrderMixin, generic.TemplateView):
     template_name = 'pages/order_complete.html'
+
+
+class AddShippingAddressView(LoginRequiredMixin, OrderMixin, generic.View):
+    login_url = '/login'
+
+    def post(self, request, *args, **kwargs):
+        form = forms.AddShippingAddressForm(request.POST)
+        if form.is_valid():
+            cart_usecases.AddShippingAddressUseCase(
+                order=self.get_order(),
+                form=form
+            ).execute()
+            return JsonResponse(form.cleaned_data)
+        else:
+            return JsonResponse({'errors': form.errors}, status=400)
+
+
+
+
+

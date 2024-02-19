@@ -44,7 +44,7 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_filters",
-    #"debug_toolbar",
+    "debug_toolbar",
     "nested_admin",
     "paypal.standard.ipn",
     
@@ -61,7 +61,6 @@ LOCAL_APPS = [
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -222,6 +221,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-PAYPAL_RECEIVER_EMAIL = 'sb-pmllk26578065@business.example.com'
+# PAYPAL_RECEIVER_EMAIL = 'sb-pmllk26578065@business.example.com'
+PAYPAL_RECEIVER_EMAIL = env.str('PAYPAL_RECEIVER_EMAIL', default='sb-5dh0l29604005@business.example.com')
 
-PAYPAL_TEST = True
+PAYPAL_TEST = env.bool('PAYPAL_TEST', default=True)

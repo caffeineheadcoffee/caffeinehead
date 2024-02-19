@@ -12,7 +12,6 @@ class HomeView(OrderMixin, generic.TemplateView):
         context.update({
             'products_list': Product.objects.all().order_by('-id')[:4],
             'cover_images': ImageSlider.objects.all(),
-            'current_route': self.request.path,
         })
         if self.request.user.is_authenticated:
             context.update({

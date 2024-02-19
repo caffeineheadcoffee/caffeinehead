@@ -1,4 +1,6 @@
-from apps.order.models import OrderItem
+from django.core.exceptions import ValidationError
+
+from apps.order.models import OrderItem, Order
 from apps.order.usecases import GetOrderItemUseCase
 
 
@@ -10,6 +12,18 @@ class OrderMixin:
             is_archived=False,
             order__is_archived=False
         ).count()
+
+    def get_order(self):
+        try:
+            return Order.objects.get(
+                user=self.request.user,
+                status='initiated',
+                is_archived=False,
+            )
+        except Order.DoesNotExist:
+            raise ValidationError({
+                'order': 'Invalid order'
+            })
 
 
 class OrderItemMixin:

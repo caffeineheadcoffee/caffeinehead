@@ -1,7 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.core.validators import *
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 
 from apps.core import fields
 from apps.core.models import BaseModel
@@ -25,7 +23,6 @@ class Product(BaseModel):
         null=True
     )
     name = models.CharField(max_length=100)
-    image = models.ImageField(null=True)
     price = fields.AmountField()
     discounted_price = fields.AmountField(null=True, blank=True)
     stock = models.PositiveIntegerField()

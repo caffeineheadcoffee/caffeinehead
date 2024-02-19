@@ -6,7 +6,7 @@ from apps.product.mixins import ProductMixin
 from apps.product.models import Product, Category
 
 
-class ProductDetailView(generic.TemplateView, OrderMixin, ProductMixin):
+class ProductDetailView(OrderMixin, ProductMixin, generic.TemplateView):
     template_name = 'pages/product_detail.html'
 
     def get_context_data(self, **kwargs):
@@ -16,10 +16,11 @@ class ProductDetailView(generic.TemplateView, OrderMixin, ProductMixin):
             'product_list': Product.objects.all()[:3],
             'product': product,
             'product_images': product.productimage_set.unarchived(),
-            'current_route': self.request.path,
-            'order_items_count': self.get_order_items_count(),
-
         })
+        if self.request.user.is_authenticated:
+            context.update({
+                'order_items_count': self.get_order_items_count(),
+            })
         return context
 
 

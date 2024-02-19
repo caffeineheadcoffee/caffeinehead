@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 
 from apps.core import usecases
-from apps.order.models import Order, OrderItem
+from apps.order.models import Order, OrderItem, ShippingAddress
 from apps.product.models import Product
 
 User = get_user_model()
@@ -40,3 +40,20 @@ class DeleteOrderItemUseCase(usecases.BaseUseCase):
         # 1. check if order item is of same user
         if self._order_item.order.user != self._user:
             raise ValidationError('Not a valid order item id')
+
+
+class AddShippingAddressUseCase(usecases.BaseUseCase):
+    def __init__(self, form, order: Order):
+        self._order = order
+        self._form = form
+
+    def _factory(self):
+        shipping_address, _shipping_address_created = ShippingAddress.objects.update_or_create(
+            order=self._order,
+            defaults=self._form.cleaned_data
+        )
+
+    def is_valid(self):
+        # 1. check if order is not initiated
+        if self._order.status != 'initiated':
+            raise ValidationError('Not a valid order')

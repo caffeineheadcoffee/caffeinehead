@@ -10,6 +10,11 @@ class OrderItemInline(nested.NestedStackedInline):
     extra = 0
 
 
+class ShippingAddressInline(nested.NestedStackedInline):
+    model = models.ShippingAddress
+    extra = 0
+
+
 @admin.register(models.Order)
 class OrderAdmin(nested.NestedModelAdmin, BaseModelAdmin):
     list_display = (
@@ -22,6 +27,7 @@ class OrderAdmin(nested.NestedModelAdmin, BaseModelAdmin):
     )
     inlines = [
         OrderItemInline,
+        ShippingAddressInline
     ]
 
     class Media:
@@ -37,3 +43,8 @@ class OrderItemAdmin(BaseModelAdmin):
         'product',
         'amount',
     )
+
+
+@admin.register(models.ShippingAddress)
+class ShippingAddressAdmin(BaseModelAdmin):
+    pass

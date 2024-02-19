@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.website.views import product_views, cart_views
+from apps.website.views import cart_views
 
 urlpatterns = [
     path(
@@ -22,6 +22,11 @@ urlpatterns = [
         'payment',
         cart_views.PaymentView.as_view(),
         name='payment'
+    ),
+    path(
+        'order/<int:order_id>/add-shipping-address',
+        cart_views.AddShippingAddressView.as_view(),
+        name='add_shipping_address'
     ),
     path(
         'order-complete',

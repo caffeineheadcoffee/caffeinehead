@@ -63,6 +63,7 @@ class OrderItem(BaseModel):
 class ShippingAddress(BaseModel):
     order = models.OneToOneField(Order, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=255)
+    email = models.EmailField(null=True)
     company = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=14)
     address_line_1 = models.CharField(max_length=255)
