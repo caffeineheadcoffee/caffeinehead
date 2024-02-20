@@ -63,7 +63,7 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
         ).last()
         context.update({
             'order': order,
-            'shipping_address': order.shippingaddress,
+            'shipping_address': order.shippingaddress if hasattr('shippingaddress', order) else None,
             'order_items': order.orderitem_set.unarchived(),
         })
         return context
