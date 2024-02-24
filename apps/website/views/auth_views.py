@@ -1,5 +1,5 @@
-from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.views import LogoutView as DjangoLogoutView
 from django.views import generic
 
 from apps.website import forms
@@ -27,3 +27,7 @@ class SignupView(generic.FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class LogoutView(DjangoLogoutView):
+    next_page = 'home'

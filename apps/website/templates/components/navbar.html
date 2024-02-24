@@ -90,7 +90,7 @@
                                 />
                                 <p class="m-0 f-14">View Profile</p>
                             </a>
-                            <a href="#" class="danger-bg btn p-3 border text-dark w-100 fs-4 d-flex align-items-center justify-content-center gap-4">
+                            <a href="{% url 'logout' %}" class="danger-bg btn p-3 border text-dark w-100 fs-4 d-flex align-items-center justify-content-center gap-4">
                                 <i class="far fa-sign-out-alt white-color"></i>
                                 <p class="m-0 f-14 white-color">Logout</p>
                             </a>
@@ -199,7 +199,7 @@
                         </li>
                         <li>
                             <a
-                                    href="#"
+                                    href="{% url 'logout' %}"
                                     class="dropdown-item logout"
                             >Logout</a
                             >

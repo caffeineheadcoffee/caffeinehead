@@ -34,7 +34,6 @@ class Order(BaseModel):
     discount_amount = fields.AmountField(default=Decimal(0.0))
     sub_total = fields.AmountField(default=Decimal(0.0))
     total = fields.AmountField(default=Decimal(0.0))
-    shipping_address = models.CharField(max_length=255)
     contact_number = models.CharField(max_length=14)
 
     def __str__(self):
@@ -59,3 +58,19 @@ class OrderItem(BaseModel):
         self.per_price = self.product.product_price
         self.amount = self.per_price * self.quantity
         return super(OrderItem, self).save(*args, **kwargs)
+
+
+class ShippingAddress(BaseModel):
+    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=255)
+    company = models.CharField(max_length=255, null=True, blank=True)
+    phone_number = models.CharField(max_length=14)
+    address_line_1 = models.CharField(max_length=255)
+    address_line_2 = models.CharField(max_length=255, null=True, blank=True)
+    country = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.fullname

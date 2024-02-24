@@ -49,7 +49,7 @@ class DeleteOrderItemView(LoginRequiredMixin, OrderItemMixin, generic.View):
         return HttpResponseRedirect(request.GET.get('next'))
 
 
-class PaymentView(OrderMixin, generic.TemplateView):
+class PaymentView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'pages/payment.html'
     login_url = '/login'
 
@@ -63,10 +63,9 @@ class PaymentView(OrderMixin, generic.TemplateView):
         context.update({
             'order': order,
             'order_items': order.orderitem_set.unarchived(),
-            'order_items_count': self.get_order_items_count(),
         })
         return context
-    
+
 
 class OrderCompleteView(OrderMixin, generic.TemplateView):
     template_name = 'pages/order_complete.html'
