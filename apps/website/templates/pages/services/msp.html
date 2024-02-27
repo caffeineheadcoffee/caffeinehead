@@ -1,5 +1,4 @@
-{% extends 'components/base.html' %}
-{% load static %}
+{% extends 'components/base.html' %} {% load static %}
 <style>
   @media only screen and (max-width: 768px) {
     .responsive {
@@ -11,8 +10,7 @@
 
 {% block title %}
 <title>Caffeinehead - Services</title>
-{% endblock%}
-{% block main_content %}
+{% endblock%} {% block main_content %}
 
 <!-- Main Cover Container -->
 <div class="cover-container container">
@@ -1185,18 +1183,312 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-center w-100">
-    <a href="/services" class="link-btn secondary-color">
-      <i class="fa fa-angle-left fa-2"></i>
-      <p class="m-0">back to services</p>
-    </a>
+  <div
+    class="container pt-5 d-flex justify-content-center align-items-center gap-3"
+  >
+    <div class="row d-flex gap-3 line-header w-100">
+      <div class="col-md"></div>
+      <p
+        class="col-md-auto f-32 text-capitalize bold secondary-color m-0 text-center"
+      >
+        Additional Services
+      </p>
+      <div class="col-md"></div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/IT-Consulting.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">IT Consulting</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Because we provide expert advice paired with the skills to provide you
+          with superior IT Consulting, Iconium Network clients often use us for
+          technology needs, new construction projects, and office moves.
+          <br />
+          Our certified techs can help change phone vendors, ISPs or PC
+          manufacturers. We also excel at designing corporate networks for
+          today’s hybrid employees who both work-from-home and have in-office
+          days.
+          <br />
+          If your previous IT provider left you with a network mess, don’t fret
+          about it, just call Iconium Network to come to your rescue. We can
+          straighten out any nagging issues and problems.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Security-Training.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Security Training</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Iconium Networks has partnered with a leading cyber-security firm to
+          offer clients high-level security awareness training, using an easily
+          digestible series of videos, games, and exercises.
+          <br />This 45-minute, professionally-produced interactive video will
+          take you through the ins and outs of common hacking techniques. Filled
+          with real-life examples and insightful tips, Security Awareness
+          Training will help you keep your vital data and business reputation
+          safe. See the overview for more details, or contact us to get started.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Backup.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Backup & Disaster Recovery</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          If you were to list your company’s most valid assets, right at the top
+          would be your company’s data. And, if you were to list your company’s
+          greatest stress producer, a crashed server with no backups would top
+          the list.
+          <br />A business with a crashed server and no backups is arguably the
+          most stressful situation that a business can encounter. Like an
+          insurance policy for your business, Iconium Network team will design a
+          custom backup solution for your company. All files and folders are
+          just a click away in the event of a system crash or hack.<br />If your
+          hard drive has been damaged or you are experiencing unexplained data
+          loss or accidental deletion. We are on-call to help! Using cutting
+          edge data recovery tools, Iconium Network is able to restore your data
+          or repair damaged hard drives at a fraction of the cost of other data
+          recovery firms.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Microsoft.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Microsoft Office 365</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Microsoft Office 365 is an award-winning cloud-based software suite,
+          which includes Word, Excel, Powerpoint, and Outlook, as well as the
+          advanced email platform, Microsoft Exchange. Together these
+          applications provide the tools your team needs to be effective.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Help.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Help Desk</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          When your business needs a one-stop-shopping number to take calls for
+          all tech support issues, you need the help of a trained staff that is
+          working for you at no additional charge. Iconium Network’s agents
+          offer unlimited support, and will personally take your calls. We also
+          handle all the email help requests that come from technology “newbies”
+          as well as from users with advanced technical knowledge.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/E-mail.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">E-mail Threat Protection</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Secure your organization’s email with our advanced threat protection
+          service. Inbound emails are scanned for spam content and viruses,
+          automatically separating junk email from legitimate email. Outbound
+          messages are scanned to prevent accidental dissemination of viruses to
+          clients.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Network.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Network Security</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Iconium Network’s robust anti-virus/anti-malware software continually
+          monitors your network for security issues and security outbreaks or
+          breaches. Using advanced firewall appliances and security best
+          practices, we will keep your network up and running and your data safe
+          and protected.<br />Our Firewall Management presents the first line of
+          defense against bad actors and foreign cyber-attacks. It will keep
+          your company safely up and running.<br />We include DNS Protection
+          from DNS spoofing in our network security package. DNS Spoofing has
+          become a real threat to small and medium-sized businesses. Iconium
+          Network’s contemporary technology monitoring tools keep your DNS
+          protected.<br />Spam Filtering is a major time-saving addition to our
+          network security package. Your employees don’t have time to determine
+          which emails are real and which ones are from dubious origins. Our
+          spam filtering stops the bad emails and delivers the good ones.<br />If
+          your industry requires the utmost in safekeeping of data, we can offer
+          Two-Factor Authentication (2FA) as part of the Iconium network
+          security package.<br />We utilize corporate security policies scaled
+          to the size and complexity of your business. This includes HIPPA
+          compliance requirements as well as encrypted email and/or server data.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Vendor.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Vendor Management</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Your employees can make better use of their time than spending it on
+          calling Microsoft, Dell or other vendors for tech support issues.
+          Acting as a mediator between you and your vendors, Iconium Network can
+          talk “geek” to your vendors to explain issues and get them resolved.
+          With that out of the way, you can focus on the more productive aspects
+          of your business.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/VoIP.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">VoIP Phone Systems</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          Our locally trusted partner can provide a reliable high-quality phone
+          system for your business. Iconium Network will make certain that it is
+          correctly installed and totally integrated into your system. Most
+          likely, the cost will be a fraction of what you are currently paying.
+          These savings will have a positive effect on your budget for years to
+          come. Please inquire for more details.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between p-3">
+      <div class="col-md-4 d-flex gap-2">
+        <div class="col-md-3">
+          <img
+            class="w-100"
+            src="{% static 'images/MSP/Wireless.png' %}"
+            alt="..."
+          />
+        </div>
+        <p class="f-24 bold secondary-dark m-0">Wireless Solutions</p>
+      </div>
+      <div class="col-md-8 p-2 d-flex flex-column gap-2">
+        <p class="f-16 regular">
+          We know that your business needs a network that can share information,
+          data and resources. We can install a wireless system that will result
+          in your getting the most out of your network with the least strain on
+          your budget.<br />We have extensive experience installing, configuring
+          and supporting enterprise-class wireless networks and the hardware
+          that is needed for small businesses as well as the necessary hardware
+          for 100,000 square-foot warehouses. We then remotely manage the
+          wireless network’s settings and security to keep everything running
+          smoothly.
+        </p>
+        <a href="{% url 'contact_us' %}" class="btn secondary-btn"
+          >Contact Us</a
+        >
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center w-100">
+      <a href="/services" class="link-btn secondary-color">
+        <i class="fa fa-angle-left fa-2"></i>
+        <p class="m-0">back to services</p>
+      </a>
+    </div>
   </div>
-  <!-- Services Part end -->
-  
 </div>
+<!-- Services Part end -->
 
 <div class="container p-50">
-  <div class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3">
+  <div
+    class="col-md-12 d-flex justify-content-center align-items-center flex-column gap-3"
+  >
     <p class="f-16 regular m-0 text-color text-center w-75">
       If you find yourself uncertain about your requirements, feel free to reach
       out to us for personalized guidance. We are here to assist you in
