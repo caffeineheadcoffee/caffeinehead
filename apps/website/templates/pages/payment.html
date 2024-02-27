@@ -649,6 +649,64 @@
             </div>
         </section>
     </div>
+<<<<<<< HEAD
+  </section>
+</div>
+<!-- card end -->
+<script>
+    const cart = document.getElementById("cart-tab");
+    const detail = document.getElementById("detail-tab");
+    const shipping = document.getElementById("shipping-tab");
+    const payment = document.getElementById("payment-tab");
+
+    const detailSec = document.getElementById("detail-section");
+    const shippingSec = document.getElementById("shipping-section");
+    const paymentSec = document.getElementById("payment-section");
+
+    const radioBtn = document.getElementById("creditCardRadio");
+    const cInfo = document.getElementById("credit-info");
+    const dis = document.getElementById("discount-code");
+
+    function detailView() {
+      detail.classList.add("visited");
+      shipping.classList.remove("visited");
+      payment.classList.remove("visited");
+      shippingSec.style.display = "none";
+      detailSec.style.display = "flex";
+      paymentSec.style.display = "none";
+      dis.style.display = "flex";
+    }
+
+    function shippingView() {
+      shipping.classList.add("visited");
+      payment.classList.remove("visited");
+      shippingSec.style.display = "flex";
+      detailSec.style.display = "none";
+      paymentSec.style.display = "none";
+      dis.style.display = "flex";
+    }
+
+    function paymentView() {
+      shipping.classList.add("visited");
+      payment.classList.add("visited");
+      shippingSec.style.display = "none";
+      detailSec.style.display = "none";
+      paymentSec.style.display = "flex";
+      dis.style.display = "none";
+    }
+
+    function activeRadio() {
+      if (radioBtn.checked) {
+        radioBtn.style.height = "8%";
+        cInfo.classList.add("d-flex");
+      } else {
+        radioBtn.style.height = "100%";
+        cInfo.classList.remove("d-flex");
+        cInfo.style.display = "none";
+      }
+    }
+</script>
+=======
     <!-- card end -->
 
     <script>
@@ -767,4 +825,5 @@
         }
     </script>
 
+>>>>>>> ffe618b306de44d480bae606111dc4fa078b1c39
 {% endblock %}
