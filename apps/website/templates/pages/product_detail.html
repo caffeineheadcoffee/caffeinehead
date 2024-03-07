@@ -105,7 +105,7 @@
             {% for product_image in product_images %}
             <img
               class="detail-img w-15 h-auto"
-              src="{{MEDIA_URL }}{{ product.display_image.image }}"
+              src="{{MEDIA_URL }}{{ product_image.image }}"
               onclick="imgGallery(this);"
             />
             {% endfor %}
