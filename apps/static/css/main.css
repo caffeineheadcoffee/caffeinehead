@@ -826,8 +826,19 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   font-weight: 400;
 }
 
-.detail-img{
+.detail-img-container {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.detail-img {
   cursor: pointer;
+  object-fit: cover;
+  width: 15%;
+  height: auto;
 }
 
 .footer-link:hover {
@@ -907,7 +918,7 @@ input[name="size-radio"]:checked + label p {
 }
 
 .img-magnifier-container {
-  position:relative;
+  position: relative;
 }
 
 .img-magnifier-glass {
@@ -919,7 +930,7 @@ input[name="size-radio"]:checked + label p {
   height: 40%;
 }
 
-.tab-pane{
+.tab-pane {
   position: relative;
   height: fit-content;
   overflow: hidden;
@@ -940,9 +951,9 @@ input[name="size-radio"]:checked + label p {
   display: none !important;
 }
 
-.mobile-view{
-    display: none !important;
-  }
+.mobile-view {
+  display: none !important;
+}
 
 .accordion-body {
   background-color: none !important;
@@ -958,24 +969,22 @@ input[name="size-radio"]:checked + label p {
   flex-direction: column;
 }
 
-.range-btn span{
+.range-btn span {
   visibility: hidden;
   position: relative;
 }
 
-.range-btn span:after{
+.range-btn span:after {
   visibility: visible;
-            position: absolute;
-            top: 0;
-            left: 0;
-  content: 'Learn More';
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Learn More";
 }
 
-.range-btn i{
+.range-btn i {
   display: none;
 }
-
-
 
 @media only screen and (max-width: 540px) {
   .accordion-body {
@@ -1010,11 +1019,11 @@ input[name="size-radio"]:checked + label p {
     align-items: center;
   }
 
-  .cart-title{
+  .cart-title {
     text-align: center;
   }
 
-  .cart-title-container{
+  .cart-title-container {
     flex-direction: column !important;
   }
 
@@ -1023,22 +1032,22 @@ input[name="size-radio"]:checked + label p {
     gap: 1rem;
   }
 
-  .policy-section{
+  .policy-section {
     justify-content: center !important;
     align-items: center !important;
   }
 
   #detail-section,
   #shipping-section,
-  #payment-section{
+  #payment-section {
     padding: 1rem !important;
   }
 
-  .payment-container h1{
+  .payment-container h1 {
     text-align: center;
   }
 
-  .btn-container a{
+  .btn-container a {
     width: 100%;
   }
 
@@ -1103,15 +1112,15 @@ input[name="size-radio"]:checked + label p {
     display: flex !important;
   }
 
-  .summary-container{
+  .summary-container {
     width: 100% !important;
   }
 
-  .desktop-view{
+  .desktop-view {
     display: none !important;
   }
 
-  .mobile-view{
+  .mobile-view {
     display: block !important;
   }
 
@@ -1227,7 +1236,7 @@ input[name="size-radio"]:checked + label p {
     gap: 2rem;
   }
 
-   .shipping-tab span{
+  .shipping-tab span {
     display: none !important;
   }
 
@@ -1300,8 +1309,6 @@ input[name="size-radio"]:checked + label p {
   .cart-container table {
     width: 100% !important;
   }
-
- 
 
   .summary-container {
     width: fit-content;
