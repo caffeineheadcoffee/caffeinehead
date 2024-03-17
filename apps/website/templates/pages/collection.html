@@ -55,7 +55,7 @@
                                             alt="{{ product.name }}"
                                     />
                                     <a
-            href="{% url 'add_to_cart' product.pk %}"
+            href="{% url 'add_to_cart' product.pk %}?next={{ request.get_full_path }}"
             class="hidden primary-ghost-btn gap-2 f-14 w-100" id="prod-btn"
             ><span data-bs-toggle="modal"
             data-bs-target="#addedToCart">Add To Cart
@@ -115,7 +115,7 @@
           />
           
           <a
-            href="{% url 'add_to_cart' product.pk %}"
+            href="{% url 'add_to_cart' product.pk %}?next={{ request.get_full_path }}"
             class="hidden primary-ghost-btn gap-2 f-14 w-100" id="prod-btn"
             ><span data-bs-toggle="modal"
             data-bs-target="#addedToCart">Add To Cart

@@ -432,7 +432,7 @@
                             <tbody>
                             <tr>
                                 <td class="text-start neutral-500-color p-1">Contact</td>
-                                <td class="text-start p-1" id="confirmShippingEmailView"> </td>
+                                <td class="text-start p-1" id="confirmShippingEmailView"></td>
                                 <td onclick="shippingView()" class="text-start p-1">
                                     <p class="m-0 link-btn f-14 text-color">
                                         <i class="far fa-edit d-flex align-items-center"></i>Change
@@ -459,64 +459,64 @@
                         </p>
 
                         <div class="d-flex gap-2 flex-wrap">
-                            <div class="radio-container flex-column" onclick="activeRadio()">
-                                <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="flexRadioDefault"
-                                        id="creditCardRadio"
-                                        checked
-                                />
-                                <label
-                                        class="w-100 form-check-label d-flex justify-content-between"
-                                        for="creditCardRadio"
-                                >
-                                    <i class="far fa-circle pt-1"></i>
-                                    <p class="flex-grow-1 f-14 m-0 text-color">
-                                        <span>Credit Card</span>
-                                    </p>
-                                    <img src="../../../static/images/card-samples.png" />
-                                </label>
-
-                                <div class="d-flex flex-column gap-4" id="credit-info">
-                                    <input
-                                            type="tel"
-                                            class="text-box form-control w-100"
-                                            id="card_Number"
-                                            placeholder="Card Number"
-                                            pattern="[0-9]*"
-                                            maxlength="16"
-                                            name="card_Number"
-                                            required=""
-                                    />
-                                    <input
-                                            type="text"
-                                            class="text-box form-control w-100"
-                                            id="cName"
-                                            placeholder="Name On Card"
-                                            name="cName"
-                                            required=""
-                                    />
-                                    <div class="d-flex justify-content-between gap-3">
-                                        <input
-                                                type="month"
-                                                class="text-box form-control w-100"
-                                                id="exDate"
-                                                placeholder="Expiration Date (MM / YY)"
-                                                name="exDate"
-                                                required=""
-                                        />
-                                        <input
-                                                type="tel"
-                                                class="text-box form-control w-100"
-                                                id="sCode"
-                                                placeholder="Security Code"
-                                                name="sCode"
-                                                required=""
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+{#                            <div class="radio-container flex-column" onclick="activeRadio()">#}
+{#                                <input#}
+{#                                        class="form-check-input"#}
+{#                                        type="radio"#}
+{#                                        name="flexRadioDefault"#}
+{#                                        id="creditCardRadio"#}
+{#                                        checked#}
+{#                                />#}
+{#                                <label#}
+{#                                        class="w-100 form-check-label d-flex justify-content-between"#}
+{#                                        for="creditCardRadio"#}
+{#                                >#}
+{#                                    <i class="far fa-circle pt-1"></i>#}
+{#                                    <p class="flex-grow-1 f-14 m-0 text-color">#}
+{#                                        <span>Credit Card</span>#}
+{#                                    </p>#}
+{#                                    <img src="../../../static/images/card-samples.png" />#}
+{#                                </label>#}
+{##}
+{#                                <div class="d-flex flex-column gap-4" id="credit-info">#}
+{#                                    <input#}
+{#                                            type="tel"#}
+{#                                            class="text-box form-control w-100"#}
+{#                                            id="card_Number"#}
+{#                                            placeholder="Card Number"#}
+{#                                            pattern="[0-9]*"#}
+{#                                            maxlength="16"#}
+{#                                            name="card_Number"#}
+{#                                            required=""#}
+{#                                    />#}
+{#                                    <input#}
+{#                                            type="text"#}
+{#                                            class="text-box form-control w-100"#}
+{#                                            id="cName"#}
+{#                                            placeholder="Name On Card"#}
+{#                                            name="cName"#}
+{#                                            required=""#}
+{#                                    />#}
+{#                                    <div class="d-flex justify-content-between gap-3">#}
+{#                                        <input#}
+{#                                                type="month"#}
+{#                                                class="text-box form-control w-100"#}
+{#                                                id="exDate"#}
+{#                                                placeholder="Expiration Date (MM / YY)"#}
+{#                                                name="exDate"#}
+{#                                                required=""#}
+{#                                        />#}
+{#                                        <input#}
+{#                                                type="tel"#}
+{#                                                class="text-box form-control w-100"#}
+{#                                                id="sCode"#}
+{#                                                placeholder="Security Code"#}
+{#                                                name="sCode"#}
+{#                                                required=""#}
+{#                                        />#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
                             <div class="radio-container" onclick="activeRadio()">
                                 <input
                                         class="form-check-input"
@@ -532,7 +532,7 @@
                                     <p
                                             class="flex-grow-1 f-14 m-0 text-color d-flex gap-2 flex-column"
                                     >
-                                        <span>Express</span>
+                                        <span>Paypal</span>
                                     </p>
                                     <i class="fab fa-paypal f-18"></i>
                                 </label>
@@ -649,65 +649,7 @@
             </div>
         </section>
     </div>
-<<<<<<< HEAD
-  </section>
-</div>
-<!-- card end -->
-<script>
-    const cart = document.getElementById("cart-tab");
-    const detail = document.getElementById("detail-tab");
-    const shipping = document.getElementById("shipping-tab");
-    const payment = document.getElementById("payment-tab");
 
-    const detailSec = document.getElementById("detail-section");
-    const shippingSec = document.getElementById("shipping-section");
-    const paymentSec = document.getElementById("payment-section");
-
-    const radioBtn = document.getElementById("creditCardRadio");
-    const cInfo = document.getElementById("credit-info");
-    const dis = document.getElementById("discount-code");
-
-    function detailView() {
-      detail.classList.add("visited");
-      shipping.classList.remove("visited");
-      payment.classList.remove("visited");
-      shippingSec.style.display = "none";
-      detailSec.style.display = "flex";
-      paymentSec.style.display = "none";
-      dis.style.display = "flex";
-    }
-
-    function shippingView() {
-      shipping.classList.add("visited");
-      payment.classList.remove("visited");
-      shippingSec.style.display = "flex";
-      detailSec.style.display = "none";
-      paymentSec.style.display = "none";
-      dis.style.display = "flex";
-    }
-
-    function paymentView() {
-      shipping.classList.add("visited");
-      payment.classList.add("visited");
-      shippingSec.style.display = "none";
-      detailSec.style.display = "none";
-      paymentSec.style.display = "flex";
-      dis.style.display = "none";
-    }
-
-    function activeRadio() {
-      if (radioBtn.checked) {
-        radioBtn.style.height = "8%";
-        cInfo.classList.add("d-flex");
-      } else {
-        radioBtn.style.height = "100%";
-        cInfo.classList.remove("d-flex");
-        cInfo.style.display = "none";
-      }
-    }
-</script>
-=======
-    <!-- card end -->
 
     <script>
         const cart = document.getElementById("cart-tab");
@@ -824,6 +766,4 @@
             return cookieValue;
         }
     </script>
-
->>>>>>> ffe618b306de44d480bae606111dc4fa078b1c39
 {% endblock %}
