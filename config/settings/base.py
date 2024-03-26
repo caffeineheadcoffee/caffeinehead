@@ -9,9 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-from datetime import timedelta
 from pathlib import Path
-
 
 from environ import environ
 
@@ -55,6 +53,7 @@ LOCAL_APPS = [
     'apps.dashboard',
     'apps.website',
     'apps.order',
+    'apps.payment',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -220,7 +219,8 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# PAYPAL_RECEIVER_EMAIL = 'sb-pmllk26578065@business.example.com'
 PAYPAL_RECEIVER_EMAIL = env.str('PAYPAL_RECEIVER_EMAIL', default='sb-5dh0l29604005@business.example.com')
 
 PAYPAL_TEST = env.bool('PAYPAL_TEST', default=True)
+
+CSRF_TRUSTED_ORIGINS = ['https://9689-27-34-48-179.ngrok-free.app']

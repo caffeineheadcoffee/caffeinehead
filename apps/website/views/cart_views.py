@@ -1,9 +1,15 @@
+import uuid
+
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 from django.views import generic
+from paypal.standard.forms import PayPalPaymentsForm
 
 from apps.order.mixins import OrderMixin, OrderItemMixin
 from apps.order.models import Order
+from apps.payment.models import Payment
 from apps.product.mixins import ProductMixin
 from apps.website import forms
 from apps.website.usecases import cart_usecases
@@ -61,10 +67,33 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
             is_archived=False,
             status='initiated'
         ).last()
+
+        host = self.request.get_host()
+        currency = 'USD'
+
+        payment = Payment.objects.create(
+            order=order,
+            provider='paypal',
+            currency=currency,
+            total=order.total
+        )
+
+        paypal_checkout = {
+            'business': settings.PAYPAL_RECEIVER_EMAIL,
+            'amount': order.total,
+            'invoice': payment.id,
+            'currency_code': 'USD',
+            'notify_url': f"http://{host}{reverse('paypal-ipn')}",
+            'return_url': f"http://{host}{reverse('order_complete')}",
+            'cancel_url': f"http://{host}cancel",
+        }
+        paypal_payment = PayPalPaymentsForm(initial=paypal_checkout)
+
         context.update({
             'order': order,
             'shipping_address': order.shippingaddress if hasattr(order, 'shippingaddress') else None,
             'order_items': order.orderitem_set.unarchived(),
+            'paypal': paypal_payment
         })
         return context
 

@@ -27,9 +27,13 @@ urlpatterns = [
         '',
         include('apps.website.urls')
     ),
-    # path('', include('apps.user.urls')),
-    path('admins/', include('apps.dashboard.urls')),
-    path('paypal/', include('paypal.standard.ipn.urls')),
+    path(
+        'admins/', include('apps.dashboard.urls')
+    ),
+    path(
+        'paypal',
+        include('paypal.standard.ipn.urls')
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
