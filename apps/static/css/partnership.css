@@ -1,0 +1,820 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset and General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+/* Hero Section Styles */
+
+.hero-section {
+    background: url('../images/partnership/hero-bg.jpg') no-repeat center center/cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-section .container {
+    z-index: 1;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.hero-section h1,
+.hero-section p {
+    z-index: 1;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.hero-section button {
+    margin-top: 30px;
+    background-color: #4CAF50;
+    border: none;
+    padding: 15px 35px;
+    color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-section button:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+
+/* Modal container */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Modal content box */
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+/* Close button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Form container styling */
+
+#type-your-message {
+    line-height: 1.5;
+    border-radius: 5px;
+}
+
+.form-container {
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-container h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-container .intro {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+/* About Section Styles */
+
+#about-caffeinehead {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2.5em;
+    color: #2e6b34;
+    margin-bottom: 40px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 50px;
+    color: #2e6b34;
+}
+
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.image-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    transform: translateY(-10px);
+}
+
+.image-item img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.image-item h3 {
+    font-size: 1.1em;
+    color: #2e6b34;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.image-item p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 0 10px;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+    .hero-section button {
+        padding: 10px 25px;
+    }
+    .images-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .images-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .image-item {
+        width: auto;
+    }
+    .hero-section {
+        text-align: center;
+        padding: 0 15px;
+    }
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    .hero-section button {
+        padding: 8px 20px;
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactInfo,
+    .contactForm {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .images-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .hero-section {
+        padding: 0 10px;
+    }
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    .hero-section button {
+        padding: 10px 20px;
+    }
+    .contact .content h2 {
+        padding-left: 0;
+    }
+    .contactForm {
+        padding: 20px;
+    }
+}
+
+
+/* About Section Styles */
+
+
+/* Our Story Carousel Section */
+
+#storyCarousel {
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 300px;
+    padding: 10px;
+}
+
+.story-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.story-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 45%;
+}
+
+.story-text {
+    padding: 20px;
+    flex: 1 1 45%;
+}
+
+.story-text h3 {
+    margin-bottom: 1rem;
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+}
+
+.story-text button {
+    margin-top: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    height: 100%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(144, 238, 144, 0.7);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-size: 100%, 100%;
+}
+
+.carousel-control-prev {
+    left: -2rem;
+}
+
+.carousel-control-next {
+    right: -2rem;
+}
+
+
+/* Features Section */
+
+.features {
+    padding: 60px 0;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.feature-card {
+    background-color: #198754;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.feature-card h4 {
+    color: white;
+}
+
+
+/* Happy Partners Section */
+
+
+/* Happy Partners Section */
+
+.partners {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.partners .content {
+    text-align: center;
+    margin-right: 50px;
+}
+
+.partners h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.partners p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.partners .logos {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.partners .logos img {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 30vh;
+    height: 10vh;
+    transition: transform 0.3s ease;
+}
+
+.partners .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.partners .col-md-4 {
+    max-width: 150px;
+    flex: 1;
+}
+
+.partners img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.partners img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Contact Section */
+
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('../images/partnership/g.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contact .content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact .content h2 {
+    padding-left: 30vh;
+    font-size: 36px;
+    font-weight: 500;
+    color: black;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactInfo .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contactInfo .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 24px;
+    color: black;
+    margin-right: 20px;
+}
+
+.contactInfo .text h3 {
+    font-size: 20px;
+    color: #00bcd4;
+    margin: 0;
+}
+
+.contactInfo .text p {
+    margin: 5px 0;
+    color: black;
+}
+
+.contactForm {
+    background-color: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contactForm h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contactForm .inputBox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    font-size: 16px;
+    background: none;
+}
+
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    color: #666;
+    transition: 0.5s;
+}
+
+.contactForm .inputBox input:focus~span,
+.contactForm .inputBox input:valid~span,
+.contactForm .inputBox textarea:focus~span,
+.contactForm .inputBox textarea:valid~span {
+    color: #00bcd4;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.contactForm .inputBox input[type="submit"] {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.contactForm .inputBox input[type="submit"]:hover {
+    background-color: #0097a7;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 1200px) {
+    .contact {
+        padding: 50px 50px;
+    }
+    .contact .content h2 {
+        padding-left: 0;
+        /* Remove padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 30px 20px;
+    }
+    .contact .content h2 {
+        font-size: 28px;
+        /* Adjust font size for tablets */
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactInfo,
+    .contactForm {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 20px;
+        /* Add spacing between sections */
+    }
+    .contactForm {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 20px 15px;
+        /* Reduced padding for mobile */
+    }
+    .contact .content h2 {
+        font-size: 24px;
+        /* Smaller font for mobile */
+    }
+    .row {
+        flex-direction: column;
+    }
+    .contactForm {
+        padding: 20px;
+        width: 100%;
+        /* Ensure form takes full width */
+    }
+    .contactInfo .text h3 {
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
+    }
+    .contactForm h2 {
+        font-size: 24px;
+    }
+    .contactForm .inputBox input,
+    .contactForm .inputBox textarea {
+        font-size: 14px;
+        /* Adjust input font sizes */
+    }
+}
+
+
+/* Contact Info Box */
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactInfo .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contactInfo .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 24px;
+    color: black;
+    margin-right: 20px;
+}
+
+.contactInfo .text h3 {
+    font-size: 20px;
+    color: #00bcd4;
+    margin: 0;
+}
+
+.contactInfo .text p {
+    margin: 5px 0;
+    color: black;
+}
+
+
+/* Contact Form */
+
+.contactForm {
+    background-color: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contactForm h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contactForm .inputBox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    font-size: 16px;
+    background: none;
+}
+
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    color: #666;
+    transition: 0.5s;
+}
+
+.contactForm .inputBox input:focus~span,
+.contactForm .inputBox input:valid~span,
+.contactForm .inputBox textarea:focus~span,
+.contactForm .inputBox textarea:valid~span {
+    color: #00bcd4;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.contactForm .inputBox input[type="submit"] {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.contactForm .inputBox input[type="submit"]:hover {
+    background-color: #0097a7;
+}
+
+
+/* Animation Keyframes */
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

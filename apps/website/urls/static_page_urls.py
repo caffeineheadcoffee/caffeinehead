@@ -52,5 +52,10 @@ urlpatterns = [
         'contact-us',
         static_page_views.ContactUsView.as_view(),
         name='contact_us'
+    ),
+    path(
+        'partnership',
+        static_page_views.PartnershipView.as_view(),
+        name='partnership'
     )
 ]

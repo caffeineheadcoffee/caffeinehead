@@ -1,0 +1,286 @@
+{% extends 'components/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/877d2cecdc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    {% load bootstrap %}
+    {% load crispy_forms_tags %}
+    {% block title %}
+    <title>Partnership</title> <!-- Title can be changed here -->
+    {% endblock %}
+    
+</head>
+
+
+{% block main_content %}
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center text-center text-white">
+        <div class="container">
+            <h1 class="display-4">Welcome to CaffeineHead</h1>
+            <p class="lead">Your One-Stop Hub for Coffee, Culinary, and Tech</p>
+            <button id="openModalButton" class="btn btn-light btn-lg rounded-pill shadow r">Become a Channel Partner</button>
+        </div>
+    </section>
+    <!-- About Section  -->
+    <section id="about-caffeinehead">
+        <div class="container about-container text-center">
+            <h2 class="about-title">Why Join CaffeineHead Community?</h2>
+            <div class="images-grid">
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/1.png' %}" alt="Growth Mindset">
+                    <h3>Learn From Experts:</h3>
+                    <p>Attend workshops and webninars led by industry professionals</p>
+                </div>
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/2.png' %}" alt="Community Engagement">
+                    <h3>Network with Like-Minded Individuals</h3>
+                    <p>Connect with coffee lovers, chefs, and IT professionals who share your passion.</p>
+                </div>
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/3.png' %}" alt="Community Engagement">
+
+                    <h3>Discover New Trends</h3>
+                    <p>Stay up-to-date on the latest coffee, culinary, and tech innovations.</p>
+                </div>
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/4.svg' %}" alt="Collaborate on Projects">
+                    <h3>Collaborate on Projects</h3>
+
+                    <p>Work together on exciting initiatives, from recipe development to tech-inspired culinary creations.</p>
+                </div>
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/Growth.svg' %}" alt="Network with Like-Minded Individuals">
+                    <h3>Growth Mindset</h3>
+                    <p>We nurture an environment that encourages continuous growth and development, both professionally and personally.</p>
+                </div>
+                <div class="image-item">
+                    <img src="{% static 'images/partnership/earth.svg' %}" alt="Discover New Trends">
+                    <h3>Community Engagement</h3>
+                    <p>Community is the heart of Xplorers in all endeavors, ensuring inclusivity, support, and empowerment for all members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Your existing form -->
+            <div class="form-container">
+                <h1>CaffeineHead - Coffee Tech Partner</h1>
+                <p class="intro"> Partner with Us Are you a chef, IT professional, or coffee-related business/professionals? Partner with Caffeinhead to: Promote Your Brand: Reach a targeted audience of coffee enthusiasts, chefs, and IT professionals. Collaborate on Events:
+                    Host joint workshops, tastings, or tech-inspired culinary experiences. Benefit from Our Network: Connect with potential customers, collaborators, and partners. Join the Caffeinhead Community Today!</p>
+            
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number</label>
+                        <input type="tel" id="contact-number" name="contact-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Choose Service</label>
+                        <select id="service" name="service" required>
+                            <option value="consulting">Food and Beverage Consulting</option>
+                            <option value="guest-shift">Guest Shift</option>
+                            <option value="cyber-training">Cybersecurity Training for Managers and Hospitality Employers</option>
+                            <option value="cyber-solution">Cybersecurity Solution</option>
+                            <option value="pos-solution">POS Solution</option>
+                            <option value="web-mobile-dev">Web and Mobile Application Development</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type-your-message">Type your message</label>
+                        <input type="text" id="type-your-message" name="type-your-message">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Story Carousel Section -->
+    <div id="storyCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- First Carousel Item -->
+            <div class="carousel-item active">
+                <div class="row align-items-center">
+                    <div class="story-text col-md-6">
+                        <h3>Looking for the Best Products?</h3>
+                        <p>At CaffeineHead Coffee, we are passionate about coffee...</p>
+                        <button class="btn btn-success rounded-pill shadow">Join The Waiting List</button>
+                    </div>
+                    <div class="story-image col-md-6 text-center">
+                        <img src="{% static 'images/partnership/2.png' %}" alt="CaffeineHead Story Image" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+            </div>
+            <!-- Second Carousel Item -->
+            <div class="carousel-item">
+                <div class="row align-items-center">
+                    <div class="story-text col-md-6">
+                        <h3>Our Sustainable Practices</h3>
+                        <p>Committed to environmentally friendly practices in every step of the coffee production process...</p>
+                        <button class="btn btn-success rounded-pill shadow">Learn More</button>
+                    </div>
+                    <div class="story-image col-md-6 text-center">
+                        <img src="{% static 'images/partnership/1.png' %}" alt="Sustainability Image" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+            </div>
+            <!-- Add more carousel items as needed -->
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 mb-4 shadow-sm">
+                        <img src="{% static 'images/partnership/icon1.png' %}" alt="Feature 1 Icon" class="mb-3">
+                        <h4>Traceable Coffee</h4>
+                        <p>Our technology ensures every cup of coffee is traceable from bean to brew to ensure better quality.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 mb-4 shadow-sm">
+                        <img src="{% static 'images/partnership/icon2.png' %}" alt="Feature 2 Icon" class="mb-3">
+                        <h4>Sustainable Practices</h4>
+                        <p>Committed to environmentally friendly practices in every step of the coffee production process.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 mb-4 shadow-sm">
+                        <img src="{% static 'images/partnership/icon3.png' %}" alt="Feature 3 Icon" class="mb-3">
+                        <h4>Direct Trade</h4>
+                        <p>Connecting farmers directly with consumers to ensure fair trade and better quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact py-5">
+        <div class="container">
+            <div class="content text-center">
+                <u><h2>Contact Us</h2></u>
+            </div>
+            <div class="row">
+                <div class="col-md-6 contactInfo">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>12-22 Dora St,<br> Hurstville NSW <br> 2220</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-telephone"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>+61415402860</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-envelope"></i></div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>admin@caffeineheadblockchaincoffee.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 contactForm">
+                    <form>
+                        <h2>Send Message</h2>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Full name</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Email</span>
+                        </div>
+                        <div class="inputBox">
+                            <textarea required="required"></textarea>
+                            <span>Type your Message...</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" name="" value="Send">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalButton");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

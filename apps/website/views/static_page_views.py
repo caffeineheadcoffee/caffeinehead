@@ -71,5 +71,6 @@ class ContactUsView(OrderMixin, generic.FormView):
         form.save()
         return super().form_valid(form)
 
-
+class PartnershipView(ServicesView):
+    template_name = 'pages/partnership.html'
 
