@@ -1,8 +1,14 @@
 from django.views import generic
+from ..forms import EnquiryForm
 
 from apps.order.mixins import OrderMixin
 from apps.website import forms
 
+from apps.website.models import *
+from apps.website.forms import *
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 class AboutUsView(OrderMixin, generic.TemplateView):
     template_name = 'pages/about_us.html'
@@ -58,7 +64,7 @@ class WholesaleServiceView(ServicesView):
 
 class ContactUsView(OrderMixin, generic.FormView):
     template_name = 'pages/contact_us.html'
-    form_class = forms.EnquiryForm
+    form_class = EnquiryForm
 
     def get_context_data(self, **kwargs):
         context = super(ContactUsView, self).get_context_data(**kwargs)
@@ -74,3 +80,52 @@ class ContactUsView(OrderMixin, generic.FormView):
 class PartnershipView(ServicesView):
     template_name = 'pages/partnership.html'
 
+def index(request):
+    if request.method == 'POST':
+        form = SubmissionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "Form submitted !!")
+            return redirect('/form')
+        else:
+            messages.add_message(request, messages.ERROR, 'Please verify form !!')
+            return render(request,'pages/partnership.html',{
+                'form':form
+            })
+    context = {
+        'form':SubmissionForm()
+    }
+    return render(request, 'pages/partnership.html', context)
+
+@login_required
+def services(request):
+    services = Submission.objects.all()
+    context = {
+        'services': services
+    }
+    return render(request, 'pages/showservices.html', context)
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "Thank you for contacting us.")
+            return redirect('/contact')
+        else:
+            messages.add_message(request, messages.ERROR, 'Please verify form !!')
+            return render(request,'pages/partnership.html',{
+                'form':form
+            })
+    context = {
+        'form':ContactForm()
+    }
+    return render(request, 'pages/partnership.html', context)
+
+@login_required
+def show_message(request):
+    contacts = Contact.objects.all()
+    context = {
+        'contacts': contacts
+    }
+    return render(request, 'pages/messages.html', context)

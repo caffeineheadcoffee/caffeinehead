@@ -5,7 +5,7 @@ from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from apps.order.models import ShippingAddress
-from apps.website.models import Enquiry
+from apps.website.models import *
 
 User = get_user_model()
 
@@ -40,7 +40,7 @@ class SignupForm(UserCreationForm):
 
 class EnquiryForm(forms.ModelForm):
     phone_number = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget(initial='AU')
+        # widget = PhoneNumberPrefixWidget(initial='AU')
     )
 
     class Meta:
@@ -55,3 +55,13 @@ class AddShippingAddressForm(forms.ModelForm):
         exclude = (
             'order',
         )
+
+class SubmissionForm(forms.ModelForm):
+    class Meta:
+        model = Submission
+        fields = '__all__'
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'

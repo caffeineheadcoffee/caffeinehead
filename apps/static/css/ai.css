@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif; 
+}
+
+.ai-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 40px; 
+}
+
+.ai-header h2 {
+    color: #2d5939;
+    font-weight: bold;
+    font-size: 28px; 
+    margin-bottom: 10px;
+}
+
+.ai-header h5 {
+    color: #4e7154;
+    font-size: 16px;
+}
+
+.ai-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+    padding: 10px 20px;
+    justify-content: center; 
+}
+
+.ai-container, .ai-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    flex: 1 1 40%; /* Allows responsive width */
+    max-width: 550px; /* Prevents overly large containers */
+    min-width: 280px; /* Ensures not too small on smaller screens */
+}
+
+.ai-container h5, .ai-container1 h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #4e7154;
+    text-align: center;
+} 
+
+.ai-options-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.ai-radio-button {
+    display: none;
+}
+
+.ai-rectangle-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.ai-rectangle-parent2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-radius: 12px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 15px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ai-rectangle-parent:hover, .ai-rectangle-parent2:hover {
+    transform: translateY(-5px);
+}
+
+.ai-rectangle-parent p, .ai-rectangle-parent2 p {
+    margin: 0;
+    font-size: 16px;   
+    font-weight: bold;
+}
+
+.ai-rectangle-parent h1, .ai-rectangle-parent2 h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ai-rectangle-parent h6, .ai-rectangle-parent2 h6 {
+    margin: 5px 0 0;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.ai-radio-button:checked + .ai-rectangle-parent,
+.ai-radio-button:checked + .ai-rectangle-parent2 {
+    background-color: #34965e;
+    color: white;
+}
+
+.ai-recommend-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background-color: #34965e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.ai-recommend-button:hover {
+    background-color: #2b7a4d;
+    transform: translateY(-3px); 
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .ai-main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ai-container, .ai-container1 {
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .ai-options-section {
+        justify-content: center;
+    }
+
+    .ai-rectangle-parent, .ai-rectangle-parent2 {
+        width: 140px;
+        height: 180px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-header {
+        padding: 20px;
+    }
+
+    .ai-header h2 {
+        font-size: 22px;
+    }
+
+    .ai-header h5 {
+        font-size: 14px;
+    }
+
+    .ai-rectangle-parent, .ai-rectangle-parent2 {
+        width: 120px;
+        height: 160px;
+        font-size: 14px;
+    }
+
+    .ai-recommend-button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
