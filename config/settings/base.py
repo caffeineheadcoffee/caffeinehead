@@ -219,8 +219,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-PAYPAL_RECEIVER_EMAIL = env.str('PAYPAL_RECEIVER_EMAIL', default='sb-5dh0l29604005@business.example.com')
+PAYPAL_RECEIVER_EMAIL = env.str('PAYPAL_RECEIVER_EMAIL', default='sb-kfizw30277335@business.example.com')
 
 PAYPAL_TEST = env.bool('PAYPAL_TEST', default=True)
-
-CSRF_TRUSTED_ORIGINS = ['https://9689-27-34-48-179.ngrok-free.app']

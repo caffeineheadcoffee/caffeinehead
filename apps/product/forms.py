@@ -1,7 +1,6 @@
-from django.forms import ModelForm, fields
+from django.forms import ModelForm
+
 from .models import *
-from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
 class ProductForm(ModelForm):

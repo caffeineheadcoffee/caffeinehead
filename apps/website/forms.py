@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from apps.order.models import ShippingAddress
 from apps.website.models import Enquiry
@@ -40,7 +39,7 @@ class SignupForm(UserCreationForm):
 
 class EnquiryForm(forms.ModelForm):
     phone_number = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget(initial='AU')
+        initial='+61'
     )
 
     class Meta:
