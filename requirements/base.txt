@@ -14,7 +14,7 @@ django-paypal==2.1
 django-phonenumber-field==8.0.0
 idna==3.10
 numpy==1.26.4
-paypal==1.2.5
+django-paypal==2.1
 phonenumbers==8.13.49
 psycopg2-binary==2.9.10
 pytz==2024.2
