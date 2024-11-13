@@ -69,7 +69,7 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
         ).last()
 
         host = self.request.get_host()
-        currency = 'USD'
+        currency = 'AUD'
 
         payment = Payment.objects.create(
             order=order,
@@ -82,7 +82,7 @@ class PaymentView(LoginRequiredMixin, generic.TemplateView):
             'business': settings.PAYPAL_RECEIVER_EMAIL,
             'amount': order.total,
             'invoice': payment.id,
-            'currency_code': 'USD',
+            'currency_code': currency,
             'notify_url': f"http://{host}{reverse('paypal-ipn')}",
             'return_url': f"http://{host}{reverse('order_complete')}",
             'cancel_url': f"http://{host}cancel",
