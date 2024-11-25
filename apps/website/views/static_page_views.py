@@ -129,3 +129,21 @@ def show_message(request):
         'contacts': contacts
     }
     return render(request, 'pages/messages.html', context)
+
+# @login_required
+# def partnership(request):
+#     if request.method == 'POST':
+#         submission_form = SubmissionForm(request.POST, prefix='serviceform')
+#         contact_form = ContactForm(request.POST, prefix='contact')
+
+#         if submission_form.is_valid():
+#             index()
+#         elif contact_form.is_valid():
+#             contact()
+#         else:
+#             messages.error(request, 'Please verify the forms.')
+
+#     return render(request, 'pages/partnership.html', {
+#         'submission_form': SubmissionForm(prefix='serviceform'),
+#         'contact_form': ContactForm(prefix='contact'),
+#     })

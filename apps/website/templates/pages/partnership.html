@@ -88,6 +88,19 @@
                 <p class="intro"> Partner with Us Are you a chef, IT professional, or coffee-related business/professionals? Partner with Caffeinhead to: Promote Your Brand: Reach a targeted audience of coffee enthusiasts, chefs, and IT professionals. Collaborate on Events:
                     Host joint workshops, tastings, or tech-inspired culinary experiences. Benefit from Our Network: Connect with potential customers, collaborators, and partners. Join the Caffeinhead Community Today!</p>
             
+                {% for msg in messages %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+                    <div class="alert alert-success">
+                        {{msg}}
+                    </div>
+                    {% endif %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+                    <div class="alert alert-danger">
+                        {{ msg }}
+                    </div>
+                    {% endif %}
+                {% endfor%}
+    
                 <form action="{% url 'serviceform' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
@@ -117,7 +130,7 @@
                             <option value="web-mobile-dev">Web and Mobile Application Development</option>
                         </select>
                     </div>
-
+    
                     <div class="form-group">
                         <label for="type-your-message">Type your message</label>
                         <input type="text" id="type-your-message" name="type-your-message">
@@ -231,18 +244,18 @@
                     </div>
                 </div>
                 <div class="col-md-6 contactForm">
-                    {% for msg in messages %}
-            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
-            <div class="alert alert-success">
-                {{msg}}
-            </div>
-            {% endif %}
-            {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
-            <div class="alert alert-danger">
-                {{ msg }}
-            </div>
-            {% endif %}
-        {% endfor%}
+                {% for msg in messages %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+                    <div class="alert alert-success">
+                        {{msg}}
+                    </div>
+                    {% endif %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+                    <div class="alert alert-danger">
+                        {{ msg }}
+                    </div>
+                    {% endif %}
+                {% endfor%}
 
                     <form action="{% url 'contact' %}" method="post">
                         {% csrf_token %}
