@@ -15,7 +15,7 @@ class Enquiry(models.Model):
 class Submission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    contact = models.CharField(validators=[MinLengthValidator(9), MaxLengthValidator(10)], max_length=100)
+    contact = models.CharField()
     address = models.CharField(max_length=100)
     service = models.TextField()
     message = models.TextField()

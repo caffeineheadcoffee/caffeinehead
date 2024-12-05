@@ -83,17 +83,18 @@ class PartnershipView(ServicesView):
 def index(request):
     if request.method == 'POST':
         form = SubmissionForm(request.POST)
+        print(form)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, "Form submitted !!")
             return redirect('/form')
         else:
-            messages.add_message(request, messages.ERROR, 'Please verify form !!')
+            messages.add_message(request, messages.ERROR, 'Please verify service form !!')
             return render(request,'pages/partnership.html',{
                 'form':form
             })
     context = {
-        'form':SubmissionForm()
+        'form':SubmissionForm
     }
     return render(request, 'pages/partnership.html', context)
 
@@ -130,20 +131,11 @@ def show_message(request):
     }
     return render(request, 'pages/messages.html', context)
 
-# @login_required
-# def partnership(request):
-#     if request.method == 'POST':
-#         submission_form = SubmissionForm(request.POST, prefix='serviceform')
-#         contact_form = ContactForm(request.POST, prefix='contact')
+class TipView(ServicesView):
+    template_name = 'pages/tip.html'
 
-#         if submission_form.is_valid():
-#             index()
-#         elif contact_form.is_valid():
-#             contact()
-#         else:
-#             messages.error(request, 'Please verify the forms.')
+class CardPaymentView(ServicesView):
+    template_name = 'pages/card.html'
 
-#     return render(request, 'pages/partnership.html', {
-#         'submission_form': SubmissionForm(prefix='serviceform'),
-#         'contact_form': ContactForm(prefix='contact'),
-#     })
+class OrderCompleteView(ServicesView):
+    template_name = 'pages/ordercomplete.html'

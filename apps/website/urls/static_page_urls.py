@@ -62,5 +62,20 @@ urlpatterns = [
     path('form/',static_page_views.index, name='serviceform'),
     path('show/',static_page_views.services, name='serviceshow'),
     path('contact/',static_page_views.contact, name='contact'),
-    path('messages/',static_page_views.show_message, name='messages')
+    path('messages/',static_page_views.show_message, name='messages'),
+    path(
+        'tip',
+        static_page_views.TipView.as_view(),
+        name='tip'
+    ),
+    path(
+        'cardPayment',
+        static_page_views.CardPaymentView.as_view(),
+        name='cardPayment'
+    ),
+    path(
+        'orderComplete',
+        static_page_views.OrderCompleteView.as_view(),
+        name='orderComplete'
+    ),
 ]
