@@ -1,6 +1,8 @@
 volumes:
   dev_postgres_data: {}
   dev_postgres_data_backups: {}
+  dev_static: {}
+  dev_media: {}
 
 services:
   django:
@@ -13,6 +15,11 @@ services:
     env_file:
       - ./.env
     image: django_dev
+    volumes:
+      - dev_static:/app/staticfiles
+      - dev_media:/app/apps/media
+      - ./caffeine_data/media:/app/apps/media
+      - ./caffeine_data/staticfiles:/app/staticfiles
     command: /start
     ports:
       - "0.0.0.0:6000:5000"
