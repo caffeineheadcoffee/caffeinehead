@@ -1,0 +1,32 @@
+volumes:
+  dev_postgres_data: {}
+  dev_postgres_data_backups: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    platform: linux/amd64
+    depends_on:
+      - postgres
+    env_file:
+      - ./.env
+    image: django_dev
+    command: /start
+    ports:
+      - "0.0.0.0:6000:5000"
+
+  # Database-----------------------------------
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/postgres/Dockerfile
+    image: postgres_dev
+    volumes:
+      - dev_postgres_data:/var/lib/postgresql/data:Z
+      - dev_postgres_data_backups:/backups:z
+      - ./caffeine_data/db_backups:/backups
+    env_file:
+      - ./.env
+

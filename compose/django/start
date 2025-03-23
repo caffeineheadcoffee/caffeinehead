@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+python /app/manage.py migrate
+python /app/manage.py collectstatic --noinput
+#python /app/manage.py loaddata apps/*/fixtures/*.json
+python /app/manage.py createdefaultsuperuser
+
+/usr/local/bin/gunicorn config.wsgi:application --timeout 300 --bind 0.0.0.0:5000 --log-level=debug

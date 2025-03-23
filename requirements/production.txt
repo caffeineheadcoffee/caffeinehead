@@ -3,4 +3,4 @@
 
 # requirements for deployment
 gunicorn==23.0.0
-Collectfast==2.2.0
+Collectfasta==3.2.1
