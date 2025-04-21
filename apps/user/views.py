@@ -104,11 +104,11 @@ class CollectionPageView(TemplateView):
             {
                 'id': category.id,
                 'name': category.name,
-                'products': category.product_set.all()[]
+                'products': category.product_set.all()
             } for category in categories
         ]
         context.update({
-            'products': Product.objects.all()[],
+            'products': Product.objects.all(),
             'category_products': category_products
         })
         if self.request.user.is_authenticated:
